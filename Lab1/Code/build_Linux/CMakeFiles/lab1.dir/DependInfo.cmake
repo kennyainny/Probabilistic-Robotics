@@ -1,16 +1,28 @@
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
   "C"
+  "CXX"
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/src/bee-map.c" "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles/lab1.dir/src/bee-map.c.o"
-  "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/src/main.c" "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles/lab1.dir/src/main.c.o"
+  "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/src/map.c" "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles/lab1.dir/src/map.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
+  "/opt/ros/kinetic/include/opencv-3.3.1"
+  "/opt/ros/kinetic/include/opencv-3.3.1/opencv"
+  )
+set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/src/main.cpp" "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles/lab1.dir/src/main.cpp.o"
+  )
+set(CMAKE_CXX_COMPILER_ID "GNU")
+
+# The include file search paths:
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/opt/ros/kinetic/include/opencv-3.3.1"
+  "/opt/ros/kinetic/include/opencv-3.3.1/opencv"
   )
 
 # Targets to which this target links.

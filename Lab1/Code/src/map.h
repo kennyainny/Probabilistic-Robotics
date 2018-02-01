@@ -1,6 +1,6 @@
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __BEEMAP_H
-#define __BEEMAP_H
+#ifndef MAP_H
+#define MAP_H
 
 typedef struct {
   int resolution, size_x, size_y;
@@ -9,7 +9,16 @@ typedef struct {
   float **prob;
 } map_type;
 
+
+// #ifdef __cplusplus
+// extern "C" {
+// #endif
+
 void new_hornetsoft_map(map_type *map, int size_x, int size_y);
 int read_beesoft_map(char *mapName, map_type *map);
 
-#endif /* __BEEMAP_H */
+// #ifdef __cplusplus
+// }
+// #endif
+
+#endif /* MAP_H */
