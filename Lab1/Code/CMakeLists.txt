@@ -5,6 +5,6 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 set(CMAKE_LIBRARY_PATH ${CMAKE_SOURCE_DIR}/lib)
 
 set(SOURCE_FILES 
-	${PROJECT_SOURCE_DIR}/src/HelloWorld.c)
+	${PROJECT_SOURCE_DIR}/src/bee-map.c)
 
 add_executable(lab1 ${SOURCE_FILES})

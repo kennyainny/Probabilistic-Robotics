@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lab1.dir/src/HelloWorld.c.o"
+  "CMakeFiles/lab1.dir/src/bee-map.c.o"
   "../bin/lab1.pdb"
   "../bin/lab1"
 )

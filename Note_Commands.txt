@@ -1,6 +1,7 @@
 cmake .. -G "MinGW Makefiles"
 mingw32-make
-./hello.exe
+./bin/lab1.exe //windows
+../bin/lab1 //linux
 
 git init //your working folder
 

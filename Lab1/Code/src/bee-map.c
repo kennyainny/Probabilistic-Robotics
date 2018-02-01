@@ -90,6 +90,7 @@ int read_beesoft_map(char *mapName, map_type *map)
 int main(int argc, char **argv)
 {
   map_type map;
+  printf("Hello, Bee-Map!");
 
   read_beesoft_map(argv[1], &map);
   return 0;

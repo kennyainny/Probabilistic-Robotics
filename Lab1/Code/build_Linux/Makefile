@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/MyCode"
+CMAKE_SOURCE_DIR = "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/MyCode/build_Linux"
+CMAKE_BINARY_DIR = "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/MyCode/build_Linux/CMakeFiles" "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/MyCode/build_Linux/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles" "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/MyCode/build_Linux/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -123,32 +123,32 @@ lab1/fast:
 	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/build
 .PHONY : lab1/fast
 
-src/HelloWorld.o: src/HelloWorld.c.o
+src/bee-map.o: src/bee-map.c.o
 
-.PHONY : src/HelloWorld.o
+.PHONY : src/bee-map.o
 
 # target to build an object file
-src/HelloWorld.c.o:
-	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/HelloWorld.c.o
-.PHONY : src/HelloWorld.c.o
+src/bee-map.c.o:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/bee-map.c.o
+.PHONY : src/bee-map.c.o
 
-src/HelloWorld.i: src/HelloWorld.c.i
+src/bee-map.i: src/bee-map.c.i
 
-.PHONY : src/HelloWorld.i
+.PHONY : src/bee-map.i
 
 # target to preprocess a source file
-src/HelloWorld.c.i:
-	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/HelloWorld.c.i
-.PHONY : src/HelloWorld.c.i
+src/bee-map.c.i:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/bee-map.c.i
+.PHONY : src/bee-map.c.i
 
-src/HelloWorld.s: src/HelloWorld.c.s
+src/bee-map.s: src/bee-map.c.s
 
-.PHONY : src/HelloWorld.s
+.PHONY : src/bee-map.s
 
 # target to generate assembly for a file
-src/HelloWorld.c.s:
-	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/HelloWorld.c.s
-.PHONY : src/HelloWorld.c.s
+src/bee-map.c.s:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/bee-map.c.s
+.PHONY : src/bee-map.c.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... lab1"
-	@echo "... src/HelloWorld.o"
-	@echo "... src/HelloWorld.i"
-	@echo "... src/HelloWorld.s"
+	@echo "... src/bee-map.o"
+	@echo "... src/bee-map.i"
+	@echo "... src/bee-map.s"
 .PHONY : help
 
 
