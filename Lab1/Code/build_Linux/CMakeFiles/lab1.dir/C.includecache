@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/MyCode/src/HelloWorld.c
+stdio.h
+-
+
