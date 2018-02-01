@@ -7,6 +7,20 @@
 #IncludeRegexTransform: 
 
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/bee-map.c
+bee-map.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/bee-map.h
 stdio.h
 -
+
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/bee-map.h
+
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/main.c
+main.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/main.h
+stdio.h
+-
+
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/main.h
+bee-map.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/bee-map.h
 

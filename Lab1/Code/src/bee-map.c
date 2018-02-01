@@ -1,11 +1,12 @@
+#include "bee-map.h"
 #include <stdio.h>
 
-typedef struct {
-  int resolution, size_x, size_y;
-  float offset_x, offset_y;
-  int min_x, max_x, min_y, max_y;
-  float **prob;
-} map_type;
+// typedef struct {
+//   int resolution, size_x, size_y;
+//   float offset_x, offset_y;
+//   int min_x, max_x, min_y, max_y;
+//   float **prob;
+// } map_type;
 
 void new_hornetsoft_map(map_type *map, int size_x, int size_y)
 {
@@ -87,11 +88,11 @@ int read_beesoft_map(char *mapName, map_type *map)
   return 0;
 }
 
-int main(int argc, char **argv)
+/*int main(int argc, char **argv)
 {
   map_type map;
   printf("Hello, Bee-Map!");
 
   read_beesoft_map(argv[1], &map);
   return 0;
-}
+}*/
