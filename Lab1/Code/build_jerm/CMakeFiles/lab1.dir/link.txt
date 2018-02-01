@@ -1,0 +1,1 @@
+/usr/bin/cc     -Wl,-rpath -Wl,$ORIGIN CMakeFiles/lab1.dir/src/bee-map.c.o  -o ../bin/lab1 -rdynamic -Wl,-rpath,"\$ORIGIN" 

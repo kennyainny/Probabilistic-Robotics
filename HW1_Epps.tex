@@ -1,0 +1,87 @@
+\documentclass{article}
+\title{CS8803: STR, Spring 2018: Problem Set 1}
+\author{Jeremy Epps}
+\date{Due: Wednesday, January 24th, beginning of the class}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{color}
+
+
+\begin{document}
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Instructions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{Instructions}  There are 2 questions on this assignment (3 pages).  These are short, simple problems. The maximum answer length should not exceed the space provided.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Markov Assumption}
+\emph{This is not meant to be a tricky question, just one to get you thinking about an important assumption that is often made. One paragraph each, at most.}
+
+
+\subsection{}
+Give one robotic example where the Markov assumption is used (correctly or not).  Is the assumption valid or not?  Explain.
+
+\vspace{5mm}
+
+The Markov assumptions is used in robot localization given a fixed map of the robots environment. In the case of robot localization it's safe to use this assumption under certain circumstances, such as a static environment, the use of sensors with minimal measurment error, and an accurate map of the robots environment.  If the environment was dynamic then the Markov assumption would be violated.
+
+
+\subsection{}
+Give one real-world example where the Markov assumption is used (correctly or not).  Is the assumption valid or not?  Explain.
+
+\vspace{5mm}
+
+The markov assumption states that past and future data are independent if the current state is known.  Using this assumption to predict the weather for tomorrow one could say that markov assumption holds because if the weather today is rainy we can assume the probability of rain tomorrow is high without using weather data from the past.
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Problem 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bayes Filter Derivation}
+Recall the derivation for the Bayes Filter in the slides:
+\begin{eqnarray}
+Bel\left( x_t \right) & = & P\left( x_t | u_{1:t}, z_{1:t} \right) \\
+& \ldots & \\
+\label{before} & \propto &  P\left( z_t | x_t \right) \int P\left( x_t | u_t, x_{t-1} \right) P\left( x_{t-1} | u_{1:t}, z_{1:t-1} \right) dx_{t-1} \\
+\label{after}  & \propto &  P\left( z_t | x_t \right) \int P\left( x_t | u_t, x_{t-1} \right) P\left( x_{t-1} | u_{1:t-1}, z_{1:t-1} \right) dx_{t-1} \\
+   & \propto &  P\left( z_t | x_t \right) \int P\left( x_t | u_t, x_{t-1} \right) Bel\left(x_{t-1} \right) dx_{t-1}
+\end{eqnarray}
+
+\subsection{}
+In the slides, the Markov assumption is invoked between lines~\eqref{before} and~\eqref{after} to drop $u_t$.  Why is this incorrect? (Why does the Markov assumption not enable you to drop $u_t$)
+\vspace{5mm}
+
+This is incorrect because the Markov assumption states that if the current state is known the the future state is independent of the past history, therfore using $u_{t-1}$ and $z_{t-1}$ is incorrect.
+
+\subsection{}
+Provide a counter-example where knowing $u_t$ gives you information about the state $x_{t-1}$.
+
+\vspace{5mm}
+Any system that is observable uses the current value of the input and output to determine past values of the state. A real world example could be a robot attempting to open a door using its manipulator.  Assuming that the door can have two states, open and closed, if the robots input, $u_t$ is to push the door then we can safely assume that the state of the door in the pass, $x_{t-1}$ is closed. Therfore the current input of the robot supplied information about the past state of the door.
+
+\newpage
+\subsection{}
+What does the book assume about the controls $u$ in order to drop $u_t$ from the derivation of the Bayes Filter?  Is this assumption reasonable?  Why or why not?
+\vspace{5mm}
+
+The book assumes that the state is complete, which means that the no variables prior to the current state will influence the stochastic evolution of future states.  This is similar to the Markov assumption therfore the assumption isn't reasonable in the real world where the environment may be changing or there may be large errors in the robots sensor readings. 
+
+\subsection{}
+There are weaker assumptions you can make about the controls to still drop $u_t$ from the Bayes Filter derivation.  Think conditional independence, and derive how $u_t$ is dropped between lines~\eqref{before} and~\eqref{after}.
+\vspace{5mm}
+
+The weaker assumption current input, $u_t$, is idependent of any past or future variables. This assumption would allow $u_t$ to be dropped from the Bayes Filter derivation.
+
+\end{document}
