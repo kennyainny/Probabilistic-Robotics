@@ -20,6 +20,6 @@ git commit -m 'Comment on what you have done' //compile
 
 git push original master //upload all files
 
-git pull original master //download all files
+git pull original master //download all files (do this if fail to push)
 
 
