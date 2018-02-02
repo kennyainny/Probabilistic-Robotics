@@ -1,82 +1,91 @@
 #include "sensor.h"
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
-void new_hornetsoft_sensor(sensor_type *sensor, int size_x, int size_y)
+void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)
 {
-  int i;
+  // sensor->laser = (laser_type *)malloc(size_l);
+  // sensor->odometry = (odometry_type *)malloc(size_o);
 
-  sensor->prob = (float **)calloc(size_x, sizeof(float *));
-  for(i = 0; i < size_x; i++)
-    sensor->prob[i] = (float *)calloc(size_y, sizeof(float));
+  sensor->laser = (laser_type *)calloc(size_l, sizeof(laser_type));
+  sensor->odometry = (odometry_type *)calloc(size_o, sizeof(odometry_type));
 }
 
 int read_beesoft_sensor(char *sensorName, sensor_type *sensor)
 {
-  int x, y, count;
-  float temp;
-  char line[256];
+  int count_l = 0, count_o = 0, count = 0;
+  int state;
+  float ftemp, _ftemp[3+3+180+1];
+  char *temp  = malloc(sizeof(int));
   FILE *fp;
 
   if((fp = fopen(sensorName, "rt")) == NULL) {
     fprintf(stderr, "# Could not open file %s\n", sensorName);
     return -1;
   }
-  fprintf(stderr, "# Reading map: %s\n", sensorName);
-  while((fgets(line, 256, fp) != NULL)
-	&& (strncmp("global_map[0]", line , 13) != 0)) {
-    if(strncmp(line, "robot_specifications->resolution", 32) == 0)
-      if(sscanf(&line[32], "%d", &(sensor->resolution)) != 0)
-	printf("# Map resolution: %d cm\n", sensor->resolution);
-    if(strncmp(line, "robot_specifications->autoshifted_x", 35) == 0)
-      if(sscanf(&line[35], "%g", &(sensor->offset_x)) != 0) {
-	sensor->offset_x = sensor->offset_x;
-	printf("# Map offsetX: %g cm\n", sensor->offset_x);
-      }
-    if(strncmp(line, "robot_specifications->autoshifted_y", 35) == 0) {
-      if (sscanf(&line[35], "%g", &(sensor->offset_y)) != 0) {
-	sensor->offset_y = sensor->offset_y;
-	printf("# Map offsetY: %g cm\n", sensor->offset_y);
-      }
+  fprintf(stderr, "# Reading sensor: %s\n", sensorName);
+  while(fscanf(fp,"%s", temp) != -1){
+    if(strcmp(temp, "L") == 0){
+      count_l = count_l + 1;
+    }else if(strcmp(temp, "O") == 0){
+      count_o = count_o + 1;
     }
   }
 
-  if(sscanf(line,"global_map[0]: %d %d", &sensor->size_y, &sensor->size_x) != 2) {
-    fprintf(stderr, "ERROR: corrupted file %s\n", sensorName);
-    fclose(fp);
-    return -1;
-  }
-  printf("# Map size: %d %d\n", sensor->size_x, sensor->size_y);
+  printf("%d %d\n", count_l, count_o);
+  new_hornetsoft_sensor(sensor, count_l, count_o);
 
-  new_hornetsoft_sensor(sensor, sensor->size_x, sensor->size_y);
-
-  sensor->min_x = sensor->size_x;
-  sensor->max_x = 0;
-  sensor->min_y = sensor->size_y;
-  sensor->max_y = 0;
-  count = 0;
-  for(x = 0; x < map->size_x; x++)
-    for(y = 0; y < map->size_y; y++, count++) {
-      if(count % 10000 == 0)
-	fprintf(stderr, "\r# Reading ... (%.2f%%)",
-		count / (float)(sensor->size_x * sensor->size_y) * 100);
-      
-      fscanf(fp,"%e", &temp);
-      if(temp < 0.0)
-	sensor->prob[x][y] = -1;
-      else {
-	if(x < sensor->min_x)
-	  sensor->min_x = x;
-	else if(x > sensor->max_x)
-	  sensor->max_x = x;
-	if(y < sensor->min_y)
-	  sensor->min_y = y;
-	else if(y > sensor->max_y)
-	  sensor->max_y = y;
-	sensor->prob[x][y] = 1 - temp;	   
-      }
+  count_l = -1, count_o = -1;
+  rewind(fp);
+  while(fscanf(fp,"%s", temp) != -1){
+    if(strcmp(temp, "L") == 0){
+      state = 1;
+      count_l = count_l + 1;
+    }else if(strcmp(temp, "O") == 0){
+      state = 0;
+      count_o = count_o + 1;
     }
-  fprintf(stderr, "\r# Reading ... (%.2f%%)\n\n",
-	  count / (float)(sensor->size_x * sensor->size_y) * 100);
+
+    if(state == 1){
+      int i = 0;
+      for(i = 0; i < 3+3+180+1; i++){
+        fscanf(fp,"%f",&ftemp);
+        _ftemp[i] = ftemp;
+      }
+      sensor->laser[count_l].v1.x = _ftemp[0];
+      sensor->laser[count_l].v1.y = _ftemp[1];
+      sensor->laser[count_l].v1.theta = _ftemp[2];
+      sensor->laser[count_l].v2.x = _ftemp[3];
+      sensor->laser[count_l].v2.y = _ftemp[4];
+      sensor->laser[count_l].v2.theta = _ftemp[5];
+
+      for(i = 6; i < 6+180; i++){
+        sensor->laser[count_l].r[i-6] = _ftemp[i];
+      }
+      sensor->laser[count_l].ts = _ftemp[i];
+
+      // for(i = 0; i < 180; i++){
+        // printf("%f\n", sensor->laser->r[i]);
+      // }
+
+      // printf("%f, %f,%f\n", sensor->laser->r[0], sensor->laser->v1.x, sensor->laser->ts);
+
+    }else{
+      fscanf(fp,"%f %f %f %f", 
+        &sensor->odometry[count_o].v.x, &sensor->odometry[count_o].v.y, 
+        &sensor->odometry[count_o].v.theta, &sensor->odometry[count_o].ts);
+
+      // printf("%f, %f, %f, %f\n", sensor->odometry[0].v.x, sensor->odometry[0].v.y, 
+      //   sensor->odometry[0].v.theta, sensor->odometry[0].ts);
+      // printf("%f, %f, %f, %f\n", sensor->odometry[1].v.x, sensor->odometry[1].v.y, 
+      //   sensor->odometry[1].v.theta, sensor->odometry[1].ts);
+      // printf("%f, %f, %f, %f\n", sensor->odometry[2].v.x, sensor->odometry[2].v.y, 
+      //   sensor->odometry[2].v.theta, sensor->odometry[2].ts);
+      // printf("%f, %f, %f, %f\n", sensor->odometry[3].v.x, sensor->odometry[3].v.y, 
+      //   sensor->odometry[3].v.theta, sensor->odometry[3].ts);
+    }
+  }
   fclose(fp);
   return 0;
 }
