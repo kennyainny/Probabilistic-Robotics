@@ -6,8 +6,6 @@
 
 #IncludeRegexTransform: 
 
-<<<<<<< HEAD
-=======
 /home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/src/map.c
 map.h
 /home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/src/map.h
@@ -16,4 +14,3 @@ stdio.h
 
 /home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/src/map.h
 
->>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a

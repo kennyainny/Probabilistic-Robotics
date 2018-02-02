@@ -14,8 +14,6 @@
 # EXTERNAL cache entries
 ########################
 
-:UNINITIALIZED=======
-
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 
