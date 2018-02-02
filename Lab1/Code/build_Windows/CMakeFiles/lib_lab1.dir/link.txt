@@ -1,0 +1,2 @@
+A:\Downloads\Programs\minGW\bin\ar.exe qc ..\lib\liblib_lab1.a  CMakeFiles/lib_lab1.dir/src/HelloWorld.c.obj
+A:\Downloads\Programs\minGW\bin\ranlib.exe ..\lib\liblib_lab1.a
