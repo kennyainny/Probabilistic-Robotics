@@ -105,16 +105,68 @@ CMakeFiles/lab1.dir/src/map.c.o.provides: CMakeFiles/lab1.dir/src/map.c.o.requir
 CMakeFiles/lab1.dir/src/map.c.o.provides.build: CMakeFiles/lab1.dir/src/map.c.o
 
 
+CMakeFiles/lab1.dir/src/sensor.c.o: CMakeFiles/lab1.dir/flags.make
+CMakeFiles/lab1.dir/src/sensor.c.o: ../src/sensor.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/lab1.dir/src/sensor.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lab1.dir/src/sensor.c.o   -c "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/src/sensor.c"
+
+CMakeFiles/lab1.dir/src/sensor.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lab1.dir/src/sensor.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/src/sensor.c" > CMakeFiles/lab1.dir/src/sensor.c.i
+
+CMakeFiles/lab1.dir/src/sensor.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lab1.dir/src/sensor.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/src/sensor.c" -o CMakeFiles/lab1.dir/src/sensor.c.s
+
+CMakeFiles/lab1.dir/src/sensor.c.o.requires:
+
+.PHONY : CMakeFiles/lab1.dir/src/sensor.c.o.requires
+
+CMakeFiles/lab1.dir/src/sensor.c.o.provides: CMakeFiles/lab1.dir/src/sensor.c.o.requires
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/sensor.c.o.provides.build
+.PHONY : CMakeFiles/lab1.dir/src/sensor.c.o.provides
+
+CMakeFiles/lab1.dir/src/sensor.c.o.provides.build: CMakeFiles/lab1.dir/src/sensor.c.o
+
+
+CMakeFiles/lab1.dir/src/visualize.cpp.o: CMakeFiles/lab1.dir/flags.make
+CMakeFiles/lab1.dir/src/visualize.cpp.o: ../src/visualize.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lab1.dir/src/visualize.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab1.dir/src/visualize.cpp.o -c "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/src/visualize.cpp"
+
+CMakeFiles/lab1.dir/src/visualize.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab1.dir/src/visualize.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/src/visualize.cpp" > CMakeFiles/lab1.dir/src/visualize.cpp.i
+
+CMakeFiles/lab1.dir/src/visualize.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab1.dir/src/visualize.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/src/visualize.cpp" -o CMakeFiles/lab1.dir/src/visualize.cpp.s
+
+CMakeFiles/lab1.dir/src/visualize.cpp.o.requires:
+
+.PHONY : CMakeFiles/lab1.dir/src/visualize.cpp.o.requires
+
+CMakeFiles/lab1.dir/src/visualize.cpp.o.provides: CMakeFiles/lab1.dir/src/visualize.cpp.o.requires
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/visualize.cpp.o.provides.build
+.PHONY : CMakeFiles/lab1.dir/src/visualize.cpp.o.provides
+
+CMakeFiles/lab1.dir/src/visualize.cpp.o.provides.build: CMakeFiles/lab1.dir/src/visualize.cpp.o
+
+
 # Object files for target lab1
 lab1_OBJECTS = \
 "CMakeFiles/lab1.dir/src/main.cpp.o" \
-"CMakeFiles/lab1.dir/src/map.c.o"
+"CMakeFiles/lab1.dir/src/map.c.o" \
+"CMakeFiles/lab1.dir/src/sensor.c.o" \
+"CMakeFiles/lab1.dir/src/visualize.cpp.o"
 
 # External object files for target lab1
 lab1_EXTERNAL_OBJECTS =
 
 ../bin/lab1: CMakeFiles/lab1.dir/src/main.cpp.o
 ../bin/lab1: CMakeFiles/lab1.dir/src/map.c.o
+../bin/lab1: CMakeFiles/lab1.dir/src/sensor.c.o
+../bin/lab1: CMakeFiles/lab1.dir/src/visualize.cpp.o
 ../bin/lab1: CMakeFiles/lab1.dir/build.make
 ../bin/lab1: /opt/ros/kinetic/lib/libopencv_stitching3.so.3.3.1
 ../bin/lab1: /opt/ros/kinetic/lib/libopencv_superres3.so.3.3.1
@@ -162,7 +214,7 @@ lab1_EXTERNAL_OBJECTS =
 ../bin/lab1: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.3.1
 ../bin/lab1: /opt/ros/kinetic/lib/libopencv_core3.so.3.3.1
 ../bin/lab1: CMakeFiles/lab1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../bin/lab1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ../bin/lab1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -172,6 +224,8 @@ CMakeFiles/lab1.dir/build: ../bin/lab1
 
 CMakeFiles/lab1.dir/requires: CMakeFiles/lab1.dir/src/main.cpp.o.requires
 CMakeFiles/lab1.dir/requires: CMakeFiles/lab1.dir/src/map.c.o.requires
+CMakeFiles/lab1.dir/requires: CMakeFiles/lab1.dir/src/sensor.c.o.requires
+CMakeFiles/lab1.dir/requires: CMakeFiles/lab1.dir/src/visualize.cpp.o.requires
 
 .PHONY : CMakeFiles/lab1.dir/requires
 

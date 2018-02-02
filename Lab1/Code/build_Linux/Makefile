@@ -177,6 +177,60 @@ src/map.c.s:
 	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/map.c.s
 .PHONY : src/map.c.s
 
+src/sensor.o: src/sensor.c.o
+
+.PHONY : src/sensor.o
+
+# target to build an object file
+src/sensor.c.o:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/sensor.c.o
+.PHONY : src/sensor.c.o
+
+src/sensor.i: src/sensor.c.i
+
+.PHONY : src/sensor.i
+
+# target to preprocess a source file
+src/sensor.c.i:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/sensor.c.i
+.PHONY : src/sensor.c.i
+
+src/sensor.s: src/sensor.c.s
+
+.PHONY : src/sensor.s
+
+# target to generate assembly for a file
+src/sensor.c.s:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/sensor.c.s
+.PHONY : src/sensor.c.s
+
+src/visualize.o: src/visualize.cpp.o
+
+.PHONY : src/visualize.o
+
+# target to build an object file
+src/visualize.cpp.o:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/visualize.cpp.o
+.PHONY : src/visualize.cpp.o
+
+src/visualize.i: src/visualize.cpp.i
+
+.PHONY : src/visualize.i
+
+# target to preprocess a source file
+src/visualize.cpp.i:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/visualize.cpp.i
+.PHONY : src/visualize.cpp.i
+
+src/visualize.s: src/visualize.cpp.s
+
+.PHONY : src/visualize.s
+
+# target to generate assembly for a file
+src/visualize.cpp.s:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/visualize.cpp.s
+.PHONY : src/visualize.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +246,12 @@ help:
 	@echo "... src/map.o"
 	@echo "... src/map.i"
 	@echo "... src/map.s"
+	@echo "... src/sensor.o"
+	@echo "... src/sensor.i"
+	@echo "... src/sensor.s"
+	@echo "... src/visualize.o"
+	@echo "... src/visualize.i"
+	@echo "... src/visualize.s"
 .PHONY : help
 
 
