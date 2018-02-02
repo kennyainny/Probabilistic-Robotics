@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
 
 #IncludeRegexScan: ^.*$
@@ -10,3 +11,17 @@ A:/SkyDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/MyCo
 stdio.h
 -
 
+=======
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+A:/SkyDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/MyCode/src/HelloWorld.c
+stdio.h
+-
+
+>>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a
