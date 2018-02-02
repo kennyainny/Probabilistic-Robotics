@@ -19,6 +19,14 @@ main.h
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/main.h
 stdio.h
 -
+cv.h
+-
+highgui.h
+-
+opencv2/imgproc/imgproc.hpp
+-
+stdio.h
+-
 
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/main.h
 bee-map.h
