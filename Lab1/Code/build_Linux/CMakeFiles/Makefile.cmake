@@ -11,16 +11,32 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.5.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeSystem.cmake"
+<<<<<<< HEAD
+=======
+  "/opt/ros/kinetic/share/OpenCV-3.3.1/OpenCVConfig-version.cmake"
+  "/opt/ros/kinetic/share/OpenCV-3.3.1/OpenCVConfig.cmake"
+  "/opt/ros/kinetic/share/OpenCV-3.3.1/OpenCVModules-none.cmake"
+  "/opt/ros/kinetic/share/OpenCV-3.3.1/OpenCVModules.cmake"
+>>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a
   "/usr/share/cmake-3.5/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeCommonLanguageInclude.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeGenericSystem.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeLanguageInformation.cmake"
+<<<<<<< HEAD
+=======
+  "/usr/share/cmake-3.5/Modules/CMakeParseArguments.cmake"
+>>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a
   "/usr/share/cmake-3.5/Modules/CMakeSystemSpecificInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeSystemSpecificInitialize.cmake"
   "/usr/share/cmake-3.5/Modules/Compiler/GNU-C.cmake"
   "/usr/share/cmake-3.5/Modules/Compiler/GNU-CXX.cmake"
   "/usr/share/cmake-3.5/Modules/Compiler/GNU.cmake"
+<<<<<<< HEAD
+=======
+  "/usr/share/cmake-3.5/Modules/FindPackageHandleStandardArgs.cmake"
+  "/usr/share/cmake-3.5/Modules/FindPackageMessage.cmake"
+>>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a
   "/usr/share/cmake-3.5/Modules/Platform/Linux-GNU-C.cmake"
   "/usr/share/cmake-3.5/Modules/Platform/Linux-GNU-CXX.cmake"
   "/usr/share/cmake-3.5/Modules/Platform/Linux-GNU.cmake"

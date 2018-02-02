@@ -171,6 +171,12 @@ Lab1_BINARY_DIR:STATIC=/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical 
 //Value Computed by CMake
 Lab1_SOURCE_DIR:STATIC=/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code
 
+<<<<<<< HEAD
+=======
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=/opt/ros/kinetic/share/OpenCV-3.3.1
+
+>>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a
 
 ########################
 # INTERNAL cache entries
@@ -301,4 +307,9 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+<<<<<<< HEAD
+=======
+//Details about finding OpenCV
+FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/opt/ros/kinetic][v3.3.1()]
+>>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a
 

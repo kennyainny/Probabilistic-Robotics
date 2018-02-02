@@ -123,32 +123,58 @@ lab1/fast:
 	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/build
 .PHONY : lab1/fast
 
+<<<<<<< HEAD
 src/main.o: src/main.c.o
+=======
+src/main.o: src/main.cpp.o
+>>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a
 
 .PHONY : src/main.o
 
 # target to build an object file
+<<<<<<< HEAD
 src/main.c.o:
 	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/main.c.o
 .PHONY : src/main.c.o
 
 src/main.i: src/main.c.i
+=======
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+>>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a
 
 .PHONY : src/main.i
 
 # target to preprocess a source file
+<<<<<<< HEAD
 src/main.c.i:
 	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/main.c.i
 .PHONY : src/main.c.i
 
 src/main.s: src/main.c.s
+=======
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+>>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a
 
 .PHONY : src/main.s
 
 # target to generate assembly for a file
+<<<<<<< HEAD
 src/main.c.s:
 	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/main.c.s
 .PHONY : src/main.c.s
+=======
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+>>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a
 
 src/map.o: src/map.c.o
 

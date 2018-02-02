@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __SENSOR_H
+=======
+/* Define to prevhent recursive inclusion -------------------------------------*/
+#ifndef __SENSOR_
+>>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a
 #define __SENSOR_H
 
 typedef struct {
