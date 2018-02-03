@@ -1,20 +1,28 @@
-<<<<<<< HEAD
-/* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __SENSOR_H
-=======
-/* Define to prevhent recursive inclusion -------------------------------------*/
-#ifndef __SENSOR_
->>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a
-#define __SENSOR_H
+#ifndef SENSOR_H
+#define SENSOR_H
 
 typedef struct {
-  int resolution, size_x, size_y;
-  float offset_x, offset_y;
-  int min_x, max_x, min_y, max_y;
-  float **prob;
+  float x, y, theta;
+} vector_type;
+
+typedef struct {
+  vector_type v;
+  float ts;
+} odometry_type;
+
+typedef struct {
+  vector_type v1;
+  vector_type v2;
+  float r[180];
+  float ts;
+} laser_type;
+
+typedef struct {
+  laser_type *laser;
+  odometry_type *odometry;
 } sensor_type;
 
-void new_hornetsoft_map(sensor_type *sensor, int size_x, int size_y);
-int read_beesoft_map(char *mapName, sensor_type *sensor);
+void new_hornetsoft_sensor(sensor_type *sensor, int size_x, int size_y);
+int read_beesoft_sensor(char *sensorName, sensor_type *sensor);
 
-#endif /* __SENSOR_H */
+#endif /* SENSOR_H */

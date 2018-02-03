@@ -123,59 +123,113 @@ lab1/fast:
 	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/build
 .PHONY : lab1/fast
 
-src/bee-map.o: src/bee-map.c.o
-
-.PHONY : src/bee-map.o
-
-# target to build an object file
-src/bee-map.c.o:
-	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/bee-map.c.o
-.PHONY : src/bee-map.c.o
-
-src/bee-map.i: src/bee-map.c.i
-
-.PHONY : src/bee-map.i
-
-# target to preprocess a source file
-src/bee-map.c.i:
-	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/bee-map.c.i
-.PHONY : src/bee-map.c.i
-
-src/bee-map.s: src/bee-map.c.s
-
-.PHONY : src/bee-map.s
-
-# target to generate assembly for a file
-src/bee-map.c.s:
-	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/bee-map.c.s
-.PHONY : src/bee-map.c.s
-
-src/main.o: src/main.c.o
+src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
 
 # target to build an object file
-src/main.c.o:
-	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/main.c.o
-.PHONY : src/main.c.o
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-src/main.i: src/main.c.i
+src/main.i: src/main.cpp.i
 
 .PHONY : src/main.i
 
 # target to preprocess a source file
-src/main.c.i:
-	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/main.c.i
-.PHONY : src/main.c.i
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-src/main.s: src/main.c.s
+src/main.s: src/main.cpp.s
 
 .PHONY : src/main.s
 
 # target to generate assembly for a file
-src/main.c.s:
-	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/main.c.s
-.PHONY : src/main.c.s
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
+src/map.o: src/map.c.o
+
+.PHONY : src/map.o
+
+# target to build an object file
+src/map.c.o:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/map.c.o
+.PHONY : src/map.c.o
+
+src/map.i: src/map.c.i
+
+.PHONY : src/map.i
+
+# target to preprocess a source file
+src/map.c.i:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/map.c.i
+.PHONY : src/map.c.i
+
+src/map.s: src/map.c.s
+
+.PHONY : src/map.s
+
+# target to generate assembly for a file
+src/map.c.s:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/map.c.s
+.PHONY : src/map.c.s
+
+src/sensor.o: src/sensor.c.o
+
+.PHONY : src/sensor.o
+
+# target to build an object file
+src/sensor.c.o:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/sensor.c.o
+.PHONY : src/sensor.c.o
+
+src/sensor.i: src/sensor.c.i
+
+.PHONY : src/sensor.i
+
+# target to preprocess a source file
+src/sensor.c.i:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/sensor.c.i
+.PHONY : src/sensor.c.i
+
+src/sensor.s: src/sensor.c.s
+
+.PHONY : src/sensor.s
+
+# target to generate assembly for a file
+src/sensor.c.s:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/sensor.c.s
+.PHONY : src/sensor.c.s
+
+src/visualize.o: src/visualize.cpp.o
+
+.PHONY : src/visualize.o
+
+# target to build an object file
+src/visualize.cpp.o:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/visualize.cpp.o
+.PHONY : src/visualize.cpp.o
+
+src/visualize.i: src/visualize.cpp.i
+
+.PHONY : src/visualize.i
+
+# target to preprocess a source file
+src/visualize.cpp.i:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/visualize.cpp.i
+.PHONY : src/visualize.cpp.i
+
+src/visualize.s: src/visualize.cpp.s
+
+.PHONY : src/visualize.s
+
+# target to generate assembly for a file
+src/visualize.cpp.s:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/visualize.cpp.s
+.PHONY : src/visualize.cpp.s
 
 # Help Target
 help:
@@ -186,12 +240,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... lab1"
-	@echo "... src/bee-map.o"
-	@echo "... src/bee-map.i"
-	@echo "... src/bee-map.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/map.o"
+	@echo "... src/map.i"
+	@echo "... src/map.s"
+	@echo "... src/sensor.o"
+	@echo "... src/sensor.i"
+	@echo "... src/sensor.s"
+	@echo "... src/visualize.o"
+	@echo "... src/visualize.i"
+	@echo "... src/visualize.s"
 .PHONY : help
 
 

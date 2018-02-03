@@ -6,29 +6,27 @@
 
 #IncludeRegexTransform: 
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/bee-map.c
-bee-map.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/bee-map.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/map.c
+map.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/map.h
 stdio.h
 -
+string.h
+-
+stdlib.h
+-
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/bee-map.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/map.h
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/main.c
-main.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/main.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensor.c
+sensor.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensor.h
 stdio.h
 -
-cv.h
+string.h
 -
-highgui.h
--
-opencv2/imgproc/imgproc.hpp
--
-stdio.h
+stdlib.h
 -
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/main.h
-bee-map.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/bee-map.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensor.h
 
