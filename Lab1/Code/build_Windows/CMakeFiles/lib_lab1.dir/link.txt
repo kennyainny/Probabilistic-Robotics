@@ -1,7 +1,0 @@
-<<<<<<< HEAD
-A:\Downloads\Programs\minGW\bin\ar.exe qc ..\lib\liblib_lab1.a  CMakeFiles/lib_lab1.dir/src/HelloWorld.c.obj
-A:\Downloads\Programs\minGW\bin\ranlib.exe ..\lib\liblib_lab1.a
-=======
-A:\Downloads\Programs\minGW\bin\ar.exe qc ..\lib\liblib_lab1.a  CMakeFiles/lib_lab1.dir/src/HelloWorld.c.obj
-A:\Downloads\Programs\minGW\bin\ranlib.exe ..\lib\liblib_lab1.a
->>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a
