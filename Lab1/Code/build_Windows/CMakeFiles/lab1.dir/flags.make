@@ -9,7 +9,7 @@ C_DEFINES =
 
 C_INCLUDES = -isystem /usr/local/include -isystem /usr/local/include/opencv 
 
-CXX_FLAGS =  
+CXX_FLAGS =  -std=c++11  
 
 CXX_DEFINES = 
 

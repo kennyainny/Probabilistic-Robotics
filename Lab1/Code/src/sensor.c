@@ -32,8 +32,10 @@ int read_beesoft_sensor(char *sensorName, sensor_type *sensor)
       count_o = count_o + 1;
     }
   }
+  sensor->laser_count = count_l;
+  sensor->odometry_count = count_o;
 
-  printf("%d %d\n", count_l, count_o);
+  // printf("%d %d\n", count_l, count_o);
   new_hornetsoft_sensor(sensor, count_l, count_o);
 
   count_l = -1, count_o = -1;
@@ -86,6 +88,7 @@ int read_beesoft_sensor(char *sensorName, sensor_type *sensor)
       //   sensor->odometry[3].v.theta, sensor->odometry[3].ts);
     }
   }
+  // printf("%d %d\n", sensor->laser_count, sensor->odometry_count);
   fclose(fp);
   return 0;
 }

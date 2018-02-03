@@ -23,8 +23,26 @@ sensor.h
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/sensor.h
 visualize.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/visualize.hpp
+motion.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/motion.hpp
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/map.h
+
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/motion.cpp
+motion.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/motion.hpp
+iostream
+-
+random
+-
+math.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/math.h
+
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/motion.hpp
+sensor.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/sensor.h
+main.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/main.hpp
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/sensor.h
 

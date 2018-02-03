@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.8.9)
-project (Lab1)
+project (Lab1 C CXX)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(CMAKE_INSTALL_RPATH "$ORIGIN")
 SET(CMAKE_EXE_LINKER_FLAGS
@@ -14,7 +15,6 @@ set(CMAKE_LIBRARY_PATH ${CMAKE_SOURCE_DIR}/lib)
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-
 set(SOURCE_FILES 
 	${PROJECT_SOURCE_DIR}/src/main.cpp
 	${PROJECT_SOURCE_DIR}/src/main.hpp
@@ -23,7 +23,9 @@ set(SOURCE_FILES
 	${PROJECT_SOURCE_DIR}/src/sensor.c
 	${PROJECT_SOURCE_DIR}/src/sensor.h
 	${PROJECT_SOURCE_DIR}/src/visualize.cpp
-	${PROJECT_SOURCE_DIR}/src/visualize.hpp)
+	${PROJECT_SOURCE_DIR}/src/visualize.hpp
+	${PROJECT_SOURCE_DIR}/src/motion.cpp
+	${PROJECT_SOURCE_DIR}/src/motion.hpp)
 
 add_executable(lab1 ${SOURCE_FILES})
 target_link_libraries(lab1 ${OpenCV_LIBS})

@@ -10,6 +10,7 @@ CMakeFiles/lab1.dir/src/sensor.c.o: ../src/sensor.h
 CMakeFiles/lab1.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/lab1.dir/src/main.cpp.o: ../src/main.hpp
 CMakeFiles/lab1.dir/src/main.cpp.o: ../src/map.h
+CMakeFiles/lab1.dir/src/main.cpp.o: ../src/motion.hpp
 CMakeFiles/lab1.dir/src/main.cpp.o: ../src/sensor.h
 CMakeFiles/lab1.dir/src/main.cpp.o: ../src/visualize.hpp
 CMakeFiles/lab1.dir/src/main.cpp.o: /usr/local/include/opencv/cxcore.h
@@ -138,6 +139,13 @@ CMakeFiles/lab1.dir/src/main.cpp.o: /usr/local/include/opencv2/videostab/wobble_
 CMakeFiles/lab1.dir/src/main.cpp.o: /usr/local/include/opencv2/xfeatures2d.hpp
 CMakeFiles/lab1.dir/src/main.cpp.o: /usr/local/include/opencv2/xfeatures2d/cuda.hpp
 CMakeFiles/lab1.dir/src/main.cpp.o: /usr/local/include/opencv2/xfeatures2d/nonfree.hpp
+
+CMakeFiles/lab1.dir/src/motion.cpp.o: ../src/main.hpp
+CMakeFiles/lab1.dir/src/motion.cpp.o: ../src/map.h
+CMakeFiles/lab1.dir/src/motion.cpp.o: ../src/motion.cpp
+CMakeFiles/lab1.dir/src/motion.cpp.o: ../src/motion.hpp
+CMakeFiles/lab1.dir/src/motion.cpp.o: ../src/sensor.h
+CMakeFiles/lab1.dir/src/motion.cpp.o: ../src/visualize.hpp
 
 CMakeFiles/lab1.dir/src/visualize.cpp.o: ../src/map.h
 CMakeFiles/lab1.dir/src/visualize.cpp.o: ../src/visualize.cpp

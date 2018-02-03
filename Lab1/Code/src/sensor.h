@@ -20,6 +20,7 @@ typedef struct {
 typedef struct {
   laser_type *laser;
   odometry_type *odometry;
+  int laser_count, odometry_count;
 } sensor_type;
 
 void new_hornetsoft_sensor(sensor_type *sensor, int size_x, int size_y);

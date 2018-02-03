@@ -12,10 +12,13 @@ int main(int argc, char *argv[])
 
    map_type map;
    read_beesoft_map(argv[1], &map);
-   prob_visualize(map);
+   // prob_visualize(map);
 
    sensor_type sensor;
    read_beesoft_sensor(argv[2], &sensor);
+
+   state_type state;
+   sample_motion_model_odometry(sensor.odometry[0], sensor.odometry[1], state);
 
    waitKey(0);   
    return 0;
