@@ -63,6 +63,10 @@ math.h
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/particle.hpp
 def_type.h
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
+sensor.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/sensor.h
+motion.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/motion.hpp
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/sensor.h
 def_type.h

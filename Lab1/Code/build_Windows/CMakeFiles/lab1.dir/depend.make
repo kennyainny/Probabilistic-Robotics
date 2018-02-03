@@ -149,8 +149,10 @@ CMakeFiles/lab1.dir/src/motion.cpp.o: ../src/motion.cpp
 CMakeFiles/lab1.dir/src/motion.cpp.o: ../src/motion.hpp
 
 CMakeFiles/lab1.dir/src/particle.cpp.o: ../src/def_type.h
+CMakeFiles/lab1.dir/src/particle.cpp.o: ../src/motion.hpp
 CMakeFiles/lab1.dir/src/particle.cpp.o: ../src/particle.cpp
 CMakeFiles/lab1.dir/src/particle.cpp.o: ../src/particle.hpp
+CMakeFiles/lab1.dir/src/particle.cpp.o: ../src/sensor.h
 
 CMakeFiles/lab1.dir/src/visualize.cpp.o: ../src/def_type.h
 CMakeFiles/lab1.dir/src/visualize.cpp.o: ../src/visualize.cpp
