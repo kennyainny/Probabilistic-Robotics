@@ -3,6 +3,10 @@
 #include <string.h>
 #include <stdlib.h>
 
+void sensor_model(){
+  //don't know how to do yet.
+}
+
 void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)
 {
   // sensor->laser = (laser_type *)malloc(size_l);

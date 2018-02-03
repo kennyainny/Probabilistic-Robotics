@@ -18,6 +18,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 set(SOURCE_FILES 
 	${PROJECT_SOURCE_DIR}/src/main.cpp
 	${PROJECT_SOURCE_DIR}/src/main.hpp
+	${PROJECT_SOURCE_DIR}/src/def_type.h
 	${PROJECT_SOURCE_DIR}/src/map.c
 	${PROJECT_SOURCE_DIR}/src/map.h
 	${PROJECT_SOURCE_DIR}/src/sensor.c
@@ -25,7 +26,9 @@ set(SOURCE_FILES
 	${PROJECT_SOURCE_DIR}/src/visualize.cpp
 	${PROJECT_SOURCE_DIR}/src/visualize.hpp
 	${PROJECT_SOURCE_DIR}/src/motion.cpp
-	${PROJECT_SOURCE_DIR}/src/motion.hpp)
+	${PROJECT_SOURCE_DIR}/src/motion.hpp
+	${PROJECT_SOURCE_DIR}/src/particle.cpp
+	${PROJECT_SOURCE_DIR}/src/particle.hpp)
 
 add_executable(lab1 ${SOURCE_FILES})
 target_link_libraries(lab1 ${OpenCV_LIBS})
