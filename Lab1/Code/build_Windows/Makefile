@@ -204,6 +204,33 @@ src/motion.cpp.s:
 	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/motion.cpp.s
 .PHONY : src/motion.cpp.s
 
+src/particle.o: src/particle.cpp.o
+
+.PHONY : src/particle.o
+
+# target to build an object file
+src/particle.cpp.o:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/particle.cpp.o
+.PHONY : src/particle.cpp.o
+
+src/particle.i: src/particle.cpp.i
+
+.PHONY : src/particle.i
+
+# target to preprocess a source file
+src/particle.cpp.i:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/particle.cpp.i
+.PHONY : src/particle.cpp.i
+
+src/particle.s: src/particle.cpp.s
+
+.PHONY : src/particle.s
+
+# target to generate assembly for a file
+src/particle.cpp.s:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/particle.cpp.s
+.PHONY : src/particle.cpp.s
+
 src/sensor.o: src/sensor.c.o
 
 .PHONY : src/sensor.o
@@ -276,6 +303,9 @@ help:
 	@echo "... src/motion.o"
 	@echo "... src/motion.i"
 	@echo "... src/motion.s"
+	@echo "... src/particle.o"
+	@echo "... src/particle.i"
+	@echo "... src/particle.s"
 	@echo "... src/sensor.o"
 	@echo "... src/sensor.i"
 	@echo "... src/sensor.s"
