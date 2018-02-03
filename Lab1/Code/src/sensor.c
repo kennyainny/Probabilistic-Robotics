@@ -24,7 +24,7 @@ int read_beesoft_sensor(char *sensorName, sensor_type *sensor)
     fprintf(stderr, "# Could not open file %s\n", sensorName);
     return -1;
   }
-  fprintf(stderr, "# Reading sensor: %s\n", sensorName);
+  fprintf(stderr, "# Reading sensor: %s\n", sensorName); 
   while(fscanf(fp,"%s", temp) != -1){
     if(strcmp(temp, "L") == 0){
       count_l = count_l + 1;
@@ -87,5 +87,6 @@ int read_beesoft_sensor(char *sensorName, sensor_type *sensor)
     }
   }
   fclose(fp);
+  printf("Complete Sensor Usage \n");
   return 0;
 }

@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-"C:\Program Files\CMake\bin\cmake.exe" -E remove -f CMakeFiles\hello.dir/objects.a
-A:\Downloads\Programs\minGW\bin\ar.exe cr CMakeFiles\hello.dir/objects.a @CMakeFiles\hello.dir\objects1.rsp
-A:\Downloads\Programs\minGW\bin\g++.exe    -Wl,--whole-archive CMakeFiles\hello.dir/objects.a -Wl,--no-whole-archive  -o hello.exe -Wl,--out-implib,libhello.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\hello.dir\linklibs.rsp
-=======
-"C:\Program Files\CMake\bin\cmake.exe" -E remove -f CMakeFiles\hello.dir/objects.a
-A:\Downloads\Programs\minGW\bin\ar.exe cr CMakeFiles\hello.dir/objects.a @CMakeFiles\hello.dir\objects1.rsp
-A:\Downloads\Programs\minGW\bin\g++.exe    -Wl,--whole-archive CMakeFiles\hello.dir/objects.a -Wl,--no-whole-archive  -o hello.exe -Wl,--out-implib,libhello.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\hello.dir\linklibs.rsp
->>>>>>> 769531312ee81a4a3a28d39ea559a7c713e35b4a

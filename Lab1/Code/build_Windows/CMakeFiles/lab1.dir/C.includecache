@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/map.c
+map.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/map.h
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/map.h
+
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/sensor.c
+sensor.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/sensor.h
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/sensor.h
+
