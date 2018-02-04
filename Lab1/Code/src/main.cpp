@@ -23,6 +23,10 @@ int main(int argc, char *argv[])
 	//Loop should be started here
 	particle_filter(particle, sensor.laser[0], sensor.odometry[0], sensor.odometry[1]);
 
+	// for(int i = 1; i < 10; i++){
+	// 	sample_motion_model_odometry(sensor.odometry[0], sensor.odometry[1], particle.state[0]);
+	// }
+
 	waitKey(0);   
 	return 0;
 }

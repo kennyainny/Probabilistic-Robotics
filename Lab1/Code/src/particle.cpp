@@ -1,9 +1,10 @@
 #include "particle.hpp"
 #include <iostream>
 #include <random>
-#include "math.h"
 
 using namespace std;
+random_device rdm;
+mt19937 mtd(rdm());
 
 void new_hornetsoft_particle(particle_type *particle, long unsigned int size_p)
 {
@@ -57,12 +58,9 @@ particle_type particle_filter(particle_type p_particle, laser_type laser, odomet
 	printf("Number of particles %lu\n", p_particle.particle_count);
 
 	long unsigned int n = p_particle.particle_count;
-	// float *weight = (float *)malloc(n);
-	// float *cdf_weight = (float *)malloc(n);
 	float *weight = (float *)calloc(n, sizeof(float));
 	float *cdf_weight = (float *)calloc(n, sizeof(float));
 	float sum_weight = 0;
-	default_random_engine generator;
 	uniform_real_distribution<float> distribution(0.0,1.0);
 	particle_type particle, temp_particle;
 
@@ -75,6 +73,9 @@ particle_type particle_filter(particle_type p_particle, laser_type laser, odomet
 		weight[i] = 0.5; //need an update from sensor model, which is a function of temp_particle.state[i] and odometry
 		sum_weight = sum_weight + weight[i]; //its summation needs not to be one yet!
 	}
+	printf("%f %f\n", temp_particle.state[0].x, p_particle.state[0].x);
+	printf("%f %f\n", temp_particle.state[1].x, p_particle.state[1].x);
+	printf("%f %f\n", temp_particle.state[2000].x, p_particle.state[2000].x);
 	// printf("%lu, %f\n", n, sum_weight);
 
 	for(long unsigned int i = 0; i < n; i++){
@@ -90,7 +91,7 @@ particle_type particle_filter(particle_type p_particle, laser_type laser, odomet
 	particle.particle_count = n; //can be an output of another function for an adaptive particle number
 
 	for(long unsigned int i = 0; i < particle.particle_count; i++){
-		float number = distribution(generator);
+		float number = distribution(mtd);
 		// printf("%f\n", number);
 
 		long unsigned int j = 0;
