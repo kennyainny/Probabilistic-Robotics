@@ -110,3 +110,18 @@ particle_type particle_filter(particle_type p_particle, laser_type laser, odomet
 
 	return particle;
 }
+
+state_type expected_state(particle_type particle){
+	state_type state;
+	state.x = 0.0;
+	state.y = 0.0;
+	state.theta = 0.0;
+
+	for (int i = 0; i < particle.particle_count; i++){ // sum prob = 1
+		state.x = state.x + particle.prob[i]*particle.state[i].x;
+		state.y = state.y + particle.prob[i]*particle.state[i].y;
+		state.theta = state.theta + particle.prob[i]*particle.state[i].theta; // be careful with angle
+	}
+
+	return state;
+}
