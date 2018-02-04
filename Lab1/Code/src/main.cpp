@@ -12,15 +12,16 @@ int main(int argc, char *argv[])
 
 	map_type map;
 	read_beesoft_map(argv[1], &map); //store map data in map variable
-	prob_visualize(map);
+	// prob_visualize(map);
 
  	sensor_type sensor;
 	read_beesoft_sensor(argv[2], &sensor); //store sensor data in sensor variable
 
-	state_type p_state, state;
-	state = sample_motion_model_odometry(sensor.odometry[0], sensor.odometry[1], p_state); // must be called inside particle_filter
+	particle_type particle;
+	particle_initialize(map, &particle);
 
-	particle_filter(p_state, sensor.laser[0]);
+	//Loop should be started here
+	particle_filter(particle, sensor.laser[0], sensor.odometry[0], sensor.odometry[1]);
 
 	waitKey(0);   
 	return 0;

@@ -18,8 +18,8 @@ void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)
 
 int read_beesoft_sensor(char *sensorName, sensor_type *sensor)
 {
-  int count_l = 0, count_o = 0, count = 0;
-  int state;
+  long unsigned int count_l = 0, count_o = 0, count = 0;
+  int state_lo;
   float ftemp, _ftemp[3+3+180+1];
   char *temp  = malloc(sizeof(int));
   FILE *fp;
@@ -46,14 +46,14 @@ int read_beesoft_sensor(char *sensorName, sensor_type *sensor)
   rewind(fp);
   while(fscanf(fp,"%s", temp) != -1){
     if(strcmp(temp, "L") == 0){
-      state = 1;
+      state_lo = 1;
       count_l = count_l + 1;
     }else if(strcmp(temp, "O") == 0){
-      state = 0;
+      state_lo = 0;
       count_o = count_o + 1;
     }
 
-    if(state == 1){
+    if(state_lo == 1){
       int i = 0;
       for(i = 0; i < 3+3+180+1; i++){
         fscanf(fp,"%f",&ftemp);

@@ -1,6 +1,10 @@
 #ifndef DEF_TYPE_H
 #define DEF_TYPE_H
 
+#define PI    3.14159265359f
+#define DEG(rad)  (rad*180.0/PI)
+#define RAD(deg)  (deg*PI/180.0)
+
 typedef struct {
   float x, y, theta;
 } state_type;
@@ -13,17 +17,13 @@ typedef struct {
 } map_type;
 
 typedef struct {
-  float x, y, theta;
-} vector_type;
-
-typedef struct {
-  vector_type v;
+  state_type v;
   float ts;
 } odometry_type;
 
 typedef struct {
-  vector_type v1;
-  vector_type v2;
+  state_type v1;
+  state_type v2;
   float r[180];
   float ts;
 } laser_type;
@@ -31,7 +31,13 @@ typedef struct {
 typedef struct {
   laser_type *laser;
   odometry_type *odometry;
-  int laser_count, odometry_count;
+  long unsigned int laser_count, odometry_count;
 } sensor_type;
+
+typedef struct {
+  state_type *state;
+  float *prob;
+  long unsigned int particle_count;
+} particle_type;
 
 #endif /* DEF_TYPE_H */
