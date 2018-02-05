@@ -14,7 +14,8 @@ int main(int argc, char *argv[])
    printf("Complete 1 \n");
    read_beesoft_map(argv[1], &map);
    printf("Complete 2 \n");
-   prob_visualize(map);  
+   //prob_visualize(map); 
+   sensor_model(map); 
    printf("Complete 3 \n");
 
    sensor_type sensor;

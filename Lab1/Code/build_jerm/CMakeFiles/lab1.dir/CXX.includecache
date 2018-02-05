@@ -23,10 +23,16 @@ sensor.h
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensor.h
 visualize.hpp
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/visualize.hpp
+sensormodel.hpp
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensormodel.hpp
 
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/map.h
 
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensor.h
+
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensormodel.hpp
+map.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/map.h
 
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/visualize.cpp
 visualize.hpp

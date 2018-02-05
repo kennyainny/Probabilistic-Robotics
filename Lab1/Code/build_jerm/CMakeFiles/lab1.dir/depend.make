@@ -11,6 +11,7 @@ CMakeFiles/lab1.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/lab1.dir/src/main.cpp.o: ../src/main.hpp
 CMakeFiles/lab1.dir/src/main.cpp.o: ../src/map.h
 CMakeFiles/lab1.dir/src/main.cpp.o: ../src/sensor.h
+CMakeFiles/lab1.dir/src/main.cpp.o: ../src/sensormodel.hpp
 CMakeFiles/lab1.dir/src/main.cpp.o: ../src/visualize.hpp
 CMakeFiles/lab1.dir/src/main.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv/cxcore.h
 CMakeFiles/lab1.dir/src/main.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/calib3d.hpp

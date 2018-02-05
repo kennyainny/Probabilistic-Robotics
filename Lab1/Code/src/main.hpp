@@ -8,5 +8,6 @@ extern "C"
 }
 
 #include "visualize.hpp"
+#include "sensormodel.hpp"
 
 #endif /* MAIN_HPP */
