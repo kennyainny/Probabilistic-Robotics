@@ -7,13 +7,14 @@
 
 
 //don't know if this is the best place to put it since whole program may iterate
-float p_hit=0;
+float p_hit=0,q=1;
 
 //Must imput range scan, robot pose and map
 void sensor_model(map_type map,odometry_type p_odometry, odometry_type odometry,state_type p_state){
   //don't know how to do yet.
   //z_kp, z_k and sig_hit should be dynamic variables that change each iteration
   float z_hit,z_short,z_max,z_rand,u_norm_dist,sig_hit,lamb_short,p_short,z_k,z_kp,normalizer_uo;
+  int p_max;
   z_hit=0.25;
   z_short=0.25;
   z_max=0.25;
@@ -39,6 +40,15 @@ void sensor_model(map_type map,odometry_type p_odometry, odometry_type odometry,
   else{
     p_short=0;
   }
+  if(z_k==z_max){
+    p_max=1;
+  }
+  else{
+    p_max=0;
+  }
+  p=z_hit*p_hit+z_short*p_short+z_max*p_max+z_rand*p_rand;
+  q=q*p;
+  
   // printf("u_norm_dist \n");
   // printf("%f",u_norm_dist);
   //Implement Failures(max range error)
