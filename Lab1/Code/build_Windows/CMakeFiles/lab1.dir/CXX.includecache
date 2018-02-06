@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
+
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/main.cpp
 main.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/main.hpp
@@ -17,16 +19,56 @@ opencv2/opencv.hpp
 -
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/main.hpp
+def_type.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
 map.h
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/map.h
 sensor.h
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/sensor.h
 visualize.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/visualize.hpp
+motion.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/motion.hpp
+particle.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/particle.hpp
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/map.h
+def_type.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
+
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/motion.cpp
+motion.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/motion.hpp
+iostream
+-
+random
+-
+math.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/math.h
+
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/motion.hpp
+def_type.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
+
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/particle.cpp
+particle.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/particle.hpp
+iostream
+-
+random
+-
+
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/particle.hpp
+def_type.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
+sensor.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/sensor.h
+motion.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/motion.hpp
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/sensor.h
+def_type.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/visualize.cpp
 visualize.hpp
@@ -39,8 +81,8 @@ opencv2/opencv.hpp
 -
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/visualize.hpp
-map.h
-/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/map.h
+def_type.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
 
 /usr/local/include/opencv/cxcore.h
 opencv2/core/core_c.h

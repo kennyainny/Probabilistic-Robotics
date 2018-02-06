@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
+
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/map.c
 map.h
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/map.h
@@ -17,6 +19,8 @@ stdlib.h
 -
 
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/map.h
+def_type.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
 
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensor.c
 sensor.h
@@ -29,4 +33,6 @@ stdlib.h
 -
 
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensor.h
+def_type.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
 

@@ -32,6 +32,4 @@ void prob_visualize(map_type map){
    
    imshow("Current Probability", prob); //Error occurs here Asertion failed 
 
-   waitKey(0);
-
 }

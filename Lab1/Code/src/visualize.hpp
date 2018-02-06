@@ -3,7 +3,7 @@
 
 extern "C"
 {
-	#include "map.h"
+	#include "def_type.h"
 }
 
 void prob_visualize(map_type map);

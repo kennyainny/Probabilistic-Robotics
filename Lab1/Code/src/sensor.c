@@ -2,6 +2,24 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <math.h>
+
+//don't know if this is the best place to put it since whole program may iterate
+float p_hit=0;
+
+//Must imput range scan, robot pose and map
+void sensor_model(map_type map,odometry_type p_odometry, odometry_type odometry,state_type p_state){
+  //don't know how to do yet.
+  //z_kp should be a changing variable per iteration
+  float z_hit,z_short,z_max,z_rand,u_norm_dist,sig_hit,normalizer;
+  z_hit=1;
+  z_short=1;
+  z_max=1;
+  z_rand=1;
+  u_norm_dist=(1/sqrt(2*M_PI*sig_hit)*exp(-0.5*pow((z_k-z_kp),2)/(pow(sig_hit,2)));
+  p_hit=u_norm_dist+p_hit;
+
+}
 
 void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)
 {
@@ -14,8 +32,8 @@ void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)
 
 int read_beesoft_sensor(char *sensorName, sensor_type *sensor)
 {
-  int count_l = 0, count_o = 0, count = 0;
-  int state;
+  long unsigned int count_l = 0, count_o = 0, count = 0;
+  int state_lo;
   float ftemp, _ftemp[3+3+180+1];
   char *temp  = malloc(sizeof(int));
   FILE *fp;
@@ -32,22 +50,24 @@ int read_beesoft_sensor(char *sensorName, sensor_type *sensor)
       count_o = count_o + 1;
     }
   }
+  sensor->laser_count = count_l;
+  sensor->odometry_count = count_o;
 
-  printf("%d %d\n", count_l, count_o);
+  // printf("%d %d\n", count_l, count_o);
   new_hornetsoft_sensor(sensor, count_l, count_o);
 
   count_l = -1, count_o = -1;
   rewind(fp);
   while(fscanf(fp,"%s", temp) != -1){
     if(strcmp(temp, "L") == 0){
-      state = 1;
+      state_lo = 1;
       count_l = count_l + 1;
     }else if(strcmp(temp, "O") == 0){
-      state = 0;
+      state_lo = 0;
       count_o = count_o + 1;
     }
 
-    if(state == 1){
+    if(state_lo == 1){
       int i = 0;
       for(i = 0; i < 3+3+180+1; i++){
         fscanf(fp,"%f",&ftemp);
@@ -86,6 +106,7 @@ int read_beesoft_sensor(char *sensorName, sensor_type *sensor)
       //   sensor->odometry[3].v.theta, sensor->odometry[3].ts);
     }
   }
+  // printf("%d %d\n", sensor->laser_count, sensor->odometry_count);
   fclose(fp);
   printf("Complete Sensor Usage \n");
   return 0;
