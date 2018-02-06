@@ -4,21 +4,45 @@
 #include <stdlib.h>
 #include <math.h>
 
+
+
 //don't know if this is the best place to put it since whole program may iterate
 float p_hit=0;
 
 //Must imput range scan, robot pose and map
 void sensor_model(map_type map,odometry_type p_odometry, odometry_type odometry,state_type p_state){
   //don't know how to do yet.
-  //z_kp should be a changing variable per iteration
-  float z_hit,z_short,z_max,z_rand,u_norm_dist,sig_hit,normalizer;
-  z_hit=1;
-  z_short=1;
-  z_max=1;
-  z_rand=1;
-  u_norm_dist=(1/sqrt(2*M_PI*sig_hit)*exp(-0.5*pow((z_k-z_kp),2)/(pow(sig_hit,2)));
-  p_hit=u_norm_dist+p_hit;
+  //z_kp, z_k and sig_hit should be dynamic variables that change each iteration
+  float z_hit,z_short,z_max,z_rand,u_norm_dist,sig_hit,lamb_short,p_short,z_k,z_kp,normalizer_uo;
+  z_hit=0.25;
+  z_short=0.25;
+  z_max=0.25;
+  z_rand=0.25;
+  lamb_short=1;
 
+  //delete these
+  // z_k=1;
+  // z_kp=1;
+  if (z_k>=0 && z_k<=z_max ){
+    u_norm_dist=(1/sqrt(2*M_PI*sig_hit)*exp(-0.5*pow((z_k-z_kp),2)/(pow(sig_hit,2))));
+    p_hit=u_norm_dist+p_hit;
+    p_rand=1/z_max;
+  }
+  else {
+    p_hit=0;
+    p_rand=0;
+  }
+  if (z_k>=0 && z_k<=z_kp){
+    normalizer_uo=1/(1-exp(-lamb_short*z_kp));
+    p_short=normalizer_uo*lamb_short*exp(exp(-lamb_short*z_k));
+  }
+  else{
+    p_short=0;
+  }
+  // printf("u_norm_dist \n");
+  // printf("%f",u_norm_dist);
+  //Implement Failures(max range error)
+ ;
 }
 
 void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)

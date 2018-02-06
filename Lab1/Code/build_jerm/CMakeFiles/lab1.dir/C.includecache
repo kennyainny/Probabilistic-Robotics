@@ -31,6 +31,8 @@ string.h
 -
 stdlib.h
 -
+math.h
+-
 
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensor.h
 def_type.h
