@@ -29,7 +29,7 @@ typedef struct {
 } laser_type;
 
 typedef struct {
-  laser_type *laser;
+  laser_type *laser; // pointer decleration
   odometry_type *odometry;
   long unsigned int laser_count, odometry_count;
 } sensor_type;
