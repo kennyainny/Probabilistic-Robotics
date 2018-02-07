@@ -26,7 +26,10 @@ int main(int argc, char *argv[])
 
  	sensor_type sensor;
 	read_beesoft_sensor(argv[2], &sensor); //store sensor data in sensor variable
-
+	//laser_type *laser;
+	//state_type *state;
+	z_ks();
+	sensor_model();
 	particle_type particle;
 	particle_initialize(map, &particle);
 

@@ -10,10 +10,20 @@
 float p_hit=0,q=1;
 
 //Must imput range scan, robot pose and map
-void sensor_model(map_type map,odometry_type p_odometry, odometry_type odometry,state_type p_state){
+void z_ks(map_type map, state_type p_state){
+  printf( "%d\n",map.max_x);
+  printf("break \n");
+  sizeof(map);
+  printf("break \n");
+  printf("%f\n",p_state);
+  printf("z_ks calculated \n");
+
+  
+}
+void sensor_model(map_type map){//,laser_type laser,state_type p_state){
   //don't know how to do yet.
   //z_kp, z_k and sig_hit should be dynamic variables that change each iteration
-  float z_hit,z_short,z_max,z_rand,u_norm_dist,sig_hit,lamb_short,p_short,z_k,z_kp,normalizer_uo;
+  float p_rand,p,z_hit,z_short,z_max,z_rand,u_norm_dist,sig_hit,lamb_short,p_short,z_k,z_kp,normalizer_uo;
   int p_max;
   z_hit=0.25;
   z_short=0.25;
@@ -48,7 +58,7 @@ void sensor_model(map_type map,odometry_type p_odometry, odometry_type odometry,
   }
   p=z_hit*p_hit+z_short*p_short+z_max*p_max+z_rand*p_rand;
   q=q*p;
-  
+  printf("Sensor model complete \n");
   // printf("u_norm_dist \n");
   // printf("%f",u_norm_dist);
   //Implement Failures(max range error)
