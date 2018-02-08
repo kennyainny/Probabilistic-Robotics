@@ -5,7 +5,7 @@
 #include <math.h>
 
 
-void z_ks(map_type map, state_type p_state){
+float z_ks(map_type map, state_type p_state){
   float val,z_kp;
   int x_test,y_test,x,y;
   float r=0.1;
@@ -77,13 +77,13 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
   // z = z_ks() need this function to get zk* (assume to be an integer) for each x
   z = 0;
 
-    // assume for now
-  // param.z_hit[z] = 0.25;
-  // param.z_short[z] = 0.25;
-  // param.z_max[z] = 0.25;
-  // param.z_rand[z] = 0.25;
-  // param.lamb_short[z] = 1;
-  // param.sig_hit[z] = 1;
+  // assume for now
+  param.z_hit[z] = 0.25;
+  param.z_short[z] = 0.25;
+  param.z_max[z] = 0.25;
+  param.z_rand[z] = 0.25;
+  param.lamb_short[z] = 1;
+  param.sig_hit[z] = 1;
 
   // if (z_k>=0 && z_k<=z_max ){
   //   u_norm_dist=(1/sqrt(2*M_PI*sig_hit)*exp(-0.5*pow((z_k-z_kp),2)/(pow(sig_hit,2))));
