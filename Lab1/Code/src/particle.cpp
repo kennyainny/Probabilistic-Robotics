@@ -15,7 +15,7 @@ void new_hornetsoft_particle(particle_type *particle, long unsigned int size_p)
 void particle_initialize(map_type map, particle_type *particle){
 	// place particles on a grid that isn't fully occupied
 
-	// printf("%d\n", map.size_x);
+	printf("Initialze particles\n");
 
 	long unsigned int count_p = 0;
 	int theta_interval = 45; //every 1 deg is too much
@@ -39,7 +39,7 @@ void particle_initialize(map_type map, particle_type *particle){
 	for(int i = 0; i < map.size_x; i++){
 		for(int j = 0; j < map.size_y; j++){
 			if(map.prob[i][j] > -1.0 && map.prob[i][j] < 1.0){
-				for(int k = 0; k < theta_number; k++){
+				for(int k = 0; k < 360; k = k + theta_interval){
 					particle->prob[count_p] = 1.0/particle->particle_count;
 					particle->state[count_p].x = i;
 					particle->state[count_p].y = j;

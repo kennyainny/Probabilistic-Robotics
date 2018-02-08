@@ -1,4 +1,4 @@
-# Install script for directory: /home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code
+# Install script for directory: /home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/build_Linux/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

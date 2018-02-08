@@ -65,7 +65,7 @@ void z_ks(map_type map, state_type p_state){
   
 }
 void sensor_model(map_type map){//,laser_type laser,state_type p_state){
-  //don't know how to do yet.
+  // for each given xi, z* will be changed
   //z_kp, z_k and sig_hit should be dynamic variables that change each iteration
   float p_rand,p,z_hit,z_short,z_max,z_rand,u_norm_dist,sig_hit,lamb_short,p_short,z_k,z_kp,normalizer_uo;
   int p_max;
@@ -106,7 +106,6 @@ void sensor_model(map_type map){//,laser_type laser,state_type p_state){
   // printf("u_norm_dist \n");
   // printf("%f",u_norm_dist);
   //Implement Failures(max range error)
- ;
 }
 
 void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)
