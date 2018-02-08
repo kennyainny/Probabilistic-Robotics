@@ -4,7 +4,7 @@
 #include "def_type.h"
 
 float normal_dist(float x, float x_max, float m, float var); // var = std^2
-float exp_dist(float x, float x_max, float lambda);
+float exp_dist(float x, float x_max, float lambda); //x_max = z*
 float narrow_uniform_dist(float x, float x_max, float range);
 float uniform_dist(float x, float x_max);
 

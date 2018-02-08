@@ -46,50 +46,43 @@ return z_kp;
 
 float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_param_type param){
   // for each given xi, z* will be changed
-  // z_kp, z_k and sig_hit should be dynamic variables that change each iteration
-  float q = 1, p;
-  int z;
-  z = 0;
+  float q = 1, p, z;
 
+  int zks, max_laser = 9000, range = 1;  
 
-  // assume for now
-  param.z_hit[z] = 0.25;
-  param.z_short[z] = 0.25;
-  param.z_max[z] = 0.25;
-  param.z_rand[z] = 0.25;
-  param.lamb_short[z] = 1;
-  param.sig_hit[z] = 1;
+  float z_hit, z_short, z_max, z_rand, sig_hit, lamb_short;
+  float p_hit, p_short, p_max, p_rand;
 
-  // if (z_k>=0 && z_k<=z_max ){
-  //   u_norm_dist=(1/sqrt(2*M_PI*sig_hit)*exp(-0.5*pow((z_k-z_kp),2)/(pow(sig_hit,2))));
-  //   p_hit=u_norm_dist+p_hit;
-  //   p_rand=1/z_max;
-  // }
-  // else {
-  //   p_hit=0;
-  //   p_rand=0;
-  // }
-  // if (z_k>=0 && z_k<=z_kp){
-  //   normalizer_uo=1/(1-exp(-lamb_short*z_kp));
-  //   p_short=normalizer_uo*lamb_short*exp(exp(-lamb_short*z_k));
-  // }
-  // else{
-  //   p_short=0;
-  // }
-  // if(z_k==z_max){
-  //   p_max=1;
-  // }
-  // else{
-  //   p_max=0;
-  // }
-  // p=z_hit*p_hit+z_short*p_short+z_max*p_max+z_rand*p_rand;
-  // q=q*p;
-  // printf("Sensor model complete \n");
-  // printf("u_norm_dist \n");
-  // printf("%f",u_norm_dist);
-  //Implement Failures(max range error)
+  for(int i = 0; i < 180; i++){
+    // zks = z_ks();    
 
-  return q;
+    // assume for now
+    zks = 0;
+    param.z_hit[zks] = 0.25;
+    param.z_short[zks] = 0.25;
+    param.z_max[zks] = 0.25;
+    param.z_rand[zks] = 0.25;
+    param.lamb_short[zks] = 1;
+    param.sig_hit[zks] = 1;
+
+    z = laser.r[i];
+
+    z_hit = param.z_hit[zks];
+    z_short = param.z_short[zks];
+    z_max = param.z_max[zks];
+    z_rand = param.z_rand[zks];
+    lamb_short = param.lamb_short[zks];
+    sig_hit = param.sig_hit[zks];
+
+    p_hit = normal_dist(z, max_laser, zks, sig_hit);
+    p_short = exp_dist(z, zks, lamb_short);
+    p_max = narrow_uniform_dist(z, max_laser, range);
+    p_rand = uniform_dist(z, max_laser);
+
+    p = z_hit*p_hit + z_short*p_short + z_max*p_max + z_rand*p_rand;
+    q = q*p;
+  }
+  return pow(q,1/180);
 }
 
 void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, intrinsic_param_type *param){
