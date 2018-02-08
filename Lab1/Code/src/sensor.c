@@ -4,31 +4,47 @@
 #include <stdlib.h>
 #include <math.h>
 
+<<<<<<< HEAD
 void z_ks(map_type map, state_type p_state){
+=======
+
+
+//don't know if this is the best place to put it since whole program may iterate
+float p_hit=0,q=1;
+
+float z_ks(map_type map, state_type p_state){
+>>>>>>> 119773e64978b25beeb279f586b42e5e36273cae
   float val,z_kp;
   int x_test,y_test,x,y;
   float r=0.1;
   val=M_PI/180.0;
-  printf("Intial position \n");
-  printf("%f\n",p_state.x);
-  printf("%f\n",p_state.y);
-  printf("%f\n",p_state.theta);
-  printf("Probability\n");
   x=(int)p_state.x;
   y=(int)p_state.y;
-  printf("%f\n",map.prob[x][y]);
+  // printf("Intial position \n");
+  // printf("%i\n",x);
+  // printf("%i\n",y);
+  // printf("%f\n",p_state.theta);
+  // printf("Probability\n");
+ 
+  // printf("%f\n",map.prob[x][y]);
  
 
 
-  while (r<=5){
+  while (r<=82000){
   x_test=round(p_state.x+r*cos(p_state.theta*val));
   y_test=round(p_state.y+r*sin(p_state.theta*val));
-  if (map.prob[x_test][y_test]<1 && map.prob[x_test][y_test] !=-1 && x_test!=p_state.x && y_test!=p_state.y){
-    printf("Filled X and Y \n");
-    printf("%i\n",x_test);
-    printf("%i\n",y_test);
+  // printf("**********Point*******\n");
+  // printf("%d\n",x_test);
+  // printf("%d\n",y_test);
+  // printf("%f\n",map.prob[x_test][y_test]);
+  if (map.prob[x_test][y_test]==1 ){
+    // printf("Filled X and Y \n");
+    // printf("%i\n",x_test);
+    // printf("%i\n",y_test);
+    // printf("Filled Probability \n");
+    // printf("%f\n",map.prob[x_test][y_test]);
     printf("zk*\n");
-    z_kp=sqrt(x_test^2+y_test^2);
+    z_kp=sqrt(pow((x-x_test),2)+pow((y-y_test),2));
     printf("%f\n",z_kp);
     break;
   }
@@ -36,7 +52,7 @@ void z_ks(map_type map, state_type p_state){
   }
 
   printf("break \n");
-
+return z_kp;
   // printf("%f\n",p_state.theta);
   
   //Cycle through entire map to see which spaces do not have probability of 100 of being filled
