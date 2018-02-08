@@ -6,10 +6,6 @@
 
 float z_ks(map_type map, state_type p_state){
 
-<<<<<<< HEAD
-float z_ks(map_type map, state_type p_state){
-=======
->>>>>>> dd46a1f40e90243b61f0838a09f06ba8698979e4
   float val,z_kp;
   int x_test,y_test,x,y;
   float r=0.1;
@@ -55,7 +51,7 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
   int z;
   z = 0;
 
-<<<<<<< HEAD
+
   // assume for now
   param.z_hit[z] = 0.25;
   param.z_short[z] = 0.25;
@@ -92,39 +88,36 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
   // printf("u_norm_dist \n");
   // printf("%f",u_norm_dist);
   //Implement Failures(max range error)
-=======
->>>>>>> dd46a1f40e90243b61f0838a09f06ba8698979e4
+
   return q;
 }
 
-intrinsic_param_type intrinsic_parameters(state_type p_state,map_type map,sensor_type sensor){
-  float omicron[6];
-  float eta,e_hit,e_short,e_max,e_rand,z_hit,z_short,z_max,z_rand,z_sum,big_z;
-  int j, k=0,i;
-  z_ks(map,p_state);
-  for (i=0;i<=180*sensor.laser_count;i=i+1){
-  eta=normal_dist()+exp_dist()+narrow_uniform_dist()+uniform_dist();
-  e_hit[i]=eta*norm_dist();
-  e_short[i]=eta*exp_dist();
-  e_max[i]=eta*narrow_uniform_dist();
-  e_rand[i]=eta*uniform_dist();
-  z_sum=pow(sensor.laser[j].r[k],2)+sum;
-  k=k+1;
-  if (k>=180){
-    k=0;
-    j=j+1;
-  }
+void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, intrinsic_param_type *param){
+  // float omicron[6];
+  // float eta,e_hit,e_short,e_max,e_rand,z_hit,z_short,z_max,z_rand,z_sum,big_z;
+  // int j, k=0,i;
+  // z_ks(map,p_state);
+  // for (i=0;i<=180*sensor.laser_count;i=i+1){
+  // eta=normal_dist()+exp_dist()+narrow_uniform_dist()+uniform_dist();
+  // e_hit[i]=eta*norm_dist();
+  // e_short[i]=eta*exp_dist();
+  // e_max[i]=eta*narrow_uniform_dist();
+  // e_rand[i]=eta*uniform_dist();
+  // z_sum=pow(sensor.laser[j].r[k],2)+sum;
+  // k=k+1;
+  // if (k>=180){
+  //   k=0;
+  //   j=j+1;
+  // }
 
-  }
-  big_z=sqrt(z_sum);
-  z_hit=1
+  // }
+  // big_z=sqrt(z_sum);
+  // z_hit=1
 
   // printf("Big Z\n");
   // printf("%i\n",big_z);
-
-
-
-return omicron;
+  int z_s = 0;
+  param->z_hit[z_s] = 0;
 }
 
 void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)
