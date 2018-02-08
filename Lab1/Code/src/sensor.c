@@ -4,12 +4,12 @@
 #include <stdlib.h>
 #include <math.h>
 
-
-
+void z_ks(map_type map, state_type p_state){
 //don't know if this is the best place to put it since whole program may iterate
 float p_hit=0,q=1;
 
 float z_ks(map_type map, state_type p_state){
+
   float val,z_kp;
   int x_test,y_test,x,y;
   float r=0.1;
@@ -45,49 +45,53 @@ float z_ks(map_type map, state_type p_state){
   printf("break \n");
 return z_kp;
 
-}
-void sensor_model(map_type map){//,laser_type laser,state_type p_state){
-  // for each given xi, z* will be changed
-  //z_kp, z_k and sig_hit should be dynamic variables that change each iteration
-  float p_rand,p,z_hit,z_short,z_max,z_rand,u_norm_dist,sig_hit,lamb_short,p_short,z_k,z_kp,normalizer_uo;
-  int p_max;
-  z_hit=0.25;
-  z_short=0.25;
-  z_max=0.25;
-  z_rand=0.25;
-  lamb_short=1;
 
-  //delete these
-  // z_k=1;
-  // z_kp=1;
-  if (z_k>=0 && z_k<=z_max ){
-    u_norm_dist=(1/sqrt(2*M_PI*sig_hit)*exp(-0.5*pow((z_k-z_kp),2)/(pow(sig_hit,2))));
-    p_hit=u_norm_dist+p_hit;
-    p_rand=1/z_max;
-  }
-  else {
-    p_hit=0;
-    p_rand=0;
-  }
-  if (z_k>=0 && z_k<=z_kp){
-    normalizer_uo=1/(1-exp(-lamb_short*z_kp));
-    p_short=normalizer_uo*lamb_short*exp(exp(-lamb_short*z_k));
-  }
-  else{
-    p_short=0;
-  }
-  if(z_k==z_max){
-    p_max=1;
-  }
-  else{
-    p_max=0;
-  }
-  p=z_hit*p_hit+z_short*p_short+z_max*p_max+z_rand*p_rand;
-  q=q*p;
-  printf("Sensor model complete \n");
+}
+
+float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_param_type param){
+  // for each given xi, z* will be changed
+  // z_kp, z_k and sig_hit should be dynamic variables that change each iteration
+  float q = 1, p;
+  int z;
+  z = 0;
+
+    // assume for now
+  param.z_hit[z] = 0.25;
+  param.z_short[z] = 0.25;
+  param.z_max[z] = 0.25;
+  param.z_rand[z] = 0.25;
+  param.lamb_short[z] = 1;
+  param.sig_hit[z] = 1;
+
+  // if (z_k>=0 && z_k<=z_max ){
+  //   u_norm_dist=(1/sqrt(2*M_PI*sig_hit)*exp(-0.5*pow((z_k-z_kp),2)/(pow(sig_hit,2))));
+  //   p_hit=u_norm_dist+p_hit;
+  //   p_rand=1/z_max;
+  // }
+  // else {
+  //   p_hit=0;
+  //   p_rand=0;
+  // }
+  // if (z_k>=0 && z_k<=z_kp){
+  //   normalizer_uo=1/(1-exp(-lamb_short*z_kp));
+  //   p_short=normalizer_uo*lamb_short*exp(exp(-lamb_short*z_k));
+  // }
+  // else{
+  //   p_short=0;
+  // }
+  // if(z_k==z_max){
+  //   p_max=1;
+  // }
+  // else{
+  //   p_max=0;
+  // }
+  // p=z_hit*p_hit+z_short*p_short+z_max*p_max+z_rand*p_rand;
+  // q=q*p;
+  // printf("Sensor model complete \n");
   // printf("u_norm_dist \n");
   // printf("%f",u_norm_dist);
   //Implement Failures(max range error)
+  return q;
 }
 
  intrinsic_parameters(state_type p_state,map_type map){

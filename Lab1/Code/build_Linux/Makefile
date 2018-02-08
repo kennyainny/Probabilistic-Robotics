@@ -123,6 +123,33 @@ lab1/fast:
 	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/build
 .PHONY : lab1/fast
 
+src/distribution.o: src/distribution.c.o
+
+.PHONY : src/distribution.o
+
+# target to build an object file
+src/distribution.c.o:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/distribution.c.o
+.PHONY : src/distribution.c.o
+
+src/distribution.i: src/distribution.c.i
+
+.PHONY : src/distribution.i
+
+# target to preprocess a source file
+src/distribution.c.i:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/distribution.c.i
+.PHONY : src/distribution.c.i
+
+src/distribution.s: src/distribution.c.s
+
+.PHONY : src/distribution.s
+
+# target to generate assembly for a file
+src/distribution.c.s:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/distribution.c.s
+.PHONY : src/distribution.c.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -294,6 +321,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... lab1"
+	@echo "... src/distribution.o"
+	@echo "... src/distribution.i"
+	@echo "... src/distribution.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -8,6 +8,10 @@
 
 /home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
 
+/home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/src/distribution.h
+def_type.h
+/home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
+
 /home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/src/main.cpp
 main.hpp
 /home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/src/main.hpp
@@ -71,6 +75,8 @@ motion.hpp
 /home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/src/sensor.h
 def_type.h
 /home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
+distribution.h
+/home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/src/distribution.h
 
 /home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/src/visualize.cpp
 visualize.hpp

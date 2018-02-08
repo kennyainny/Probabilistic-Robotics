@@ -15,21 +15,19 @@ int main(int argc, char *argv[])
 	read_beesoft_map(argv[1], &map); //store map data in map variable
 	prob_visualize(map);
 
-
- 	sensor_type sensor;
-	particle_type particle;
-	//state_type state;
 	read_beesoft_sensor(argv[2], &sensor); //store sensor data in sensor variable
-
 
 	particle_initialize(map, &particle);
 	printf("%f\n", particle.state[1].x);
 	printf("%f\n", particle.state[1].y);
 	printf("%f\n", particle.state[1].theta);
+<<<<<<< HEAD
 	intrinsic_parameters(map,particle.state[1]);
 	// z_ks(map, particle.state[1]);
 
 
+=======
+>>>>>>> 7a7f86aee842cc95fd68d061d5cead550cbd33a8
 
 	//Loop should be started here
 	// particle_filter(particle, sensor.laser[0], sensor.odometry[0], sensor.odometry[1]);
