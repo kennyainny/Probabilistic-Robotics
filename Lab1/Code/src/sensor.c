@@ -4,10 +4,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-void z_ks(map_type map, state_type p_state){
-//don't know if this is the best place to put it since whole program may iterate
-float p_hit=0,q=1;
-
 float z_ks(map_type map, state_type p_state){
 
   float val,z_kp;
@@ -55,55 +51,39 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
   int z;
   z = 0;
 
-    // assume for now
-  param.z_hit[z] = 0.25;
-  param.z_short[z] = 0.25;
-  param.z_max[z] = 0.25;
-  param.z_rand[z] = 0.25;
-  param.lamb_short[z] = 1;
-  param.sig_hit[z] = 1;
-
-  // if (z_k>=0 && z_k<=z_max ){
-  //   u_norm_dist=(1/sqrt(2*M_PI*sig_hit)*exp(-0.5*pow((z_k-z_kp),2)/(pow(sig_hit,2))));
-  //   p_hit=u_norm_dist+p_hit;
-  //   p_rand=1/z_max;
-  // }
-  // else {
-  //   p_hit=0;
-  //   p_rand=0;
-  // }
-  // if (z_k>=0 && z_k<=z_kp){
-  //   normalizer_uo=1/(1-exp(-lamb_short*z_kp));
-  //   p_short=normalizer_uo*lamb_short*exp(exp(-lamb_short*z_k));
-  // }
-  // else{
-  //   p_short=0;
-  // }
-  // if(z_k==z_max){
-  //   p_max=1;
-  // }
-  // else{
-  //   p_max=0;
-  // }
-  // p=z_hit*p_hit+z_short*p_short+z_max*p_max+z_rand*p_rand;
-  // q=q*p;
-  // printf("Sensor model complete \n");
-  // printf("u_norm_dist \n");
-  // printf("%f",u_norm_dist);
-  //Implement Failures(max range error)
   return q;
 }
 
- intrinsic_parameters(state_type p_state,map_type map){
+intrinsic_param_type intrinsic_parameters(state_type p_state,map_type map,sensor_type sensor){
   float omicron[6];
-  float eta;
+  float eta,e_hit,e_short,e_max,e_rand,z_hit,z_short,z_max,z_rand,z_sum,big_z;
+  int j, k=0,i;
   z_ks(map,p_state);
+  for (i=0;i<=180*sensor.laser_count;i=i+1){
+  eta=normal_dist()+exp_dist()+narrow_uniform_dist()+uniform_dist();
+  e_hit[i]=eta*norm_dist();
+  e_short[i]=eta*exp_dist();
+  e_max[i]=eta*narrow_uniform_dist();
+  e_rand[i]=eta*uniform_dist();
+  z_sum=pow(sensor.laser[j].r[k],2)+sum;
+  k=k+1;
+  if (k>=180){
+    k=0;
+    j=j+1;
+  }
 
+  }
+  big_z=sqrt(z_sum);
+  z_hit=1
+
+  // printf("Big Z\n");
+  // printf("%i\n",big_z);
 
 
 
 return omicron;
 }
+
 void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)
 {
   // sensor->laser = (laser_type *)malloc(size_l);
