@@ -9,11 +9,8 @@ extern "C"
 }
 
 #include "visualize.hpp"
-// <<<<<<< HEAD
-// #include "sensormodel.hpp"
-// =======
 #include "motion.hpp"
 #include "particle.hpp"
-// >>>>>>> 111a32577c082f47bc612f969dbebf1df6f420c9
+
 
 #endif /* MAIN_HPP */
