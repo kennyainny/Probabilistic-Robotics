@@ -1,4 +1,4 @@
-#include <sensor.h>
+#include "sensor.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -10,13 +10,13 @@
 float p_hit=0,q=1;
 
 //Must imput range scan, robot pose and map
-void z_ks(map_type *map, state_type p_state){
-  printf( "%d\n",map.max_x);
+void z_ks(map_type map, state_type p_state){
+  //printf( "%d\n",map.max_x);
   printf("break \n");
-  sizeof(map);
-  printf("break \n");
-  printf("%f\n",p_state);
-  printf("z_ks calculated \n");
+  printf("%f\n",*map.prob[3]);
+  // printf("break \n");
+  // printf("%f\n",p_state);
+  // printf("z_ks calculated \n");
 
   
 }
