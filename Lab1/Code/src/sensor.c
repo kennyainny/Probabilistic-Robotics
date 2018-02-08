@@ -4,16 +4,8 @@
 #include <stdlib.h>
 #include <math.h>
 
-<<<<<<< HEAD
+
 void z_ks(map_type map, state_type p_state){
-=======
-
-
-//don't know if this is the best place to put it since whole program may iterate
-float p_hit=0,q=1;
-
-float z_ks(map_type map, state_type p_state){
->>>>>>> 119773e64978b25beeb279f586b42e5e36273cae
   float val,z_kp;
   int x_test,y_test,x,y;
   float r=0.1;
@@ -86,12 +78,12 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
   z = 0;
 
     // assume for now
-  param.z_hit[z] = 0.25;
-  param.z_short[z] = 0.25;
-  param.z_max[z] = 0.25;
-  param.z_rand[z] = 0.25;
-  param.lamb_short[z] = 1;
-  param.sig_hit[z] = 1;
+  // param.z_hit[z] = 0.25;
+  // param.z_short[z] = 0.25;
+  // param.z_max[z] = 0.25;
+  // param.z_rand[z] = 0.25;
+  // param.lamb_short[z] = 1;
+  // param.sig_hit[z] = 1;
 
   // if (z_k>=0 && z_k<=z_max ){
   //   u_norm_dist=(1/sqrt(2*M_PI*sig_hit)*exp(-0.5*pow((z_k-z_kp),2)/(pow(sig_hit,2))));

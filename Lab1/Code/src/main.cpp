@@ -15,8 +15,10 @@ int main(int argc, char *argv[])
 	read_beesoft_map(argv[1], &map); //store map data in map variable
 	prob_visualize(map);
 
+	sensor_type sensor;
 	read_beesoft_sensor(argv[2], &sensor); //store sensor data in sensor variable
 
+	particle_type particle;
 	particle_initialize(map, &particle);
 	printf("%f\n", particle.state[1].x);
 	printf("%f\n", particle.state[1].y);
