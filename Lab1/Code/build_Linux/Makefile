@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code"
+CMAKE_SOURCE_DIR = /home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux"
+CMAKE_BINARY_DIR = /home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/build_Linux
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles" "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/build_Linux/CMakeFiles /home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/build_Linux/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/thanakorn/OneDrive/Graduate/Spring2018/Statistical Techniques in Robotics/Lab/Lab1/Code/build_Linux/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/build_Linux/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -177,6 +177,60 @@ src/map.c.s:
 	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/map.c.s
 .PHONY : src/map.c.s
 
+src/motion.o: src/motion.cpp.o
+
+.PHONY : src/motion.o
+
+# target to build an object file
+src/motion.cpp.o:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/motion.cpp.o
+.PHONY : src/motion.cpp.o
+
+src/motion.i: src/motion.cpp.i
+
+.PHONY : src/motion.i
+
+# target to preprocess a source file
+src/motion.cpp.i:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/motion.cpp.i
+.PHONY : src/motion.cpp.i
+
+src/motion.s: src/motion.cpp.s
+
+.PHONY : src/motion.s
+
+# target to generate assembly for a file
+src/motion.cpp.s:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/motion.cpp.s
+.PHONY : src/motion.cpp.s
+
+src/particle.o: src/particle.cpp.o
+
+.PHONY : src/particle.o
+
+# target to build an object file
+src/particle.cpp.o:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/particle.cpp.o
+.PHONY : src/particle.cpp.o
+
+src/particle.i: src/particle.cpp.i
+
+.PHONY : src/particle.i
+
+# target to preprocess a source file
+src/particle.cpp.i:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/particle.cpp.i
+.PHONY : src/particle.cpp.i
+
+src/particle.s: src/particle.cpp.s
+
+.PHONY : src/particle.s
+
+# target to generate assembly for a file
+src/particle.cpp.s:
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/particle.cpp.s
+.PHONY : src/particle.cpp.s
+
 src/sensor.o: src/sensor.c.o
 
 .PHONY : src/sensor.o
@@ -246,6 +300,12 @@ help:
 	@echo "... src/map.o"
 	@echo "... src/map.i"
 	@echo "... src/map.s"
+	@echo "... src/motion.o"
+	@echo "... src/motion.i"
+	@echo "... src/motion.s"
+	@echo "... src/particle.o"
+	@echo "... src/particle.i"
+	@echo "... src/particle.s"
 	@echo "... src/sensor.o"
 	@echo "... src/sensor.i"
 	@echo "... src/sensor.s"
