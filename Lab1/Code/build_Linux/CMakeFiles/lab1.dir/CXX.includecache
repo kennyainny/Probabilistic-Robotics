@@ -17,6 +17,8 @@ stdio.h
 -
 opencv2/opencv.hpp
 -
+algorithm
+-
 
 /home/thanakorn/Documents/Probabilistic-Robotics/Lab1/Code/src/main.hpp
 def_type.h

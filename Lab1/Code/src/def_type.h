@@ -35,6 +35,11 @@ typedef struct {
 } sensor_type;
 
 typedef struct {
+  // cover all possible z*
+  float z_hit[9000];
+} intrinsic_param_type;
+
+typedef struct {
   state_type *state;
   float *prob;
   long unsigned int particle_count;

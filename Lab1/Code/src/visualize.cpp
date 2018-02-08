@@ -16,8 +16,8 @@ void prob_visualize(map_type map){
    	for(int j = 0; j <= map.size_y-1; j++){
    		// printf("%.2f ",map.prob[i][j]);
 
-         if(map.prob[i][j] > 0){
-            ptr[j] = map.prob[i][j];
+         if(map.prob[j][i] > 0){
+            ptr[j] = map.prob[j][i];
          }
 
    	}
