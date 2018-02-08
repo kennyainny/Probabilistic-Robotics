@@ -23,6 +23,8 @@ set(SOURCE_FILES
 	${PROJECT_SOURCE_DIR}/src/map.h
 	${PROJECT_SOURCE_DIR}/src/sensor.c
 	${PROJECT_SOURCE_DIR}/src/sensor.h
+	${PROJECT_SOURCE_DIR}/src/distribution.c
+	${PROJECT_SOURCE_DIR}/src/distribution.h
 	${PROJECT_SOURCE_DIR}/src/visualize.cpp
 	${PROJECT_SOURCE_DIR}/src/visualize.hpp
 	${PROJECT_SOURCE_DIR}/src/motion.cpp

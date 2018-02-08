@@ -36,7 +36,8 @@ typedef struct {
 
 typedef struct {
   // cover all possible z*
-  float z_hit[9000];
+  float z_hit[9000], z_short[9000], z_max[9000], z_rand[9000];
+  float sig_hit[9000], lamb_short[9000];
 } intrinsic_param_type;
 
 typedef struct {
