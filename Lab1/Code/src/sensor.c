@@ -9,15 +9,59 @@
 //don't know if this is the best place to put it since whole program may iterate
 float p_hit=0,q=1;
 
-//Must imput range scan, robot pose and map
 void z_ks(map_type map, state_type p_state){
-  //printf( "%d\n",map.max_x);
-  printf("break \n");
-  printf("%f\n",*map.prob[3]);
-  // printf("break \n");
-  // printf("%f\n",p_state);
-  // printf("z_ks calculated \n");
+  float val,z_kp;
+  int x_test,y_test,x,y;
+  float r=0.1;
+  val=M_PI/180.0;
+  printf("Intial position \n");
+  printf("%f\n",p_state.x);
+  printf("%f\n",p_state.y);
+  printf("%f\n",p_state.theta);
+  printf("Probability\n");
+  x=(int)p_state.x;
+  y=(int)p_state.y;
+  printf("%f\n",map.prob[x][y]);
+ 
 
+
+  while (r<=5){
+  x_test=round(p_state.x+r*cos(p_state.theta*val));
+  y_test=round(p_state.y+r*sin(p_state.theta*val));
+  if (map.prob[x_test][y_test]<1 && map.prob[x_test][y_test] !=-1 && x_test!=p_state.x && y_test!=p_state.y){
+    printf("Filled X and Y \n");
+    printf("%i\n",x_test);
+    printf("%i\n",y_test);
+    printf("zk*\n");
+    z_kp=sqrt(x_test^2+y_test^2);
+    printf("%f\n",z_kp);
+    break;
+  }
+  r=r+0.5;
+  }
+
+  printf("break \n");
+
+  // printf("%f\n",p_state.theta);
+  
+  //Cycle through entire map to see which spaces do not have probability of 100 of being filled
+  // int i=0,j=0,k=0;
+  // int space_x[799];
+  // int space_y[790];
+  // for(int i = 0; i <= map.size_x-1; i++){
+  //   for(int j = 0; j <= map.size_y-1; j++){
+  //     if(map.prob[i][j] > -1.0 && map.prob[i][j] < 1.0){
+  //       space_x[k]=i;
+  //       space_y[k]=j;
+  //       k=k+1;
+  //     }
+  //   }
+  // }
+
+
+  // printf("%i\n",space_x[0]); //map size is 800 by 800 (799,799)
+  // printf("%i\n",space_y[0]);
+  //printf("%i\n",p_state.theta[0]);
   
 }
 void sensor_model(map_type map){//,laser_type laser,state_type p_state){
