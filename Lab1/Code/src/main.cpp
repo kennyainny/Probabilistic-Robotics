@@ -23,6 +23,11 @@ int main(int argc, char *argv[])
 	printf("%f\n", particle.state[1].x);
 	printf("%f\n", particle.state[1].y);
 	printf("%f\n", particle.state[1].theta);
+	intrinsic_parameters(particle.state[1],map,sensor);
+	// z_ks(map, particle.state[1]);
+
+
+
 
 	//Loop should be started here
 	// particle_filter(particle, sensor.laser[0], sensor.odometry[0], sensor.odometry[1]);

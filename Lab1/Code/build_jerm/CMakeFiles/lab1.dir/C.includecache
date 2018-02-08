@@ -8,6 +8,22 @@
 
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
 
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/distribution.c
+distribution.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/distribution.h
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+math.h
+-
+
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/distribution.h
+def_type.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
+
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/map.c
 map.h
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/map.h
@@ -37,4 +53,6 @@ math.h
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensor.h
 def_type.h
 /home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
+distribution.h
+/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/distribution.h
 
