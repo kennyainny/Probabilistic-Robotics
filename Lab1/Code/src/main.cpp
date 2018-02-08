@@ -26,7 +26,8 @@ int main(int argc, char *argv[])
 	printf("%f\n", particle.state[1].x);
 	printf("%f\n", particle.state[1].y);
 	printf("%f\n", particle.state[1].theta);
-	z_ks(map, particle.state[1]);
+	intrinsic_parameters(map,particle.state[1]);
+	// z_ks(map, particle.state[1]);
 
 
 

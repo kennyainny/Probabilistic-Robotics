@@ -21,11 +21,7 @@ float z_ks(map_type map, state_type p_state){
   // printf("%i\n",y);
   // printf("%f\n",p_state.theta);
   // printf("Probability\n");
- 
   // printf("%f\n",map.prob[x][y]);
- 
-
-
   while (r<=82000){
   x_test=round(p_state.x+r*cos(p_state.theta*val));
   y_test=round(p_state.y+r*sin(p_state.theta*val));
@@ -46,30 +42,9 @@ float z_ks(map_type map, state_type p_state){
   }
   r=r+0.5;
   }
-
   printf("break \n");
 return z_kp;
-  // printf("%f\n",p_state.theta);
-  
-  //Cycle through entire map to see which spaces do not have probability of 100 of being filled
-  // int i=0,j=0,k=0;
-  // int space_x[799];
-  // int space_y[790];
-  // for(int i = 0; i <= map.size_x-1; i++){
-  //   for(int j = 0; j <= map.size_y-1; j++){
-  //     if(map.prob[i][j] > -1.0 && map.prob[i][j] < 1.0){
-  //       space_x[k]=i;
-  //       space_y[k]=j;
-  //       k=k+1;
-  //     }
-  //   }
-  // }
 
-
-  // printf("%i\n",space_x[0]); //map size is 800 by 800 (799,799)
-  // printf("%i\n",space_y[0]);
-  //printf("%i\n",p_state.theta[0]);
-  
 }
 void sensor_model(map_type map){//,laser_type laser,state_type p_state){
   // for each given xi, z* will be changed
@@ -115,6 +90,16 @@ void sensor_model(map_type map){//,laser_type laser,state_type p_state){
   //Implement Failures(max range error)
 }
 
+ intrinsic_parameters(state_type p_state,map_type map){
+  float omicron[6];
+  float eta;
+  z_ks(map,p_state);
+
+
+
+
+return omicron;
+}
 void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)
 {
   // sensor->laser = (laser_type *)malloc(size_l);
