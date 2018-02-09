@@ -22,7 +22,7 @@ float exp_dist(float x, float x_max, float lambda){
 	}
 	n = 1/(1 - exp(-lambda*x_max));
 	return n*p;
-};
+}; // x_max = z*
 
 float narrow_uniform_dist(float x, float x_max, float range){
 	float p = 0;

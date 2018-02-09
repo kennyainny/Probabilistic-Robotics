@@ -11,7 +11,7 @@ extern "C"
 
 void new_hornetsoft_particle(particle_type *particle, long unsigned int size_p);
 void particle_initialize(map_type map, particle_type *particle);
-particle_type particle_filter(particle_type p_particle, laser_type laser, odometry_type p_odometry, odometry_type odometry);
+particle_type particle_filter(particle_type p_particle, laser_type laser, odometry_type p_odometry, odometry_type odometry, map_type map, intrinsic_param_type param);
 state_type expected_state(particle_type particle);
 
 #endif /* PARTICLE_H */
