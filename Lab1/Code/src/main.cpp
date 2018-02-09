@@ -23,9 +23,10 @@ int main(int argc, char *argv[])
 	printf("%f\n", particle.state[1].x);
 	printf("%f\n", particle.state[1].y);
 	printf("%f\n", particle.state[1].theta);
-
+	float z;
+	calc_z_star_array(particle,&z,map);
 	intrinsic_param_type param;
-	intrinsic_parameters(particle.state[1],map,sensor,&param);
+	intrinsic_parameters(particle.state[1],map,sensor,&param,&z);
 	// z_ks(map, particle.state[1]);
 
 

@@ -92,30 +92,40 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
   return q;
 }
 
-void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, intrinsic_param_type *param){
-  // float omicron[6];
-  // float eta,e_hit,e_short,e_max,e_rand,z_hit,z_short,z_max,z_rand,z_sum,big_z;
-  // int j, k=0,i;
-  // z_ks(map,p_state);
-  // for (i=0;i<=180*sensor.laser_count;i=i+1){
-  // eta=normal_dist()+exp_dist()+narrow_uniform_dist()+uniform_dist();
-  // e_hit[i]=eta*norm_dist();
-  // e_short[i]=eta*exp_dist();
-  // e_max[i]=eta*narrow_uniform_dist();
-  // e_rand[i]=eta*uniform_dist();
-  // z_sum=pow(sensor.laser[j].r[k],2)+sum;
-  // k=k+1;
-  // if (k>=180){
-  //   k=0;
-  //   j=j+1;
-  // }
+void calc_z_star_array(particle_type particle, float *z,map_type map){
+  int i;
+  for(i=0;i<=particle.particle_count;i=i+1){
+    z[i]=z_ks(map, particle.state[i]);
+  }
+}
 
-  // }
-  // big_z=sqrt(z_sum);
-  // z_hit=1
+void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, intrinsic_param_type *param,float *z){
+  int size_z = 9999; //sizeof(z)/sizeof(z[0]);
+  float omicron[6],e_hit[size_z],e_short[size_z],e_max[size_z],e_rand[size_z];
+  float eta,z_hit,z_short,z_max,z_rand,z_sum=0,big_z,sig,lambda;
+  lambda=1;
+  int j, k=0,i;
+  
+  for (i=0;i<=size_z;i=i+1){
+  //make another for loop
+  eta=normal_dist(sensor.laser[i].r[i],9000,z[i],sig)+exp_dist(sensor.laser[i].r[i],z[i],lambda)+narrow_uniform_dist(sensor.laser[i].r[i],9000,z[i])+uniform_dist(sensor.laser[i].r[i],9000);
+  e_hit[i]=eta*normal_dist(sensor.laser[i].r[i],9000,z[i],sig);
+  e_short[i]=eta*exp_dist(sensor.laser[i].r[i],z[i],lambda);
+  e_max[i]=eta*narrow_uniform_dist(sensor.laser[i].r[i],9000,z[i]);
+  e_rand[i]=eta*uniform_dist(sensor.laser[i].r[i],9000);
+  z_sum=pow(sensor.laser[j].r[k],2)+z_sum;
+  k=k+1;
+  if (k>=180){
+    k=0;
+    j=j+1;
+  }
 
-  // printf("Big Z\n");
-  // printf("%i\n",big_z);
+  }
+  big_z=sqrt(z_sum);
+  z_hit=1;
+
+  printf("Big Z\n");
+  printf("%f\n",big_z);
   int z_s = 0;
   param->z_hit[z_s] = 0;
 }
