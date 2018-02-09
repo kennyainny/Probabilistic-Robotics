@@ -4,92 +4,82 @@
 #include <stdlib.h>
 #include <math.h>
 
-float z_ks(map_type map, state_type p_state){
+float z_ks(map_type map, state_type state){
 
-  float val,z_kp;
   int x_test,y_test,x,y;
-  float r=0.1;
-  val=M_PI/180.0;
-  x=(int)p_state.x;
-  y=(int)p_state.y;
+  float r = 0.1, z_kp;
+  x = (int)state.x;
+  y = (int)state.y;
   // printf("Intial position \n");
   // printf("%i\n",x);
   // printf("%i\n",y);
   // printf("%f\n",p_state.theta);
   // printf("Probability\n");
   // printf("%f\n",map.prob[x][y]);
-  while (r<=82000){
-  x_test=round(p_state.x+r*cos(p_state.theta*val));
-  y_test=round(p_state.y+r*sin(p_state.theta*val));
+  while (r <= MAX_LASER){
+    x_test = round(state.x + r*cos(state.theta));
+    y_test = round(state.y + r*sin(state.theta));
   // printf("**********Point*******\n");
   // printf("%d\n",x_test);
   // printf("%d\n",y_test);
   // printf("%f\n",map.prob[x_test][y_test]);
-  if (map.prob[x_test][y_test]==1 ){
+    if (map.prob[x_test][y_test] == 1){
     // printf("Filled X and Y \n");
     // printf("%i\n",x_test);
     // printf("%i\n",y_test);
     // printf("Filled Probability \n");
     // printf("%f\n",map.prob[x_test][y_test]);
-    printf("zk*\n");
-    z_kp=sqrt(pow((x-x_test),2)+pow((y-y_test),2));
-    printf("%f\n",z_kp);
-    break;
-  }
-  r=r+0.5;
+      printf("zk*\n");
+      z_kp = sqrt(pow((x-x_test),2) + pow((y-y_test),2));
+      printf("%f\n",z_kp);
+      break;
+    }
+    r = r + 0.5;
   }
   printf("break \n");
-return z_kp;
-
-
+  return z_kp;
 }
 
 float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_param_type param){
   // for each given xi, z* will be changed
-  // z_kp, z_k and sig_hit should be dynamic variables that change each iteration
-  float q = 1, p;
-  int z;
-  z = 0;
+  printf("aaa");
+  float q = 1, p, z;
 
+  int zks, range = 1;  
 
-  // assume for now
-  param.z_hit[z] = 0.25;
-  param.z_short[z] = 0.25;
-  param.z_max[z] = 0.25;
-  param.z_rand[z] = 0.25;
-  param.lamb_short[z] = 1;
-  param.sig_hit[z] = 1;
+  float z_hit, z_short, z_max, z_rand, sig_hit, lamb_short;
+  float p_hit, p_short, p_max, p_rand;
 
-  // if (z_k>=0 && z_k<=z_max ){
-  //   u_norm_dist=(1/sqrt(2*M_PI*sig_hit)*exp(-0.5*pow((z_k-z_kp),2)/(pow(sig_hit,2))));
-  //   p_hit=u_norm_dist+p_hit;
-  //   p_rand=1/z_max;
-  // }
-  // else {
-  //   p_hit=0;
-  //   p_rand=0;
-  // }
-  // if (z_k>=0 && z_k<=z_kp){
-  //   normalizer_uo=1/(1-exp(-lamb_short*z_kp));
-  //   p_short=normalizer_uo*lamb_short*exp(exp(-lamb_short*z_k));
-  // }
-  // else{
-  //   p_short=0;
-  // }
-  // if(z_k==z_max){
-  //   p_max=1;
-  // }
-  // else{
-  //   p_max=0;
-  // }
-  // p=z_hit*p_hit+z_short*p_short+z_max*p_max+z_rand*p_rand;
-  // q=q*p;
-  // printf("Sensor model complete \n");
-  // printf("u_norm_dist \n");
-  // printf("%f",u_norm_dist);
-  //Implement Failures(max range error)
+  for(int i = 0; i < 180; i++){
+    zks = (int)z_ks(map, state);    
 
-  return q;
+    // assume for now
+    // zks = 0;
+    param.z_hit[zks] = 0.25;
+    param.z_short[zks] = 0.25;
+    param.z_max[zks] = 0.25;
+    param.z_rand[zks] = 0.25;
+    param.lamb_short[zks] = 1;
+    param.sig_hit[zks] = 1;
+
+    z = laser.r[i];
+
+    z_hit = param.z_hit[zks];
+    z_short = param.z_short[zks];
+    z_max = param.z_max[zks];
+    z_rand = param.z_rand[zks];
+    lamb_short = param.lamb_short[zks];
+    sig_hit = param.sig_hit[zks];
+
+    p_hit = normal_dist(z, MAX_LASER, zks, sig_hit);
+    p_short = exp_dist(z, zks, lamb_short);
+    p_max = narrow_uniform_dist(z, MAX_LASER, range);
+    p_rand = uniform_dist(z, MAX_LASER);
+
+    p = z_hit*p_hit + z_short*p_short + z_max*p_max + z_rand*p_rand;
+    q = q*p;
+  }
+  return pow(q,1/180);
 }
 
 void calc_z_star_array(particle_type particle, float *z,map_type map){
@@ -128,6 +118,17 @@ void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, 
   printf("%f\n",big_z);
   int z_s = 0;
   param->z_hit[z_s] = 0;
+}
+
+void intrinsic_parameters_initialize(intrinsic_param_type *param){
+  for(int i = 0; i < MAX_LASER; i++){
+    param->z_hit[i] = 0.25;
+    param->z_short[i] = 0.25;
+    param->z_max[i] = 0.25;
+    param->z_rand[i] = 0.25;
+    param->sig_hit[i] = 1.0;
+    param->lamb_short[i] = 0.5;
+  }
 }
 
 void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)
@@ -217,6 +218,6 @@ int read_beesoft_sensor(char *sensorName, sensor_type *sensor)
   }
   // printf("%d %d\n", sensor->laser_count, sensor->odometry_count);
   fclose(fp);
-  printf("Complete Sensor Usage \n");
+  printf("Complete Reading Sensor\n");
   return 0;
 }

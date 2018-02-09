@@ -49,13 +49,13 @@ void particle_initialize(map_type map, particle_type *particle){
 			}
 		}
 	}
-	// printf("%e\n", particle->prob[count_p-1]);	
+	// printf("%e\n", particle->prob[1]);
 }
 
-particle_type particle_filter(particle_type p_particle, laser_type laser, odometry_type p_odometry, odometry_type odometry)
+particle_type particle_filter(particle_type p_particle, laser_type laser, odometry_type p_odometry, odometry_type odometry, map_type map, intrinsic_param_type param)
 {	//each particle possesses a state (x, y, theta) and its own prob
 	
-	printf("Number of particles %lu\n", p_particle.particle_count);
+	// printf("Number of particles %lu\n", p_particle.particle_count);
 
 	long unsigned int n = p_particle.particle_count;
 	float *weight = (float *)calloc(n, sizeof(float));
@@ -69,13 +69,15 @@ particle_type particle_filter(particle_type p_particle, laser_type laser, odomet
 
 	for(long unsigned int i = 0; i < n; i++){
 		temp_particle.state[i] = sample_motion_model_odometry(p_odometry, odometry, p_particle.state[i]);
-		// printf("%lu %lu %e\n", n, i, p_particle.prob[i]);
-		weight[i] = 0.5; //need an update from sensor model, which is a function of temp_particle.state[i] and odometry
+		printf("%lu %lu %e\n", n, i, p_particle.prob[i]);
+		printf("%f %f %f\n", p_particle.state[i].x, p_particle.state[i].y, p_particle.state[i].theta);
+		printf("%f %f %f\n", temp_particle.state[i].x, temp_particle.state[i].y, temp_particle.state[i].theta);
+		weight[i] = sensor_model(laser, temp_particle.state[i], map, param);
 		sum_weight = sum_weight + weight[i]; //its summation needs not to be one yet!
 	}
-	printf("%f %f\n", temp_particle.state[0].x, p_particle.state[0].x);
-	printf("%f %f\n", temp_particle.state[1].x, p_particle.state[1].x);
-	printf("%f %f\n", temp_particle.state[2000].x, p_particle.state[2000].x);
+	// printf("%f %f\n", temp_particle.state[0].x, p_particle.state[0].x);
+	// printf("%f %f\n", temp_particle.state[1].x, p_particle.state[1].x);
+	// printf("%f %f\n", temp_particle.state[2000].x, p_particle.state[2000].x);
 	// printf("%lu, %f\n", n, sum_weight);
 
 	for(long unsigned int i = 0; i < n; i++){

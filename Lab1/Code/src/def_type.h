@@ -4,6 +4,7 @@
 #define PI    3.14159265359f
 #define DEG(rad)  (rad*180.0/PI)
 #define RAD(deg)  (deg*PI/180.0)
+#define MAX_LASER 8200
 
 typedef struct {
   float x, y, theta;
@@ -36,8 +37,8 @@ typedef struct {
 
 typedef struct {
   // cover all possible z*
-  float z_hit[9000], z_short[9000], z_max[9000], z_rand[9000];
-  float sig_hit[9000], lamb_short[9000];
+  float z_hit[MAX_LASER], z_short[MAX_LASER], z_max[MAX_LASER], z_rand[MAX_LASER];
+  float sig_hit[MAX_LASER], lamb_short[MAX_LASER];
 } intrinsic_param_type;
 
 typedef struct {
