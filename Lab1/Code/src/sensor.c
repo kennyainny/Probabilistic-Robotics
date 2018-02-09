@@ -92,27 +92,37 @@ void calc_z_star_array(particle_type particle, float *z,map_type map){
 void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, intrinsic_param_type *param,float *z){
   int size_z = 9999; //sizeof(z)/sizeof(z[0]);
   float omicron[6],e_hit[size_z],e_short[size_z],e_max[size_z],e_rand[size_z];
-  float eta,z_hit,z_short,z_max,z_rand,z_sum=0,big_z,sig,lambda;
+  float eta,z_hit,z_short,z_max,z_rand,z_sum=0,big_z,sig,lambda,e_hit_sum=0,e_short_sum=0,e_max_sum=0,e_rand_sum=0;
   lambda=1;
   int j, k=0,i;
   
   for (i=0;i<=size_z;i=i+1){
-  //make another for loop
-  eta=normal_dist(sensor.laser[i].r[i],9000,z[i],sig)+exp_dist(sensor.laser[i].r[i],z[i],lambda)+narrow_uniform_dist(sensor.laser[i].r[i],9000,z[i])+uniform_dist(sensor.laser[i].r[i],9000);
-  e_hit[i]=eta*normal_dist(sensor.laser[i].r[i],9000,z[i],sig);
-  e_short[i]=eta*exp_dist(sensor.laser[i].r[i],z[i],lambda);
-  e_max[i]=eta*narrow_uniform_dist(sensor.laser[i].r[i],9000,z[i]);
-  e_rand[i]=eta*uniform_dist(sensor.laser[i].r[i],9000);
-  z_sum=pow(sensor.laser[j].r[k],2)+z_sum;
-  k=k+1;
-  if (k>=180){
-    k=0;
-    j=j+1;
-  }
+    //make another for loop
+    eta=normal_dist(sensor.laser[j].r[k],9000,z[i],sig)+exp_dist(sensor.laser[i].r[i],z[i],lambda)+narrow_uniform_dist(sensor.laser[i].r[i],9000,z[i])+uniform_dist(sensor.laser[i].r[i],9000);
+    e_hit[i]=eta*normal_dist(sensor.laser[j].r[k],9000,z[i],sig);
+    e_short[i]=eta*exp_dist(sensor.laser[j].r[k],z[i],lambda);
+    e_max[i]=eta*narrow_uniform_dist(sensor.laser[j].r[k],9000,z[i]);
+    e_rand[i]=eta*uniform_dist(sensor.laser[j].r[k],9000);
+    z_sum=pow(sensor.laser[j].r[k],2)+z_sum;
+    e_hit_sum=e_hit[i]+e_hit_sum;
+    e_short_sum=e_short[i]+e_short_sum;
+    e_max_sum=e_max[i]+e_max_sum;
+    e_rand_sum=e_rand[i]+e_rand_sum;
+    k=k+1;
+      if (k>=180){
+        k=0;
+        j=j+1;
+      }
 
   }
   big_z=sqrt(z_sum);
-  z_hit=1;
+  z_hit=(1/big_z)*e_hit_sum;
+  z_short=(1/big_z)*e_short_sum;
+  z_max=(1/big_z)*e_max_sum;
+  z_rand=(1/big_z)*e_max_rand;
+
+  sig_hit=sqrt((1/e_hit_sum)*e_hit_sum*pow(,2)) //how do i access z?
+  lambda=(e_short_sum/(e_short_sum*z));
 
   printf("Big Z\n");
   printf("%f\n",big_z);
