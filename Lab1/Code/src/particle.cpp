@@ -19,7 +19,7 @@ void particle_initialize(map_type map, particle_type *particle){
 
 	long unsigned int count_p = 0;
 	int theta_interval = 45; //every 1 deg is too much
-	int theta_number = 360/theta_interval;
+	int theta_number = 360;
 
 	for(int i = 0; i <= map.size_x-1; i++){
 		for(int j = 0; j <= map.size_y-1; j++){
@@ -43,7 +43,10 @@ void particle_initialize(map_type map, particle_type *particle){
 					particle->prob[count_p] = 1.0/particle->particle_count;
 					particle->state[count_p].x = i;
 					particle->state[count_p].y = j;
-					particle->state[count_p].theta = k;
+					particle->state[count_p].theta = RAD(k);
+					if(particle->state[count_p].theta > PI){
+						particle->state[count_p].theta = particle->state[count_p].theta - 2*PI;
+					}
 					count_p = count_p + 1;
 				}
 			}
@@ -67,12 +70,14 @@ particle_type particle_filter(particle_type p_particle, laser_type laser, odomet
 	new_hornetsoft_particle(&particle, n);
 	new_hornetsoft_particle(&temp_particle, n);
 
-	for(long unsigned int i = 0; i < n; i++){
+	for(long unsigned int i = 0; i < n; i++){ 
+	// int i = 0;
 		temp_particle.state[i] = sample_motion_model_odometry(p_odometry, odometry, p_particle.state[i]);
-		printf("%lu %lu %e\n", n, i, p_particle.prob[i]);
-		printf("%f %f %f\n", p_particle.state[i].x, p_particle.state[i].y, p_particle.state[i].theta);
-		printf("%f %f %f\n", temp_particle.state[i].x, temp_particle.state[i].y, temp_particle.state[i].theta);
+		// printf("%lu %lu %e\n", n, i, p_particle.prob[i]);
+		printf("p_state: %f %f %f\n", p_particle.state[i].x, p_particle.state[i].y, p_particle.state[i].theta);
+		printf("state: %f %f %f\n", temp_particle.state[i].x, temp_particle.state[i].y, temp_particle.state[i].theta);
 		weight[i] = sensor_model(laser, temp_particle.state[i], map, param);
+		printf("bbb\n");
 		sum_weight = sum_weight + weight[i]; //its summation needs not to be one yet!
 	}
 	// printf("%f %f\n", temp_particle.state[0].x, p_particle.state[0].x);
@@ -80,35 +85,35 @@ particle_type particle_filter(particle_type p_particle, laser_type laser, odomet
 	// printf("%f %f\n", temp_particle.state[2000].x, p_particle.state[2000].x);
 	// printf("%lu, %f\n", n, sum_weight);
 
-	for(long unsigned int i = 0; i < n; i++){
-		temp_particle.prob[i] = (p_particle.prob[i]*weight[i])/(sum_weight/n); //update&normalize prob
-		if(i == 0){
-			cdf_weight[i] = temp_particle.prob[i];
-		}else{
-			cdf_weight[i] = cdf_weight[i-1] + temp_particle.prob[i];
-		}
-		// printf("%e\n", cdf_weight[i]);		
-	}
+	// for(long unsigned int i = 0; i < n; i++){
+	// 	temp_particle.prob[i] = (p_particle.prob[i]*weight[i])/(sum_weight/n); //update&normalize prob
+	// 	if(i == 0){
+	// 		cdf_weight[i] = temp_particle.prob[i];
+	// 	}else{
+	// 		cdf_weight[i] = cdf_weight[i-1] + temp_particle.prob[i];
+	// 	}
+	// 	// printf("%e\n", cdf_weight[i]);		
+	// }
 	
-	particle.particle_count = n; //can be an output of another function for an adaptive particle number
+	// particle.particle_count = n; //can be an output of another function for an adaptive particle number
 
-	for(long unsigned int i = 0; i < particle.particle_count; i++){
-		float number = distribution(mtd);
-		// printf("%f\n", number);
+	// for(long unsigned int i = 0; i < particle.particle_count; i++){
+	// 	float number = distribution(mtd);
+	// 	// printf("%f\n", number);
 
-		long unsigned int j = 0;
-		if(number < cdf_weight[0]){
-			j = 0;
-		}else if(number > cdf_weight[n]){
-			j = n;
-		}else{
-			while(number - cdf_weight[j] > 0){
-				j = j + 1;
-			}
-		}
-		particle.state[i] = temp_particle.state[j];
-		particle.prob[i] = temp_particle.prob[j];
-	}
+	// 	long unsigned int j = 0;
+	// 	if(number < cdf_weight[0]){
+	// 		j = 0;
+	// 	}else if(number > cdf_weight[n]){
+	// 		j = n;
+	// 	}else{
+	// 		while(number - cdf_weight[j] > 0){
+	// 			j = j + 1;
+	// 		}
+	// 	}
+	// 	particle.state[i] = temp_particle.state[j];
+	// 	particle.prob[i] = temp_particle.prob[j];
+	// }
 
 	return particle;
 }

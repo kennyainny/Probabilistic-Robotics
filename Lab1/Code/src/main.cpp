@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 
 	intrinsic_param_type param;
 	intrinsic_parameters_initialize(&param);
-	printf("%f\n", param.z_hit[2]);
+	// printf("%f\n", param.z_hit[2]);
 	// intrinsic_parameters(particle[0].state[1], map, sensor, &param); //optimize sensor param
 	/* End Initialization */
 
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 	int j = 0;
 	for(int i = 0; i < sensor.odometry_count; i++){ //define convergent criteria later
 		if(i == 0){
-			particle[i+1] = particle_filter(particle[i], sensor.laser[j], odometry, sensor.odometry[i], map, param);
+			particle[i+1] = particle_filter(particle[i], sensor.laser[j], sensor.odometry[i], sensor.odometry[i], map, param);
 		}else{
 			if(j < sensor.laser_count && sensor.laser[j+1].ts < sensor.odometry[i].ts){
 	// 			j++;

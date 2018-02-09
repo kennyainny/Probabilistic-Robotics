@@ -5,7 +5,7 @@
 #include <math.h>
 
 float z_ks(map_type map, state_type state){
-
+  // printf("ccc");
   int x_test,y_test,x,y;
   float r = 0.1, z_kp;
   x = (int)state.x;
@@ -17,32 +17,35 @@ float z_ks(map_type map, state_type state){
   // printf("Probability\n");
   // printf("%f\n",map.prob[x][y]);
   while (r <= MAX_LASER){
+    // printf("deg %f\n", DEG(state.theta));
     x_test = round(state.x + r*cos(state.theta));
     y_test = round(state.y + r*sin(state.theta));
   // printf("**********Point*******\n");
-  // printf("%d\n",x_test);
-  // printf("%d\n",y_test);
-  // printf("%f\n",map.prob[x_test][y_test]);
-    if (map.prob[x_test][y_test] == 1){
+  // printf("x_test %d\n",x_test);
+  // printf("y_test %d\n",y_test);
+  // printf("prob %f\n",map.prob[x_test][y_test]);
+    if(x_test >= map.size_x || y_test >= map.size_y || x_test < 0 || y_test < 0){
+      z_kp = MAX_LASER;
+      break;
+    }else if (map.prob[x_test][y_test] == 1){
     // printf("Filled X and Y \n");
     // printf("%i\n",x_test);
     // printf("%i\n",y_test);
     // printf("Filled Probability \n");
     // printf("%f\n",map.prob[x_test][y_test]);
-      printf("zk*\n");
       z_kp = sqrt(pow((x-x_test),2) + pow((y-y_test),2));
-      printf("%f\n",z_kp);
+      // printf("zk*: %f\n",z_kp);
       break;
     }
     r = r + 0.5;
   }
-  printf("break \n");
+  // printf("break \n");
   return z_kp;
 }
 
 float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_param_type param){
   // for each given xi, z* will be changed
-  printf("aaa");
+  // printf("aaa");
   float q = 1, p, z;
 
   int zks, range = 1;  
@@ -50,8 +53,17 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
   float z_hit, z_short, z_max, z_rand, sig_hit, lamb_short;
   float p_hit, p_short, p_max, p_rand;
 
+  state_type temp_state = state;
+
   for(int i = 0; i < 180; i++){
-    zks = (int)z_ks(map, state);    
+    if(state.theta >= 0 && state.theta <= M_PI){
+      temp_state.theta = RAD(i);
+    }else{
+      temp_state.theta = RAD(-i);
+    }
+    
+    zks = (int)round(z_ks(map, temp_state));    
+    // printf("ddd zk*: %f %i\n",DEG(temp_state.theta) , zks);
 
     // assume for now
     // zks = 0;

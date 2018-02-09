@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/lab1.dir/src/main.cpp.o"
   "CMakeFiles/lab1.dir/src/map.c.o"
   "CMakeFiles/lab1.dir/src/sensor.c.o"
+  "CMakeFiles/lab1.dir/src/distribution.c.o"
   "CMakeFiles/lab1.dir/src/visualize.cpp.o"
   "CMakeFiles/lab1.dir/src/motion.cpp.o"
   "CMakeFiles/lab1.dir/src/particle.cpp.o"

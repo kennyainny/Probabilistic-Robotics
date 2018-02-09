@@ -129,9 +129,33 @@ CMakeFiles/lab1.dir/src/sensor.c.o.provides: CMakeFiles/lab1.dir/src/sensor.c.o.
 CMakeFiles/lab1.dir/src/sensor.c.o.provides.build: CMakeFiles/lab1.dir/src/sensor.c.o
 
 
+CMakeFiles/lab1.dir/src/distribution.c.o: CMakeFiles/lab1.dir/flags.make
+CMakeFiles/lab1.dir/src/distribution.c.o: ../src/distribution.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/build_Windows/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/lab1.dir/src/distribution.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/lab1.dir/src/distribution.c.o   -c /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/distribution.c
+
+CMakeFiles/lab1.dir/src/distribution.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/lab1.dir/src/distribution.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/distribution.c > CMakeFiles/lab1.dir/src/distribution.c.i
+
+CMakeFiles/lab1.dir/src/distribution.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/lab1.dir/src/distribution.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/distribution.c -o CMakeFiles/lab1.dir/src/distribution.c.s
+
+CMakeFiles/lab1.dir/src/distribution.c.o.requires:
+
+.PHONY : CMakeFiles/lab1.dir/src/distribution.c.o.requires
+
+CMakeFiles/lab1.dir/src/distribution.c.o.provides: CMakeFiles/lab1.dir/src/distribution.c.o.requires
+	$(MAKE) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/src/distribution.c.o.provides.build
+.PHONY : CMakeFiles/lab1.dir/src/distribution.c.o.provides
+
+CMakeFiles/lab1.dir/src/distribution.c.o.provides.build: CMakeFiles/lab1.dir/src/distribution.c.o
+
+
 CMakeFiles/lab1.dir/src/visualize.cpp.o: CMakeFiles/lab1.dir/flags.make
 CMakeFiles/lab1.dir/src/visualize.cpp.o: ../src/visualize.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/build_Windows/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lab1.dir/src/visualize.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/build_Windows/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/lab1.dir/src/visualize.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab1.dir/src/visualize.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/visualize.cpp
 
 CMakeFiles/lab1.dir/src/visualize.cpp.i: cmake_force
@@ -155,7 +179,7 @@ CMakeFiles/lab1.dir/src/visualize.cpp.o.provides.build: CMakeFiles/lab1.dir/src/
 
 CMakeFiles/lab1.dir/src/motion.cpp.o: CMakeFiles/lab1.dir/flags.make
 CMakeFiles/lab1.dir/src/motion.cpp.o: ../src/motion.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/build_Windows/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/lab1.dir/src/motion.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/build_Windows/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/lab1.dir/src/motion.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab1.dir/src/motion.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/motion.cpp
 
 CMakeFiles/lab1.dir/src/motion.cpp.i: cmake_force
@@ -179,7 +203,7 @@ CMakeFiles/lab1.dir/src/motion.cpp.o.provides.build: CMakeFiles/lab1.dir/src/mot
 
 CMakeFiles/lab1.dir/src/particle.cpp.o: CMakeFiles/lab1.dir/flags.make
 CMakeFiles/lab1.dir/src/particle.cpp.o: ../src/particle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/build_Windows/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/lab1.dir/src/particle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/build_Windows/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/lab1.dir/src/particle.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab1.dir/src/particle.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/particle.cpp
 
 CMakeFiles/lab1.dir/src/particle.cpp.i: cmake_force
@@ -206,6 +230,7 @@ lab1_OBJECTS = \
 "CMakeFiles/lab1.dir/src/main.cpp.o" \
 "CMakeFiles/lab1.dir/src/map.c.o" \
 "CMakeFiles/lab1.dir/src/sensor.c.o" \
+"CMakeFiles/lab1.dir/src/distribution.c.o" \
 "CMakeFiles/lab1.dir/src/visualize.cpp.o" \
 "CMakeFiles/lab1.dir/src/motion.cpp.o" \
 "CMakeFiles/lab1.dir/src/particle.cpp.o"
@@ -216,6 +241,7 @@ lab1_EXTERNAL_OBJECTS =
 ../bin/lab1: CMakeFiles/lab1.dir/src/main.cpp.o
 ../bin/lab1: CMakeFiles/lab1.dir/src/map.c.o
 ../bin/lab1: CMakeFiles/lab1.dir/src/sensor.c.o
+../bin/lab1: CMakeFiles/lab1.dir/src/distribution.c.o
 ../bin/lab1: CMakeFiles/lab1.dir/src/visualize.cpp.o
 ../bin/lab1: CMakeFiles/lab1.dir/src/motion.cpp.o
 ../bin/lab1: CMakeFiles/lab1.dir/src/particle.cpp.o
@@ -267,7 +293,7 @@ lab1_EXTERNAL_OBJECTS =
 ../bin/lab1: /usr/local/lib/libopencv_imgproc.so.3.4.0
 ../bin/lab1: /usr/local/lib/libopencv_core.so.3.4.0
 ../bin/lab1: CMakeFiles/lab1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/build_Windows/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable ../bin/lab1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/build_Windows/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable ../bin/lab1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -278,6 +304,7 @@ CMakeFiles/lab1.dir/build: ../bin/lab1
 CMakeFiles/lab1.dir/requires: CMakeFiles/lab1.dir/src/main.cpp.o.requires
 CMakeFiles/lab1.dir/requires: CMakeFiles/lab1.dir/src/map.c.o.requires
 CMakeFiles/lab1.dir/requires: CMakeFiles/lab1.dir/src/sensor.c.o.requires
+CMakeFiles/lab1.dir/requires: CMakeFiles/lab1.dir/src/distribution.c.o.requires
 CMakeFiles/lab1.dir/requires: CMakeFiles/lab1.dir/src/visualize.cpp.o.requires
 CMakeFiles/lab1.dir/requires: CMakeFiles/lab1.dir/src/motion.cpp.o.requires
 CMakeFiles/lab1.dir/requires: CMakeFiles/lab1.dir/src/particle.cpp.o.requires

@@ -8,6 +8,10 @@
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
 
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/distribution.h
+def_type.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
+
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/main.cpp
 main.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/main.hpp
@@ -16,6 +20,8 @@ iostream
 stdio.h
 -
 opencv2/opencv.hpp
+-
+algorithm
 -
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/main.hpp
@@ -69,6 +75,8 @@ motion.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/sensor.h
 def_type.h
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/def_type.h
+distribution.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/distribution.h
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/visualize.cpp
 visualize.hpp

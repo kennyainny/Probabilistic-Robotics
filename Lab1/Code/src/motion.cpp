@@ -32,7 +32,16 @@ state_type sample_motion_model_odometry(odometry_type p_odometry, odometry_type 
 
 	state.x = p_state.x + _trans*cos(p_state.theta + _rot1);
 	state.y = p_state.y + _trans*sin(p_state.theta + _rot1);
-	state.theta = DEG(p_state.theta + _rot1 + _rot2);
+	state.theta = p_state.theta + _rot1 + _rot2;
+	if(state.theta > M_PI){
+		while(state.theta > M_PI){
+			state.theta = state.theta - M_PI;
+		}
+	}else if(state.theta < -M_PI){
+		while(state.theta < -M_PI){
+			state.theta = state.theta + M_PI;
+		}
+	}
 
 	return state;
 }
