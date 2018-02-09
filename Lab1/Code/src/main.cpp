@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
 	/* Initialization Part*/
 	map_type map;
 	read_beesoft_map(argv[1], &map); //store map data in map variable
-	// prob_visualize(map);
 
 	sensor_type sensor;
 	read_beesoft_sensor(argv[2], &sensor); //store sensor data in sensor variable
@@ -46,8 +45,8 @@ int main(int argc, char *argv[])
 	odometry.v.x = 0;
 	odometry.v.y = 0;
 	odometry.v.theta = 0;
-	int j = 0;
-	for(int i = 0; i < sensor.odometry_count; i++){ //define convergent criteria later
+	long unsigned int j = 0;
+	for(long unsigned int i = 0; i < sensor.odometry_count; i++){ //define convergent criteria later
 		if(i == 0){
 			particle[i+1] = particle_filter(particle[i], sensor.laser[j], sensor.odometry[i], sensor.odometry[i], map, param);
 		}else{
@@ -58,11 +57,12 @@ int main(int argc, char *argv[])
 		}
 		filtered_state[i+1] = expected_state(particle[i+1]);
 
-		printf("%f %f %f\n", filtered_state[i].x, filtered_state[i].y, filtered_state[i].theta);
-		printf("%f %f %f\n", filtered_state[i+1].x, filtered_state[i+1].y, filtered_state[i+1].theta);
-		printf("end step\n");	
+		// printf("%f %f %f\n", filtered_state[i].x, filtered_state[i].y, filtered_state[i].theta);
+		// printf("%f %f %f\n", filtered_state[i+1].x, filtered_state[i+1].y, filtered_state[i+1].theta);
+		printf("end step %lu of %lu\n",i, sensor.odometry_count);
 	}
 
+	prob_visualize(map, particle, filtered_state, sensor.odometry_count);
 
 	waitKey(0);   
 	return 0;
