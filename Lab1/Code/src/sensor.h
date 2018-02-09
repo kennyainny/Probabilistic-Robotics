@@ -9,10 +9,7 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
 void intrinsic_parameters( state_type p_state, map_type map, sensor_type sensor, intrinsic_param_type *param,float *z);
 void new_hornetsoft_sensor(sensor_type *sensor, int size_x, int size_y);
 int read_beesoft_sensor(char *sensorName, sensor_type *sensor);
-<<<<<<< HEAD
 void calc_z_star_array(particle_type paerticle, float *z, map_type map);
-=======
 void intrinsic_parameters_initialize(intrinsic_param_type *param);
->>>>>>> e6274830aff1420c97e1199b2a3f0eeca7d04fe4
 
 #endif /* SENSOR_H */

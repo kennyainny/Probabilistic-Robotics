@@ -19,28 +19,6 @@ int main(int argc, char *argv[])
 	sensor_type sensor;
 	read_beesoft_sensor(argv[2], &sensor); //store sensor data in sensor variable
 
-<<<<<<< HEAD
-	particle_type particle;
-	particle_initialize(map, &particle);
-	printf("%f\n", particle.state[1].x);
-	printf("%f\n", particle.state[1].y);
-	printf("%f\n", particle.state[1].theta);
-	float z;
-	calc_z_star_array(particle,&z,map);
-	intrinsic_param_type param;
-	intrinsic_parameters(particle.state[1],map,sensor,&param,&z);
-	// z_ks(map, particle.state[1]);
-
-
-
-
-	//Loop should be started here
-	// particle_filter(particle, sensor.laser[0], sensor.odometry[0], sensor.odometry[1]);
-
-	// for(int i = 1; i < 10; i++){
-	// 	sample_motion_model_odometry(sensor.odometry[0], sensor.odometry[1], particle.state[0]);
-	// }
-=======
 	particle_type particle[sensor.odometry_count + 1];
 	particle_initialize(map, &particle[0]); //initialize particle
 	
@@ -76,7 +54,6 @@ int main(int argc, char *argv[])
 
 		printf("%f %f %f\n", filtered_state[i].x, filtered_state[i].y, filtered_state[i].theta);	
 	}
->>>>>>> e6274830aff1420c97e1199b2a3f0eeca7d04fe4
 
 	waitKey(0);   
 	return 0;

@@ -74,10 +74,10 @@ particle_type particle_filter(particle_type p_particle, laser_type laser, odomet
 	// int i = 0;
 		temp_particle.state[i] = sample_motion_model_odometry(p_odometry, odometry, p_particle.state[i]);
 		// printf("%lu %lu %e\n", n, i, p_particle.prob[i]);
-		printf("p_state: %f %f %f\n", p_particle.state[i].x, p_particle.state[i].y, p_particle.state[i].theta);
-		printf("state: %f %f %f\n", temp_particle.state[i].x, temp_particle.state[i].y, temp_particle.state[i].theta);
+		// printf("p_state: %f %f %f\n", p_particle.state[i].x, p_particle.state[i].y, p_particle.state[i].theta);
+		// printf("state: %f %f %f\n", temp_particle.state[i].x, temp_particle.state[i].y, temp_particle.state[i].theta);
 		weight[i] = sensor_model(laser, temp_particle.state[i], map, param);
-		printf("bbb\n");
+		// printf("bbb\n");
 		sum_weight = sum_weight + weight[i]; //its summation needs not to be one yet!
 	}
 	// printf("%f %f\n", temp_particle.state[0].x, p_particle.state[0].x);
