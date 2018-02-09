@@ -25,7 +25,7 @@ float z_ks(map_type map, state_type state){
   // printf("y_test %d\n",y_test);
   // printf("prob %f\n",map.prob[x_test][y_test]);
     if(x_test >= map.size_x || y_test >= map.size_y || x_test < 0 || y_test < 0){
-      z_kp = MAX_LASER;
+      z_kp = MAX_LASER/10;
       break;
     }else if (map.prob[x_test][y_test] == 1){
     // printf("Filled X and Y \n");
@@ -48,7 +48,7 @@ float z_ks(map_type map, state_type state){
   // printf("theta %f\n",state.theta);
   // printf("prob %f\n",map.prob[x_test][y_test]);
   // }
-  return z_kp;
+  return z_kp*10;
 }
 
 float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_param_type param){
@@ -116,32 +116,37 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
   return q;
 }
 
-void calc_z_star_array(particle_type particle, float *z,map_type map){
+void calc_z_star_array(particle_type particle, float *z, map_type map){
   int i;
+  z = (float *)calloc(particle.particle_count, sizeof(float));
   for(i=0;i<=particle.particle_count;i=i+1){
     z[i]=z_ks(map, particle.state[i]);
+    printf("%f\n",z[i]);
+
   }
-}
+  }
 
 void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, intrinsic_param_type *param,float *z){
   // int size_z = 9999; //sizeof(z)/sizeof(z[0]);
   // float omicron[6],e_hit[size_z],e_short[size_z],e_max[size_z],e_rand[size_z];
-  // float eta,z_hit,z_short,z_max,z_rand,z_sum=0,big_z,sig,lambda,e_hit_sum=0,e_short_sum=0,e_max_sum=0,e_rand_sum=0;
+  // float eta,z_hit,z_short,z_max,z_rand,z_sum=0,big_z,sig,lambda,e_hit_sum=0,e_short_sum=0,e_max_sum=0,e_rand_sum=0,sum_ehit_zzs=0,sum_eshort_z=0;
   // lambda=1;
   // int j, k=0,i;
   
   // for (i=0;i<=size_z;i=i+1){
   //   //make another for loop
-  //   eta=normal_dist(sensor.laser[j].r[k],9000,z[i],sig)+exp_dist(sensor.laser[i].r[i],z[i],lambda)+narrow_uniform_dist(sensor.laser[i].r[i],9000,z[i])+uniform_dist(sensor.laser[i].r[i],9000);
-  //   e_hit[i]=eta*normal_dist(sensor.laser[j].r[k],9000,z[i],sig);
-  //   e_short[i]=eta*exp_dist(sensor.laser[j].r[k],z[i],lambda);
-  //   e_max[i]=eta*narrow_uniform_dist(sensor.laser[j].r[k],9000,z[i]);
+  //   eta=normal_dist(sensor.laser[j].r[k],9000,*z[i],sig)+exp_dist(sensor.laser[i].r[i],*z[i],lambda)+narrow_uniform_dist(sensor.laser[i].r[i],9000,*z[i])+uniform_dist(sensor.laser[i].r[i],9000);
+  //   e_hit[i]=eta*normal_dist(sensor.laser[j].r[k],9000,*z[i],sig);
+  //   e_short[i]=eta*exp_dist(sensor.laser[j].r[k],*z[i],lambda);
+  //   e_max[i]=eta*narrow_uniform_dist(sensor.laser[j].r[k],9000,*z[i]);
   //   e_rand[i]=eta*uniform_dist(sensor.laser[j].r[k],9000);
   //   z_sum=pow(sensor.laser[j].r[k],2)+z_sum;
   //   e_hit_sum=e_hit[i]+e_hit_sum;
   //   e_short_sum=e_short[i]+e_short_sum;
   //   e_max_sum=e_max[i]+e_max_sum;
   //   e_rand_sum=e_rand[i]+e_rand_sum;
+  //   sum_ehit_zzs=e_hit*pow((sensor.laser[j].r[k]-*z[i]),2)+sum_ehit_zzs;
+  //   sum_eshort_z=e_short[i]*sensor.laser[j].r[k]+sum_eshort_z;
   //   k=k+1;
   //     if (k>=180){
   //       k=0;
@@ -153,10 +158,11 @@ void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, 
   // z_hit=(1/big_z)*e_hit_sum;
   // z_short=(1/big_z)*e_short_sum;
   // z_max=(1/big_z)*e_max_sum;
-  // z_rand=(1/big_z)*e_max_rand;
+  // z_rand=(1/big_z)*e_rand_sum;
 
-  // sig_hit=sqrt((1/e_hit_sum)*e_hit_sum*pow(,2)) //how do i access z?
-  // lambda=(e_short_sum/(e_short_sum*z));
+
+  // sig=sqrt((1/sqrt(e_hit_sum))*sum_ehit_zzs); //how do i access z?
+  // lambda=(e_short_sum/sum_eshort_z);
 
   // printf("Big Z\n");
   // printf("%f\n",big_z);
