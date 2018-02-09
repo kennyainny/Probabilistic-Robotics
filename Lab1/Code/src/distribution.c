@@ -10,9 +10,10 @@ float normal_dist(float x, float x_max, float m, float var){
 		p = 1/sqrt(2*M_PI*var)*exp(-0.5*pow((x-m),2)/var);
 	}
 	for(int i = 0; i <= x_max; i++){
-		n = n + 1/(1/sqrt(2*M_PI*var)*exp(-0.5*pow((i-m),2)/var));
+		n = n + (1/sqrt(2*M_PI*var)*exp(-0.5*pow((i-m),2)/var));
 	}
-	return n*p;
+	// printf("N p: %f n: %f m: %f var: %f\n", p, n, m, var);
+	return p/n;
 }; // var = std^2
 
 float exp_dist(float x, float x_max, float lambda){
@@ -21,6 +22,7 @@ float exp_dist(float x, float x_max, float lambda){
 		p = lambda*exp(-lambda*x);
 	}
 	n = 1/(1 - exp(-lambda*x_max));
+	// printf("exp p: %f n: %f lamb: %f\n", p, n, lambda);
 	return n*p;
 }; // x_max = z*
 

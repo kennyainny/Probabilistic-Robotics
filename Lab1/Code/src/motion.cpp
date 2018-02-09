@@ -27,19 +27,19 @@ state_type sample_motion_model_odometry(odometry_type p_odometry, odometry_type 
 	distr.param(normal_distribution<float>::param_type(0.0, alpha[0]*pow(rot2, 2) + alpha[1]*pow(trans, 2)));
 	_rot2 = rot2 - distr(mt);
 
-	printf("m1: %f %f %f\n", rot1, trans, rot2);
-	printf("m2: %f %f %f\n", _rot1, _trans, _rot2);
+	// printf("m1: %f %f %f\n", rot1, trans, rot2);
+	// printf("m2: %f %f %f\n", _rot1, _trans, _rot2);
 
 	state.x = p_state.x + _trans*cos(p_state.theta + _rot1);
 	state.y = p_state.y + _trans*sin(p_state.theta + _rot1);
 	state.theta = p_state.theta + _rot1 + _rot2;
 	if(state.theta > M_PI){
 		while(state.theta > M_PI){
-			state.theta = state.theta - M_PI;
+			state.theta = state.theta - 2*M_PI;
 		}
 	}else if(state.theta < -M_PI){
 		while(state.theta < -M_PI){
-			state.theta = state.theta + M_PI;
+			state.theta = state.theta + 2*M_PI;
 		}
 	}
 

@@ -10,6 +10,5 @@ void intrinsic_parameters( state_type p_state, map_type map, sensor_type sensor,
 void new_hornetsoft_sensor(sensor_type *sensor, int size_x, int size_y);
 int read_beesoft_sensor(char *sensorName, sensor_type *sensor);
 void calc_z_star_array(particle_type paerticle, float *z, map_type map);
-void intrinsic_parameters_initialize(intrinsic_param_type *param);
 
 #endif /* SENSOR_H */

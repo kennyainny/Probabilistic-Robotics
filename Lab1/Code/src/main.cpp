@@ -26,12 +26,18 @@ int main(int argc, char *argv[])
 	filtered_state[0] = expected_state(particle[0]);
 
 	intrinsic_param_type param;
-	intrinsic_parameters_initialize(&param);
 	// printf("%f\n", param.z_hit[2]);
 	// intrinsic_parameters(particle[0].state[1], map, sensor, &param); //optimize sensor param
 	/* End Initialization */
 
 	///////////////////////////////////////////////////////////////////////
+
+	// for(int i = 0; i<180; i++){
+	// 	printf("%f\n", sensor.laser[0].r[i]);
+	// }
+	// while(1){
+	// 	// printf("%f\n",uniform_dist(66.0, 8200));
+	// }
 
 	/* Loop should be started here */
 	printf("Starting Loop...\n");
@@ -46,14 +52,17 @@ int main(int argc, char *argv[])
 			particle[i+1] = particle_filter(particle[i], sensor.laser[j], sensor.odometry[i], sensor.odometry[i], map, param);
 		}else{
 			if(j < sensor.laser_count && sensor.laser[j+1].ts < sensor.odometry[i].ts){
-	// 			j++;
+				j++;
 			}
-	// 		particle[i+1] = particle_filter(particle[i], sensor.laser[j], sensor.odometry[i-1], sensor.odometry[i], map, param);
+			particle[i+1] = particle_filter(particle[i], sensor.laser[j], sensor.odometry[i-1], sensor.odometry[i], map, param);
 		}
-		// filtered_state[i+1] = expected_state(particle[i+1]);
+		filtered_state[i+1] = expected_state(particle[i+1]);
 
-		printf("%f %f %f\n", filtered_state[i].x, filtered_state[i].y, filtered_state[i].theta);	
+		printf("%f %f %f\n", filtered_state[i].x, filtered_state[i].y, filtered_state[i].theta);
+		printf("%f %f %f\n", filtered_state[i+1].x, filtered_state[i+1].y, filtered_state[i+1].theta);
+		printf("end step\n");	
 	}
+
 
 	waitKey(0);   
 	return 0;

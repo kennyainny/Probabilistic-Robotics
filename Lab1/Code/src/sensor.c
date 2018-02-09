@@ -7,7 +7,7 @@
 float z_ks(map_type map, state_type state){
   // printf("ccc");
   int x_test,y_test,x,y;
-  float r = 0.1, z_kp;
+  float r = 1, z_kp;
   x = (int)state.x;
   y = (int)state.y;
   // printf("Intial position \n");
@@ -37,61 +37,83 @@ float z_ks(map_type map, state_type state){
       // printf("zk*: %f\n",z_kp);
       break;
     }
-    r = r + 0.5;
+    r = r + 1;//0.5;
   }
   // printf("break \n");
+  // if(z_kp == 0){
+  //   printf("x_test %d\n",x_test);
+  // printf("y_test %d\n",y_test);
+  // printf("x %d\n",x);
+  // printf("y %d\n",y);
+  // printf("theta %f\n",state.theta);
+  // printf("prob %f\n",map.prob[x_test][y_test]);
+  // }
   return z_kp;
 }
 
 float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_param_type param){
   // for each given xi, z* will be changed
   // printf("aaa");
-  float q = 1, p, z;
+  float q = 1, p, z, log_sum = 0;
 
-  int zks, range = 1;  
+  int zks, range = 0.05*MAX_LASER;  
 
   float z_hit, z_short, z_max, z_rand, sig_hit, lamb_short;
   float p_hit, p_short, p_max, p_rand;
 
   state_type temp_state = state;
 
-  for(int i = 0; i < 180; i++){
+  for(int i = 45; i < 135; i++){
+    // int i = (int)round(state.theta);
     if(state.theta >= 0 && state.theta <= M_PI){
       temp_state.theta = RAD(i);
     }else{
-      temp_state.theta = RAD(-i);
+      temp_state.theta = RAD((i-180));
     }
     
     zks = (int)round(z_ks(map, temp_state));    
-    // printf("ddd zk*: %f %i\n",DEG(temp_state.theta) , zks);
+    // printf("ddd zk*: %f %f %i\n",DEG(temp_state.theta), temp_state.theta, zks);
+    if(zks > 0){
+      z = laser.r[i];
 
-    // assume for now
-    // zks = 0;
-    param.z_hit[zks] = 0.25;
-    param.z_short[zks] = 0.25;
-    param.z_max[zks] = 0.25;
-    param.z_rand[zks] = 0.25;
-    param.lamb_short[zks] = 1;
-    param.sig_hit[zks] = 1;
+      param.z_hit[zks] = 0.7;
+      param.z_short[zks] = 0.1;
+      param.z_max[zks] = 0.1;
+      param.z_rand[zks] = 0.1;
+      param.lamb_short[zks] = 0.05;
+      param.sig_hit[zks] = 500;
 
-    z = laser.r[i];
+      z_hit = param.z_hit[zks];
+      z_short = param.z_short[zks];
+      z_max = param.z_max[zks];
+      z_rand = param.z_rand[zks];
+      lamb_short = param.lamb_short[zks];
+      sig_hit = param.sig_hit[zks];
 
-    z_hit = param.z_hit[zks];
-    z_short = param.z_short[zks];
-    z_max = param.z_max[zks];
-    z_rand = param.z_rand[zks];
-    lamb_short = param.lamb_short[zks];
-    sig_hit = param.sig_hit[zks];
+      p_hit = normal_dist(z, MAX_LASER, zks, sig_hit);
+      p_short = exp_dist(z, zks, lamb_short);
+      p_max = narrow_uniform_dist(z, MAX_LASER, range);
+      p_rand = uniform_dist(z, MAX_LASER);
 
-    p_hit = normal_dist(z, MAX_LASER, zks, sig_hit);
-    p_short = exp_dist(z, zks, lamb_short);
-    p_max = narrow_uniform_dist(z, MAX_LASER, range);
-    p_rand = uniform_dist(z, MAX_LASER);
+      p = z_hit*p_hit + z_short*p_short + z_max*p_max + z_rand*p_rand;
+    }
 
-    p = z_hit*p_hit + z_short*p_short + z_max*p_max + z_rand*p_rand;
-    q = q*p;
+    if(p > 0.0){
+      log_sum = log_sum + log(p);
+    }
+    
+    // if(isnan(p_short)){
+    // printf("%d %f %d %f %f\n",i, z, zks, p, log_sum);
+    // printf("p: %d %f %f %f %f\n",i, p_hit, p_short, p_max, p_rand);
+    // printf("z %f %f %f %f %f %f\n",z_hit, z_short, z_max, z_rand, lamb_short, sig_hit);
+  // }
   }
-  return pow(q,1/180);
+  // while(1);
+  // printf("%f\n", log_sum);
+  log_sum = log_sum/180;
+  q = exp(log_sum);
+  // printf("%f %f\n", log_sum, q);
+  return q;
 }
 
 void calc_z_star_array(particle_type particle, float *z,map_type map){
@@ -140,17 +162,6 @@ void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, 
   // printf("%f\n",big_z);
   // int z_s = 0;
   // param->z_hit[z_s] = 0;
-}
-
-void intrinsic_parameters_initialize(intrinsic_param_type *param){
-  for(int i = 0; i < MAX_LASER; i++){
-    param->z_hit[i] = 0.25;
-    param->z_short[i] = 0.25;
-    param->z_max[i] = 0.25;
-    param->z_rand[i] = 0.25;
-    param->sig_hit[i] = 1.0;
-    param->lamb_short[i] = 0.5;
-  }
 }
 
 void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)
