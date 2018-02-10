@@ -9,6 +9,7 @@ mt19937 mt(rd());
 
 state_type sample_motion_model_odometry(odometry_type p_odometry, odometry_type odometry, state_type p_state)
 {
+	// printf("abc\n");
 	state_type state;
 	float rot1, rot2, trans, _rot1, _rot2, _trans;
 	float alpha[4] = {1.0, 1.0, 1.0, 1.0}; //need to be adjusted
@@ -30,8 +31,8 @@ state_type sample_motion_model_odometry(odometry_type p_odometry, odometry_type 
 	// printf("m1: %f %f %f\n", rot1, trans, rot2);
 	// printf("m2: %f %f %f\n", _rot1, _trans, _rot2);
 
-	state.x = p_state.x + _trans*cos(p_state.theta + _rot1);
-	state.y = p_state.y + _trans*sin(p_state.theta + _rot1);
+	state.x = p_state.x + _trans*cos(p_state.theta + _rot1)/10;
+	state.y = p_state.y + _trans*sin(p_state.theta + _rot1)/10;
 	state.theta = p_state.theta + _rot1 + _rot2;
 	if(state.theta > M_PI){
 		while(state.theta > M_PI){

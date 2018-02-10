@@ -1,7 +1,7 @@
 #ifndef DEF_TYPE_H
 #define DEF_TYPE_H
 
-#define PI    3.14159265359f
+// #define PI    3.14159265359f
 #define DEG(rad)  (rad*180.0/M_PI)
 #define RAD(deg)  (deg*M_PI/180.0)
 #define MAX_LASER 820
@@ -37,8 +37,12 @@ typedef struct {
 
 typedef struct {
   // cover all possible z*
-  float z_hit[MAX_LASER], z_short[MAX_LASER], z_max[MAX_LASER], z_rand[MAX_LASER];
-  float sig_hit[MAX_LASER], lamb_short[MAX_LASER];
+  float zhit[MAX_LASER];
+  float zshort[MAX_LASER];
+  float zmax[MAX_LASER];
+  float zrand[MAX_LASER];  
+  float lambshort[MAX_LASER];
+  float sighit[MAX_LASER];
 } intrinsic_param_type;
 
 typedef struct {
