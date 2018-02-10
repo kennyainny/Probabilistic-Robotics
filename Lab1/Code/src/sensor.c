@@ -70,7 +70,7 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
 
   state_type temp_state = state;
 
-  for(int i = 45; i < 135; i++){
+  for(int i = 45; i < 135; i = i + 2){
     // int i = (int)round(state.theta);
     if(state.theta >= 0 && state.theta <= M_PI){
       temp_state.theta = RAD(i);
