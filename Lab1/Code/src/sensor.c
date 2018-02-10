@@ -52,12 +52,8 @@ float z_ks(map_type map, state_type state){
   // printf("theta %f\n",state.theta);
   // printf("prob %f\n",map.prob[x_test][y_test]);
   // }
-<<<<<<< HEAD
   // printf("zk*: %f\n",z_kp);
   return z_kp;//*10.0;
-=======
-  return z_kp*10;
->>>>>>> c379e00788cccc12ffdff4c1205f300f495c40d5
 }
 
 float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_param_type param){

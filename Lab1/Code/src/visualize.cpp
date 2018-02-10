@@ -33,8 +33,7 @@ void prob_visualize(map_type map, particle_type *particle, state_type *state, lo
    	}
    	//printf(" \n");
    }
-   
-   // Mat aaa = Mat::zeros(100, 100, CV_8UC1);
+
    //cout << prob.size() << endl;  //[423923x0]
    normalize(prob, prob, 0, 255, CV_MINMAX);
    prob.convertTo(prob, CV_8UC1, 1, 0);
@@ -44,19 +43,18 @@ void prob_visualize(map_type map, particle_type *particle, state_type *state, lo
    Mat plane[] = {prob, prob, prob};
    merge(plane, 3, prob);
 
-   // for(long unsigned int i = 0; i < step; i++){
-   //    MyFilledCircle(prob, state[i].x, state[i].y);
-   // }
-
    for (int i = 0; i < step; i++)
-   {
+   {      
       for(long unsigned int j = 0; j < particle[0].particle_count; j++){
          MyFilledCircle(prob, particle[i].state[j].x, particle[i].state[j].y, Scalar( 0, 255*i/step, 255 - 255*i/step ));
+         if(i == step-1){
+            printf("%f %f %f\n", particle[i].state[j].x, particle[i].state[j].y, particle[i].prob[j]);
+         }
       }
-   }
-   
-   
-   imshow("Current Probability", prob); //Error occurs here Asertion failed 
+      MyFilledCircle(prob, state[i].x, state[i].y, Scalar( 255, 0, 0));
+   }   
+   // printf("%f %f\n", state[i].x, state[i].y);
+   imshow("Current Probability", prob); 
 
 }
 
