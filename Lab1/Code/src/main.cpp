@@ -18,21 +18,22 @@ int main(int argc, char *argv[])
 
 	sensor_type sensor;
 	read_beesoft_sensor(argv[2], &sensor); //store sensor data in sensor variable
-
+	printf("done\n");
 	particle_type particle[sensor.odometry_count + 1];
 	particle_initialize(map, &particle[0]); //initialize particle
-	
+	printf("done\n");
 	state_type filtered_state[sensor.odometry_count + 1];
 	filtered_state[0] = expected_state(particle[0]);
 
 	intrinsic_param_type param;
-	float *z;//[particle[0].particle_count];
+	//float *z;//[particle[0].particle_count];
 	
-	calc_z_star_array(particle[0],z, map);
-	printf("z star value\n");
-	printf("%f\n", z[0]);
-	printf("Intrinsic_parameters\n");
-	// intrinsic_parameters(particle[0].state[0], map, sensor, &param, &z); //optimize sensor param
+	// calc_z_star_array(particle[0],*z, map);
+	// printf("z star value\n");
+	// printf("%f\n", z[0]);
+	// printf("Intrinsic_parameters\n")
+	intrinsic_parameters(particle[0].state[0], map, sensor, &param,particle[0]); //optimize sensor param
+	printf("done\n");
 	/* End Initialization */
 
 	///////////////////////////////////////////////////////////////////////

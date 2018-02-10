@@ -116,58 +116,97 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
   return q;
 }
 
-void calc_z_star_array(particle_type particle, float *z, map_type map){
-  int i;
-  z = (float *)calloc(particle.particle_count, sizeof(float));
+// void calc_z_star_array(particle_type particle, float **z, map_type map){
+//   int i;
+//   z = (float *)calloc(particle.particle_count, sizeof(float));
+//   for(i=0;i<=particle.particle_count;i=i+1){
+//     *z[i]=z_ks(map, particle.state[i]);
+//     printf("%f\n",z[i]);
+
+//   }
+// }
+
+void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, intrinsic_param_type *param,particle_type particle){
+  int size_z = particle.particle_count; //sizeof(z)/sizeof(z[0]);
+  float omicron[6],e_hit[size_z],e_short[size_z],e_max[size_z],e_rand[size_z];
+  float eta,z_hit,z_short,z_max,z_rand,z_sum=0,big_z,sig=1,lambda,e_hit_sum=0,e_short_sum=0,e_max_sum=0,e_rand_sum=0,sum_ehit_zzs=0,sum_eshort_z=0,trial;
+  lambda=0.01;
+  int j, k=0,i;
+
+  //This works
+  // z = (float *)calloc(particle.particle_count, sizeof(float));
+  float z[particle.particle_count];
   for(i=0;i<=particle.particle_count;i=i+1){
     z[i]=z_ks(map, particle.state[i]);
-    printf("%f\n",z[i]);
+    // printf("%f\n",z[i]);
 
   }
+
+  for (i=0;i<=size_z;i=i+1){
+    //make another for loop
+    printf("%f\n",normal_dist(sensor.laser[j].r[k],9000,z[i],sig));
+    printf("yea\n");
+    eta=1/(normal_dist(sensor.laser[j].r[k],9000,z[i],sig)+exp_dist(sensor.laser[i].r[i],z[i],lambda)+narrow_uniform_dist(sensor.laser[i].r[i],9000,z[i])+uniform_dist(sensor.laser[i].r[i],9000));
+    printf("eta\n");
+    e_hit[i]=eta*normal_dist(sensor.laser[j].r[k],9000,z[i],sig);
+    e_short[i]=eta*exp_dist(sensor.laser[j].r[k],z[i],lambda);
+    e_max[i]=eta*narrow_uniform_dist(sensor.laser[j].r[k],9000,z[i]);
+    e_rand[i]=eta*uniform_dist(sensor.laser[j].r[k],9000);
+    z_sum=pow(sensor.laser[j].r[k],2)+z_sum;
+    e_hit_sum=e_hit[i]+e_hit_sum;
+    e_short_sum=e_short[i]+e_short_sum;
+    e_max_sum=e_max[i]+e_max_sum;
+    e_rand_sum=e_rand[i]+e_rand_sum;
+    sum_ehit_zzs=(e_hit[i]*pow((sensor.laser[j].r[k]-z[i]),2))+sum_ehit_zzs;
+    sum_eshort_z=e_short[i]*sensor.laser[j].r[k]+sum_eshort_z;
+    printf("working\n");
+    printf("%f\n",eta);
+    // printf("%f\n",sensor.laser[j].r[k]);
+    // printf("%f\n",z[i]);
+    k=k+1;
+      if (k>=180){
+        k=0;
+        j=j+1;
+      }
+
   }
+  // printf("z_sum\n");
+  // printf("%f\n",z_sum);
+  // printf("e values\n");
+  // printf("%f\n",e_hit_sum);
+  // printf("%f\n",e_short_sum);
+  // printf("%f\n",e_max_sum);
+  // printf("%f\n",e_rand_sum);
 
-void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, intrinsic_param_type *param,float *z){
-  // int size_z = 9999; //sizeof(z)/sizeof(z[0]);
-  // float omicron[6],e_hit[size_z],e_short[size_z],e_max[size_z],e_rand[size_z];
-  // float eta,z_hit,z_short,z_max,z_rand,z_sum=0,big_z,sig,lambda,e_hit_sum=0,e_short_sum=0,e_max_sum=0,e_rand_sum=0,sum_ehit_zzs=0,sum_eshort_z=0;
-  // lambda=1;
-  // int j, k=0,i;
-  
-  // for (i=0;i<=size_z;i=i+1){
-  //   //make another for loop
-  //   eta=normal_dist(sensor.laser[j].r[k],9000,*z[i],sig)+exp_dist(sensor.laser[i].r[i],*z[i],lambda)+narrow_uniform_dist(sensor.laser[i].r[i],9000,*z[i])+uniform_dist(sensor.laser[i].r[i],9000);
-  //   e_hit[i]=eta*normal_dist(sensor.laser[j].r[k],9000,*z[i],sig);
-  //   e_short[i]=eta*exp_dist(sensor.laser[j].r[k],*z[i],lambda);
-  //   e_max[i]=eta*narrow_uniform_dist(sensor.laser[j].r[k],9000,*z[i]);
-  //   e_rand[i]=eta*uniform_dist(sensor.laser[j].r[k],9000);
-  //   z_sum=pow(sensor.laser[j].r[k],2)+z_sum;
-  //   e_hit_sum=e_hit[i]+e_hit_sum;
-  //   e_short_sum=e_short[i]+e_short_sum;
-  //   e_max_sum=e_max[i]+e_max_sum;
-  //   e_rand_sum=e_rand[i]+e_rand_sum;
-  //   sum_ehit_zzs=e_hit*pow((sensor.laser[j].r[k]-*z[i]),2)+sum_ehit_zzs;
-  //   sum_eshort_z=e_short[i]*sensor.laser[j].r[k]+sum_eshort_z;
-  //   k=k+1;
-  //     if (k>=180){
-  //       k=0;
-  //       j=j+1;
-  //     }
-
-  // }
-  // big_z=sqrt(z_sum);
-  // z_hit=(1/big_z)*e_hit_sum;
-  // z_short=(1/big_z)*e_short_sum;
-  // z_max=(1/big_z)*e_max_sum;
-  // z_rand=(1/big_z)*e_rand_sum;
+  big_z=sqrt(z_sum);
+  printf("big_z\n");
+  printf("%f\n",big_z);
+  printf("e_hit_sum\n");
+  printf("%f\n",e_hit_sum);
+  printf("e_short_sum\n");
+  printf("%f\n",e_short_sum);
+  z_hit=(1/big_z)*e_hit_sum;
+  z_short=(1/big_z)*e_short_sum;
+  z_max=(1/big_z)*e_max_sum;
+  z_rand=(1/big_z)*e_rand_sum;
+  printf("z parameters\n");
+  printf("%f\n",z_hit);
+  printf("%f\n",z_short);
+  printf("%f\n",z_max);
+  printf("%f\n",z_rand);
 
 
-  // sig=sqrt((1/sqrt(e_hit_sum))*sum_ehit_zzs); //how do i access z?
-  // lambda=(e_short_sum/sum_eshort_z);
 
-  // printf("Big Z\n");
-  // printf("%f\n",big_z);
-  // int z_s = 0;
-  // param->z_hit[z_s] = 0;
+  sig=sqrt((1/sqrt(e_hit_sum))*sum_ehit_zzs); //how do i access z?
+  lambda=(e_short_sum/sum_eshort_z);
+  printf("Lambda\n");
+  printf("%f\n",lambda);
+
+  printf("Sigma\n");
+  printf("%f\n",sig);
+
+  int z_s = 0;
+  param->z_hit[z_s] = 0;
 }
 
 void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)

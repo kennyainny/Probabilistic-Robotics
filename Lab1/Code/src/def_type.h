@@ -4,7 +4,7 @@
 #define PI    3.14159265359f
 #define DEG(rad)  (rad*180.0/M_PI)
 #define RAD(deg)  (deg*M_PI/180.0)
-#define MAX_LASER 8200
+#define MAX_LASER 820
 
 typedef struct {
   float x, y, theta;
