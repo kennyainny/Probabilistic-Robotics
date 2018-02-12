@@ -175,6 +175,7 @@ CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/o
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/core/affine.hpp
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/core/base.hpp
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/core/bufferpool.hpp
+CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/core/core.hpp
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/core/core_c.h
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/core/cuda.hpp
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/core/cuda.inl.hpp
@@ -236,10 +237,12 @@ CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/o
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/flann/saving.h
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/flann/timer.h
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/highgui.hpp
+CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/highgui/highgui.hpp
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/highgui/highgui_c.h
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/imgcodecs.hpp
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/imgcodecs/imgcodecs_c.h
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/imgproc.hpp
+CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/imgproc/imgproc.hpp
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/imgproc/imgproc_c.h
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/imgproc/types_c.h
 CMakeFiles/lab1.dir/src/visualize.cpp.o: /opt/ros/kinetic/include/opencv-3.3.1/opencv2/ml.hpp

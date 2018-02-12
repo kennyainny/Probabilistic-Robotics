@@ -153,7 +153,7 @@ void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, 
   float omicron[6],e_hit[size_z],e_short[size_z],e_max[size_z],e_rand[size_z];
   float eta,z_hit,z_short,z_max,z_rand,z_sum=0,big_z,sig=1,lambda,e_hit_sum=0,e_short_sum=0,e_max_sum=0,e_rand_sum=0,sum_ehit_zzs=0,sum_eshort_z=0,trial;
   lambda=0.01;
-  int j, k=0,i;
+  int j=0, k=0,i;
 
   //This works
   // z = (float *)calloc(particle.particle_count, sizeof(float));
@@ -165,11 +165,10 @@ void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, 
   }
 
   for (i=0;i<=size_z;i=i+1){
-    //make another for loop
-    printf("%f\n",normal_dist(sensor.laser[j].r[k],9000,z[i],sig));
-    printf("yea\n");
+    // printf("%f\n",normal_dist(sensor.laser[j].r[k],9000,z[i],sig));
+    // printf("yea\n");
     eta=1/(normal_dist(sensor.laser[j].r[k],9000,z[i],sig)+exp_dist(sensor.laser[i].r[i],z[i],lambda)+narrow_uniform_dist(sensor.laser[i].r[i],9000,z[i])+uniform_dist(sensor.laser[i].r[i],9000));
-    printf("eta\n");
+    // printf("eta\n");
     e_hit[i]=eta*normal_dist(sensor.laser[j].r[k],9000,z[i],sig);
     e_short[i]=eta*exp_dist(sensor.laser[j].r[k],z[i],lambda);
     e_max[i]=eta*narrow_uniform_dist(sensor.laser[j].r[k],9000,z[i]);
@@ -181,8 +180,8 @@ void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, 
     e_rand_sum=e_rand[i]+e_rand_sum;
     sum_ehit_zzs=(e_hit[i]*pow((sensor.laser[j].r[k]-z[i]),2))+sum_ehit_zzs;
     sum_eshort_z=e_short[i]*sensor.laser[j].r[k]+sum_eshort_z;
-    printf("working\n");
-    printf("%f\n",eta);
+    // printf("working\n");
+    // printf("%f\n",eta);
     // printf("%f\n",sensor.laser[j].r[k]);
     // printf("%f\n",z[i]);
     k=k+1;
@@ -201,12 +200,12 @@ void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, 
   // printf("%f\n",e_rand_sum);
 
   big_z=sqrt(z_sum);
-  printf("big_z\n");
-  printf("%f\n",big_z);
-  printf("e_hit_sum\n");
-  printf("%f\n",e_hit_sum);
-  printf("e_short_sum\n");
-  printf("%f\n",e_short_sum);
+  // printf("big_z\n");
+  // printf("%f\n",big_z);
+  // printf("e_hit_sum\n");
+  // printf("%f\n",e_hit_sum);
+  // printf("e_short_sum\n");
+  // printf("%f\n",e_short_sum);
   z_hit=(1/big_z)*e_hit_sum;
   z_short=(1/big_z)*e_short_sum;
   z_max=(1/big_z)*e_max_sum;
@@ -228,7 +227,7 @@ void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, 
   printf("%f\n",sig);
 
   int z_s = 0;
-  param->z_hit[z_s] = 0;
+  // param->z_hit[z_s] = 0;
 }
 
 void new_hornetsoft_sensor(sensor_type *sensor, int size_l, int size_o)
