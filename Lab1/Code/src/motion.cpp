@@ -12,11 +12,8 @@ state_type sample_motion_model_odometry(odometry_type p_odometry, odometry_type 
 	// printf("abc\n");
 	state_type state;
 	float rot1, rot2, trans, _rot1, _rot2, _trans;
-<<<<<<< HEAD
-	float alpha[4] = {5.0, 5.0, 5.0, 5.0}; //need to be adjusted
-=======
 	float alpha[4] = {3.0, 3.0, 3.0, 3.0}; //need to be adjusted
->>>>>>> e3eda8d3492747ab8d6a520e3279e2b221b79339
+
 	normal_distribution<float> distr;
 
 	rot1 = atan2(odometry.v.y - p_odometry.v.y, odometry.v.x - p_odometry.v.x) - p_odometry.v.theta;

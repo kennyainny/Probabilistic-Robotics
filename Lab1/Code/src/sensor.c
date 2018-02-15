@@ -104,12 +104,12 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
       // lamb_short = param.lamb_short[zk_s];
       // sig_hit = param.sig_hit[zk_s];
 
-      z_hit = 0.7;
-      z_short = 0.1;
-      z_max = 0.1;
-      z_rand = 0.1;
-      lamb_short = 0.05;
-      sig_hit = 500;
+      z_hit = 0.25;
+      z_short = 0.15;
+      z_max = 0.15;
+      z_rand = 0.15;
+      lamb_short = 0.01;
+      sig_hit = 200;
 
       p_hit = normal_dist(z, MAX_LASER, zks, sig_hit);
       p_short = exp_dist(z, zks, lamb_short);

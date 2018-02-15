@@ -85,6 +85,8 @@ iostream
 -
 stdio.h
 -
+stdlib.h
+-
 opencv2/opencv.hpp
 -
 opencv2/imgproc/imgproc.hpp
