@@ -31,8 +31,8 @@ int main(int argc, char *argv[])
 	// printf("z star value\n");
 	// printf("%f\n", z[0]);
 	// printf("Intrinsic_parameters\n")
-	intrinsic_parameters(particle[0].state[0], map, sensor, &param,particle[0]); //optimize sensor param
-	printf("done3\n");
+	// intrinsic_parameters(particle[0].state[0], map, sensor, &param,particle[0]); //optimize sensor param
+	// printf("done3\n");
 	/* End Initialization */
 // =======
 // e>>>>>>> 302d4c3bda53df0559d42e21ee5e3f87f62bd8a4
