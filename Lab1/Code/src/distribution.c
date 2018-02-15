@@ -26,7 +26,7 @@ float exp_dist(float x, float x_max, float lambda){
 	return n*p;
 }; // x_max = z*
 
-float narrow_uniform_dist(float x, float x_max, float range){
+float narrow_uniform_dist(float x, float x_max, float range){//what is this? Is this right? shouldnt it equal 1?
 	float p = 0;
 	if(x > x_max-range && x < x_max){
 		p = 1/range;
