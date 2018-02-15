@@ -79,7 +79,7 @@ particle_type particle_filter(particle_type p_particle, laser_type laser, odomet
 		// printf("%lu %lu %e\n", n, i, p_particle.prob[i]);
 		// printf("p_state: %f %f %f\n", p_particle.state[i].x, p_particle.state[i].y, p_particle.state[i].theta);
 		// printf("state: %f %f %f\n", temp_particle.state[i].x, temp_particle.state[i].y, temp_particle.state[i].theta);
-		weight[i] = sensor_model(laser, temp_particle.state[i], map, param);
+		weight[i] = sensor_model2(laser, temp_particle.state[i], map, param);
 		sum_weight = sum_weight + weight[i]; //its summation needs not to be one yet!
 		// printf("%lu %f %f\n", i, sum_weight, weight[i]);
 		// printf("ccc\n");
