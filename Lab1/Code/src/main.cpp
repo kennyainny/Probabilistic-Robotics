@@ -39,32 +39,32 @@ int main(int argc, char *argv[])
 
 	///////////////////////////////////////////////////////////////////////
 
-	// printf("Starting Loop...\n");
-	// odometry_type odometry;
-	// odometry.ts = 0;
-	// odometry.v.x = 0;
-	// odometry.v.y = 0;
-	// odometry.v.theta = 0;
-	// long unsigned int j = 0;
-	// sensor.odometry_count = 100;
-	// for(long unsigned int i = 0; i < sensor.odometry_count; i++){ //define convergent criteria later
-	// 	if(i == 0){
-	// 		particle[i+1] = particle_filter(particle[i], sensor.laser[j], sensor.odometry[i], sensor.odometry[i], map, param);
-	// 	}else{
-	// 		if(j < sensor.laser_count && sensor.laser[j+1].ts < sensor.odometry[i].ts){
-	// 			j++;
-	// 		}
-	// 		particle[i+1] = particle_filter(particle[i], sensor.laser[j], sensor.odometry[i-1], sensor.odometry[i], map, param);
-	// 	}
-	// 	filtered_state[i+1] = expected_state(particle[i+1]);
+	printf("Starting Loop...\n");
+	odometry_type odometry;
+	odometry.ts = 0;
+	odometry.v.x = 0;
+	odometry.v.y = 0;
+	odometry.v.theta = 0;
+	long unsigned int j = 0;
+	// sensor.odometry_count = 300;
+	for(long unsigned int i = 0; i < sensor.odometry_count; i++){ //define convergent criteria later
+		if(i == 0){
+			particle[i+1] = particle_filter(particle[i], sensor.laser[j], sensor.odometry[i], sensor.odometry[i], map, param);
+		}else{
+			if(j < sensor.laser_count && sensor.laser[j+1].ts < sensor.odometry[i].ts){
+				j++;
+			}
+			particle[i+1] = particle_filter(particle[i], sensor.laser[j], sensor.odometry[i-1], sensor.odometry[i], map, param);
+		}
+		filtered_state[i+1] = expected_state(particle[i+1]);
 
-	// 	// printf("%f %f %f\n", filtered_state[i].x, filtered_state[i].y, filtered_state[i].theta);
-	// 	// printf("%f %f %f\n", filtered_state[i+1].x, filtered_state[i+1].y, filtered_state[i+1].theta);
-	// 	printf("end step %lu of %lu\n",i+1, sensor.odometry_count);
-	// }
+		// printf("%f %f %f\n", filtered_state[i].x, filtered_state[i].y, filtered_state[i].theta);
+		// printf("%f %f %f\n", filtered_state[i+1].x, filtered_state[i+1].y, filtered_state[i+1].theta);
+		printf("end step %lu of %lu\n",i+1, sensor.odometry_count);
+	}
 
-	// // prob_visualize(map, particle, filtered_state, sensor.odometry_count);
+	prob_visualize(map, particle, filtered_state, sensor.odometry_count);
 
-	// waitKey(0);   
-	// return 0;
+	waitKey(0);   
+	return 0;
 }
