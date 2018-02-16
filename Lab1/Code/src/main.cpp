@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 	odometry.v.y = 0;
 	odometry.v.theta = 0;
 	long unsigned int j = 0;
-	sensor.odometry_count = 300;
+	// sensor.odometry_count = 300;
 	for(long unsigned int i = 0; i < sensor.odometry_count; i++){ //define convergent criteria later
 		if(i == 0){
 			particle[i+1] = particle_filter(particle[i], sensor.laser[j], sensor.odometry[i], sensor.odometry[i], map, param);
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 		// printf("%f %f %f\n", filtered_state[i+1].x, filtered_state[i+1].y, filtered_state[i+1].theta);
 		printf("end step %lu of %lu\n",i+1, sensor.odometry_count);
 	}
-
+	printf("endend\n");
 	prob_visualize(map, particle, filtered_state, sensor.odometry_count);
 
 	waitKey(0);   

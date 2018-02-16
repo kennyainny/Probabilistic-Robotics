@@ -18,7 +18,7 @@ void particle_initialize(map_type map, particle_type *particle){
 	printf("Initialze particles\n");
 
 	long unsigned int count_p = 0;
-	int space_interval = 20;
+	int space_interval = 10;
 	int theta_interval = 45; //every 1 deg is too much
 	int theta_number = 360/theta_interval;
 
