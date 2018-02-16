@@ -165,6 +165,33 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
   return q;
 }
 
+float sensor_model2(laser_type laser, state_type state, map_type map, intrinsic_param_type param){
+  float p = 0.0;
+  float angle, x_ray_casting, y_ray_casting;
+  state_type laser_state; //25 cm ofset
+  laser_state.theta = state.theta;
+  laser_state.x = state.x + (25/map.resolution)*cos(laser_state.theta);
+  laser_state.y = state.y + (25/map.resolution)*sin(laser_state.theta);
+
+  if(laser_state.x <= map.size_x && laser_state.y <= map.size_y && laser_state.x > 0 && laser_state.y > 0){ //inside the map
+    if(map.prob[(int)laser_state.x][(int)laser_state.y] >= 0 && map.prob[(int)laser_state.x][(int)laser_state.y] < 1){
+
+      for (int i = 0; i < MAX_LASER; i++){
+        angle = RAD((float)i) + laser_state.theta;
+        x_ray_casting = laser_state.x + laser.r[i] * cos(angle - M_PI / 2);
+        y_ray_casting = laser_state.y + laser.r[i] * sin(angle - M_PI / 2);
+
+        if(x_ray_casting <= map.size_x && y_ray_casting <= map.size_y && x_ray_casting > 0 && y_ray_casting > 0){ //inside the map
+          if(map.prob[(int)x_ray_casting][(int)y_ray_casting] >= 0 && map.prob[(int)x_ray_casting][(int)y_ray_casting] < 1){
+            p = p + 1;
+          }
+        }
+      }
+    }
+  }
+  return p/180.0;
+}
+
 // void calc_z_star_array(particle_type particle, float **z, map_type map){
 //   int i;
 //   z = (float *)calloc(particle.particle_count, sizeof(float));
