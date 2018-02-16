@@ -12,7 +12,7 @@ state_type sample_motion_model_odometry(odometry_type p_odometry, odometry_type 
 	// printf("abc\n");
 	state_type state;
 	float rot1, rot2, trans, _rot1, _rot2, _trans;
-	float alpha[4] = {3.0, 3.0, 3.0, 3.0}; //need to be adjusted
+	float alpha[4] = {0.01, 0.01, 0.1, 0.1}; //need to be adjusted
 
 	normal_distribution<float> distr;
 

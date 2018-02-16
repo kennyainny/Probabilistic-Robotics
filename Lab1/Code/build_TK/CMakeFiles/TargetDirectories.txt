@@ -1,3 +1,0 @@
-/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/build_TK/CMakeFiles/edit_cache.dir
-/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/build_TK/CMakeFiles/rebuild_cache.dir
-/home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/build_TK/CMakeFiles/lab1.dir
