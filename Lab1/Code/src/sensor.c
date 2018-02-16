@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-float z_ks(map_type map, state_type state,sensor_type sensor){
+float z_ks(map_type map, state_type state,laser_type laser){
   // 25 cm offset
   int k=0;
     float x = state.x + 2.5 * cos(state.theta), y = state.y + 2.5 * sin(state.theta);
@@ -17,8 +17,8 @@ float z_ks(map_type map, state_type state,sensor_type sensor){
     float match_score = 0;
     for (unsigned int i = 0; i < 180; i++){
       float angle = (float)i * M_PI / 180 + state.theta;
-      float x_end = sensor.laser[k].r[i] * cos(angle - M_PI / 2) + x; //how do we correspond our position ot the k value of laser
-      float y_end = sensor.laser[k].r[i] * sin(angle - M_PI / 2) + y;
+      float x_end = laser.r[i] * cos(angle - M_PI / 2) + x; //how do we correspond our position ot the k value of laser
+      float y_end = laser.r[i] * sin(angle - M_PI / 2) + y;
 
       if (x_end < map.min_x || x_end > map.max_x || 
         y_end < map.min_y || y_end > map.max_y || map.prob[(int)x_end][(int)y_end] <= 0)
@@ -95,7 +95,7 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
   float p_hit, p_short, p_max, p_rand;
 
   state_type temp_state = state;
-  sensor_type temp_laser=sensor;
+  laser_type temp_laser = laser;
 
   for(int i = 45; i < 135; i = i + 2){
     // int i = (int)round(state.theta);
