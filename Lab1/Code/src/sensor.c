@@ -4,8 +4,32 @@
 #include <stdlib.h>
 #include <math.h>
 
-float z_ks(map_type map, state_type state,sensor_type sensor){
+float z_ks(map_type map, state_type state,laser_type laser){
   // 25 cm offset
+<<<<<<< HEAD
+  int k=0;
+    float x = state.x + 2.5 * cos(state.theta), y = state.y + 2.5 * sin(state.theta);
+  // If wrong position
+    if (x < map.min_x || x > map.max_x || 
+      y < map.min_y || y > map.max_y || 
+      map.prob[(int)x][(int)y] == -1 || map.prob[(int)x][(int)y] < 0.7)
+      return 0.0; 
+  // process each angle
+    float match_score = 0;
+    for (unsigned int i = 0; i < 180; i++){
+      float angle = (float)i * M_PI / 180 + state.theta;
+      float x_end = laser.r[i] * cos(angle - M_PI / 2) + x; //how do we correspond our position ot the k value of laser
+      float y_end = laser.r[i] * sin(angle - M_PI / 2) + y;
+
+      if (x_end < map.min_x || x_end > map.max_x || 
+        y_end < map.min_y || y_end > map.max_y || map.prob[(int)x_end][(int)y_end] <= 0)
+        continue;
+
+    // TODO:
+    // Try other methods for example sum of log
+    // sum of 1 - weight 
+      match_score += map.prob[(int)x_end][(int)y_end] < 0.7 ? 1 : 0; // what does this do?
+=======
   // int k=0;
   //   float x = state.x + 2.5 * cos(state.theta), y = state.y + 2.5 * sin(state.theta);
   // // If wrong position
@@ -28,6 +52,7 @@ float z_ks(map_type map, state_type state,sensor_type sensor){
   //   // Try other methods for example sum of log
   //   // sum of 1 - weight 
   //     match_score += map.prob[(int)x_end][(int)y_end] < 0.7 ? 1 : 0; // what does this do?
+>>>>>>> be6875080e339a9ae93e732a9b25915755d95506
     
   //   }
   //   return match_score;
@@ -94,8 +119,13 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
   // float z_hit, z_short, z_max, z_rand, sig_hit, lamb_short;
   // float p_hit, p_short, p_max, p_rand;
 
+<<<<<<< HEAD
+  state_type temp_state = state;
+  laser_type temp_laser = laser;
+=======
   // state_type temp_state = state;
   // sensor_type temp_laser=sensor;
+>>>>>>> be6875080e339a9ae93e732a9b25915755d95506
 
   // for(int i = 45; i < 135; i = i + 2){
   //   // int i = (int)round(state.theta);
