@@ -18,7 +18,7 @@ void particle_initialize(map_type map, particle_type *particle){
 	printf("Initialze particles\n");
 
 	long unsigned int count_p = 0;
-	int space_interval = 10;
+	int space_interval = 15;
 	int theta_interval = 45; //every 1 deg is too much
 	int theta_number = 360/theta_interval;
 
@@ -46,10 +46,10 @@ void particle_initialize(map_type map, particle_type *particle){
 					particle->prob[count_p] = 1.0/particle->particle_count;
 					particle->state[count_p].x = i;
 					particle->state[count_p].y = j;
-					particle->state[count_p].theta = RAD(k);
-					if(particle->state[count_p].theta > M_PI){
-						particle->state[count_p].theta = particle->state[count_p].theta - 2*M_PI;
-					}
+					particle->state[count_p].theta = RAD(float(k));
+					// if(particle->state[count_p].theta > M_PI){
+					// 	particle->state[count_p].theta = particle->state[count_p].theta - 2*M_PI;
+					// }
 					count_p = count_p + 1;
 				}
 			}
@@ -90,13 +90,14 @@ particle_type particle_filter(particle_type p_particle, laser_type laser, odomet
 	// printf("%lu, %f\n", n, sum_weight);
 
 	for(long unsigned int i = 0; i < n; i++){
-		temp_particle.prob[i] = (p_particle.prob[i]*weight[i])/(sum_weight/n); //update&normalize prob
+		temp_particle.prob[i] = weight[i]/sum_weight;
+		// temp_particle.prob[i] = (p_particle.prob[i]*weight[i])/(sum_weight/n); //update&normalize prob
 		if(i == 0){
 			cdf_weight[i] = temp_particle.prob[i];
 		}else{
 			cdf_weight[i] = cdf_weight[i-1] + temp_particle.prob[i];
 		}
-		// printf("%f %f %f %e\n", p_particle.state[i].x, temp_particle.state[i].x, temp_particle.prob[i], cdf_weight[i]);		
+		printf("%f %f %f %e\n", p_particle.state[i].x, temp_particle.state[i].x, temp_particle.prob[i], cdf_weight[i]);		
 	}
 	
 	particle.particle_count = n; //can be an output of another function for an adaptive particle number

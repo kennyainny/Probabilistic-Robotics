@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 	odometry.v.theta = 0;
 	long unsigned int j = 0;
 	// sensor.odometry_count = 300;
-	for(long unsigned int i = 0; i < sensor.odometry_count; i++){ //define convergent criteria later
+	for(long unsigned int i = 0; i < sensor.odometry_count - 1; i++){ //define convergent criteria later
 		if(i == 0){
 			particle[i+1] = particle_filter(particle[i], sensor.laser[j], sensor.odometry[i], sensor.odometry[i], map, param);
 		}else{

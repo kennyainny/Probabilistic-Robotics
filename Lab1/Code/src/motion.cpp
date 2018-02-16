@@ -20,13 +20,22 @@ state_type sample_motion_model_odometry(odometry_type p_odometry, odometry_type 
 	trans = sqrt(pow((odometry.v.x - p_odometry.v.x), 2) + pow((odometry.v.y - p_odometry.v.y), 2));
 	rot2 = odometry.v.theta - p_odometry.v.theta - rot1;
 
-	distr.param(normal_distribution<float>::param_type(0.0, alpha[0]*pow(rot1, 2) + alpha[1]*pow(trans, 2)));
+	// distr.param(normal_distribution<float>::param_type(0.0, alpha[0]*pow(rot1, 2) + alpha[1]*pow(trans, 2)));
+	// _rot1 = rot1 - distr(mt);
+
+	// distr.param(normal_distribution<float>::param_type(0.0, alpha[2]*pow(trans, 2) + alpha[3]*pow(rot1, 2) + alpha[3]*pow(rot2, 2)));
+	// _trans = trans - distr(mt);
+
+	// distr.param(normal_distribution<float>::param_type(0.0, alpha[0]*pow(rot2, 2) + alpha[1]*pow(trans, 2)));
+	// _rot2 = rot2 - distr(mt);
+
+	distr.param(normal_distribution<float>::param_type(0.0, alpha[0]*rot1 + alpha[1]*trans));
 	_rot1 = rot1 - distr(mt);
 
-	distr.param(normal_distribution<float>::param_type(0.0, alpha[2]*pow(trans, 2) + alpha[3]*pow(rot1, 2) + alpha[3]*pow(rot2, 2)));
+	distr.param(normal_distribution<float>::param_type(0.0, alpha[2]*trans + alpha[3]*(rot1 + rot2)));
 	_trans = trans - distr(mt);
 
-	distr.param(normal_distribution<float>::param_type(0.0, alpha[0]*pow(rot2, 2) + alpha[1]*pow(trans, 2)));
+	distr.param(normal_distribution<float>::param_type(0.0, alpha[0]*rot2 + alpha[1]*trans));
 	_rot2 = rot2 - distr(mt);
 
 	// printf("m1: %f %f %f\n", rot1, trans, rot2);
@@ -35,15 +44,15 @@ state_type sample_motion_model_odometry(odometry_type p_odometry, odometry_type 
 	state.x = p_state.x + _trans*cos(p_state.theta + _rot1)/10;
 	state.y = p_state.y + _trans*sin(p_state.theta + _rot1)/10;
 	state.theta = p_state.theta + _rot1 + _rot2;
-	if(state.theta > M_PI){
-		while(state.theta > M_PI){
-			state.theta = state.theta - 2*M_PI;
-		}
-	}else if(state.theta < -M_PI){
-		while(state.theta < -M_PI){
-			state.theta = state.theta + 2*M_PI;
-		}
-	}
+	// if(state.theta > M_PI){
+	// 	while(state.theta > M_PI){
+	// 		state.theta = state.theta - 2*M_PI;
+	// 	}
+	// }else if(state.theta < -M_PI){
+	// 	while(state.theta < -M_PI){
+	// 		state.theta = state.theta + 2*M_PI;
+	// 	}
+	// }
 
 	return state;
 }

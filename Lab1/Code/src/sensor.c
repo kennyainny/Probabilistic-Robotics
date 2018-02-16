@@ -174,16 +174,16 @@ float sensor_model2(laser_type laser, state_type state, map_type map, intrinsic_
   laser_state.y = state.y + (25/map.resolution)*sin(laser_state.theta);
 
   if((int)laser_state.x <= map.size_x && (int)laser_state.y <= map.size_y && (int)laser_state.x > 0 && (int)laser_state.y > 0){ //inside the map
-    if(map.prob[(int)laser_state.x][(int)laser_state.y] >= 0 && map.prob[(int)laser_state.x][(int)laser_state.y] < 1){
+    if(map.prob[(int)laser_state.x][(int)laser_state.y] >= 0 && map.prob[(int)laser_state.x][(int)laser_state.y] < 0.7){
 
-      for (int i = 0; i < MAX_LASER; i++){
+      for (int i = 0; i < 180; i++){
         angle = RAD((float)i) + laser_state.theta;
-        x_ray_casting = laser_state.x + laser.r[i] * cos(angle - M_PI / 2);
-        y_ray_casting = laser_state.y + laser.r[i] * sin(angle - M_PI / 2);
+        x_ray_casting = laser_state.x + (laser.r[i]/map.resolution) * cos(angle - M_PI / 2);
+        y_ray_casting = laser_state.y + (laser.r[i]/map.resolution) * sin(angle - M_PI / 2);
 
         if((int)x_ray_casting < map.size_x && (int)y_ray_casting < map.size_y && (int)x_ray_casting > 0 && (int)y_ray_casting > 0){ //inside the map
           // printf("%f %f\n", x_ray_casting, y_ray_casting);
-          if(map.prob[(int)x_ray_casting][(int)y_ray_casting] >= 0 && map.prob[(int)x_ray_casting][(int)y_ray_casting] < 1){
+          if(map.prob[(int)x_ray_casting][(int)y_ray_casting] >= 0 && map.prob[(int)x_ray_casting][(int)y_ray_casting] < 0.3){
             p = p + 1;
           }
         }
