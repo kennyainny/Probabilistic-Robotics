@@ -4,56 +4,81 @@
 #include <stdlib.h>
 #include <math.h>
 
-float z_ks(map_type map, state_type state){
-  // printf("ccc");
-  int x_test,y_test,x,y;
-  float r = 0.1, z_kp = 1.0;
-  x = (int)state.x;
-  y = (int)state.y;
-  // printf("Intial position \n");
-  // printf("%i\n",x);
-  // printf("%i\n",y);
-  // printf("%f\n",p_state.theta);
-  // printf("Probability\n");
-  // printf("%f\n",map.prob[x][y]);
+float z_ks(map_type map, state_type state,sensor_type sensor){
+  // 25 cm offset
+    float x = state.x + 2.5 * cos(state.theta), y = state.y + 2.5 * sin(state.theta);
+  // If wrong position
+    if (x < map.min_x || x > map.max_x || 
+      y < map.min_y || y > map.max_y || 
+      map.prob[(int)x][(int)y] == -1 || map.prob[(int)x][(int)y] < 0.7)
+      return 0.0; 
+  // process each angle
+    float match_score = 0;
+    for (unsigned int i = 0; i < 180; i++){
+      float angle = (float)i * PI / 180 + s.theta;
+      float x_end = sensor.laser[k].r[i] * cos(angle - PI / 2) + x; //how do we correspond our position ot the k value of laser
+      float y_end = sensor.laser[k].r[i] * sin(angle - PI / 2) + y;
 
-  while (r <= MAX_LASER/10){
-  //   // printf("deg %f\n", DEG(state.theta));
-    x_test = round(state.x + r*cos(state.theta));
-    y_test = round(state.y + r*sin(state.theta));
-  //   // printf("**********Point*******\n");
-    // printf("x_test %d\n",x_test);
-  //   printf("y_test %d\n",y_test);
-  //   // printf("prob %f\n",map.prob[x_test][y_test]);
+      if (x_end < map.min_x || x_end > map.max_x || 
+        y_end < map.min_y || y_end > map.max_y || map.prob[(int)x_end][(int)y_end] <= 0)
+        continue;
 
-    if(x_test >= map.size_x || y_test >= map.size_y || x_test < 0 || y_test < 0){
-      z_kp = MAX_LASER/10;
-      break;
-    }else if (map.prob[x_test][y_test] == 1){
-      // printf("Filled X and Y \n");
-      // printf("%d %d %d %d\n",x_test, x, y_test, y);
-      // printf("Filled Probability \n");
-      // printf("%f\n",map.prob[x_test][y_test]);
-      // printf("x-x_test: %d\n",(x-x_test));
-      z_kp = sqrt(pow((x-x_test),2) + pow((y-y_test),2));
-      // printf("zk*: %f\n",z_kp);
-      break;
+    // TODO:
+    // Try other methods for example sum of log
+    // sum of 1 - weight 
+      match_score += map.prob[(int)x_end][(int)y_end] < 0.7 ? 1 : 0; // what does this do?
+    
     }
-    r = r + 0.5;//0.5;
-    // printf("%f\n", r);
-  }
-  // printf("%f\n", r);
-  // printf("break \n");
-  // if(z_kp == 0){
-  //   printf("x_test %d\n",x_test);
-  // printf("y_test %d\n",y_test);
-  // printf("x %d\n",x);
-  // printf("y %d\n",y);
-  // printf("theta %f\n",state.theta);
-  // printf("prob %f\n",map.prob[x_test][y_test]);
+    return match_score;
+  // printf("ccc");
+  // int x_test,y_test,x,y;
+  // float r = 0.1, z_kp = 1.0;
+  // x = (int)state.x;
+  // y = (int)state.y;
+  // // printf("Intial position \n");
+  // // printf("%i\n",x);
+  // // printf("%i\n",y);
+  // // printf("%f\n",p_state.theta);
+  // // printf("Probability\n");
+  // // printf("%f\n",map.prob[x][y]);
+
+  // while (r <= MAX_LASER/10){
+  // //   // printf("deg %f\n", DEG(state.theta));
+  //   x_test = round(state.x + r*cos(state.theta));
+  //   y_test = round(state.y + r*sin(state.theta));
+  // //   // printf("**********Point*******\n");
+  //   // printf("x_test %d\n",x_test);
+  // //   printf("y_test %d\n",y_test);
+  // //   // printf("prob %f\n",map.prob[x_test][y_test]);
+
+  //   if(x_test >= map.size_x || y_test >= map.size_y || x_test < 0 || y_test < 0){
+  //     z_kp = MAX_LASER/10;
+  //     break;
+  //   }else if (map.prob[x_test][y_test] == 1){
+  //     // printf("Filled X and Y \n");
+  //     // printf("%d %d %d %d\n",x_test, x, y_test, y);
+  //     // printf("Filled Probability \n");
+  //     // printf("%f\n",map.prob[x_test][y_test]);
+  //     // printf("x-x_test: %d\n",(x-x_test));
+  //     z_kp = sqrt(pow((x-x_test),2) + pow((y-y_test),2));
+  //     // printf("zk*: %f\n",z_kp);
+  //     break;
+  //   }
+  //   r = r + 0.5;//0.5;
+  //   // printf("%f\n", r);
   // }
-  // printf("zk*: %f\n",z_kp);
-  return z_kp;//*10.0;
+  // // printf("%f\n", r);
+  // // printf("break \n");
+  // // if(z_kp == 0){
+  // //   printf("x_test %d\n",x_test);
+  // // printf("y_test %d\n",y_test);
+  // // printf("x %d\n",x);
+  // // printf("y %d\n",y);
+  // // printf("theta %f\n",state.theta);
+  // // printf("prob %f\n",map.prob[x_test][y_test]);
+  // // }
+  // // printf("zk*: %f\n",z_kp);
+  // return z_kp;//*10.0;
 }
 
 float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_param_type param){
