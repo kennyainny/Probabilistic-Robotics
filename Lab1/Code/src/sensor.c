@@ -6,6 +6,7 @@
 
 float z_ks(map_type map, state_type state,sensor_type sensor){
   // 25 cm offset
+  int k=0;
     float x = state.x + 2.5 * cos(state.theta), y = state.y + 2.5 * sin(state.theta);
   // If wrong position
     if (x < map.min_x || x > map.max_x || 
@@ -15,9 +16,9 @@ float z_ks(map_type map, state_type state,sensor_type sensor){
   // process each angle
     float match_score = 0;
     for (unsigned int i = 0; i < 180; i++){
-      float angle = (float)i * PI / 180 + s.theta;
-      float x_end = sensor.laser[k].r[i] * cos(angle - PI / 2) + x; //how do we correspond our position ot the k value of laser
-      float y_end = sensor.laser[k].r[i] * sin(angle - PI / 2) + y;
+      float angle = (float)i * M_PI / 180 + state.theta;
+      float x_end = sensor.laser[k].r[i] * cos(angle - M_PI / 2) + x; //how do we correspond our position ot the k value of laser
+      float y_end = sensor.laser[k].r[i] * sin(angle - M_PI / 2) + y;
 
       if (x_end < map.min_x || x_end > map.max_x || 
         y_end < map.min_y || y_end > map.max_y || map.prob[(int)x_end][(int)y_end] <= 0)
@@ -94,6 +95,7 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
   float p_hit, p_short, p_max, p_rand;
 
   state_type temp_state = state;
+  sensor_type temp_laser=sensor;
 
   for(int i = 45; i < 135; i = i + 2){
     // int i = (int)round(state.theta);
@@ -103,7 +105,7 @@ float sensor_model(laser_type laser, state_type state, map_type map, intrinsic_p
       temp_state.theta = RAD((i-180));
     }
     
-    zks = z_ks(map, temp_state)*10.0; 
+    zks = z_ks(map, temp_state, temp_laser)*10.0; 
     // printf("abcd\n");   
     // printf("ddd zk*: %f %f %i\n",DEG(temp_state.theta), temp_state.theta, zks);
     
@@ -184,7 +186,7 @@ void intrinsic_parameters(state_type p_state, map_type map, sensor_type sensor, 
   // z = (float *)calloc(particle.particle_count, sizeof(float));
   float z[particle.particle_count];
   for(i=0;i<=size_z;i=i+1){
-    z[i]=z_ks(map, particle.state[i]);
+    z[i]=z_ks(map, particle.state[i],sensor.laser[i]);
     printf("z*\n");
     printf("%i\n",i);
 
