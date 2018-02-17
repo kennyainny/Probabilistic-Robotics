@@ -12,7 +12,6 @@ float normal_dist(float x, float x_max, float m, float var){
 	for(int i = 0; i <= x_max; i++){
 		n = n + (1/sqrt(2*M_PI*var)*exp(-0.5*pow((i-m),2)/var));
 	}
-	// printf("N p: %f n: %f m: %f var: %f\n", p, n, m, var);
 	return p/n;
 }; // var = std^2
 
@@ -22,11 +21,10 @@ float exp_dist(float x, float x_max, float lambda){
 		p = lambda*exp(-lambda*x);
 	}
 	n = 1/(1 - exp(-lambda*x_max));
-	// printf("exp p: %f n: %f lamb: %f\n", p, n, lambda);
 	return n*p;
 }; // x_max = z*
 
-float narrow_uniform_dist(float x, float x_max, float range){//what is this? Is this right? shouldnt it equal 1?
+float narrow_uniform_dist(float x, float x_max, float range){
 	float p = 0;
 	if(x > x_max-range && x < x_max){
 		p = 1/range;

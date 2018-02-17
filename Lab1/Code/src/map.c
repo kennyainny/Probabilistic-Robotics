@@ -12,7 +12,7 @@ void new_hornetsoft_map(map_type *map, int size_x, int size_y)
     map->prob[i] = (float *)calloc(size_y, sizeof(float));
 }
 
-int read_beesoft_map(char *mapName, map_type *map)
+int read_beesoft_map(const char *mapName, map_type *map)
 {
   int x, y, count;
   float temp;
@@ -58,9 +58,9 @@ int read_beesoft_map(char *mapName, map_type *map)
   count = 0;
   for(x = 0; x < map->size_x; x++)
     for(y = 0; y < map->size_y; y++, count++) {
-      if(count % 10000 == 0)
-	fprintf(stderr, "\r# Reading ... (%.2f%%)",
-		count / (float)(map->size_x * map->size_y) * 100);
+ //      if(count % 10000 == 0)
+	// fprintf(stderr, "\r# Reading ... (%.2f%%)",
+	// 	count / (float)(map->size_x * map->size_y) * 100);
       
       fscanf(fp,"%e", &temp);
       if(temp < 0.0)
@@ -74,11 +74,11 @@ int read_beesoft_map(char *mapName, map_type *map)
 	  map->min_y = y;
 	else if(y > map->max_y)
 	  map->max_y = y;
-	map->prob[x][y] = 1 - temp;	   
+	map->prob[x][y] = temp;	   
       }
     }
-  fprintf(stderr, "\r# Reading ... (%.2f%%)\n\n",
-	  count / (float)(map->size_x * map->size_y) * 100);
+  // fprintf(stderr, "\r# Reading ... (%.2f%%)\n\n",
+	 //  count / (float)(map->size_x * map->size_y) * 100);
   fclose(fp);
   return 0;
 }

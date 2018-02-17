@@ -9,6 +9,7 @@ extern "C"
 using namespace cv;
 
 void MyFilledCircle( Mat img, float x, float y, CvScalar color, float r);
-void prob_visualize(map_type map, particle_type *particle, state_type *state, long unsigned int step);
+void particle_visualize(particle_type particle, state_type filtered_state, laser_type laser, map_type map);
+void prob_visualize(map_type map, particle_type *particle, state_type *state, unsigned long int step);
 
 #endif /* VISUALIZE_HPP */

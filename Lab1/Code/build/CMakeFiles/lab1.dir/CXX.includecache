@@ -19,9 +19,11 @@ iostream
 -
 stdio.h
 -
-opencv2/opencv.hpp
--
 algorithm
+-
+vector
+-
+string
 -
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab1/Code/src/main.hpp

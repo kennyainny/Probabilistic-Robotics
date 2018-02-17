@@ -12,5 +12,4 @@ extern "C"
 #include "motion.hpp"
 #include "particle.hpp"
 
-
 #endif /* MAIN_HPP */
