@@ -1,3 +1,4 @@
-../bin/lab1 ../data/wean.dat ../data/robotdata_test.log -j4 //to read map
+//execute command, map--> wean, sensor--> robotdatan, computer's core--> -jn
 
-../bin/lab1 ../data/wean.dat ../data/robotdata1.log -j4
+../bin/lab1 ../data/wean.dat ../data/robotdata1.log -j4 
+

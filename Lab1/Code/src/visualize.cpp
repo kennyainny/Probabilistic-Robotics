@@ -71,7 +71,7 @@ void particle_visualize(particle_type particle, state_type state, laser_type las
 
    MyFilledCircle(prob2, state.x, state.y, Scalar( 255, 0, 0), 5.0);
 
-   imshow("Current Probability", prob2);
+   imshow("Current Robot", prob2);
    save_image(prob2, step);
    waitKey( 10 );
 }

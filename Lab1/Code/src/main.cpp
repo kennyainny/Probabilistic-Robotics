@@ -9,8 +9,6 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	printf("Hello, Georgia Tech! \n");
-
 	/****************************** Initialization Part ******************************/
 	map_type map;
 	read_beesoft_map(argv[1], &map); //store map data in map variable
@@ -29,18 +27,21 @@ int main(int argc, char *argv[])
 	for (unsigned long int t = 1; t <= sensor.sensor_count; t++){
 
 		if(t < sensor.sensor_count){
-			particle[t] = particle_motion_update(sensor.v[t-1], sensor.v[t], particle[t-1], map);
+			particle[t] = particle_motion_update(sensor.v[t-1], sensor.v[t], particle[t-1], map); //randomly move particles
 			if (sensor.type[t] == 1){			
-				particle[t] = particle_sensor_update(sensor.laser[j], map, particle[t]);
-				particle[t] = low_variance_sampler(sensor.laser[j], map, particle[t]);
+				particle[t] = particle_sensor_update(sensor.laser[j], map, particle[t]); //update particles' probability
+				particle[t] = low_variance_sampler(sensor.laser[j], map, particle[t]); //sampling new set of particles
 				if(j < sensor.laser_count)
 					j = j + 1;
 			}
-			filtered_state[t] = expected_state(particle[t]);
+			filtered_state[t] = expected_state(particle[t]); //average location
 		}
 
-		particle_visualize(particle[t-1], filtered_state[t-1], sensor.laser[j], map, t-1);
-		printf("end step %lu of %lu\n", t, sensor.sensor_count);
+		particle_visualize(particle[t-1], filtered_state[t-1], sensor.laser[j], map, t-1); //real-time particles' movement
+		printf("Step %lu of %lu\n", t, sensor.sensor_count); //just telling a progess
 	}
+	while(1){
+		/* Does nothing but smiling at you :) */
+	};
 	return 0;
 }
