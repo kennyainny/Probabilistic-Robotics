@@ -25,23 +25,22 @@ int main(int argc, char *argv[])
 	filtered_state[0] = expected_state(particle[0]); //initialize expected location
 
 	/**************************** Particle Filtering Part ****************************/
-	int j = -1;
-	for (unsigned long int t = 1; t < sensor.sensor_count; t++){
+	int j = 0;
+	for (unsigned long int t = 1; t <= sensor.sensor_count; t++){
 
-		particle[t] = particle_motion_update(sensor.v[t-1], sensor.v[t], particle[t-1]);
-		if (sensor.type[t] == 1){
-			j = j + 1;
-			particle[t] = particle_sensor_update(sensor.laser[j], map, particle[t]);
-			particle[t] = low_variance_sampler(sensor.laser[j], map, particle[t]);
+		if(t < sensor.sensor_count){
+			particle[t] = particle_motion_update(sensor.v[t-1], sensor.v[t], particle[t-1], map);
+			if (sensor.type[t] == 1){			
+				particle[t] = particle_sensor_update(sensor.laser[j], map, particle[t]);
+				particle[t] = low_variance_sampler(sensor.laser[j], map, particle[t]);
+				if(j < sensor.laser_count)
+					j = j + 1;
+			}
+			filtered_state[t] = expected_state(particle[t]);
 		}
 
-		filtered_state[t] = expected_state(particle[t]);
-
-		printf("aaa\n");
-		// particle_visualize(particle[t], filtered_state[t], sensor.laser[j], map);
+		particle_visualize(particle[t-1], filtered_state[t-1], sensor.laser[j], map, t-1);
 		printf("end step %lu of %lu\n", t, sensor.sensor_count);
 	}
-
-	waitKey(0);   
 	return 0;
 }

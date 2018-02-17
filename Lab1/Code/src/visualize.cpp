@@ -13,97 +13,77 @@ using namespace std;
 
 void MyFilledCircle( Mat img, float x, float y, CvScalar color, float r)
 {
- // int thickness = -1;
- // int lineType = 8;
- // Point center = Point( y, x);
-
- // circle( img, center, r, color, thickness, lineType );
+   int thickness = -1;
+   Point center = Point( y, x);
+   circle(img, center, r, color, thickness);
 }
 
-void particle_visualize(particle_type particle, state_type filtered_state, laser_type laser, map_type map){
-   printf("bbb\n");
-   // Mat prob = Mat::zeros(map.size_x, map.size_y, CV_32F);
-   // for(int i = 0; i < map.size_x; i++){
-   //    float *ptr = prob.ptr<float>(i);
-
-   //    for(int j = 0; j < map.size_y; j++){
-
-   //       if(map.prob[j][i] >= 0){
-   //          ptr[j] = map.prob[j][i];
-   //       }
-   //       if(map.prob[j][i] == -1){
-   //          ptr[j] = 0;
-   //       }
-   //    }
-   // }
-
-   // // prob = flip(prob, 1);
-   // normalize(prob, prob, 0, 255, CV_MINMAX);
-   // prob.convertTo(prob, CV_8UC1, 1, 0);
-   // Mat plane[] = {prob, prob, prob};
-   // merge(plane, 3, prob);
-
-   // imshow("Current Probability", prob); 
-   // waitKey( 10 );
+void MyFilledCircle_Transparent( Mat img, float x, float y, CvScalar color, float r)
+{
+   Point center = Point( y, x);
+   circle(img, center, r, color);
 }
 
-void prob_visualize(map_type map, particle_type *particle, state_type *state, unsigned long int step){
+void particle_visualize(particle_type particle, state_type state, laser_type laser, map_type map, int step){
 
- //   stringstream ss;
- //   string filename;
- //   string name = "../results/step_";
- //   string type = ".jpg";
-	// Mat prob = Mat::zeros(map.size_x,map.size_y, CV_32F);
+   Mat prob = Mat::zeros(map.size_x, map.size_y, CV_32F);
+   for(int i = 0; i < map.size_x; i++){
+      float *ptr = prob.ptr<float>(i);
 
-	// for(int i = 0; i < map.size_x; i++){
- //    	float *ptr = prob.ptr<float>(i);
+      for(int j = 0; j < map.size_y; j++){
 
- //   	for(int j = 0; j < map.size_y; j++){
- //   		// printf("%.2f ",map.prob[i][j]);
+         if(map.prob[i][j] >= 0){
+            ptr[j] = map.prob[i][j];
+         }
+         if(map.prob[i][j] == -1){
+            ptr[j] = 0;
+         }
+      }
+   }
 
- //         if(map.prob[i][j] >= 0){
- //            ptr[j] = map.prob[i][j];
- //         }
- //         if(map.prob[i][j] == -1){
- //            ptr[j] = 0;
- //         }
- //         // if(map.prob[j][i] > 0 && map.prob[j][i] < 1){
- //         //    ptr[j] = 0.5;
- //         // }
+   normalize(prob, prob, 0, 255, CV_MINMAX);
+   prob.convertTo(prob, CV_8UC1, 1, 0);
+   Mat plane[] = {prob, prob, prob};
+   merge(plane, 3, prob);
 
- //   	}
- //   	//printf(" \n");
- //   }
+   Mat prob2;
 
- //   //cout << prob.size() << endl;  //[423923x0]
- //   normalize(prob, prob, 0, 255, CV_MINMAX);
- //   prob.convertTo(prob, CV_8UC1, 1, 0);
- //   Mat plane[] = {prob, prob, prob};
- //   merge(plane, 3, prob);
- //   // printf("Printing\n");
- //   // cout << prob.size() << endl;
-   
- //   Mat prob2;// = prob.clone();   
+   prob2 = prob.clone();  
+   for(unsigned long int i = 0; i < particle.particle_count; i++){
+      MyFilledCircle_Transparent(prob2, particle.state[i].x, particle.state[i].y, Scalar( 0, 255, 0), particle.prob[i]*80000.0);
+      MyFilledCircle(prob2, particle.state[i].x, particle.state[i].y, Scalar( 0, 0, 255), 7.0);
+   }
 
- //   // step = 1;
- //   for (int i = 0; i < step; i++)
- //   {      
- //      prob2 = prob.clone();  
- //      for(unsigned long int j = 0; j < particle[0].particle_count; j++){
- //         // printf("%f %f %f\n", particle[i].state[j].x, particle[i].state[j].y, particle[i].prob[j]);
- //         MyFilledCircle(prob2, particle[i].state[j].x, particle[i].state[j].y, Scalar( 0, 255, 0), particle[i].prob[j] + 3.0);
- //         // MyFilledCircle(prob2, particle[i].state[j].x, particle[i].state[j].y, Scalar( 0, 0, 255), 3.0);
- //         // MyFilledCircle(prob, particle[i].state[j].x, particle[i].state[j].y, Scalar( 0, 255*i/step, 255 - 255*i/step ));
- //         // if(i == step-1){
- //            // printf("%f %f %f\n", particle[i].state[j].x, particle[i].state[j].y, particle[i].prob[j]);
- //         // }
- //      }
- //      MyFilledCircle(prob2, state[i].x, state[i].y, Scalar( 255, 0, 0), 7.0);
- //      ss<<name<<(i+1)<<type;
- //      filename = ss.str();
- //      ss.str("");
- //      // printf("%s\n", filename.c_str());
- //      imwrite(filename, prob2);
- //   }
+   state.x = state.x + (25/map.resolution)*cos(state.theta);
+   state.y = state.y + (25/map.resolution)*sin(state.theta);
+
+   for (int i = 0; i < 180; i++){
+      float angle = RAD((float)i) + state.theta;
+      for (int j = 0; j < (int)(laser.r[i]/map.resolution); j++){
+         int x_ray_casting = state.x + (j * cos(angle - M_PI / 2));
+         int y_ray_casting = state.y + (j * sin(angle - M_PI / 2));
+         if (x_ray_casting > 0 && x_ray_casting < map.size_x && 
+            y_ray_casting > 0 && y_ray_casting < map.size_y){
+            MyFilledCircle(prob2, x_ray_casting, y_ray_casting, Scalar(0, 255, 255), 1);
+         }
+      }
+   }
+
+   MyFilledCircle(prob2, state.x, state.y, Scalar( 255, 0, 0), 5.0);
+
+   imshow("Current Probability", prob2);
+   save_image(prob2, step);
+   waitKey( 10 );
 }
 
+void save_image(Mat img, int step){
+   stringstream ss;
+   string filename;
+   string name = "../results/step_";
+   string type = ".jpg";
+
+   ss<<name<<(step)<<type;
+   filename = ss.str();
+   ss.str("");
+   imwrite(filename, img);
+}

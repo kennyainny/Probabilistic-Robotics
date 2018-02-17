@@ -7,7 +7,7 @@
 float sensor_model(laser_type laser, state_type state, map_type map){
   float p = 0.0;
   float angle, x_ray_casting, y_ray_casting;
-  state_type laser_state; //25 cm ofset
+  state_type laser_state; //25 cm offset
   laser_state.theta = state.theta;
   laser_state.x = state.x + (25/map.resolution)*cos(laser_state.theta);
   laser_state.y = state.y + (25/map.resolution)*sin(laser_state.theta);

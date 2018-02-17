@@ -14,7 +14,6 @@ void new_hornetsoft_particle(particle_type *particle, long unsigned int size_p)
 
 void particle_initialize(map_type map, particle_type *particle){
 	// place particles on an unoccupied grid
-	printf("Initialze particles\n");
 
 	long unsigned int count_p = 0;
 	int space_interval = 10;
@@ -48,14 +47,14 @@ void particle_initialize(map_type map, particle_type *particle){
 	}
 }
 
-particle_type particle_motion_update(state_type p_odometry, state_type odometry, particle_type p_particle){
+particle_type particle_motion_update(state_type p_odometry, state_type odometry, particle_type p_particle, map_type map){
 	particle_type particle;
 	long unsigned int n = p_particle.particle_count;
 	new_hornetsoft_particle(&particle, n);
 	particle.particle_count = n;
 
 	for (unsigned int i = 0; i < p_particle.particle_count; i++){
-		particle.state[i] = sample_motion_model_odometry(p_odometry, odometry, p_particle.state[i]);
+		particle.state[i] = sample_motion_model_odometry(p_odometry, odometry, p_particle.state[i], map);
 		particle.prob[i] = p_particle.prob[i];			
 	}
 		

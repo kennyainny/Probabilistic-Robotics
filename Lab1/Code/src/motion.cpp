@@ -7,7 +7,7 @@ using namespace std;
 random_device rd_m;
 mt19937 mt_m(rd_m());
 
-state_type sample_motion_model_odometry(state_type p_odometry, state_type odometry, state_type p_state)
+state_type sample_motion_model_odometry(state_type p_odometry, state_type odometry, state_type p_state, map_type map)
 {
 	state_type state;
 	float rot1, rot2, trans, _rot1, _rot2, _trans;
@@ -37,8 +37,8 @@ state_type sample_motion_model_odometry(state_type p_odometry, state_type odomet
 	distr.param(normal_distribution<float>::param_type(0.0, alpha[0]*rot2 + alpha[1]*trans));
 	_rot2 = rot2 - distr(mt_m);
 
-	state.x = p_state.x + _trans*cos(p_state.theta + _rot1)/10;
-	state.y = p_state.y + _trans*sin(p_state.theta + _rot1)/10;
+	state.x = p_state.x + _trans*cos(p_state.theta + _rot1)/map.resolution;
+	state.y = p_state.y + _trans*sin(p_state.theta + _rot1)/map.resolution;
 	state.theta = p_state.theta + _rot1 + _rot2;
 
 	return state;
