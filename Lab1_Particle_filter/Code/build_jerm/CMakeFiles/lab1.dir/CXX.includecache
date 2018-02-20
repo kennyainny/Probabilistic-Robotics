@@ -6,81 +6,83 @@
 
 #IncludeRegexTransform: 
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/def_type.h
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/distribution.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/distribution.h
 def_type.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/def_type.h
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/main.cpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/main.cpp
 main.hpp
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/main.hpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/main.hpp
 iostream
 -
 stdio.h
 -
-opencv2/opencv.hpp
--
 algorithm
 -
+vector
+-
+string
+-
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/main.hpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/main.hpp
 def_type.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/def_type.h
 map.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/map.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/map.h
 sensor.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensor.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/sensor.h
 visualize.hpp
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/visualize.hpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/visualize.hpp
 motion.hpp
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/motion.hpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/motion.hpp
 particle.hpp
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/particle.hpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/particle.hpp
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/map.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/map.h
 def_type.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/def_type.h
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/motion.cpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/motion.cpp
 motion.hpp
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/motion.hpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/motion.hpp
 iostream
 -
 random
 -
 math.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/math.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/math.h
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/motion.hpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/motion.hpp
 def_type.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/def_type.h
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/particle.cpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/particle.cpp
 particle.hpp
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/particle.hpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/particle.hpp
 iostream
 -
 random
 -
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/particle.hpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/particle.hpp
 def_type.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/def_type.h
 sensor.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensor.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/sensor.h
 motion.hpp
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/motion.hpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/motion.hpp
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/sensor.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/sensor.h
 def_type.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/def_type.h
 distribution.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/distribution.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/distribution.h
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/visualize.cpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/visualize.cpp
 visualize.hpp
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/visualize.hpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/visualize.hpp
 iostream
 -
 stdio.h
@@ -96,9 +98,9 @@ opencv2/highgui/highgui.hpp
 opencv2/core/core.hpp
 -
 
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/visualize.hpp
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/visualize.hpp
 def_type.h
-/home/jeremy/Documents/Probabilistic Robotics/Lab1/Code/src/def_type.h
+/home/jeremy/Documents/Probabilistic-Robotics/Lab1_Particle_filter/Code/src/def_type.h
 opencv2/opencv.hpp
 -
 
