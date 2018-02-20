@@ -4,8 +4,10 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <opencv2/opencv.hpp>
 
 using namespace std;
+using namespace cv;
 
 int main(int argc, char *argv[])
 {
@@ -40,8 +42,10 @@ int main(int argc, char *argv[])
 		particle_visualize(particle[t-1], filtered_state[t-1], sensor.laser[j], map, t-1); //real-time particles' movement
 		printf("Step %lu of %lu\n", t, sensor.sensor_count); //just telling a progess
 	}
+	waitkey(0);
 	while(1){
 		/* Does nothing but smiling at you :) */
+		break;
 	};
 	return 0;
 }
