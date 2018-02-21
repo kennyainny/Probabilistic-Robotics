@@ -52,6 +52,25 @@ void particle_visualize(particle_type particle, state_type state, laser_type las
    for(unsigned long int i = 0; i < particle.particle_count; i++){
       MyFilledCircle_Transparent(prob2, particle.state[i].x, particle.state[i].y, Scalar( 0, 255, 0), particle.prob[i]*80000.0);
       MyFilledCircle(prob2, particle.state[i].x, particle.state[i].y, Scalar( 0, 0, 255), 7.0);
+
+      float angle = RAD((float)90) + particle.state[i].theta;
+      if(angle > M_PI){
+         while(angle > M_PI){
+            angle = angle - 2*M_PI;
+         }
+      }else if(angle < -M_PI){
+         while(angle < -M_PI){
+            angle = angle + 2*M_PI;
+         }
+      }
+      for (int j = 0; j < (int)(laser.r[90]/map.resolution/2); j++){
+         int x_ray_casting = particle.state[i].x + (j * cos(angle - M_PI / 2));
+         int y_ray_casting = particle.state[i].y + (j * sin(angle - M_PI / 2));
+         if (x_ray_casting > 0 && x_ray_casting < map.size_x && 
+            y_ray_casting > 0 && y_ray_casting < map.size_y){
+            MyFilledCircle(prob2, x_ray_casting, y_ray_casting, Scalar(255, 0, 255), 1);
+         }
+      }
    }
 
    state.x = state.x + (25/map.resolution)*cos(state.theta);
@@ -66,6 +85,17 @@ void particle_visualize(particle_type particle, state_type state, laser_type las
             y_ray_casting > 0 && y_ray_casting < map.size_y){
             MyFilledCircle(prob2, x_ray_casting, y_ray_casting, Scalar(0, 255, 255), 1);
          }
+      }
+   }
+
+   int i = 90;
+   float angle = RAD((float)i) + state.theta;
+   for (int j = 0; j < (int)(laser.r[i]); j++){
+      int x_ray_casting = state.x + (j * cos(angle - M_PI / 2));
+      int y_ray_casting = state.y + (j * sin(angle - M_PI / 2));
+      if (x_ray_casting > 0 && x_ray_casting < map.size_x && 
+         y_ray_casting > 0 && y_ray_casting < map.size_y){
+         MyFilledCircle(prob2, x_ray_casting, y_ray_casting, Scalar(255, 0, 0), 1);
       }
    }
 

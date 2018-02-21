@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 		particle_visualize(particle[t-1], filtered_state[t-1], sensor.laser[j], map, t-1); //real-time particles' movement
 		printf("Step %lu of %lu\n", t, sensor.sensor_count); //just telling a progess
 	}
-	waitkey(0);
+	// waitkey(0); //uncomment this to not closing the figure
 	while(1){
 		/* Does nothing but smiling at you :) */
 		break;

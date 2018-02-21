@@ -76,6 +76,9 @@ particle_type particle_sensor_update(laser_type laser, map_type map, particle_ty
 
 	for (unsigned int i = 0; i < n; i++){
 		particle.prob[i] = particle.prob[i] / weight_sum; //normailizing
+		if(isnan(particle.prob[i])){
+			particle.prob[i] = 0.0;
+		}
 	}
 	return particle;
 }
