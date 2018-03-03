@@ -1,110 +1,122 @@
 #include "visualize.hpp"
 #include <iostream>
-#include <stdio.h>
 #include <stdlib.h>
 
-#include <opencv2/opencv.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/highgui/highgui.hpp> 
-#include <opencv2/core/core.hpp> 
+#include <boost/thread/thread.hpp>
+#include <pcl/common/common_headers.h>
+#include <pcl/features/normal_3d.h>
+#include <pcl/io/pcd_io.h>
+#include <pcl/visualization/pcl_visualizer.h>
+#include <pcl/console/parse.h>
 
-using namespace cv;
-using namespace std;
+boost::shared_ptr<pcl::visualization::PCLVisualizer> simpleVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud)
+{
+  // --------------------------------------------
+  // -----Open 3D viewer and add point cloud-----
+  // --------------------------------------------
+  boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
+  viewer->setBackgroundColor (0, 0, 0);
+  viewer->addPointCloud<pcl::PointXYZ> (cloud, "sample cloud");
+  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "sample cloud");
+  viewer->addCoordinateSystem (1.0);
+  viewer->initCameraParameters ();
+  return (viewer);
+}
 
-// void MyFilledCircle( Mat img, float x, float y, CvScalar color, float r)
-// {
-//    int thickness = -1;
-//    Point center = Point( y, x);
-//    circle(img, center, r, color, thickness);
-// }
+boost::shared_ptr<pcl::visualization::PCLVisualizer> rgbVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud)
+{
+  // --------------------------------------------
+  // -----Open 3D viewer and add point cloud-----
+  // --------------------------------------------
+  boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
+  viewer->setBackgroundColor (0, 0, 0); //black
+  pcl::visualization::PointCloudColorHandlerRGBField<pcl::PointXYZRGB> rgb(cloud);
+  viewer->addPointCloud<pcl::PointXYZRGB> (cloud, rgb, "sample cloud");
+  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, "sample cloud");
+  viewer->addCoordinateSystem (1.0);
+  viewer->initCameraParameters ();
+  return (viewer);
+}
 
-// void MyFilledCircle_Transparent( Mat img, float x, float y, CvScalar color, float r)
-// {
-//    Point center = Point( y, x);
-//    circle(img, center, r, color);
-// }
+int data_visualization(log_type log){
+  // ------------------------------------
+  // -----Create example point cloud-----
+  // ------------------------------------
+  pcl::PointCloud<pcl::PointXYZ>::Ptr basic_cloud_ptr (new pcl::PointCloud<pcl::PointXYZ>);
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr point_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  std::cout << "Genarating example point clouds.\n\n";
+  // We're going to make an ellipse extruded along the z-axis. The colour for
+  // the XYZRGB cloud will gradually go from red to green to blue.
+  // uint8_t r(255), g(15), b(15);
+  // for (float z(-1.0); z <= 1.0; z += 0.05)
+  // {
+  //   for (float angle(0.0); angle <= 360.0; angle += 5.0)
+  //   {
+  //     pcl::PointXYZ basic_point;
+  //     basic_point.x = 0.8 * cosf (pcl::deg2rad(angle));
+  //     basic_point.y = sinf (pcl::deg2rad(angle));
+  //     basic_point.z = z;
+  //     basic_cloud_ptr->points.push_back(basic_point);
 
-// void particle_visualize(particle_type particle, state_type state, laser_type laser, map_type map, int step){
+  //     pcl::PointXYZRGB point;
+  //     point.x = basic_point.x;
+  //     point.y = basic_point.y;
+  //     point.z = basic_point.z;
+  //     uint32_t rgb = (static_cast<uint32_t>(r) << 16 |
+  //             static_cast<uint32_t>(g) << 8 | static_cast<uint32_t>(b));
+  //     point.rgb = *reinterpret_cast<float*>(&rgb);
+  //     point_cloud_ptr->points.push_back (point);
+  //   }
+  //   if (z < 0.0)
+  //   {
+  //     r -= 12;
+  //     g += 12;
+  //   }
+  //   else
+  //   {
+  //     g -= 12;
+  //     b += 12;
+  //   }
+  // }
+  // basic_cloud_ptr->width = (int) basic_cloud_ptr->points.size ();
+  // basic_cloud_ptr->height = 1;
+  // point_cloud_ptr->width = (int) point_cloud_ptr->points.size ();
+  // point_cloud_ptr->height = 1;
 
-//    Mat prob = Mat::zeros(map.size_x, map.size_y, CV_32F);
-//    for(int i = 0; i < map.size_x; i++){
-//       float *ptr = prob.ptr<float>(i);
+  float xm = 0, ym = 0, zm = 0;
+  for(int i = 0; i < log.count; i++){
+	xm = xm + log.point[i].x;
+    ym = ym + log.point[i].y;
+    zm = zm + log.point[i].z;
+  }
+  xm = xm / log.count;
+  ym = ym / log.count;
+  zm = zm / log.count;
 
-//       for(int j = 0; j < map.size_y; j++){
+  for(int i = 0; i < log.count; i++){
+  	pcl::PointXYZ basic_point;
+	basic_point.x = log.point[i].x - xm;
+    basic_point.y = log.point[i].y - ym;
+    basic_point.z = log.point[i].z - zm;
+    basic_cloud_ptr->points.push_back(basic_point);
+  }
+  basic_cloud_ptr->width = (int) basic_cloud_ptr->points.size ();
+  basic_cloud_ptr->height = 1;
 
-//          if(map.prob[i][j] >= 0){
-//             ptr[j] = map.prob[i][j];
-//          }
-//          if(map.prob[i][j] == -1){
-//             ptr[j] = 0;
-//          }
-//       }
-//    }
+  boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
+  viewer = simpleVis(basic_cloud_ptr);
+  // viewer = rgbVis(basic_cloud_ptr);
 
-//    normalize(prob, prob, 0, 255, CV_MINMAX);
-//    prob.convertTo(prob, CV_8UC1, 1, 0);
-//    Mat plane[] = {prob, prob, prob};
-//    merge(plane, 3, prob);
+  //--------------------
+  // -----Main loop-----
+  //--------------------
+  while (!viewer->wasStopped ())
+  {
+    viewer->spinOnce (100);
+    boost::this_thread::sleep (boost::posix_time::microseconds (100000));
+  }
 
-//    Mat prob2;
-
-//    prob2 = prob.clone();  
-//    for(unsigned long int i = 0; i < particle.particle_count; i++){
-//       MyFilledCircle_Transparent(prob2, particle.state[i].x, particle.state[i].y, Scalar( 0, 255, 0), particle.prob[i]*80000.0);
-//       MyFilledCircle(prob2, particle.state[i].x, particle.state[i].y, Scalar( 0, 0, 255), 7.0);
-
-//       float angle = RAD((float)90) + particle.state[i].theta;
-//       if(angle > M_PI){
-//          while(angle > M_PI){
-//             angle = angle - 2*M_PI;
-//          }
-//       }else if(angle < -M_PI){
-//          while(angle < -M_PI){
-//             angle = angle + 2*M_PI;
-//          }
-//       }
-//       for (int j = 0; j < (int)(laser.r[90]/map.resolution/2); j++){
-//          int x_ray_casting = particle.state[i].x + (j * cos(angle - M_PI / 2));
-//          int y_ray_casting = particle.state[i].y + (j * sin(angle - M_PI / 2));
-//          if (x_ray_casting > 0 && x_ray_casting < map.size_x && 
-//             y_ray_casting > 0 && y_ray_casting < map.size_y){
-//             MyFilledCircle(prob2, x_ray_casting, y_ray_casting, Scalar(255, 0, 255), 1);
-//          }
-//       }
-//    }
-
-//    state.x = state.x + (25/map.resolution)*cos(state.theta);
-//    state.y = state.y + (25/map.resolution)*sin(state.theta);
-
-//    for (int i = 0; i < 180; i++){
-//       float angle = RAD((float)i) + state.theta;
-//       for (int j = 0; j < (int)(laser.r[i]/map.resolution); j++){
-//          int x_ray_casting = state.x + (j * cos(angle - M_PI / 2));
-//          int y_ray_casting = state.y + (j * sin(angle - M_PI / 2));
-//          if (x_ray_casting > 0 && x_ray_casting < map.size_x && 
-//             y_ray_casting > 0 && y_ray_casting < map.size_y){
-//             MyFilledCircle(prob2, x_ray_casting, y_ray_casting, Scalar(0, 255, 255), 1);
-//          }
-//       }
-//    }
-
-//    int i = 90;
-//    float angle = RAD((float)i) + state.theta;
-//    for (int j = 0; j < (int)(laser.r[i]); j++){
-//       int x_ray_casting = state.x + (j * cos(angle - M_PI / 2));
-//       int y_ray_casting = state.y + (j * sin(angle - M_PI / 2));
-//       if (x_ray_casting > 0 && x_ray_casting < map.size_x && 
-//          y_ray_casting > 0 && y_ray_casting < map.size_y){
-//          MyFilledCircle(prob2, x_ray_casting, y_ray_casting, Scalar(255, 0, 0), 1);
-//       }
-//    }
-
-//    MyFilledCircle(prob2, state.x, state.y, Scalar( 255, 0, 0), 5.0);
-
-//    imshow("Current Robot", prob2);
-//    save_image(prob2, step);
-//    waitKey( 10 );
-// }
+}
 
 // void save_image(Mat img, int step){
 //    stringstream ss;

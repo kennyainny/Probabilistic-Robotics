@@ -1,6 +1,12 @@
 #ifndef DEF_TYPE_H
 #define DEF_TYPE_H
 
+#define VEG    1004
+#define WIRE   1100
+#define POLE   1103
+#define GROUND 1200
+#define FACADE 1400
+
 typedef struct {
   float x, y, z;
 } point_type;
