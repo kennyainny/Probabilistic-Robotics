@@ -13,9 +13,9 @@ extern "C"
 #include <pcl/visualization/pcl_visualizer.h>
 #include <pcl/console/parse.h>
 
-boost::shared_ptr<pcl::visualization::PCLVisualizer> simpleVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud);
-boost::shared_ptr<pcl::visualization::PCLVisualizer> rgbVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud);
-int data_visualization(log_type log);
+boost::shared_ptr<pcl::visualization::PCLVisualizer> simpleVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud, const char *view_name);
+boost::shared_ptr<pcl::visualization::PCLVisualizer> rgbVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud, const char *view_name);
+int data_visualization(log_type log, const char *view_name);
 // void save_image(Mat img, int step);
 
 #endif /* VISUALIZE_HPP */

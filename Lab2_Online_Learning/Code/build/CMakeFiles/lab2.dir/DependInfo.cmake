@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/gradient.cpp.o"
   "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/log.cpp.o"
   "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/main.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/main.cpp.o"
   "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/visualize.cpp.o"
@@ -16,7 +17,6 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "DISABLE_DSSDK"
   "DISABLE_ENSENSO"
   "DISABLE_LIBUSB_1_0"
-  "DISABLE_OPENNI"
   "DISABLE_OPENNI2"
   "DISABLE_PCAP"
   "DISABLE_PNG"
@@ -39,6 +39,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/include/vtk-7.1"
   "/usr/local/include/pcl-1.8"
   "/usr/include/eigen3"
+  "/usr/include/ni"
   )
 
 # Targets to which this target links.

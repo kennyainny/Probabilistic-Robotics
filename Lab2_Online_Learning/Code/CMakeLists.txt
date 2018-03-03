@@ -20,7 +20,9 @@ set(SOURCE_FILES
 	${PROJECT_SOURCE_DIR}/src/visualize.cpp
 	${PROJECT_SOURCE_DIR}/src/visualize.hpp
 	${PROJECT_SOURCE_DIR}/src/log.cpp
-	${PROJECT_SOURCE_DIR}/src/log.hpp)
+	${PROJECT_SOURCE_DIR}/src/log.hpp
+	${PROJECT_SOURCE_DIR}/src/gradient.cpp
+	${PROJECT_SOURCE_DIR}/src/gradient.hpp)
 
 add_executable(lab2 ${SOURCE_FILES})
 target_link_libraries(lab2 ${OpenCV_LIBS} ${PCL_LIBRARIES})

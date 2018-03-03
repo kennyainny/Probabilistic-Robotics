@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/lab2.dir/src/main.cpp.o"
   "CMakeFiles/lab2.dir/src/visualize.cpp.o"
   "CMakeFiles/lab2.dir/src/log.cpp.o"
+  "CMakeFiles/lab2.dir/src/gradient.cpp.o"
   "../bin/lab2.pdb"
   "../bin/lab2"
 )

@@ -8,5 +8,6 @@ extern "C"
 
 #include "log.hpp"
 #include "visualize.hpp"
+#include "gradient.hpp"
 
 #endif /* MAIN_HPP */

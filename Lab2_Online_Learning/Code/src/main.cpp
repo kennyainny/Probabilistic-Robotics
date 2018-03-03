@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 	printf("Hello Lab2\n");
 	
 	/* Read Log Data */
-	log_type log1, log2;
+	log_type log1, log2, train_log, test_log;
 	string Log1_name = "../data/oakland_part3_am_rf.node_features";
 	string Log2_name = "../data/oakland_part3_an_rf.node_features";
 	read_log(Log1_name.c_str(), &log1);
@@ -30,8 +30,19 @@ int main(int argc, char *argv[])
 	// 	std::cout << '\n';
 	// }
 
-	/* Gradient Descent on Squared Loss */
+	bool c(1); //change to 0 if you to switch between training and testing data set.
+	if(c){
+		train_log = log1;
+		test_log = log2;
+	} 
+	else{
+		train_log = log2;
+		test_log = log1;
+	}
 
+	/* Gradient Descent on Squared Loss */
+	log_type gradient_log;
+	gradient_log = Gradient_Descent(train_log, test_log);
 
 
 	/* Baysian Linear Regression */
@@ -43,7 +54,7 @@ int main(int argc, char *argv[])
 
 
 	/* Visualization using PCL */
-	data_visualization(log1);
+	data_visualization(log1, "training data");
 
 	while(1){
 		/* Does nothing but smiling at you :) */

@@ -123,6 +123,33 @@ lab2/fast:
 	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/build
 .PHONY : lab2/fast
 
+src/gradient.o: src/gradient.cpp.o
+
+.PHONY : src/gradient.o
+
+# target to build an object file
+src/gradient.cpp.o:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/gradient.cpp.o
+.PHONY : src/gradient.cpp.o
+
+src/gradient.i: src/gradient.cpp.i
+
+.PHONY : src/gradient.i
+
+# target to preprocess a source file
+src/gradient.cpp.i:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/gradient.cpp.i
+.PHONY : src/gradient.cpp.i
+
+src/gradient.s: src/gradient.cpp.s
+
+.PHONY : src/gradient.s
+
+# target to generate assembly for a file
+src/gradient.cpp.s:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/gradient.cpp.s
+.PHONY : src/gradient.cpp.s
+
 src/log.o: src/log.cpp.o
 
 .PHONY : src/log.o
@@ -213,6 +240,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... lab2"
+	@echo "... src/gradient.o"
+	@echo "... src/gradient.i"
+	@echo "... src/gradient.s"
 	@echo "... src/log.o"
 	@echo "... src/log.i"
 	@echo "... src/log.s"
