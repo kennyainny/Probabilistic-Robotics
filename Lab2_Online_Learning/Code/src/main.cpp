@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 	// 	std::cout << '\n';
 	// }
 
-	bool c(1); //change to 0 if you to switch between training and testing data set.
+	bool c(1); //change to 0 to switch between training and testing data set.
 	if(c){
 		train_log = log1;
 		test_log = log2;
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 
 
 	/* Visualization using PCL */
-	data_visualization(log1, "training data");
+	// data_visualization(train_log, test_log, gradient_log);
 
 	while(1){
 		/* Does nothing but smiling at you :) */

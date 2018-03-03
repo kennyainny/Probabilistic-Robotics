@@ -4,6 +4,7 @@
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/def_type.h
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/gradient.cpp
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/gradient.hpp
+CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/log.hpp
 
 CMakeFiles/lab2.dir/src/log.cpp.o: ../src/def_type.h
 CMakeFiles/lab2.dir/src/log.cpp.o: ../src/log.cpp

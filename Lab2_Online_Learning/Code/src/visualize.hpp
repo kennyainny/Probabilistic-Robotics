@@ -15,7 +15,8 @@ extern "C"
 
 boost::shared_ptr<pcl::visualization::PCLVisualizer> simpleVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud, const char *view_name);
 boost::shared_ptr<pcl::visualization::PCLVisualizer> rgbVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud, const char *view_name);
-int data_visualization(log_type log, const char *view_name);
+int data_visualization(log_type train_log, log_type test_log, log_type gradient_log);
+void create_point_cloud(log_type log, pcl::PointCloud<pcl::PointXYZRGB>::Ptr point_cloud_ptr);
 // void save_image(Mat img, int step);
 
 #endif /* VISUALIZE_HPP */

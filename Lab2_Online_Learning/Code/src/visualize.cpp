@@ -39,10 +39,7 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer> rgbVis (pcl::PointCloud<pcl
   return (viewer);
 }
 
-int data_visualization(log_type log, const char *view_name){
-  pcl::PointCloud<pcl::PointXYZ>::Ptr basic_cloud_ptr (new pcl::PointCloud<pcl::PointXYZ>);
-  pcl::PointCloud<pcl::PointXYZRGB>::Ptr point_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
-
+void create_point_cloud(log_type log, pcl::PointCloud<pcl::PointXYZRGB>::Ptr point_cloud_ptr){
   float xm = 0, ym = 0, zm = 0;
   for(int i = 0; i < log.count; i++){
 	xm = xm + log.point[i].x;
@@ -54,16 +51,11 @@ int data_visualization(log_type log, const char *view_name){
   zm = zm / log.count;
 
   for(int i = 0; i < log.count; i++){
-  	pcl::PointXYZ basic_point;
-	basic_point.x = log.point[i].x - xm;
-    basic_point.y = log.point[i].y - ym;
-    basic_point.z = log.point[i].z - zm;
-    basic_cloud_ptr->points.push_back(basic_point);
 
     pcl::PointXYZRGB point;
-    point.x = basic_point.x;
-    point.y = basic_point.y;
-    point.z = basic_point.z;
+    point.x = log.point[i].x - xm;
+    point.y = log.point[i].y - ym;
+    point.z = log.point[i].z - zm;
 
     uint8_t r, g , b;
     if(log.node_label[i] == VEG){
@@ -82,28 +74,74 @@ int data_visualization(log_type log, const char *view_name){
 	point.rgb = *reinterpret_cast<float*>(&rgb);
 	point_cloud_ptr->points.push_back (point);
   }
-  basic_cloud_ptr->width = (int) basic_cloud_ptr->points.size ();
-  basic_cloud_ptr->height = 1;
   point_cloud_ptr->width = (int) point_cloud_ptr->points.size ();
   point_cloud_ptr->height = 1;
+}
 
+int data_visualization(log_type train_log, log_type test_log, log_type gradient_log){
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr train_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  create_point_cloud(train_log, train_cloud_ptr);
   boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
-  // viewer = simpleVis(basic_cloud_ptr, view_name);
-  viewer = rgbVis(point_cloud_ptr, view_name);
+  std::string view_name = "original training data";
+  viewer = rgbVis(train_cloud_ptr, view_name.c_str());
+
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr test_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  create_point_cloud(test_log, test_cloud_ptr);
+  // boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
+  view_name = "original testing data";
+  viewer = rgbVis(test_cloud_ptr, view_name.c_str());
+
+ //  float xm = 0, ym = 0, zm = 0;
+ //  for(int i = 0; i < log.count; i++){
+	// xm = xm + log.point[i].x;
+ //    ym = ym + log.point[i].y;
+ //    zm = zm + log.point[i].z;
+ //  }
+ //  xm = xm / log.count;
+ //  ym = ym / log.count;
+ //  zm = zm / log.count;
+
+ //  for(int i = 0; i < log.count; i++){
+
+ //    pcl::PointXYZRGB point;
+ //    point.x = log.point[i].x - xm;
+ //    point.y = log.point[i].y - ym;
+ //    point.z = log.point[i].z - zm;
+
+ //    uint8_t r, g , b;
+ //    if(log.node_label[i] == VEG){
+ //    	r = 0, g = 255, b = 0;
+ //    }else if(log.node_label[i] == WIRE){
+ //    	r = 0, g = 0, b = 255;
+ //    }else if(log.node_label[i] == POLE){
+ //    	r = 255, g = 0, b = 0;
+ //    }else if(log.node_label[i] == GROUND){
+ //    	r = 255, g = 255, b = 0;
+ //    }else if(log.node_label[i] == FACADE){
+ //    	r = 255, g = 0, b = 255;
+ //    }
+    
+	// uint32_t rgb = ((uint32_t)r << 16 | (uint32_t)g << 8 | (uint32_t)b);
+	// point.rgb = *reinterpret_cast<float*>(&rgb);
+	// point_cloud_ptr->points.push_back (point);
+ //  }
+ //  point_cloud_ptr->width = (int) point_cloud_ptr->points.size ();
+ //  point_cloud_ptr->height = 1;
+
+  
 
   // std::vector<pcl::visualization::Camera> cam; 
   while (!viewer->wasStopped ())
   {
-    // viewer->spinOnce (100);
-    // viewer->getCameras(cam); 
-    // std::cout << "Cam: " << endl 
-    //      << " - pos: (" << cam[0].pos[0] << ", "    << cam[0].pos[1] << ", "    << cam[0].pos[2] << ")" << endl 
-    //      << " - view: ("    << cam[0].view[0] << ", "   << cam[0].view[1] << ", "   << cam[0].view[2] << ")"    << endl 
-    //      << " - focal: ("   << cam[0].focal[0] << ", "  << cam[0].focal[1] << ", "  << cam[0].focal[2] << ")"   << endl
-    //      << endl;
+    viewer->spinOnce (100);
+  //   // viewer->getCameras(cam); 
+  //   // std::cout << "Cam: " << endl 
+  //   //      << " - pos: (" << cam[0].pos[0] << ", "    << cam[0].pos[1] << ", "    << cam[0].pos[2] << ")" << endl 
+  //   //      << " - view: ("    << cam[0].view[0] << ", "   << cam[0].view[1] << ", "   << cam[0].view[2] << ")"    << endl 
+  //   //      << " - focal: ("   << cam[0].focal[0] << ", "  << cam[0].focal[1] << ", "  << cam[0].focal[2] << ")"   << endl
+  //   //      << endl;
     boost::this_thread::sleep (boost::posix_time::microseconds (100000));
   }
-
 }
 
 // void save_image(Mat img, int step){

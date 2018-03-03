@@ -11,10 +11,18 @@
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp
 gradient.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
+stdio.h
+-
+stdlib.h
+-
+math.h
+-
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
 def_type.h
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
+log.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp
 log.hpp
