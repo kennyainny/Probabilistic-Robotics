@@ -16,9 +16,9 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer> simpleVis (pcl::PointCloud<
   // --------------------------------------------
   boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
   viewer->setBackgroundColor (0, 0, 0);
-  viewer->addPointCloud<pcl::PointXYZ> (cloud, "sample cloud");
-  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "sample cloud");
-  viewer->addCoordinateSystem (1.0);
+  viewer->addPointCloud<pcl::PointXYZ> (cloud, "cloud");
+  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "cloud");
+  viewer->addCoordinateSystem (10.0);
   viewer->initCameraParameters ();
   return (viewer);
 }
@@ -31,57 +31,17 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer> rgbVis (pcl::PointCloud<pcl
   boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer (new pcl::visualization::PCLVisualizer ("3D Viewer"));
   viewer->setBackgroundColor (0, 0, 0); //black
   pcl::visualization::PointCloudColorHandlerRGBField<pcl::PointXYZRGB> rgb(cloud);
-  viewer->addPointCloud<pcl::PointXYZRGB> (cloud, rgb, "sample cloud");
-  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, "sample cloud");
-  viewer->addCoordinateSystem (1.0);
-  viewer->initCameraParameters ();
+  viewer->addPointCloud<pcl::PointXYZRGB> (cloud, rgb, "cloud");
+  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 0.5, "cloud");
+  viewer->addCoordinateSystem (10.0);
+  // viewer->initCameraParameters ();
+  viewer->setCameraPosition(-123.354, -24.4749, 38.5989, 0.304104, -0.0311046, 0.952131);
   return (viewer);
 }
 
 int data_visualization(log_type log){
-  // ------------------------------------
-  // -----Create example point cloud-----
-  // ------------------------------------
   pcl::PointCloud<pcl::PointXYZ>::Ptr basic_cloud_ptr (new pcl::PointCloud<pcl::PointXYZ>);
   pcl::PointCloud<pcl::PointXYZRGB>::Ptr point_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
-  std::cout << "Genarating example point clouds.\n\n";
-  // We're going to make an ellipse extruded along the z-axis. The colour for
-  // the XYZRGB cloud will gradually go from red to green to blue.
-  // uint8_t r(255), g(15), b(15);
-  // for (float z(-1.0); z <= 1.0; z += 0.05)
-  // {
-  //   for (float angle(0.0); angle <= 360.0; angle += 5.0)
-  //   {
-  //     pcl::PointXYZ basic_point;
-  //     basic_point.x = 0.8 * cosf (pcl::deg2rad(angle));
-  //     basic_point.y = sinf (pcl::deg2rad(angle));
-  //     basic_point.z = z;
-  //     basic_cloud_ptr->points.push_back(basic_point);
-
-  //     pcl::PointXYZRGB point;
-  //     point.x = basic_point.x;
-  //     point.y = basic_point.y;
-  //     point.z = basic_point.z;
-  //     uint32_t rgb = (static_cast<uint32_t>(r) << 16 |
-  //             static_cast<uint32_t>(g) << 8 | static_cast<uint32_t>(b));
-  //     point.rgb = *reinterpret_cast<float*>(&rgb);
-  //     point_cloud_ptr->points.push_back (point);
-  //   }
-  //   if (z < 0.0)
-  //   {
-  //     r -= 12;
-  //     g += 12;
-  //   }
-  //   else
-  //   {
-  //     g -= 12;
-  //     b += 12;
-  //   }
-  // }
-  // basic_cloud_ptr->width = (int) basic_cloud_ptr->points.size ();
-  // basic_cloud_ptr->height = 1;
-  // point_cloud_ptr->width = (int) point_cloud_ptr->points.size ();
-  // point_cloud_ptr->height = 1;
 
   float xm = 0, ym = 0, zm = 0;
   for(int i = 0; i < log.count; i++){
@@ -99,20 +59,48 @@ int data_visualization(log_type log){
     basic_point.y = log.point[i].y - ym;
     basic_point.z = log.point[i].z - zm;
     basic_cloud_ptr->points.push_back(basic_point);
+
+    pcl::PointXYZRGB point;
+    point.x = basic_point.x;
+    point.y = basic_point.y;
+    point.z = basic_point.z;
+
+    uint8_t r, g , b;
+    if(log.node_label[i] == VEG){
+    	r = 0, g = 255, b = 0;
+    }else if(log.node_label[i] == WIRE){
+    	r = 0, g = 0, b = 255;
+    }else if(log.node_label[i] == POLE){
+    	r = 255, g = 0, b = 0;
+    }else if(log.node_label[i] == GROUND){
+    	r = 255, g = 255, b = 0;
+    }else if(log.node_label[i] == FACADE){
+    	r = 255, g = 0, b = 255;
+    }
+    
+	uint32_t rgb = ((uint32_t)r << 16 | (uint32_t)g << 8 | (uint32_t)b);
+	point.rgb = *reinterpret_cast<float*>(&rgb);
+	point_cloud_ptr->points.push_back (point);
   }
   basic_cloud_ptr->width = (int) basic_cloud_ptr->points.size ();
   basic_cloud_ptr->height = 1;
+  point_cloud_ptr->width = (int) point_cloud_ptr->points.size ();
+  point_cloud_ptr->height = 1;
 
   boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
-  viewer = simpleVis(basic_cloud_ptr);
-  // viewer = rgbVis(basic_cloud_ptr);
+  // viewer = simpleVis(basic_cloud_ptr);
+  viewer = rgbVis(point_cloud_ptr);
 
-  //--------------------
-  // -----Main loop-----
-  //--------------------
+  // std::vector<pcl::visualization::Camera> cam; 
   while (!viewer->wasStopped ())
   {
-    viewer->spinOnce (100);
+    // viewer->spinOnce (100);
+    // viewer->getCameras(cam); 
+    // std::cout << "Cam: " << endl 
+    //      << " - pos: (" << cam[0].pos[0] << ", "    << cam[0].pos[1] << ", "    << cam[0].pos[2] << ")" << endl 
+    //      << " - view: ("    << cam[0].view[0] << ", "   << cam[0].view[1] << ", "   << cam[0].view[2] << ")"    << endl 
+    //      << " - focal: ("   << cam[0].focal[0] << ", "  << cam[0].focal[1] << ", "  << cam[0].focal[2] << ")"   << endl
+    //      << endl;
     boost::this_thread::sleep (boost::posix_time::microseconds (100000));
   }
 
