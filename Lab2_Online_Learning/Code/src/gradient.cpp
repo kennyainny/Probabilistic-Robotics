@@ -3,12 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define ALPHA 1
-// #define Y_VEG    1
-// #define Y_WIRE   1000
-// #define Y_POLE   10000
-// #define Y_GROUND 100000
-// #define Y_FACADE 1000000
+#define ALPHA 0.1
 
 #define Y_VEG    1
 #define Y_WIRE   10
@@ -16,10 +11,7 @@
 #define Y_GROUND 1000
 #define Y_FACADE 10000
 
-// #define THRES1 200000
-// #define THRES2 2000000
-// #define THRES3 2000000000
-// #define THRES4 200000000000
+#define EPOCH_NUM 300
 
 log_type Gradient_Descent(log_type train_log, log_type test_log){
   log_type gradient_log;
@@ -29,7 +21,7 @@ log_type Gradient_Descent(log_type train_log, log_type test_log){
   double wx, wn, l, dl[12], DL, x[12];
   int y;
 
-  // for(int k = 0; k <= 10; k++){
+  for(int k = 0; k <= EPOCH_NUM; k++){
   for(int i = 0; i < train_log.count; i++)
   {
     if(train_log.node_label[i] == VEG){
@@ -54,9 +46,9 @@ log_type Gradient_Descent(log_type train_log, log_type test_log){
     wx = 0, wn = 0, DL = 0;
     for (int j = 0; j < 12; j++)
     {
-      // printf("wx: %f\n", wx);
       wx = wx + w[j]*x[j];
-      // printf("x%d: %f ",j+1 , x[j]);
+      if(k == EPOCH_NUM-1)
+      printf("%d: x %.4f wx %.4f w %.4f\n",j+1 , x[j], wx, w[j]);
     }
 
     l = pow(wx - y, 2.0);
@@ -76,30 +68,33 @@ log_type Gradient_Descent(log_type train_log, log_type test_log){
     for (int j = 0; j < 12; j++)
     { 
       w[j] = w[j] - ALPHA*dl[j]/DL;
+      // if(k == EPOCH_NUM-1)
       // printf("w%d: %f\n", j, w[j]);
     }
 
-    // printf("step: %d\n", i);    
+    if(k == EPOCH_NUM-1)
+    printf("step: %d %d %.4f\n", i, y, wx);    
     // printf("\n");
   }
-// }
+}
 
-  for(int i = 0; i < test_log.count; i++){
-    x[0] = test_log.point[i].x;
-    x[1] = test_log.point[i].y;
-    x[2] = test_log.point[i].z;
+  for(int i = 0; i < train_log.count; i++){
+    x[0] = train_log.point[i].x;
+    x[1] = train_log.point[i].y;
+    x[2] = train_log.point[i].z;
     for(int j = 0; j < 9; j++){
-      x[j+3] = test_log.feature[i].f[j];
+      x[j+3] = train_log.feature[i].f[j];
     }
 
     wx = 0;
     for (int j = 0; j < 12; j++)
     {
       wx = wx + w[j]*x[j];
-      // printf("%d: %.4f %.4f %.4f \n",j+1 , w[j], x[j], wx);
+      if(i == train_log.count-1 || i == 69183)
+      printf("%d: %.4f %.4f %.4f \n",j+1 , w[j], x[j], wx);
     }
 
-    printf("wx: %.4f %d\n", wx, i);
+    // printf("wx: %.4f %d\n", wx, i);
 
     // if(l < THRES1){
     //   gradient_log.node_label[i] = WIRE;
@@ -113,6 +108,7 @@ log_type Gradient_Descent(log_type train_log, log_type test_log){
     //   gradient_log.node_label[i] = FACADE;
     // }
   }
+  // printf("wx: %.4f \n", wx);
   return gradient_log;
 }
 
