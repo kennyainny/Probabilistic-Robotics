@@ -7,6 +7,6 @@ extern "C"
 }
 #include "log.hpp"
 
-log_type Gradient_Descent(log_type train_log, log_type test_log);
+void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_log);
 
 #endif /* GRADIENT_H */

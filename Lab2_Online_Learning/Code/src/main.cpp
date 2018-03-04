@@ -42,8 +42,7 @@ int main(int argc, char *argv[])
 
 	/* Gradient Descent on Squared Loss */
 	log_type gradient_log;
-	gradient_log = Gradient_Descent(train_log, test_log);
-
+	Gradient_Descent(train_log, test_log, &gradient_log);
 
 	/* Baysian Linear Regression */
 
@@ -54,7 +53,7 @@ int main(int argc, char *argv[])
 
 
 	/* Visualization using PCL */
-	// data_visualization(train_log, test_log, gradient_log);
+	data_visualization(train_log, test_log, gradient_log);
 
 	while(1){
 		/* Does nothing but smiling at you :) */
