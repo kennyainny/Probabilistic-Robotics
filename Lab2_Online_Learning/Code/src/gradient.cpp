@@ -3,16 +3,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define ALPHA 0.5
-
-#define Y_VEG    10000
-#define Y_WIRE   1000
-#define Y_POLE   100
-#define Y_GROUND 10
-#define Y_FACADE 1
-
-#define EPOCH_NUM 200
-
 void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_log){
   gradient_log->count = test_log.count;  
   new_hornetsoft_log(gradient_log);
@@ -211,5 +201,3 @@ void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_
     }    
   }
 }
-
-using namespace std;

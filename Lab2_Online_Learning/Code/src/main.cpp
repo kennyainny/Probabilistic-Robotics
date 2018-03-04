@@ -6,11 +6,10 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-
 	printf("Hello Lab2\n");
 	
 	/* Read Log Data */
-	log_type log1, log2, train_log, test_log;
+	log_type log1, log2, train_log, train_log_noise1, train_log_noise2, test_log;
 	string Log1_name = "../data/oakland_part3_am_rf.node_features";
 	string Log2_name = "../data/oakland_part3_an_rf.node_features";
 	read_log(Log1_name.c_str(), &log1);
@@ -41,15 +40,17 @@ int main(int argc, char *argv[])
 	}
 
 	/* Gradient Descent on Squared Loss */
-	log_type gradient_log;
+	log_type gradient_log, gradient_log_noise1, gradient_log_noise2;
 	Gradient_Descent(train_log, test_log, &gradient_log);
 
 	/* Baysian Linear Regression */
-
+	log_type baysian_log, baysian_log_noise1, baysian_log_noise2;
 
 
 	/* NN ? Logistic Regression ? SVM */
-
+	log_type nn_log, nn_log_noise1, nn_log_noise2;
+	log_type logistic_log, logistic_log_noise1, logistic_log_noise2;
+	log_type svm_log, svm_log_noise1, svm_log_noise2;
 
 
 	/* Visualization using PCL */
