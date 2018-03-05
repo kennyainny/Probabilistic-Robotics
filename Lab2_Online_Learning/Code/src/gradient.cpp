@@ -3,6 +3,24 @@
 #include <stdlib.h>
 #include <math.h>
 
+int assign_output(log_type log, long count){
+  int y;
+
+  if(log.node_label[count] == VEG){
+      y = Y_VEG;
+    }else if(log.node_label[count] == WIRE){
+      y = Y_WIRE;
+    }else if(log.node_label[count] == POLE){
+      y = Y_POLE;
+    }else if(log.node_label[count] == GROUND){
+      y = Y_GROUND;
+    }else if(log.node_label[count] == FACADE){
+      y = Y_FACADE;
+    }
+
+  return y;
+}
+
 void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_log){
   gradient_log->count = test_log.count;  
   new_hornetsoft_log(gradient_log);
@@ -15,19 +33,20 @@ void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_
   int y;
 
   for(int k = 0; k <= EPOCH_NUM; k++){
-  for(int i = 0; i < train_log.count; i++)
+  for(long i = 0; i < train_log.count; i++)
   {
-    if(train_log.node_label[i] == VEG){
-      y = Y_VEG;
-    }else if(train_log.node_label[i] == WIRE){
-      y = Y_WIRE;
-    }else if(train_log.node_label[i] == POLE){
-      y = Y_POLE;
-    }else if(train_log.node_label[i] == GROUND){
-      y = Y_GROUND;
-    }else if(train_log.node_label[i] == FACADE){
-      y = Y_FACADE;
-    }
+    y = assign_output(train_log, i);
+    // if(train_log.node_label[i] == VEG){
+    //   y = Y_VEG;
+    // }else if(train_log.node_label[i] == WIRE){
+    //   y = Y_WIRE;
+    // }else if(train_log.node_label[i] == POLE){
+    //   y = Y_POLE;
+    // }else if(train_log.node_label[i] == GROUND){
+    //   y = Y_GROUND;
+    // }else if(train_log.node_label[i] == FACADE){
+    //   y = Y_FACADE;
+    // }
 
     x[0] = train_log.point[i].x;
     x[1] = train_log.point[i].y;
@@ -102,18 +121,19 @@ void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_
   //   printf("%d %.4f %.4f %.4f %.4f %.4f\n", j, w_veg[j], w_wire[j], w_pole[j], w_ground[j], w_facade[j]);
   // }
 
-  for(int i = 0; i < test_log.count; i++){
-    if(test_log.node_label[i] == VEG){
-      y = Y_VEG;
-    }else if(test_log.node_label[i] == WIRE){
-      y = Y_WIRE;
-    }else if(test_log.node_label[i] == POLE){
-      y = Y_POLE;
-    }else if(test_log.node_label[i] == GROUND){
-      y = Y_GROUND;
-    }else if(test_log.node_label[i] == FACADE){
-      y = Y_FACADE;
-    }
+  for(long i = 0; i < test_log.count; i++){
+    y = assign_output(test_log, i);
+    // if(test_log.node_label[i] == VEG){
+    //   y = Y_VEG;
+    // }else if(test_log.node_label[i] == WIRE){
+    //   y = Y_WIRE;
+    // }else if(test_log.node_label[i] == POLE){
+    //   y = Y_POLE;
+    // }else if(test_log.node_label[i] == GROUND){
+    //   y = Y_GROUND;
+    // }else if(test_log.node_label[i] == FACADE){
+    //   y = Y_FACADE;
+    // }
 
     x[0] = test_log.point[i].x;
     x[1] = test_log.point[i].y;
