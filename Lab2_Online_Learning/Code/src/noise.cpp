@@ -5,6 +5,8 @@
 #include <random>
 
 using namespace std;
+random_device rd1;
+mt19937 mt1(rd1());
 
 void Add_Noise_1(log_type log, log_type *log_noise){
 	int feature_size = 12; //x y z  and 9 features
@@ -27,6 +29,7 @@ void Add_Noise_1(log_type log, log_type *log_noise){
 	log_noise->count = log.count + noise_size;
 	new_hornetsoft_log(log_noise);
 
+	uniform_real_distribution<float> distr;
 	for(long i = 0; i < log_noise->count; i++){
 		if(i < log.count){
 			log_noise->point = log.point;
@@ -34,7 +37,11 @@ void Add_Noise_1(log_type log, log_type *log_noise){
 			log_noise->node_label = log.node_label;
 			log_noise->feature = log.feature;
 		}else{
-
+			for(int j = 0; j < feature_size; j++){
+				distr.param(uniform_real_distribution<float>::param_type(min_f[j], max_f[j]));
+				f[j] = distr(mt1);
+			}
+			
 		}
 	}
 }
