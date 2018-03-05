@@ -75,13 +75,13 @@ void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_
   gradient_log->point = test_log.point;
   gradient_log->node_id = test_log.node_id;
 
-  int weight_size = 12;
+  int y, weight_size = 12;
   double w[weight_size] = {1,1,1,1,1,1,1,1,1,1,1,1};
-  double wx, l, dl[weight_size], DL, x[weight_size];
+  double wx, l, DL, dl[weight_size], x[weight_size];
   double err_veg = 9999999, err_wire = 9999999, err_pole = 9999999, err_ground = 9999999, err_facade = 9999999;
   double w_veg[weight_size], w_wire[weight_size], w_pole[weight_size], w_ground[weight_size], w_facade[weight_size];
-  int y;
 
+  /* Training */
   for(int k = 0; k <= EPOCH_NUM; k++){
     for(long i = 0; i < train_log.count; i++)
     {
@@ -112,6 +112,7 @@ void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_
   //   printf("%d %.4f %.4f %.4f %.4f %.4f\n", j, w_veg[j], w_wire[j], w_pole[j], w_ground[j], w_facade[j]);
   // }
 
+  /* Testing */
   for(long i = 0; i < test_log.count; i++){
     y = assign_output(test_log, i);
     assign_input(test_log, i, x);
@@ -131,38 +132,6 @@ void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_
         wx = wx + w_facade[j]*x[j];
       }      
     }
-
-    // if(wx < Y_FACADE){
-    //   gradient_log->node_label[i] = Y_FACADE;
-    // }else if(wx > Y_FACADE && wx < Y_GROUND){
-    //   if(abs(wx - Y_FACADE) < abs(wx - Y_GROUND)){
-    //     gradient_log->node_label[i] = Y_FACADE;
-    //   }else{
-    //     gradient_log->node_label[i] = Y_GROUND;
-    //   }      
-    // }else if(wx > Y_GROUND && wx < Y_POLE){
-    //   if(abs(wx - Y_GROUND) < abs(wx - Y_POLE)){
-    //     gradient_log->node_label[i] = Y_GROUND;
-    //   }else{
-    //     gradient_log->node_label[i] = Y_POLE;
-    //   }  
-    // }else if(wx > Y_POLE && wx < Y_WIRE){
-    //   if(abs(wx - Y_POLE) < abs(wx - Y_WIRE)){
-    //     gradient_log->node_label[i] = Y_POLE;
-    //   }else{
-    //     gradient_log->node_label[i] = Y_WIRE;
-    //   }  
-    // }else if(wx > Y_WIRE && wx < Y_VEG){
-    //   if(abs(wx - Y_WIRE) < abs(wx - Y_VEG)){
-    //     gradient_log->node_label[i] = Y_WIRE;
-    //   }else{
-    //     gradient_log->node_label[i] = Y_VEG;
-    //   }  
-    // }else if(wx > Y_VEG){
-    //   gradient_log->node_label[i] = Y_VEG;
-    // }
-
-    // printf("step: %d %d %.4f %d\n", i, y, wx, gradient_log->node_label[i]);
 
     if(wx < Y_FACADE){
       gradient_log->node_label[i] = FACADE;
@@ -192,6 +161,8 @@ void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_
       }  
     }else if(wx > Y_VEG){
       gradient_log->node_label[i] = VEG;
-    }    
+    }
+
+    // printf("step: %d %d %.4f %d\n", i, y, wx, gradient_log->node_label[i]);    
   }
 }

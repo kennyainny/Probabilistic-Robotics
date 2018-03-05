@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 	printf("Hello Lab2\n");
 	
 	/* Read Log Data */
-	log_type log1, log2, train_log, train_log_noise1, train_log_noise2, test_log;
+	log_type log1, log2, train_log, test_log;
 	string Log1_name = "../data/oakland_part3_am_rf.node_features";
 	string Log2_name = "../data/oakland_part3_an_rf.node_features";
 	read_log(Log1_name.c_str(), &log1);
@@ -38,6 +38,11 @@ int main(int argc, char *argv[])
 		train_log = log2;
 		test_log = log1;
 	}
+
+	/* Add Noise */
+	log_type train_log_noise1, train_log_noise2;
+	Add_Noise_1(train_log, &train_log_noise1);
+	Add_Noise_2(train_log, &train_log_noise2);
 
 	/* Gradient Descent on Squared Loss */
 	log_type gradient_log, gradient_log_noise1, gradient_log_noise2;

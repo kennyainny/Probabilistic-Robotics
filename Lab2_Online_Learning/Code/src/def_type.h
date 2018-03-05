@@ -17,6 +17,8 @@
 
 #define ALPHA 0.5
 
+#define NOISE_RATIO 0.3 //# of noise data to # of original data
+
 typedef struct {
   float x, y, z;
 } point_type;
