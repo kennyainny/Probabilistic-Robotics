@@ -7,7 +7,7 @@
 #define GROUND 1200
 #define FACADE 1400
 
-#define NOISE_RATIO 0.3 //# of noise data to # of original data
+#define NOISE_RATIO 0.2 //# of noise data to # of original data
 
 typedef struct {
   float x, y, z;
