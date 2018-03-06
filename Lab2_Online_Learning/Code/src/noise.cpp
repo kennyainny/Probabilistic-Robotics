@@ -5,8 +5,12 @@
 #include <random>
 
 using namespace std;
-random_device rd_u, rd_d, rd_n;
-mt19937 mt_u(rd_u()), mt_d(rd_d()), mt_n(rd_n());
+random_device rd_u;
+random_device rd_d;
+random_device rd_n;
+mt19937 mt_u(rd_u());
+mt19937 mt_d(rd_d());
+mt19937 mt_n(rd_n());
 
 void assign_output_noise(int *y){
 	if(*y == 0)
@@ -121,16 +125,16 @@ void Add_Noise_2(log_type log, log_type *log_noise){
 	new_hornetsoft_log(log_noise);
 
 	//uniformly pick points to be corrupted
-	uniform_int_distribution<float> distr_u(0, log.count-1);
+	uniform_int_distribution<int> distr_u(0, log.count-1);
 	long corrupted_node_id[noise_size];
-	for(int i = 0; i < noise_size; i++){
+	for(long i = 0; i < noise_size; i++){
 		corrupted_node_id[i] = distr_u(mt_u);
 	}
 
 	//corrupting those points by gaussian noise
 	normal_distribution<float> distr_n;
-	double noise[feature_size]	
-	for(int i = 0; i < log_noise.count; i++){
+	double noise[feature_size];	
+	for(long i = 0; i < log_noise->count; i++){
 		log_noise->node_id[i] = i;
 		if(i < log.count){
 			log_noise->point[i] = log.point[i];
@@ -144,7 +148,7 @@ void Add_Noise_2(log_type log, log_type *log_noise){
 				noise[j] = distr_n(mt_n);
 				f[j] = f[j] + noise[j];
 			}
-			y = log.noise_label[k];
+			y = log.node_label[k];
 			assign_feature_noise(log_noise, i, f, y);
 		}		
 	}
