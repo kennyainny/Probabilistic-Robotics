@@ -78,7 +78,9 @@ void create_point_cloud(log_type log, pcl::PointCloud<pcl::PointXYZRGB>::Ptr poi
   point_cloud_ptr->height = 1;
 }
 
-int data_visualization(log_type train_log, log_type test_log, log_type gradient_log){
+int data_visualizationint data_visualization(log_type train_log, log_type test_log, log_type train_log_noise1, log_type train_log_noise2, 
+                                             log_type gradient_log){
+
   pcl::PointCloud<pcl::PointXYZRGB>::Ptr train_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
   create_point_cloud(train_log, train_cloud_ptr);
   boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
@@ -87,14 +89,23 @@ int data_visualization(log_type train_log, log_type test_log, log_type gradient_
 
   pcl::PointCloud<pcl::PointXYZRGB>::Ptr test_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
   create_point_cloud(test_log, test_cloud_ptr);
-  // boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
   view_name = "Original Testing Data";
   viewer = rgbVis(test_cloud_ptr, view_name.c_str());
 
-  pcl::PointCloud<pcl::PointXYZRGB>::Ptr gradient_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
-  create_point_cloud(gradient_log, gradient_cloud_ptr);
-  view_name = "Gradient Descent on Squared Loss - Testing Data";
-  viewer = rgbVis(gradient_cloud_ptr, view_name.c_str());  
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr train_noise1_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  create_point_cloud(train_log_noise1, train_noise1_cloud_ptr);
+  view_name = "Original Testing Data";
+  viewer = rgbVis(train_noise1_cloud_ptr, view_name.c_str());
+
+  // pcl::PointCloud<pcl::PointXYZRGB>::Ptr train_noise2_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  // create_point_cloud(train_log_noise2, train_noise2_cloud_ptr);
+  // view_name = "Original Testing Data";
+  // viewer = rgbVis(train_noise2_cloud_ptr, view_name.c_str());
+
+  // pcl::PointCloud<pcl::PointXYZRGB>::Ptr gradient_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  // create_point_cloud(gradient_log, gradient_cloud_ptr);
+  // view_name = "Gradient Descent on Squared Loss - Testing Data";
+  // viewer = rgbVis(gradient_cloud_ptr, view_name.c_str());  
 
   // std::vector<pcl::visualization::Camera> cam; 
   while (!viewer->wasStopped ())

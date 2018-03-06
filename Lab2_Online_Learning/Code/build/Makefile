@@ -123,6 +123,33 @@ lab2/fast:
 	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/build
 .PHONY : lab2/fast
 
+src/baysian.o: src/baysian.cpp.o
+
+.PHONY : src/baysian.o
+
+# target to build an object file
+src/baysian.cpp.o:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/baysian.cpp.o
+.PHONY : src/baysian.cpp.o
+
+src/baysian.i: src/baysian.cpp.i
+
+.PHONY : src/baysian.i
+
+# target to preprocess a source file
+src/baysian.cpp.i:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/baysian.cpp.i
+.PHONY : src/baysian.cpp.i
+
+src/baysian.s: src/baysian.cpp.s
+
+.PHONY : src/baysian.s
+
+# target to generate assembly for a file
+src/baysian.cpp.s:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/baysian.cpp.s
+.PHONY : src/baysian.cpp.s
+
 src/gradient.o: src/gradient.cpp.o
 
 .PHONY : src/gradient.o
@@ -177,6 +204,33 @@ src/log.cpp.s:
 	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/log.cpp.s
 .PHONY : src/log.cpp.s
 
+src/logistic.o: src/logistic.cpp.o
+
+.PHONY : src/logistic.o
+
+# target to build an object file
+src/logistic.cpp.o:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/logistic.cpp.o
+.PHONY : src/logistic.cpp.o
+
+src/logistic.i: src/logistic.cpp.i
+
+.PHONY : src/logistic.i
+
+# target to preprocess a source file
+src/logistic.cpp.i:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/logistic.cpp.i
+.PHONY : src/logistic.cpp.i
+
+src/logistic.s: src/logistic.cpp.s
+
+.PHONY : src/logistic.s
+
+# target to generate assembly for a file
+src/logistic.cpp.s:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/logistic.cpp.s
+.PHONY : src/logistic.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -203,6 +257,87 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/neural_network.o: src/neural_network.cpp.o
+
+.PHONY : src/neural_network.o
+
+# target to build an object file
+src/neural_network.cpp.o:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/neural_network.cpp.o
+.PHONY : src/neural_network.cpp.o
+
+src/neural_network.i: src/neural_network.cpp.i
+
+.PHONY : src/neural_network.i
+
+# target to preprocess a source file
+src/neural_network.cpp.i:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/neural_network.cpp.i
+.PHONY : src/neural_network.cpp.i
+
+src/neural_network.s: src/neural_network.cpp.s
+
+.PHONY : src/neural_network.s
+
+# target to generate assembly for a file
+src/neural_network.cpp.s:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/neural_network.cpp.s
+.PHONY : src/neural_network.cpp.s
+
+src/noise.o: src/noise.cpp.o
+
+.PHONY : src/noise.o
+
+# target to build an object file
+src/noise.cpp.o:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/noise.cpp.o
+.PHONY : src/noise.cpp.o
+
+src/noise.i: src/noise.cpp.i
+
+.PHONY : src/noise.i
+
+# target to preprocess a source file
+src/noise.cpp.i:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/noise.cpp.i
+.PHONY : src/noise.cpp.i
+
+src/noise.s: src/noise.cpp.s
+
+.PHONY : src/noise.s
+
+# target to generate assembly for a file
+src/noise.cpp.s:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/noise.cpp.s
+.PHONY : src/noise.cpp.s
+
+src/svm.o: src/svm.cpp.o
+
+.PHONY : src/svm.o
+
+# target to build an object file
+src/svm.cpp.o:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/svm.cpp.o
+.PHONY : src/svm.cpp.o
+
+src/svm.i: src/svm.cpp.i
+
+.PHONY : src/svm.i
+
+# target to preprocess a source file
+src/svm.cpp.i:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/svm.cpp.i
+.PHONY : src/svm.cpp.i
+
+src/svm.s: src/svm.cpp.s
+
+.PHONY : src/svm.s
+
+# target to generate assembly for a file
+src/svm.cpp.s:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/svm.cpp.s
+.PHONY : src/svm.cpp.s
 
 src/visualize.o: src/visualize.cpp.o
 
@@ -240,15 +375,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... lab2"
+	@echo "... src/baysian.o"
+	@echo "... src/baysian.i"
+	@echo "... src/baysian.s"
 	@echo "... src/gradient.o"
 	@echo "... src/gradient.i"
 	@echo "... src/gradient.s"
 	@echo "... src/log.o"
 	@echo "... src/log.i"
 	@echo "... src/log.s"
+	@echo "... src/logistic.o"
+	@echo "... src/logistic.i"
+	@echo "... src/logistic.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/neural_network.o"
+	@echo "... src/neural_network.i"
+	@echo "... src/neural_network.s"
+	@echo "... src/noise.o"
+	@echo "... src/noise.i"
+	@echo "... src/noise.s"
+	@echo "... src/svm.o"
+	@echo "... src/svm.i"
+	@echo "... src/svm.s"
 	@echo "... src/visualize.o"
 	@echo "... src/visualize.i"
 	@echo "... src/visualize.s"

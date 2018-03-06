@@ -9,5 +9,10 @@ extern "C"
 #include "log.hpp"
 #include "visualize.hpp"
 #include "gradient.hpp"
+#include "noise.hpp"
+#include "baysian.hpp"
+#include "neural_network.hpp"
+#include "logistic.hpp"
+#include "svm.hpp"
 
 #endif /* MAIN_HPP */

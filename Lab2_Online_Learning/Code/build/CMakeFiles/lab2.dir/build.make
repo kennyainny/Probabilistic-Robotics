@@ -129,9 +129,33 @@ CMakeFiles/lab2.dir/src/log.cpp.o.provides: CMakeFiles/lab2.dir/src/log.cpp.o.re
 CMakeFiles/lab2.dir/src/log.cpp.o.provides.build: CMakeFiles/lab2.dir/src/log.cpp.o
 
 
+CMakeFiles/lab2.dir/src/noise.cpp.o: CMakeFiles/lab2.dir/flags.make
+CMakeFiles/lab2.dir/src/noise.cpp.o: ../src/noise.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lab2.dir/src/noise.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/noise.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.cpp
+
+CMakeFiles/lab2.dir/src/noise.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/noise.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.cpp > CMakeFiles/lab2.dir/src/noise.cpp.i
+
+CMakeFiles/lab2.dir/src/noise.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/noise.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.cpp -o CMakeFiles/lab2.dir/src/noise.cpp.s
+
+CMakeFiles/lab2.dir/src/noise.cpp.o.requires:
+
+.PHONY : CMakeFiles/lab2.dir/src/noise.cpp.o.requires
+
+CMakeFiles/lab2.dir/src/noise.cpp.o.provides: CMakeFiles/lab2.dir/src/noise.cpp.o.requires
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/noise.cpp.o.provides.build
+.PHONY : CMakeFiles/lab2.dir/src/noise.cpp.o.provides
+
+CMakeFiles/lab2.dir/src/noise.cpp.o.provides.build: CMakeFiles/lab2.dir/src/noise.cpp.o
+
+
 CMakeFiles/lab2.dir/src/gradient.cpp.o: CMakeFiles/lab2.dir/flags.make
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/gradient.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lab2.dir/src/gradient.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/lab2.dir/src/gradient.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/gradient.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp
 
 CMakeFiles/lab2.dir/src/gradient.cpp.i: cmake_force
@@ -153,12 +177,113 @@ CMakeFiles/lab2.dir/src/gradient.cpp.o.provides: CMakeFiles/lab2.dir/src/gradien
 CMakeFiles/lab2.dir/src/gradient.cpp.o.provides.build: CMakeFiles/lab2.dir/src/gradient.cpp.o
 
 
+CMakeFiles/lab2.dir/src/neural_network.cpp.o: CMakeFiles/lab2.dir/flags.make
+CMakeFiles/lab2.dir/src/neural_network.cpp.o: ../src/neural_network.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/lab2.dir/src/neural_network.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/neural_network.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.cpp
+
+CMakeFiles/lab2.dir/src/neural_network.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/neural_network.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.cpp > CMakeFiles/lab2.dir/src/neural_network.cpp.i
+
+CMakeFiles/lab2.dir/src/neural_network.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/neural_network.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.cpp -o CMakeFiles/lab2.dir/src/neural_network.cpp.s
+
+CMakeFiles/lab2.dir/src/neural_network.cpp.o.requires:
+
+.PHONY : CMakeFiles/lab2.dir/src/neural_network.cpp.o.requires
+
+CMakeFiles/lab2.dir/src/neural_network.cpp.o.provides: CMakeFiles/lab2.dir/src/neural_network.cpp.o.requires
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/neural_network.cpp.o.provides.build
+.PHONY : CMakeFiles/lab2.dir/src/neural_network.cpp.o.provides
+
+CMakeFiles/lab2.dir/src/neural_network.cpp.o.provides.build: CMakeFiles/lab2.dir/src/neural_network.cpp.o
+
+
+CMakeFiles/lab2.dir/src/svm.cpp.o: CMakeFiles/lab2.dir/flags.make
+CMakeFiles/lab2.dir/src/svm.cpp.o: ../src/svm.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/lab2.dir/src/svm.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/svm.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp
+
+CMakeFiles/lab2.dir/src/svm.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/svm.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp > CMakeFiles/lab2.dir/src/svm.cpp.i
+
+CMakeFiles/lab2.dir/src/svm.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/svm.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp -o CMakeFiles/lab2.dir/src/svm.cpp.s
+
+CMakeFiles/lab2.dir/src/svm.cpp.o.requires:
+
+.PHONY : CMakeFiles/lab2.dir/src/svm.cpp.o.requires
+
+CMakeFiles/lab2.dir/src/svm.cpp.o.provides: CMakeFiles/lab2.dir/src/svm.cpp.o.requires
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/svm.cpp.o.provides.build
+.PHONY : CMakeFiles/lab2.dir/src/svm.cpp.o.provides
+
+CMakeFiles/lab2.dir/src/svm.cpp.o.provides.build: CMakeFiles/lab2.dir/src/svm.cpp.o
+
+
+CMakeFiles/lab2.dir/src/baysian.cpp.o: CMakeFiles/lab2.dir/flags.make
+CMakeFiles/lab2.dir/src/baysian.cpp.o: ../src/baysian.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/lab2.dir/src/baysian.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/baysian.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.cpp
+
+CMakeFiles/lab2.dir/src/baysian.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/baysian.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.cpp > CMakeFiles/lab2.dir/src/baysian.cpp.i
+
+CMakeFiles/lab2.dir/src/baysian.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/baysian.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.cpp -o CMakeFiles/lab2.dir/src/baysian.cpp.s
+
+CMakeFiles/lab2.dir/src/baysian.cpp.o.requires:
+
+.PHONY : CMakeFiles/lab2.dir/src/baysian.cpp.o.requires
+
+CMakeFiles/lab2.dir/src/baysian.cpp.o.provides: CMakeFiles/lab2.dir/src/baysian.cpp.o.requires
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/baysian.cpp.o.provides.build
+.PHONY : CMakeFiles/lab2.dir/src/baysian.cpp.o.provides
+
+CMakeFiles/lab2.dir/src/baysian.cpp.o.provides.build: CMakeFiles/lab2.dir/src/baysian.cpp.o
+
+
+CMakeFiles/lab2.dir/src/logistic.cpp.o: CMakeFiles/lab2.dir/flags.make
+CMakeFiles/lab2.dir/src/logistic.cpp.o: ../src/logistic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/lab2.dir/src/logistic.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/logistic.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.cpp
+
+CMakeFiles/lab2.dir/src/logistic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/logistic.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.cpp > CMakeFiles/lab2.dir/src/logistic.cpp.i
+
+CMakeFiles/lab2.dir/src/logistic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/logistic.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.cpp -o CMakeFiles/lab2.dir/src/logistic.cpp.s
+
+CMakeFiles/lab2.dir/src/logistic.cpp.o.requires:
+
+.PHONY : CMakeFiles/lab2.dir/src/logistic.cpp.o.requires
+
+CMakeFiles/lab2.dir/src/logistic.cpp.o.provides: CMakeFiles/lab2.dir/src/logistic.cpp.o.requires
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/logistic.cpp.o.provides.build
+.PHONY : CMakeFiles/lab2.dir/src/logistic.cpp.o.provides
+
+CMakeFiles/lab2.dir/src/logistic.cpp.o.provides.build: CMakeFiles/lab2.dir/src/logistic.cpp.o
+
+
 # Object files for target lab2
 lab2_OBJECTS = \
 "CMakeFiles/lab2.dir/src/main.cpp.o" \
 "CMakeFiles/lab2.dir/src/visualize.cpp.o" \
 "CMakeFiles/lab2.dir/src/log.cpp.o" \
-"CMakeFiles/lab2.dir/src/gradient.cpp.o"
+"CMakeFiles/lab2.dir/src/noise.cpp.o" \
+"CMakeFiles/lab2.dir/src/gradient.cpp.o" \
+"CMakeFiles/lab2.dir/src/neural_network.cpp.o" \
+"CMakeFiles/lab2.dir/src/svm.cpp.o" \
+"CMakeFiles/lab2.dir/src/baysian.cpp.o" \
+"CMakeFiles/lab2.dir/src/logistic.cpp.o"
 
 # External object files for target lab2
 lab2_EXTERNAL_OBJECTS =
@@ -166,36 +291,39 @@ lab2_EXTERNAL_OBJECTS =
 ../bin/lab2: CMakeFiles/lab2.dir/src/main.cpp.o
 ../bin/lab2: CMakeFiles/lab2.dir/src/visualize.cpp.o
 ../bin/lab2: CMakeFiles/lab2.dir/src/log.cpp.o
+../bin/lab2: CMakeFiles/lab2.dir/src/noise.cpp.o
 ../bin/lab2: CMakeFiles/lab2.dir/src/gradient.cpp.o
+../bin/lab2: CMakeFiles/lab2.dir/src/neural_network.cpp.o
+../bin/lab2: CMakeFiles/lab2.dir/src/svm.cpp.o
+../bin/lab2: CMakeFiles/lab2.dir/src/baysian.cpp.o
+../bin/lab2: CMakeFiles/lab2.dir/src/logistic.cpp.o
 ../bin/lab2: CMakeFiles/lab2.dir/build.make
-../bin/lab2: /usr/local/lib/libopencv_stitching.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_superres.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_videostab.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_cvv.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_xobjdetect.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_aruco.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_hfs.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_bgsegm.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_fuzzy.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_optflow.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_saliency.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_ximgproc.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_hdf.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_rgbd.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_bioinspired.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_surface_matching.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_xphoto.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_face.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_dpm.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_sfm.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_reg.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_line_descriptor.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_dnn_objdetect.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_freetype.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_structured_light.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_stereo.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_ccalib.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_img_hash.so.3.4.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_stitching3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_superres3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_videostab3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_aruco3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_bgsegm3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_bioinspired3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_ccalib3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_cvv3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_dpm3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_face3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_fuzzy3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_hdf3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_img_hash3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_line_descriptor3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_optflow3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_reg3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_rgbd3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_saliency3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_stereo3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_structured_light3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_surface_matching3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_tracking3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_xfeatures2d3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_ximgproc3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_xobjdetect3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_xphoto3.so.3.3.1
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libboost_system.so
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libboost_thread.so
@@ -245,10 +373,6 @@ lab2_EXTERNAL_OBJECTS =
 ../bin/lab2: /usr/local/lib/libvtkverdict-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkRenderingVolumeOpenGL2-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkImagingMath-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOExport-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkRenderingGL2PSOpenGL2-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkgl2ps-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOPLY-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkViewsContext2D-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkIOTecplotTable-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkImagingStencil-7.1.so.1
@@ -268,7 +392,6 @@ lab2_EXTERNAL_OBJECTS =
 ../bin/lab2: /usr/local/lib/libvtkFiltersSMP-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkIOExodus-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkIOParallel-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOGeometry-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkjsoncpp-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkRenderingContextOpenGL2-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkIOVideo-7.1.so.1
@@ -285,30 +408,33 @@ lab2_EXTERNAL_OBJECTS =
 ../bin/lab2: /usr/local/lib/libvtkIOMovie-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkImagingStatistics-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkIOEnSight-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersTexture-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkRenderingLOD-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkGeovisCore-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkFiltersHyperTree-7.1.so.1
-../bin/lab2: /usr/local/lib/libopencv_photo.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_tracking.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_datasets.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_text.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_plot.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_objdetect.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_xfeatures2d.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_ml.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_shape.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_video.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_dnn.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_phase_unwrapping.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_calib3d.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_features2d.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_flann.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_highgui.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_videoio.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_imgcodecs.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_imgproc.so.3.4.1
-../bin/lab2: /usr/local/lib/libopencv_core.so.3.4.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_shape3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_photo3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_calib3d3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_viz3.so.3.3.1
+../bin/lab2: /usr/local/lib/libvtkIOExport-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkRenderingGL2PSOpenGL2-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkgl2ps-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOPLY-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersTexture-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkRenderingLOD-7.1.so.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_phase_unwrapping3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_video3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_datasets3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_plot3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_text3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_dnn3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_features2d3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_flann3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_highgui3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_ml3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_videoio3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_imgcodecs3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_objdetect3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.3.1
+../bin/lab2: /opt/ros/kinetic/lib/libopencv_core3.so.3.3.1
 ../bin/lab2: /usr/local/lib/libpcl_common.so
 ../bin/lab2: /usr/local/lib/libpcl_kdtree.so
 ../bin/lab2: /usr/local/lib/libpcl_octree.so
@@ -335,6 +461,7 @@ lab2_EXTERNAL_OBJECTS =
 ../bin/lab2: /usr/local/lib/libvtkNetCDF-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkhdf5_hl-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkhdf5-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOGeometry-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkRenderingOpenGL2-7.1.so.1
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libSM.so
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libICE.so
@@ -397,7 +524,7 @@ lab2_EXTERNAL_OBJECTS =
 ../bin/lab2: /usr/local/lib/libvtkCommonMath-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkCommonCore-7.1.so.1
 ../bin/lab2: CMakeFiles/lab2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ../bin/lab2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable ../bin/lab2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -408,7 +535,12 @@ CMakeFiles/lab2.dir/build: ../bin/lab2
 CMakeFiles/lab2.dir/requires: CMakeFiles/lab2.dir/src/main.cpp.o.requires
 CMakeFiles/lab2.dir/requires: CMakeFiles/lab2.dir/src/visualize.cpp.o.requires
 CMakeFiles/lab2.dir/requires: CMakeFiles/lab2.dir/src/log.cpp.o.requires
+CMakeFiles/lab2.dir/requires: CMakeFiles/lab2.dir/src/noise.cpp.o.requires
 CMakeFiles/lab2.dir/requires: CMakeFiles/lab2.dir/src/gradient.cpp.o.requires
+CMakeFiles/lab2.dir/requires: CMakeFiles/lab2.dir/src/neural_network.cpp.o.requires
+CMakeFiles/lab2.dir/requires: CMakeFiles/lab2.dir/src/svm.cpp.o.requires
+CMakeFiles/lab2.dir/requires: CMakeFiles/lab2.dir/src/baysian.cpp.o.requires
+CMakeFiles/lab2.dir/requires: CMakeFiles/lab2.dir/src/logistic.cpp.o.requires
 
 .PHONY : CMakeFiles/lab2.dir/requires
 

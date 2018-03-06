@@ -7,16 +7,6 @@
 #define GROUND 1200
 #define FACADE 1400
 
-#define Y_VEG    10000
-#define Y_WIRE   1000
-#define Y_POLE   100
-#define Y_GROUND 10
-#define Y_FACADE 1
-
-#define EPOCH_NUM 200
-
-#define ALPHA 0.5
-
 #define NOISE_RATIO 0.3 //# of noise data to # of original data
 
 typedef struct {

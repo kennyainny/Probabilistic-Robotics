@@ -6,8 +6,9 @@ extern "C"
 	#include "def_type.h"
 }
 #include "log.hpp"
-#include "gradient.hpp"
 
+void assign_input_noise(log_type log, long count, double *x);
+void assign_feature_noise(log_type *log, long count, double *f, int y);
 void Add_Noise_1(log_type log, log_type *log_noise);
 void Add_Noise_2(log_type log, log_type *log_noise);
 
