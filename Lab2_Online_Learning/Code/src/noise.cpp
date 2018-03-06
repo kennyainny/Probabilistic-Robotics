@@ -111,8 +111,8 @@ void Add_Noise_1(log_type log, log_type *log_noise){
 }
 
 void Add_Noise_2(log_type log, log_type *log_noise){
-	int feature_size = 12;
-	double mean[12], var[12];
+	int y, feature_size = 12;
+	double mean[feature_size], var[feature_size], f[feature_size];
 	calculate_mean(log, mean, feature_size);
 	calculate_variance(log, mean, var, feature_size);
 
@@ -128,4 +128,24 @@ void Add_Noise_2(log_type log, log_type *log_noise){
 	}
 
 	//corrupting those points by gaussian noise
+	normal_distribution<float> distr_n;
+	double noise[feature_size]	
+	for(int i = 0; i < log_noise.count; i++){
+		log_noise->node_id[i] = i;
+		if(i < log.count){
+			log_noise->point[i] = log.point[i];
+			log_noise->node_label[i] = log.node_label[i];
+			log_noise->feature[i] = log.feature[i];
+		}else{			
+			long k = corrupted_node_id[i];
+			assign_input_noise(log, k, f);
+			for(int j = 0; j < feature_size; j++){
+				distr_n.param(normal_distribution<float>::param_type(0.0, var[j]));
+				noise[j] = distr_n(mt_n);
+				f[j] = f[j] + noise[j];
+			}
+			y = log.noise_label[k];
+			assign_feature_noise(log_noise, i, f, y);
+		}		
+	}
 }
