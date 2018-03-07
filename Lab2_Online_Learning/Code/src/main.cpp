@@ -15,17 +15,20 @@ int main(int argc, char *argv[])
 	read_log(Log1_name.c_str(), &log1);
 	read_log(Log2_name.c_str(), &log2);
 
-	// printf("%lu\n", log1.count);
-	// for(int i = 0; i < log1.count; i++){
-	// 	std::cout << log1.point[i].x << ' ';
-	// 	std::cout << log1.point[i].y << ' ';
-	// 	std::cout << log1.point[i].z << ' ';
-	// 	std::cout << log1.node_id[i] << ' ';
-	// 	std::cout << log1.node_label[i] << ' ';
+	log_type log1_sort;
+	sort_log(log1, &log1_sort);
+
+	// printf("%lu\n", log1_sort.count);
+	// for(int i = 0; i < log1_sort.count; i++){
+	// 	std::cout << log1_sort.point[i].x << ' ';
+	// 	std::cout << log1_sort.point[i].y << ' ';
+	// 	std::cout << log1_sort.point[i].z << ' ';
+	// 	std::cout << log1_sort.node_id[i] << ' ';
+	// 	std::cout << log1_sort.node_label[i] << ' ';
 	// 	for(int j = 0; j < 9; j++){
-	// 		std::cout << log1.feature[i].f[j] << ' ';
+	// 		std::cout << log1_sort.feature[i].f[j] << ' ';
 	// 	}
-	// 	std::cout << log1.feature[i].bias;
+	// 	std::cout << log1_sort.feature[i].bias;
 	// 	std::cout << '\n';
 	// }
 
@@ -45,9 +48,8 @@ int main(int argc, char *argv[])
 	Add_Noise_2(train_log, &train_log_noise2); //Add a large number of features that are noise corrupted versions of the features already in the data-set
 
 	/* Gradient Descent on Squared Loss */
-	ANN(train_log);
 	log_type gradient_log, gradient_log_noise1, gradient_log_noise2;
-	// Gradient_Descent(train_log, test_log, &gradient_log);
+	Gradient_Descent(log1_sort, test_log, &gradient_log);
 
 	/* Baysian Linear Regression */
 	log_type baysian_log, baysian_log_noise1, baysian_log_noise2;
@@ -55,6 +57,8 @@ int main(int argc, char *argv[])
 
 	/* NN ? Logistic Regression ? SVM */
 	log_type nn_log, nn_log_noise1, nn_log_noise2;
+	// ANN(train_log);	
+
 	log_type logistic_log, logistic_log_noise1, logistic_log_noise2;
 	log_type svm_log, svm_log_noise1, svm_log_noise2;
 
