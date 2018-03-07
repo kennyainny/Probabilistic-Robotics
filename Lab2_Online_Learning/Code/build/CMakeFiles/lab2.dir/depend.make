@@ -20,10 +20,7 @@ CMakeFiles/lab2.dir/src/logistic.cpp.o: ../src/log.hpp
 CMakeFiles/lab2.dir/src/logistic.cpp.o: ../src/logistic.cpp
 CMakeFiles/lab2.dir/src/logistic.cpp.o: ../src/logistic.hpp
 
-<<<<<<< HEAD
-=======
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/baysian.hpp
->>>>>>> 298b4876b6f8b42740dce4b69d101d65573b2dac
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/def_type.h
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/gradient.hpp
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/log.hpp
@@ -31,16 +28,12 @@ CMakeFiles/lab2.dir/src/main.cpp.o: ../src/logistic.hpp
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/main.hpp
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/neural_network.hpp
-<<<<<<< HEAD
-=======
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/noise.hpp
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/svm.hpp
->>>>>>> 298b4876b6f8b42740dce4b69d101d65573b2dac
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/visualize.hpp
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/Cholesky
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/Core
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/Dense
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/Eigen2Support
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/Eigenvalues
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/Geometry
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/Householder
@@ -76,12 +69,6 @@ CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/DiagonalM
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/DiagonalProduct.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/Dot.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/EigenBase.h
-<<<<<<< HEAD
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/Flagged.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/ForceAlignedAccess.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/Functors.h
-=======
->>>>>>> 298b4876b6f8b42740dce4b69d101d65573b2dac
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/Fuzzy.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/GeneralProduct.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h
@@ -98,12 +85,8 @@ CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/NoAlias.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/NumTraits.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/PermutationMatrix.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h
-<<<<<<< HEAD
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/ProductBase.h
-=======
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/Product.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/ProductEvaluators.h
->>>>>>> 298b4876b6f8b42740dce4b69d101d65573b2dac
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/Random.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/Redux.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/Ref.h
@@ -142,16 +125,12 @@ CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/arch/NEON
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h
-<<<<<<< HEAD
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/products/CoeffBasedProduct.h
-=======
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/functors/AssignmentFunctors.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/functors/BinaryFunctors.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/functors/NullaryFunctors.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/functors/StlFunctors.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/functors/UnaryFunctors.h
->>>>>>> 298b4876b6f8b42740dce4b69d101d65573b2dac
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/products/GeneralBlockPanelKernel.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrix.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h
@@ -184,31 +163,6 @@ CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/util/Meta
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/util/StaticAssert.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Core/util/XprHelper.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Block.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Cwise.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/CwiseOperators.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/AlignedBox.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/All.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/AngleAxis.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/Hyperplane.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/ParametrizedLine.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/Quaternion.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/Rotation2D.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/RotationBase.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/Scaling.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/Transform.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/Translation.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/LU.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Lazy.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Macros.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/MathFunctions.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Memory.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Meta.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Minor.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/QR.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/SVD.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/TriangularSolver.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/VectorBlock.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigenvalues/./ComplexSchur.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigenvalues/./HessenbergDecomposition.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Eigenvalues/./RealQZ.h
@@ -249,11 +203,7 @@ CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Householder/Ho
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/Jacobi/Jacobi.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/LU/Determinant.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/LU/FullPivLU.h
-<<<<<<< HEAD
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/LU/Inverse.h
-=======
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/LU/InverseImpl.h
->>>>>>> 298b4876b6f8b42740dce4b69d101d65573b2dac
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/LU/PartialPivLU.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/LU/PartialPivLU_MKL.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
@@ -271,7 +221,6 @@ CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/StlSupport/Std
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/StlSupport/details.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/misc/Image.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/misc/Kernel.h
-CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/misc/Solve.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/src/plugins/BlockMethods.h
@@ -525,7 +474,6 @@ CMakeFiles/lab2.dir/src/visualize.cpp.o: ../src/visualize.hpp
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/Cholesky
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/Core
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/Dense
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/Eigen2Support
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/Eigenvalues
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/Geometry
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/Householder
@@ -561,12 +509,6 @@ CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/Diag
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/DiagonalProduct.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/Dot.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/EigenBase.h
-<<<<<<< HEAD
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/Flagged.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/ForceAlignedAccess.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/Functors.h
-=======
->>>>>>> 298b4876b6f8b42740dce4b69d101d65573b2dac
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/Fuzzy.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/GeneralProduct.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/GenericPacketMath.h
@@ -583,12 +525,8 @@ CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/NoAl
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/NumTraits.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/PermutationMatrix.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h
-<<<<<<< HEAD
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/ProductBase.h
-=======
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/Product.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/ProductEvaluators.h
->>>>>>> 298b4876b6f8b42740dce4b69d101d65573b2dac
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/Random.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/Redux.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/Ref.h
@@ -627,16 +565,12 @@ CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/arch
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/arch/SSE/PacketMath.h
-<<<<<<< HEAD
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/products/CoeffBasedProduct.h
-=======
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/arch/SSE/TypeCasting.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/functors/AssignmentFunctors.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/functors/BinaryFunctors.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/functors/NullaryFunctors.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/functors/StlFunctors.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/functors/UnaryFunctors.h
->>>>>>> 298b4876b6f8b42740dce4b69d101d65573b2dac
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/products/GeneralBlockPanelKernel.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrix.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h
@@ -669,31 +603,6 @@ CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/util
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/util/ReenableStupidWarnings.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/util/StaticAssert.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Core/util/XprHelper.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Block.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Cwise.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/CwiseOperators.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/AlignedBox.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/All.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/AngleAxis.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/Hyperplane.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/ParametrizedLine.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/Quaternion.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/Rotation2D.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/RotationBase.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/Scaling.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/Transform.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Geometry/Translation.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/LU.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Lazy.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Macros.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/MathFunctions.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Memory.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Meta.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/Minor.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/QR.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/SVD.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/TriangularSolver.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigen2Support/VectorBlock.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigenvalues/./ComplexSchur.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigenvalues/./HessenbergDecomposition.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Eigenvalues/./RealQZ.h
@@ -734,11 +643,7 @@ CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Household
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/Jacobi/Jacobi.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/LU/Determinant.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/LU/FullPivLU.h
-<<<<<<< HEAD
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/LU/Inverse.h
-=======
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/LU/InverseImpl.h
->>>>>>> 298b4876b6f8b42740dce4b69d101d65573b2dac
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/LU/PartialPivLU.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/LU/PartialPivLU_MKL.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/LU/arch/Inverse_SSE.h
@@ -756,7 +661,6 @@ CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/StlSuppor
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/StlSupport/details.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/misc/Image.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/misc/Kernel.h
-CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/misc/Solve.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h
 CMakeFiles/lab2.dir/src/visualize.cpp.o: /usr/include/eigen3/Eigen/src/plugins/BlockMethods.h

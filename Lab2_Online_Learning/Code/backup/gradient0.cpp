@@ -3,11 +3,11 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define Y_VEG    10000
-#define Y_WIRE   1000
-#define Y_POLE   100
-#define Y_GROUND 10
-#define Y_FACADE 1
+#define Y_VEG    50
+#define Y_WIRE   40
+#define Y_POLE   30
+#define Y_GROUND 20
+#define Y_FACADE 10
 
 #define EPOCH_NUM 1000
 
