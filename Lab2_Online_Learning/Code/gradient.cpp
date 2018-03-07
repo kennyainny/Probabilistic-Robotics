@@ -4,26 +4,25 @@
 #include <math.h>
 
 #define EPOCH_NUM 1
-#define ALPHA 0.01
+#define ALPHA 0.02
 
 using namespace std;
 
-void assign_output(log_type log, long count, int *y, int *y_ind){
+void assign_output(log_type log, long count, int *y){
+  for(int i = 0; i < O_NUM; i++){
+    y[i] = 0;
+  }
+
   if(log.node_label[count] == VEG){
-    *y = 10000;
-    *y_ind = 0;
+    y[0] = 1;
   }else if(log.node_label[count] == WIRE){
-    *y = 1000;
-    *y_ind = 1;
+    y[1] = 1;
   }else if(log.node_label[count] == POLE){
-    *y = 100;
-    *y_ind = 2;
+    y[2] = 1;
   }else if(log.node_label[count] == GROUND){
-    *y = 10;
-    *y_ind = 3;
+    y[3] = 1;
   }else if(log.node_label[count] == FACADE){
-    *y = 1;
-    *y_ind = 4;
+    y[4] = 1;
   }
 }
 
@@ -36,78 +35,75 @@ void assign_input(log_type log, long count, double *x){
   }
 }
 
-void assign_weight(int y, double *wx, double *err, double (*w)[O_NUM][W_NUM], double (*w_)[O_NUM][W_NUM], long count, int y_ind){
+void assign_weight(int *y, double *wx, double *err, double (*w)[O_NUM][W_NUM], double (*w_)[O_NUM][W_NUM], long count){
   double temp_err = 0;
-  // for(int i = 0; i < O_NUM; i++){
-    temp_err = temp_err + pow((y - wx[y_ind]), 2);
-  // }
+  for(int i = 0; i < O_NUM; i++){
+    temp_err = temp_err + pow((y[i] - wx[i]), 2);
+  }
   temp_err = sqrt(temp_err);
-  if(temp_err < err[y_ind]){
-    err[y_ind] = temp_err;
+  if(temp_err < *err){
+    *err = temp_err;
     // printf("ERROR %.1f %.4f %.4f %lu\n", y, wx, *err, count);
-    // for(int i = 0; i < O_NUM; i++){
+    for(int i = 0; i < O_NUM; i++){
       for(int j = 0; j < W_NUM; j++){
-        (*w_)[y_ind][j] = (*w)[y_ind][j];
+        (*w_)[i][j] = (*w)[i][j];
         // printf("WEIGHT %.4f %.4f\n", w[j], w_[j]);
       }
-    // }
+    }
   }  
 }
 
-void multiply_vectors(double *wx, double (*w)[O_NUM][W_NUM], double *x, int y_ind){
-  // for(int i = 0; i < O_NUM; i++){
-    wx[y_ind] = 0.0;
-  // }
+void multiply_vectors(double *wx, double (*w)[O_NUM][W_NUM], double *x){
+  for(int i = 0; i < O_NUM; i++){
+    wx[i] = 0.0;
+  }
 
-  // for (int i = 0; i < O_NUM; i++){
+  for (int i = 0; i < O_NUM; i++){
     for (int j = 0; j < W_NUM; j++){
-      wx[y_ind] = wx[y_ind] + (*w)[y_ind][j]*x[j];
+      wx[i] = wx[i] + (*w)[i][j]*x[j];
     }    
-  // }
+  }
 }
 
-void update_gradient(log_type log, double (*dl)[O_NUM][W_NUM], double *wx, double *x, int y, long count, int y_ind){
+void update_gradient(log_type log, double (*dl)[O_NUM][W_NUM], double *wx, double *x, int *y, long count){
   double DL = 0;
-  // for(int i = 0; i < O_NUM; i++){
+  for(int i = 0; i < O_NUM; i++){
     for (int j = 0; j < W_NUM; j++)
     {
-      (*dl)[y_ind][j] = (wx[y_ind] + log.feature[count].bias - y)*x[j];
-      DL = DL + pow((*dl)[y_ind][j], 2.0);
+      (*dl)[i][j] = (wx[i] + log.feature[count].bias - y[i])*x[j];
+      DL = DL + pow((*dl)[i][j], 2.0);
     }
-  // }
+  }
   DL = sqrt(DL);
-  // for(int i = 0; i < O_NUM; i++){
+  for(int i = 0; i < O_NUM; i++){
     for (int j = 0; j < W_NUM; j++)
     {
-      (*dl)[y_ind][j] = (*dl)[y_ind][j]/DL;
+      (*dl)[i][j] = (*dl)[i][j]/DL;
     }
-  // }
+  }
 }
 
-void update_weight(double (*dl)[O_NUM][W_NUM], double (*w)[O_NUM][W_NUM], int y_ind){
-  // for(int i = 0; i < O_NUM; i++){
+void update_weight(double (*dl)[O_NUM][W_NUM], double (*w)[O_NUM][W_NUM]){
+  for(int i = 0; i < O_NUM; i++){
     for (int j = 0; j < W_NUM; j++){ 
-      (*w)[y_ind][j] = (*w)[y_ind][j] - ALPHA*(*dl)[y_ind][j];
+      (*w)[i][j] = (*w)[i][j] - ALPHA*(*dl)[i][j];
     }
-  // }
+  }
 }
 
-void assign_result(double *wx, int *y_, int y_ind, double *wx_){
-  // int max_ind = 0;
-  // for(int i = 1; i < O_NUM; i++){
-  //   if(wx[i] > wx[max_ind]){
-  //     max_ind = i;
-  //   }
-  // }
-  // for(int i = 1; i < O_NUM; i++){
-  //   if(i == max_ind){
-  //     *y_ = 1;
-  //   }else{
-  //     *y_ = 0;
-  //   }
-  // }
-  for(int j = 0; j < O_NUM; j++){
-    wx_[j] = (wx[j]-10000/pow(10, j))/(10000/pow(10, j));
+void assign_result(double *wx, int *y_){
+  int max_ind = 0;
+  for(int i = 1; i < O_NUM; i++){
+    if(wx[i] > wx[max_ind]){
+      max_ind = i;
+    }
+  }
+  for(int i = 1; i < O_NUM; i++){
+    if(i == max_ind){
+      y_[i] = 1;
+    }else{
+      y_[i] = 0;
+    }
   }
 }
 
@@ -117,49 +113,46 @@ void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_
   gradient_log->point = test_log.point;
   gradient_log->node_id = test_log.node_id;
 
-  int y, y_, y_ind;
-  double w_[O_NUM][W_NUM], w[O_NUM][W_NUM] = { {1,1,1,1,1,1,1,1,1,1,1,1},
-                                               {1,1,1,1,1,1,1,1,1,1,1,1},
-                                               {1,1,1,1,1,1,1,1,1,1,1,1},
-                                               {1,1,1,1,1,1,1,1,1,1,1,1},
-                                               {1,1,1,1,1,1,1,1,1,1,1,1} };
-  double wx[O_NUM], wx_[O_NUM], DL, dl[O_NUM][W_NUM], x[W_NUM];
-  double err[O_NUM] = {9999999, 9999999, 9999999, 9999999, 9999999};
+  int y[O_NUM] = {0}, y_[O_NUM] = {0};
+  double w[O_NUM][W_NUM] = { {1,1,1,1,1,1,1,1,1,1,1,1},
+                             {1,1,1,1,1,1,1,1,1,1,1,1},
+                             {1,1,1,1,1,1,1,1,1,1,1,1},
+                             {1,1,1,1,1,1,1,1,1,1,1,1},
+                             {1,1,1,1,1,1,1,1,1,1,1,1} };
+  double wx[O_NUM], DL, dl[O_NUM][W_NUM], x[W_NUM];
+  double err = 9999999, w_[O_NUM][W_NUM];
 
   /* Training */
   for(int k = 0; k < EPOCH_NUM; k++){
     for(long i = 0; i < train_log.count; i++){
-      assign_output(train_log, i, &y, &y_ind);
+      assign_output(train_log, i, y);
       assign_input(train_log, i, x);
-      multiply_vectors(&wx[y_ind], &w, x, y_ind);
-      update_gradient(train_log, &dl, wx, x, y, i, y_ind);
-      update_weight(&dl, &w, y_ind);
+      multiply_vectors(wx, &w, x);
+      update_gradient(train_log, &dl, wx, x, y, i);
+      update_weight(&dl, &w);
 
       if(k == EPOCH_NUM - 1){ //At the last iteration, pick the weight that minimize regret
-        multiply_vectors(wx, &w, x, y_ind);
-        assign_weight(y, wx, err, &w, &w_, i, y_ind);
+        multiply_vectors(wx, &w, x);
+        assign_weight(y, wx, &err, &w, &w_, i);
         // printf("step: %lu %d %.4f %.4f \n", i, y, wx, w[0]);
         if(i > -1){
           // printf("\n");
-          // // for(int i = 0; i < O_NUM; i++){
+          // for(int i = 0; i < O_NUM; i++){
           //   for (int j = 0; j < W_NUM; j++){
-          //     printf("%.4f ", w[y_ind][j]);
+          //     printf("%.4f ", w[i][j]);
           //   }
           //   printf("\n");
-          //   for (int j = 0; j < W_NUM; j++){
-          //     printf("%.4f ", w_[y_ind][j]);
-          //   }
-          // // }
+          // }
           // printf("\n");
-          // // for(int j = 0; j < O_NUM; j++){
-          //   printf("%.4f ", wx[y_ind]);
-          // // }
+          // for(int j = 0; j < O_NUM; j++){
+          //   printf("%.4f ", wx[j]);
+          // }
           // printf("\n");
-          // // for(int j = 0; j < O_NUM; j++){
-          //   printf("%d ", y);
-          // // }
+          // for(int j = 0; j < O_NUM; j++){
+          //   printf("%d ", y[j]);
+          // }
           // printf("\n");
-          // printf("wx: %lu %d %.4f \n", i, y, wx);
+          // printf("wx: %lu %d %.4f \n",i , y, wx);
           // printf("\n");
         }
       }
@@ -187,30 +180,27 @@ void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_
 
   /* Testing */
   for(long i = 0; i < train_log.count; i++){
-    assign_output(train_log, i, &y, &y_ind);
+    assign_output(train_log, i, y);
     assign_input(train_log, i, x);
-
-    for(int j = 0; j < O_NUM; j++){
-      multiply_vectors(wx, &w_, x, y_ind);
-    }
-    assign_result(wx, &y_, y_ind, wx_);
+    multiply_vectors(wx, &w_, x);
+    assign_result(wx, y_);
     
-    printf("wx: ");
-    for (int j = 0; j < O_NUM; j++)
-    {
-      printf("%.2f ", wx[j]);
-    }
-    printf("\nwx_: ");
-    for (int j = 0; j < O_NUM; j++)
-    {
-      printf("%.2f ", wx_[j]);
-    }
-    printf("\ny : ");
+    // printf("wx: ");
     // for (int j = 0; j < O_NUM; j++)
     // {
-      printf("%d", y);
+    //   printf("%.2f ", wx[j]);
     // }
-    printf("\n");
+    // printf("\ny_: ");
+    // for (int j = 0; j < O_NUM; j++)
+    // {
+    //   printf("%d", y_[j]);
+    // }
+    // printf("\ny : ");
+    // for (int j = 0; j < O_NUM; j++)
+    // {
+    //   printf("%d", y[j]);
+    // }
+    // printf("\n");
 
     // printf("step: %lu %d %.4f\n", i, y, wx);   
     // if(i == train_log.count - 1){ //At the last iteration, pick the weight that minimize regret

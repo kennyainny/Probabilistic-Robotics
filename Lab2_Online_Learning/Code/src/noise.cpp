@@ -4,6 +4,8 @@
 #include <math.h>
 #include <random>
 
+#define ratio_vm 0.05 //variance to mean ratio
+
 using namespace std;
 random_device rd_u;
 random_device rd_d;
@@ -116,9 +118,8 @@ void Add_Noise_1(log_type log, log_type *log_noise){
 
 void Add_Noise_2(log_type log, log_type *log_noise){
 	int y, feature_size = 12;
-	double mean[feature_size], var[feature_size], f[feature_size];
+	double mean[feature_size], f[feature_size];
 	calculate_mean(log, mean, feature_size);
-	calculate_variance(log, mean, var, feature_size);
 
 	long noise_size = NOISE_RATIO*log.count;
 	log_noise->count = log.count + noise_size;
@@ -131,7 +132,7 @@ void Add_Noise_2(log_type log, log_type *log_noise){
 		corrupted_node_id[i] = distr_u(mt_u);
 	}
 
-	//corrupting those points by gaussian noise
+	// //corrupting those points by gaussian noise
 	normal_distribution<float> distr_n;
 	double noise[feature_size];	
 	for(long i = 0; i < log_noise->count; i++){
@@ -141,10 +142,10 @@ void Add_Noise_2(log_type log, log_type *log_noise){
 			log_noise->node_label[i] = log.node_label[i];
 			log_noise->feature[i] = log.feature[i];
 		}else{			
-			long k = corrupted_node_id[i];
+			long k = corrupted_node_id[i - log.count];
 			assign_input_noise(log, k, f);
 			for(int j = 0; j < feature_size; j++){
-				distr_n.param(normal_distribution<float>::param_type(0.0, var[j]));
+				distr_n.param(normal_distribution<float>::param_type(0.0, ratio_vm*mean[j]));
 				noise[j] = distr_n(mt_n);
 				f[j] = f[j] + noise[j];
 			}

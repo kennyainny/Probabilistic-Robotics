@@ -41,8 +41,8 @@ int main(int argc, char *argv[])
 
 	/* Add Noise */
 	log_type train_log_noise1, train_log_noise2;
-	// Add_Noise_1(train_log, &train_log_noise1);
-	// Add_Noise_2(train_log, &train_log_noise2);
+	Add_Noise_1(train_log, &train_log_noise1);
+	Add_Noise_2(train_log, &train_log_noise2);
 
 	/* Gradient Descent on Squared Loss */
 	log_type gradient_log, gradient_log_noise1, gradient_log_noise2;
@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 
 
 	/* Visualization using PCL */
-	// data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, gradient_log);
+	data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, gradient_log);
 
 	while(1){
 		/* Does nothing but smiling at you :) */

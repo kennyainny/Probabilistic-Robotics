@@ -79,7 +79,7 @@ void create_point_cloud(log_type log, pcl::PointCloud<pcl::PointXYZRGB>::Ptr poi
 }
 
 int data_visualization(log_type train_log, log_type test_log, log_type train_log_noise1, log_type train_log_noise2, 
-                                             log_type gradient_log){
+                       log_type gradient_log){
 
   pcl::PointCloud<pcl::PointXYZRGB>::Ptr train_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
   create_point_cloud(train_log, train_cloud_ptr);
@@ -96,6 +96,11 @@ int data_visualization(log_type train_log, log_type test_log, log_type train_log
   create_point_cloud(train_log_noise1, train_noise1_cloud_ptr);
   view_name = "Add a Large Number of Random Features to Training Data";
   viewer = rgbVis(train_noise1_cloud_ptr, view_name.c_str());
+
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr train_noise2_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  create_point_cloud(train_log_noise2, train_noise2_cloud_ptr);
+  view_name = "Add a Large Number of Noise-Courrupted Original Training Data to Training Data";
+  viewer = rgbVis(train_noise2_cloud_ptr, view_name.c_str());
 
   // pcl::PointCloud<pcl::PointXYZRGB>::Ptr train_noise2_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
   // create_point_cloud(train_log_noise2, train_noise2_cloud_ptr);
