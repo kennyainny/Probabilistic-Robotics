@@ -4,10 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/gradient.cpp.o"
-  "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/log.cpp.o"
-  "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/main.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/main.cpp.o"
-  "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/visualize.cpp.o"
+  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/baysian.cpp.o"
+  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/gradient.cpp.o"
+  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/log.cpp.o"
+  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/logistic.cpp.o"
+  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/main.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/main.cpp.o"
+  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/neural_network.cpp.o"
+  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/noise.cpp.o"
+  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/svm.cpp.o"
+  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/visualize.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -34,12 +39,13 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/usr/local/include"
-  "/usr/local/include/opencv"
+  "/opt/ros/kinetic/include/opencv-3.3.1"
+  "/opt/ros/kinetic/include/opencv-3.3.1/opencv"
   "/usr/local/include/vtk-7.1"
   "/usr/local/include/pcl-1.8"
   "/usr/include/eigen3"
   "/usr/include/ni"
+  "/usr/local/include"
   )
 
 # Targets to which this target links.

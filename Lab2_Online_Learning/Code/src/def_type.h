@@ -1,4 +1,4 @@
-#ifndef DEF_TYPE_H
+	#ifndef DEF_TYPE_H
 #define DEF_TYPE_H
 
 #define VEG    1004
