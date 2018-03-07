@@ -61,5 +61,76 @@ int read_log(const char *logName, log_type *log)
   		fprintf(stderr, "# Could not open file %s\n", logName);
     	return -1;
   	}
-  	return 0;
+  return 0;
+}
+
+void sort_log(log_type log, log_type *log_sort){
+  long node_veg[log.count] = {0}, node_wire[log.count] = {0}, node_pole[log.count] = {0}, node_ground[log.count] = {0}, node_facade[log.count] = {0};
+  long count = 0, k;
+  for(int i = 0; i < log.count; i++){
+    if(log.node_label[i] == VEG){
+      node_veg[i] = log.node_id[i] + 1;
+    }else if(log.node_label[i] == WIRE){
+      node_wire[i] = log.node_id[i] + 1;
+    }else if(log.node_label[i] == POLE){
+      node_pole[i] = log.node_id[i] + 1;
+    }else if(log.node_label[i] == GROUND){
+      node_ground[i] = log.node_id[i] + 1;
+    }else if(log.node_label[i] == FACADE){
+      node_facade[i] = log.node_id[i] + 1;
+    }
+  }
+
+  log_sort->count = log.count;
+  new_hornetsoft_log(log_sort);
+  for(int i = 0; i < log.count; i++){
+    if(node_veg[i] != 0){
+      k = node_veg[i] - 1;
+      log_sort->node_id[count] = count;
+      log_sort->node_label[count] = VEG;
+      log_sort->point[count] = log.point[k];
+      log_sort->feature[count] = log.feature[k];
+      count = count + 1;
+    }
+  }
+  for(int i = 0; i < log.count; i++){
+    if(node_wire[i] != 0){
+      k = node_wire[i] - 1;
+      log_sort->node_id[count] = count;
+      log_sort->node_label[count] = WIRE;
+      log_sort->point[count] = log.point[k];
+      log_sort->feature[count] = log.feature[k];
+      count = count + 1;
+    }
+  }
+  for(int i = 0; i < log.count; i++){
+    if(node_pole[i] != 0){
+      k = node_pole[i] - 1;
+      log_sort->node_id[count] = count;
+      log_sort->node_label[count] = POLE;
+      log_sort->point[count] = log.point[k];
+      log_sort->feature[count] = log.feature[k];
+      count = count + 1;
+    }
+  }
+  for(int i = 0; i < log.count; i++){
+    if(node_ground[i] != 0){
+      k = node_ground[i] - 1;
+      log_sort->node_id[count] = count;
+      log_sort->node_label[count] = GROUND;
+      log_sort->point[count] = log.point[k];
+      log_sort->feature[count] = log.feature[k];
+      count = count + 1;
+    }
+  }
+  for(int i = 0; i < log.count; i++){
+    if(node_facade[i] != 0){
+      k = node_facade[i] - 1;
+      log_sort->node_id[count] = count;
+      log_sort->node_label[count] = FACADE;
+      log_sort->point[count] = log.point[k];
+      log_sort->feature[count] = log.feature[k];
+      count = count + 1;
+    }
+  }
 }

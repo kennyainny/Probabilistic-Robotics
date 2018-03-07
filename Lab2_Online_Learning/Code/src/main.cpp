@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 	printf("Hello Lab2\n");
 	
 	/* Read Log Data */
-	log_type log1, log2, train_log, train_log_noise1, train_log_noise2, test_log;
+	log_type log1, log2, train_log, test_log;
 	string Log1_name = "../data/oakland_part3_am_rf.node_features";
 	string Log2_name = "../data/oakland_part3_an_rf.node_features";
 	read_log(Log1_name.c_str(), &log1);
@@ -39,6 +39,11 @@ int main(int argc, char *argv[])
 		test_log = log1;
 	}
 
+	/* Add Noise */
+	log_type train_log_noise1, train_log_noise2;
+	Add_Noise_1(train_log, &train_log_noise1); //Add a large number of random features
+	Add_Noise_2(train_log, &train_log_noise2); //Add a large number of features that are noise corrupted versions of the features already in the data-set
+
 	/* Gradient Descent on Squared Loss */
 	ANN(train_log);
 	log_type gradient_log, gradient_log_noise1, gradient_log_noise2;
@@ -55,7 +60,7 @@ int main(int argc, char *argv[])
 
 
 	/* Visualization using PCL */
-	data_visualization(train_log, test_log, gradient_log);
+	data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, gradient_log);
 
 	while(1){
 		/* Does nothing but smiling at you :) */
