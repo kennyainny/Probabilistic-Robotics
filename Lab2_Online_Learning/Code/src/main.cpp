@@ -41,8 +41,8 @@ int main(int argc, char *argv[])
 
 	/* Add Noise */
 	log_type train_log_noise1, train_log_noise2;
-	Add_Noise_1(train_log, &train_log_noise1);
-	Add_Noise_2(train_log, &train_log_noise2);
+	Add_Noise_1(train_log, &train_log_noise1); //Add a large number of random features
+	Add_Noise_2(train_log, &train_log_noise2); //Add a large number of features that are noise corrupted versions of the features already in the data-set
 
 	/* Gradient Descent on Squared Loss */
 	log_type gradient_log, gradient_log_noise1, gradient_log_noise2;
