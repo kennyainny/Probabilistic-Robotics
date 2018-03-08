@@ -3,257 +3,181 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define Y_VEG    0
-#define Y_WIRE   1
-#define Y_POLE   0
-#define Y_GROUND 0
-#define Y_FACADE 0
-
 #define EPOCH_NUM 500
-
 #define ALPHA 0.01
 
-double assign_output(log_type log, long count){
-  int y;
+using namespace std;
+
+void assign_output(log_type log, long count, int *y){
+  for(int i = 0; i < O_NUM; i++){
+    y[i] = 0;
+  }
 
   if(log.node_label[count] == VEG){
-      y = Y_VEG;
-    }else if(log.node_label[count] == WIRE){
-      y = Y_WIRE;
-    }else if(log.node_label[count] == POLE){
-      y = Y_POLE;
-    }else if(log.node_label[count] == GROUND){
-      y = Y_GROUND;
-    }else if(log.node_label[count] == FACADE){
-      y = Y_FACADE;
-    }
-
-  return (double)y;
+    y[0] = 1;
+  }else if(log.node_label[count] == WIRE){
+    y[1] = 1;
+  }else if(log.node_label[count] == POLE){
+    y[2] = 1;
+  }else if(log.node_label[count] == GROUND){
+    y[3] = 1;
+  }else if(log.node_label[count] == FACADE){
+    y[4] = 1;
+  }
 }
 
 void assign_input(log_type log, long count, double *x){
-
-  // x[0] = log.point[count].x*0.0001;
-  // x[1] = log.point[count].y*0.0001;
-  // x[2] = log.point[count].z*0.0001;
+  // x[0] = log.point[count].x;
+  // x[1] = log.point[count].y;
+  // x[2] = log.point[count].z;
   for(int j = 0; j < 9; j++){
     x[j] = log.feature[count].f[j];
   }
-  // x[7] = x[7]*0.1;
 }
 
-void assign_weight(double y, double wx, double *err, double *w, double *w_, int weight_size, long count){
-  if(pow((y - wx),2) < *err){
-    *err = pow((y - wx),2);
-    // printf("ERROR %.1f %.4f %.4f %lu\n", y, wx, *err, count);
-    for(int j = 0; j < weight_size; j++){
-      w_[j] = w[j];
-      // printf("WEIGHT %.4f %.4f\n", w[j], w_[j]);
+void assign_weight(int *y, double *wx, double *err, double (*w)[O_NUM][W_NUM], double (*w_)[O_NUM][W_NUM]){
+  double temp_err = 0;
+  for(int i = 0; i < O_NUM; i++){
+    temp_err = temp_err + pow((y[i] - wx[i]), 2);
+  }
+  temp_err = sqrt(temp_err);
+  if(temp_err < *err){
+    *err = temp_err;
+    for(int i = 0; i < O_NUM; i++){
+      for(int j = 0; j < W_NUM; j++){
+        (*w_)[i][j] = (*w)[i][j];
+      }
+    }
+  }  
+}
+
+void multiply_vectors(double *wx, double (*w)[O_NUM][W_NUM], double *x){
+  for(int i = 0; i < O_NUM; i++){
+    wx[i] = 0.0;
+  }
+
+  for (int i = 0; i < O_NUM; i++){
+    for (int j = 0; j < W_NUM; j++){
+      wx[i] = wx[i] + (*w)[i][j]*x[j];
+    }    
+  }
+}
+
+void update_gradient(log_type log, double (*dl)[O_NUM][W_NUM], double *wx, double *x, int *y){
+  for(int i = 0; i < O_NUM; i++){
+    for (int j = 0; j < W_NUM; j++)
+    {
+      (*dl)[i][j] = (wx[i]- y[i])*x[j]/log.count;
     }
   }
 }
 
-double multiply_vectors(double *w, double *x, int weight_size){
-  double wx = 0;
-  for (int j = 0; j < weight_size; j++)
-  {
-    wx = wx + w[j]*x[j];
-  }
-  return wx;
-}
-
-void update_gradient(log_type log, double *dl, double *w, double *x, double y, int weight_size, long count){
-  double DL = 0, wx = 0;
-  wx = multiply_vectors(w, x, weight_size);
-  for (int j = 0; j < weight_size; j++)
-  {
-    dl[j] = (wx - y)*x[j]/89822;
-    // DL = DL + pow(dl[j], 2.0);
-  }
-  // DL = 1;//sqrt(DL);
-  for (int j = 0; j < weight_size; j++)
-  { 
-    dl[j] = dl[j];///DL;
+void update_weight(double (*dl)[O_NUM][W_NUM], double (*w)[O_NUM][W_NUM]){
+  for(int i = 0; i < O_NUM; i++){
+    for (int j = 0; j < W_NUM; j++){ 
+      (*w)[i][j] = (*w)[i][j] - ALPHA*(*dl)[i][j];
+    }
   }
 }
 
-void update_weight(double *dl, double *w, int weight_size){
-  for (int j = 0; j < weight_size; j++){ 
-    w[j] = w[j] - ALPHA*dl[j];
+void assign_result(double *wx, int *y_){
+  int max_ind = 0;
+  for(int i = 1; i < O_NUM; i++){
+    if(wx[i] > wx[max_ind]){
+      max_ind = i;
+    }
+  }
+  for(int i = 1; i < O_NUM; i++){
+    if(i == max_ind){
+      y_[i] = 1;
+    }else{
+      y_[i] = 0;
+    }
   }
 }
 
 void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_log){
-  int y, weight_size = 9;
-  double w[weight_size] = {0};
-  double wx, l, DL, dl[weight_size], x[weight_size];
-  double err_veg = 9999999, err_wire = 9999999, err_pole = 9999999, err_ground = 9999999, err_facade = 9999999, err = 9999999;
-  double w_veg[weight_size], w_wire[weight_size], w_pole[weight_size], w_ground[weight_size], w_facade[weight_size], w_[weight_size];
+  int y[O_NUM] = {0}, y_[O_NUM] = {0};
+  double w[O_NUM][W_NUM] = { {0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0},
+                             {0,0,0,0,0,0,0,0,0} };
+  double wx[O_NUM], DL, dl[O_NUM][W_NUM], x[W_NUM];
+  double err = 9999999, w_[O_NUM][W_NUM];
 
   /* Training */
   for(int k = 0; k < EPOCH_NUM; k++){
     for(long i = 0; i < train_log.count; i++){
-      y = assign_output(train_log, i);
+      assign_output(train_log, i, y);
       assign_input(train_log, i, x);
-      update_gradient(train_log, dl, w, x, y, weight_size, i);
-      update_weight(dl, w, weight_size);      
+      multiply_vectors(wx, &w, x);
+      update_gradient(train_log, &dl, wx, x, y);
+      update_weight(&dl, &w);
 
       if(k == EPOCH_NUM - 1){ //At the last iteration, pick the weight that minimize regret
-        wx = multiply_vectors(w, x, weight_size);
-        if(y==1){
-          assign_weight(y, wx, &err, w, w_, weight_size, i);
-        }
-        // if(y == Y_VEG){
-        //   assign_weight(y, wx, &err_veg, w, w_veg, weight_size, i);
-        // }else if(y == Y_WIRE){
-        //   assign_weight(y, wx, &err_wire, w, w_wire, weight_size, i);
-        // }else if(y == Y_POLE){
-        //   assign_weight(y, wx, &err_pole, w, w_pole, weight_size, i);
-        // }else if(y == Y_GROUND){
-        //   assign_weight(y, wx, &err_ground, w, w_ground, weight_size, i);
-        // }else if(y == Y_FACADE){
-        //   assign_weight(y, wx, &err_facade, w, w_facade, weight_size, i);
+        // multiply_vectors(wx, &w, x);
+        // assign_weight(y, wx, &err, &w, &w_, i);
+        // if(i > -1){
+        //   printf("\n");
+        //   for(int i = 0; i < O_NUM; i++){
+        //     for (int j = 0; j < W_NUM; j++){
+        //       printf("%.4f ", w[i][j]);
+        //     }
+        //     printf("\n");
+        //   }
+        //   for(int j = 0; j < O_NUM; j++){
+        //     printf("%.4f ", wx[j]);
+        //   }
+        //   printf("\n");
+        //   for(int j = 0; j < O_NUM; j++){
+        //     printf("%d ", y[j]);
+        //   }
         // }
-        // printf("step: %lu %d %.4f %.4f \n", i, y, wx, w[0]);
-        if(i > -1){
-          // for(int j = 0; j < weight_size; j++){
-          //   printf("%.4f ", w[j]);
-          // }
-          // printf("\n");
-          // for(int j = 0; j < weight_size; j++){
-          //   printf("%.4f; ", x[j]);
-          // }
-          // printf("\n");
-          // printf("i y wx: %lu %d %.4f \n",i , y, wx);
-          // printf("\n");
-        }
       }
     }
   }
 
-  for(int j = 0; j < weight_size; j++){
-    // printf("%d %.4f %.4f %.4f %.4f %.4f\n", j, w_veg[j], w_wire[j], w_pole[j], w_ground[j], w_facade[j]);
-    // printf("%.4f ", w_[j]);
-  }
-  // printf("\n");
-
-  // printf("\n");
-  // for(long i = 0; i < train_log.count; i++){
-  //   assign_input(train_log, i, x);
-  //   y = assign_output(train_log, i);
-  //   wx = multiply_vectors(w, x, weight_size);
-  //   // printf("step: %lu %d %.4f %.4f \n", i, y, wx, w[0]);
-  //   if(i > train_log.count - 2){
-  //     for(int j = 0; j < weight_size; j++){
-  //       printf("x and w: %.4f %.4f \n", x[j], w_[j]);
-  //     }
-  //     printf("wx: %d %.4f \n", y, wx);
-  //   }
-  // }  
-  // while(1);
-
   /* Testing */
-  gradient_log->count = train_log.count;
-  new_hornetsoft_log(gradient_log); 
-  for(long i = 0; i < train_log.count; i++){    
-    
-    gradient_log->point[i] = train_log.point[i];
-    gradient_log->node_id[i] = train_log.node_id[i];
+  gradient_log->count = test_log.count;  
+  new_hornetsoft_log(gradient_log);
+  
+  for(long i = 0; i < test_log.count; i++){
+    gradient_log->point[i] = test_log.point[i];
+    gradient_log->node_id[i] = test_log.node_id[i];
 
-    y = assign_output(train_log, i);
-    assign_input(train_log, i, x);
+    assign_output(test_log, i, y);
+    assign_input(test_log, i, x);
+    // multiply_vectors(wx, &w_, x);
+    // assign_result(wx, y_);
 
-    wx = multiply_vectors(w_, x, weight_size);
-
-    if(wx > 0.2){
+    multiply_vectors(wx, &w, x);
+        if(i > -1){
+          printf("\n");
+          for(int i = 0; i < O_NUM; i++){
+            for (int j = 0; j < W_NUM; j++){
+              printf("%.4f ", w[i][j]);
+            }
+            printf("\n");
+          }
+          for(int j = 0; j < O_NUM; j++){
+            printf("%.4f ", wx[j]);
+          }
+          printf("\n");
+          for(int j = 0; j < O_NUM; j++){
+            printf("%d ", y[j]);
+          }
+        }
+    if(wx[0] > 0.2){
+      gradient_log->node_label[i] = VEG;
+    }else if(wx[1] > 0.025){
       gradient_log->node_label[i] = WIRE;
+    }else if(wx[2] > 0.025){
+      gradient_log->node_label[i] = POLE;
+    }else if(wx[4] > 0.2){
+      gradient_log->node_label[i] = FACADE;
     }else{
       gradient_log->node_label[i] = GROUND;
-    }
-        // assign_weight(1, wx, &err, w, w_, weight_size, i);
-        // if(y == Y_VEG){
-        //   assign_weight(y, wx, &err_veg, w, w_veg, weight_size, i);
-        // }else if(y == Y_WIRE){
-        //   assign_weight(y, wx, &err_wire, w, w_wire, weight_size, i);
-        // }else if(y == Y_POLE){
-        //   assign_weight(y, wx, &err_pole, w, w_pole, weight_size, i);
-        // }else if(y == Y_GROUND){
-        //   assign_weight(y, wx, &err_ground, w, w_ground, weight_size, i);
-        // }else if(y == Y_FACADE){
-        //   assign_weight(y, wx, &err_facade, w, w_facade, weight_size, i);
-        // }
-        // printf("step: %lu %d %.4f %.4f \n", i, y, wx, w[0]);
-        // // if(i == train_log.count-1){
-        //   for(int j = 0; j < weight_size; j++){
-        //     printf("%.4f ", w[j]);
-        //   }
-        //   printf("\n");
-        //   for(int j = 0; j < weight_size; j++){
-        //     printf("%.4f; ", x[j]);
-        //   }
-        //   printf("\n");
-        //   printf("i y wx: %lu %d %.4f \n",i , y, wx);
-        //   printf("\n");
-        // }
-      
-
-    // wx = 0;
-    // for (int j = 0; j < weight_size; j++){
-    //   wx = wx + w_veg[j]*x[j];
-    // }
-    // printf("%.2f %.2f\n", wx, (wx-Y_VEG));
-    // wx = 0;
-    // for (int j = 0; j < weight_size; j++){
-    //   wx = wx + w_wire[j]*x[j];
-    // }
-    // printf("%.2f %.2f\n", wx, (wx-Y_WIRE));
-    // wx = 0;
-    // for (int j = 0; j < weight_size; j++){
-    //   wx = wx + w_pole[j]*x[j];
-    // }
-    // printf("%.2f %.2f\n", wx, (wx-Y_POLE)); 
-    // wx = 0;
-    // for (int j = 0; j < weight_size; j++){
-    //   wx = wx + w_ground[j]*x[j];
-    // }
-    // printf("%.2f %.2f\n", wx, (wx-Y_GROUND)); 
-    // wx = 0;
-    // for (int j = 0; j < weight_size; j++){
-    //   wx = wx + w_facade[j]*x[j];
-    // }
-    // printf("%.2f %.2f\n", wx, (wx-Y_FACADE));
-    
-
-    // if(wx < Y_FACADE){
-    //   gradient_log->node_label[i] = FACADE;
-    // }else if(wx > Y_FACADE && wx < Y_GROUND){
-    //   if(abs(wx - Y_FACADE) < abs(wx - Y_GROUND)){
-    //     gradient_log->node_label[i] = FACADE;
-    //   }else{
-    //     gradient_log->node_label[i] = GROUND;
-    //   }      
-    // }else if(wx > Y_GROUND && wx < Y_POLE){
-    //   if(abs(wx - Y_GROUND) < abs(wx - Y_POLE)){
-    //     gradient_log->node_label[i] = GROUND;
-    //   }else{
-    //     gradient_log->node_label[i] = POLE;
-    //   }  
-    // }else if(wx > Y_POLE && wx < Y_WIRE){
-    //   if(abs(wx - Y_POLE) < abs(wx - Y_WIRE)){
-    //     gradient_log->node_label[i] = POLE;
-    //   }else{
-    //     gradient_log->node_label[i] = WIRE;
-    //   }  
-    // }else if(wx > Y_WIRE && wx < Y_VEG){
-    //   if(abs(wx - Y_WIRE) < abs(wx - Y_VEG)){
-    //     gradient_log->node_label[i] = WIRE;
-    //   }else{
-    //     gradient_log->node_label[i] = VEG;
-    //   }  
-    // }else if(wx > Y_VEG){
-    //   gradient_log->node_label[i] = VEG;
-    // }
-
-    // printf("step: %d %d %.4f %d\n", i, y, wx, gradient_log->node_label[i]);    
+    }    
   }
 }
