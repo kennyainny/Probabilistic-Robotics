@@ -10,7 +10,6 @@ CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/def_type.h
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/gradient.cpp
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/gradient.hpp
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/log.hpp
-CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/regret.hpp
 
 CMakeFiles/lab2.dir/src/log.cpp.o: ../src/def_type.h
 CMakeFiles/lab2.dir/src/log.cpp.o: ../src/log.cpp
@@ -456,6 +455,7 @@ CMakeFiles/lab2.dir/src/main.cpp.o: /usr/local/include/vtk-7.1/vtkkwiml/abi.h
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/local/include/vtk-7.1/vtkkwiml/int.h
 
 CMakeFiles/lab2.dir/src/neural_network.cpp.o: ../src/def_type.h
+CMakeFiles/lab2.dir/src/neural_network.cpp.o: ../src/gradient.hpp
 CMakeFiles/lab2.dir/src/neural_network.cpp.o: ../src/log.hpp
 CMakeFiles/lab2.dir/src/neural_network.cpp.o: ../src/neural_network.cpp
 CMakeFiles/lab2.dir/src/neural_network.cpp.o: ../src/neural_network.hpp

@@ -9,7 +9,6 @@ extern "C"
 	#include "def_type.h"
 }
 #include "log.hpp"
-#include "regret.hpp"
 
 double Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_log_online, log_type *gradient_log_stat);
 void assign_output(log_type log, long count, int *y, int *type);
