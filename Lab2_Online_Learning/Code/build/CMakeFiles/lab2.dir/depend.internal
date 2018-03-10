@@ -467,6 +467,7 @@ CMakeFiles/lab2.dir/src/noise.cpp.o
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.hpp
 CMakeFiles/lab2.dir/src/regret.cpp.o
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
+ /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.cpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp

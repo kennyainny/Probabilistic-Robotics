@@ -103,6 +103,8 @@ logistic.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.hpp
 svm.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.hpp
+regret.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.cpp
 neural_network.hpp
@@ -153,6 +155,8 @@ def_type.h
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
 log.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
+gradient.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp
 svm.hpp
