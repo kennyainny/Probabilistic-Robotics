@@ -45,23 +45,22 @@ int main(int argc, char *argv[])
 	//Add_Noise_1(train_log, &train_log_noise1); //Add a large number of random features
 	//Add_Noise_2(train_log, &train_log_noise2); //Add a large number of features that are noise corrupted versions of the features already in the data-set
 
-<<<<<<< HEAD
+
 	/* Gradient Descent on Squared Loss */
 	log_type gradient_log, gradient_log_noise1, gradient_log_noise2;
 	//Gradient_Descent(train_log_noise2, test_log, &gradient_log);
-=======
-	/********** Gradient Descent on Squared Loss **********/
+/********** Gradient Descent on Squared Loss **********/
 	log_type gradient_log_online, gradient_log_stat;
 	log_type gradient_online_log_noise1, gradient_online_log_noise2;
 	log_type gradient_stat_log_noise1, gradient_stat_log_noise2;
 
-	regret = Gradient_Descent(train_log, test_log, &gradient_log_online, &gradient_log_stat);
-	printf("Regret Gradient Descent: %.4f\n", regret);
-	regret = Gradient_Descent(train_log_noise1, test_log, &gradient_online_log_noise1, &gradient_stat_log_noise1);
-	printf("Regret Gradient Descent with Noise1: %.4f\n", regret);
-	regret = Gradient_Descent(train_log_noise2, test_log, &gradient_online_log_noise2, &gradient_stat_log_noise2);
-	printf("Regret Gradient Descent with Noise2: %.4f\n", regret);
->>>>>>> 596f34ae45d269a37e80525c72a3fd4e0637a5a1
+	// regret = Gradient_Descent(train_log, test_log, &gradient_log_online, &gradient_log_stat);
+	// printf("Regret Gradient Descent: %.4f\n", regret);
+	// regret = Gradient_Descent(train_log_noise1, test_log, &gradient_online_log_noise1, &gradient_stat_log_noise1);
+	// printf("Regret Gradient Descent with Noise1: %.4f\n", regret);
+	// regret = Gradient_Descent(train_log_noise2, test_log, &gradient_online_log_noise2, &gradient_stat_log_noise2);
+	// printf("Regret Gradient Descent with Noise2: %.4f\n", regret);
+// >>>>>>> 596f34ae45d269a37e80525c72a3fd4e0637a5a1
 
 	/********** Baysian Linear Regression **********/
 	log_type baysian_log, baysian_log_noise1, baysian_log_noise2;
@@ -76,12 +75,12 @@ int main(int argc, char *argv[])
 
 
 	/* Visualization using PCL */
-<<<<<<< HEAD
+// <<<<<<< HEAD
 	//data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, gradient_log);
-=======
-	data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, 
-					   gradient_log_online, gradient_log_stat, gradient_online_log_noise1, gradient_stat_log_noise1, gradient_online_log_noise2, gradient_stat_log_noise2);
->>>>>>> 596f34ae45d269a37e80525c72a3fd4e0637a5a1
+// =======
+	// data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, 
+	// 				   gradient_log_online, gradient_log_stat, gradient_online_log_noise1, gradient_stat_log_noise1, gradient_online_log_noise2, gradient_stat_log_noise2);
+// >>>>>>> 596f34ae45d269a37e80525c72a3fd4e0637a5a1
 
 	while(1){
 		/* Does nothing but smiling at you :) */
