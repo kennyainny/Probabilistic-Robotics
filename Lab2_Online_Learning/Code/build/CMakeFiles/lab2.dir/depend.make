@@ -10,6 +10,7 @@ CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/def_type.h
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/gradient.cpp
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/gradient.hpp
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/log.hpp
+CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/regret.hpp
 
 CMakeFiles/lab2.dir/src/log.cpp.o: ../src/def_type.h
 CMakeFiles/lab2.dir/src/log.cpp.o: ../src/log.cpp
@@ -29,6 +30,7 @@ CMakeFiles/lab2.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/main.hpp
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/neural_network.hpp
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/noise.hpp
+CMakeFiles/lab2.dir/src/main.cpp.o: ../src/regret.hpp
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/svm.hpp
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/visualize.hpp
 CMakeFiles/lab2.dir/src/main.cpp.o: /usr/include/eigen3/Eigen/Cholesky
@@ -439,6 +441,11 @@ CMakeFiles/lab2.dir/src/noise.cpp.o: ../src/def_type.h
 CMakeFiles/lab2.dir/src/noise.cpp.o: ../src/log.hpp
 CMakeFiles/lab2.dir/src/noise.cpp.o: ../src/noise.cpp
 CMakeFiles/lab2.dir/src/noise.cpp.o: ../src/noise.hpp
+
+CMakeFiles/lab2.dir/src/regret.cpp.o: ../src/def_type.h
+CMakeFiles/lab2.dir/src/regret.cpp.o: ../src/log.hpp
+CMakeFiles/lab2.dir/src/regret.cpp.o: ../src/regret.cpp
+CMakeFiles/lab2.dir/src/regret.cpp.o: ../src/regret.hpp
 
 CMakeFiles/lab2.dir/src/svm.cpp.o: ../src/def_type.h
 CMakeFiles/lab2.dir/src/svm.cpp.o: ../src/log.hpp

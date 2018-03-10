@@ -164,6 +164,7 @@ make: *** [cmTC_e659c/fast] Error 2
 
 
 Determining if the pthread_create exist failed with the following output:
+<<<<<<< HEAD
 Change Dir: /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
 
 Run Build Command:"/usr/bin/make" "cmTC_aa09e/fast"
@@ -184,6 +185,28 @@ Makefile:126: recipe for target 'cmTC_aa09e/fast' failed
 make: *** [cmTC_aa09e/fast] Error 2
 
 File /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+=======
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5ff8b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5ff8b.dir/build.make CMakeFiles/cmTC_5ff8b.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5ff8b.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_5ff8b.dir/CheckSymbolExists.c.o   -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5ff8b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ff8b.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_5ff8b.dir/CheckSymbolExists.c.o  -o cmTC_5ff8b -rdynamic 
+CMakeFiles/cmTC_5ff8b.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_5ff8b.dir/build.make:97: recipe for target 'cmTC_5ff8b' failed
+make[1]: *** [cmTC_5ff8b] Error 1
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_5ff8b/fast' failed
+make: *** [cmTC_5ff8b/fast] Error 2
+
+File /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+>>>>>>> 596f34ae45d269a37e80525c72a3fd4e0637a5a1
 /* */
 #include <pthread.h>
 
@@ -199,6 +222,7 @@ int main(int argc, char** argv)
 }
 
 Determining if the function pthread_create exists in the pthreads failed with the following output:
+<<<<<<< HEAD
 Change Dir: /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
 
 Run Build Command:"/usr/bin/make" "cmTC_e98cd/fast"
@@ -216,5 +240,24 @@ make[1]: *** [cmTC_e98cd] Error 1
 make[1]: Leaving directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
 Makefile:126: recipe for target 'cmTC_e98cd/fast' failed
 make: *** [cmTC_e98cd/fast] Error 2
+=======
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_36cbd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_36cbd.dir/build.make CMakeFiles/cmTC_36cbd.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_36cbd.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_36cbd.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_36cbd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_36cbd.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_36cbd.dir/CheckFunctionExists.c.o  -o cmTC_36cbd -rdynamic -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_36cbd.dir/build.make:97: recipe for target 'cmTC_36cbd' failed
+make[1]: *** [cmTC_36cbd] Error 1
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_36cbd/fast' failed
+make: *** [cmTC_36cbd/fast] Error 2
+>>>>>>> 596f34ae45d269a37e80525c72a3fd4e0637a5a1
 
 

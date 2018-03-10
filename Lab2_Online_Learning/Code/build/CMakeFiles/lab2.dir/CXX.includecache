@@ -38,7 +38,13 @@ math.h
 def_type.h
 /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
 log.hpp
+<<<<<<< HEAD
 /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
+=======
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
+regret.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
+>>>>>>> 596f34ae45d269a37e80525c72a3fd4e0637a5a1
 
 /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp
 log.hpp
@@ -138,7 +144,27 @@ def_type.h
 log.hpp
 /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
 
+<<<<<<< HEAD
 /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp
+=======
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.cpp
+regret.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
+stdio.h
+-
+stdlib.h
+-
+math.h
+-
+
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
+def_type.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
+log.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
+
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp
+>>>>>>> 596f34ae45d269a37e80525c72a3fd4e0637a5a1
 svm.hpp
 /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.hpp
 stdio.h
