@@ -82,3 +82,31 @@ Linking C executable cmTC_f49db
 make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
 
 
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_30407/fast"
+/usr/bin/make -f CMakeFiles/cmTC_30407.dir/build.make CMakeFiles/cmTC_30407.dir/build
+make[1]: Entering directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_30407.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_30407.dir/CheckIncludeFile.c.o   -c /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_30407
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30407.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_30407.dir/CheckIncludeFile.c.o  -o cmTC_30407 -rdynamic 
+make[1]: Leaving directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_960b3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_960b3.dir/build.make CMakeFiles/cmTC_960b3.dir/build
+make[1]: Entering directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_960b3.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_960b3.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_960b3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_960b3.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_960b3.dir/CheckFunctionExists.c.o  -o cmTC_960b3 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+

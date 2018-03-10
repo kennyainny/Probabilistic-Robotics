@@ -44,12 +44,12 @@ int main(int argc, char *argv[])
 
 	/* Add Noise */
 	log_type train_log_noise1, train_log_noise2;
-	Add_Noise_1(train_log, &train_log_noise1); //Add a large number of random features
-	Add_Noise_2(train_log, &train_log_noise2); //Add a large number of features that are noise corrupted versions of the features already in the data-set
+	//Add_Noise_1(train_log, &train_log_noise1); //Add a large number of random features
+	//Add_Noise_2(train_log, &train_log_noise2); //Add a large number of features that are noise corrupted versions of the features already in the data-set
 
 	/* Gradient Descent on Squared Loss */
 	log_type gradient_log, gradient_log_noise1, gradient_log_noise2;
-	Gradient_Descent(train_log_noise2, test_log, &gradient_log);
+	//Gradient_Descent(train_log_noise2, test_log, &gradient_log);
 
 	/* Baysian Linear Regression */
 	log_type baysian_log, baysian_log_noise1, baysian_log_noise2;
@@ -57,14 +57,14 @@ int main(int argc, char *argv[])
 
 	/* NN ? Logistic Regression ? SVM */
 	log_type nn_log, nn_log_noise1, nn_log_noise2;
-	// ANN(train_log);	
+	ANN(train_log);	
 
 	log_type logistic_log, logistic_log_noise1, logistic_log_noise2;
 	log_type svm_log, svm_log_noise1, svm_log_noise2;
 
 
 	/* Visualization using PCL */
-	data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, gradient_log);
+	//data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, gradient_log);
 
 	while(1){
 		/* Does nothing but smiling at you :) */

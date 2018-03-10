@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code
+CMAKE_SOURCE_DIR = /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build
+CMAKE_BINARY_DIR = /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/lab2.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/lab2.dir/flags.make
 
 CMakeFiles/lab2.dir/src/main.cpp.o: CMakeFiles/lab2.dir/flags.make
 CMakeFiles/lab2.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab2.dir/src/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/main.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab2.dir/src/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/main.cpp.o -c /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/main.cpp
 
 CMakeFiles/lab2.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/main.cpp > CMakeFiles/lab2.dir/src/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/main.cpp > CMakeFiles/lab2.dir/src/main.cpp.i
 
 CMakeFiles/lab2.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/main.cpp -o CMakeFiles/lab2.dir/src/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/main.cpp -o CMakeFiles/lab2.dir/src/main.cpp.s
 
 CMakeFiles/lab2.dir/src/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/lab2.dir/src/main.cpp.o.provides.build: CMakeFiles/lab2.dir/src/main.
 
 CMakeFiles/lab2.dir/src/visualize.cpp.o: CMakeFiles/lab2.dir/flags.make
 CMakeFiles/lab2.dir/src/visualize.cpp.o: ../src/visualize.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab2.dir/src/visualize.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/visualize.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab2.dir/src/visualize.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/visualize.cpp.o -c /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.cpp
 
 CMakeFiles/lab2.dir/src/visualize.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/visualize.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.cpp > CMakeFiles/lab2.dir/src/visualize.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.cpp > CMakeFiles/lab2.dir/src/visualize.cpp.i
 
 CMakeFiles/lab2.dir/src/visualize.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/visualize.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.cpp -o CMakeFiles/lab2.dir/src/visualize.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.cpp -o CMakeFiles/lab2.dir/src/visualize.cpp.s
 
 CMakeFiles/lab2.dir/src/visualize.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/lab2.dir/src/visualize.cpp.o.provides.build: CMakeFiles/lab2.dir/src/
 
 CMakeFiles/lab2.dir/src/log.cpp.o: CMakeFiles/lab2.dir/flags.make
 CMakeFiles/lab2.dir/src/log.cpp.o: ../src/log.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lab2.dir/src/log.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/log.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lab2.dir/src/log.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/log.cpp.o -c /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp
 
 CMakeFiles/lab2.dir/src/log.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/log.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp > CMakeFiles/lab2.dir/src/log.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp > CMakeFiles/lab2.dir/src/log.cpp.i
 
 CMakeFiles/lab2.dir/src/log.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/log.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp -o CMakeFiles/lab2.dir/src/log.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp -o CMakeFiles/lab2.dir/src/log.cpp.s
 
 CMakeFiles/lab2.dir/src/log.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/lab2.dir/src/log.cpp.o.provides.build: CMakeFiles/lab2.dir/src/log.cp
 
 CMakeFiles/lab2.dir/src/noise.cpp.o: CMakeFiles/lab2.dir/flags.make
 CMakeFiles/lab2.dir/src/noise.cpp.o: ../src/noise.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lab2.dir/src/noise.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/noise.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lab2.dir/src/noise.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/noise.cpp.o -c /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.cpp
 
 CMakeFiles/lab2.dir/src/noise.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/noise.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.cpp > CMakeFiles/lab2.dir/src/noise.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.cpp > CMakeFiles/lab2.dir/src/noise.cpp.i
 
 CMakeFiles/lab2.dir/src/noise.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/noise.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.cpp -o CMakeFiles/lab2.dir/src/noise.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.cpp -o CMakeFiles/lab2.dir/src/noise.cpp.s
 
 CMakeFiles/lab2.dir/src/noise.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/lab2.dir/src/noise.cpp.o.provides.build: CMakeFiles/lab2.dir/src/nois
 
 CMakeFiles/lab2.dir/src/gradient.cpp.o: CMakeFiles/lab2.dir/flags.make
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/gradient.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/lab2.dir/src/gradient.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/gradient.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/lab2.dir/src/gradient.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/gradient.cpp.o -c /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp
 
 CMakeFiles/lab2.dir/src/gradient.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/gradient.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp > CMakeFiles/lab2.dir/src/gradient.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp > CMakeFiles/lab2.dir/src/gradient.cpp.i
 
 CMakeFiles/lab2.dir/src/gradient.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/gradient.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp -o CMakeFiles/lab2.dir/src/gradient.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp -o CMakeFiles/lab2.dir/src/gradient.cpp.s
 
 CMakeFiles/lab2.dir/src/gradient.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/lab2.dir/src/gradient.cpp.o.provides.build: CMakeFiles/lab2.dir/src/g
 
 CMakeFiles/lab2.dir/src/neural_network.cpp.o: CMakeFiles/lab2.dir/flags.make
 CMakeFiles/lab2.dir/src/neural_network.cpp.o: ../src/neural_network.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/lab2.dir/src/neural_network.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/neural_network.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/lab2.dir/src/neural_network.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/neural_network.cpp.o -c /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.cpp
 
 CMakeFiles/lab2.dir/src/neural_network.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/neural_network.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.cpp > CMakeFiles/lab2.dir/src/neural_network.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.cpp > CMakeFiles/lab2.dir/src/neural_network.cpp.i
 
 CMakeFiles/lab2.dir/src/neural_network.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/neural_network.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.cpp -o CMakeFiles/lab2.dir/src/neural_network.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.cpp -o CMakeFiles/lab2.dir/src/neural_network.cpp.s
 
 CMakeFiles/lab2.dir/src/neural_network.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/lab2.dir/src/neural_network.cpp.o.provides.build: CMakeFiles/lab2.dir
 
 CMakeFiles/lab2.dir/src/svm.cpp.o: CMakeFiles/lab2.dir/flags.make
 CMakeFiles/lab2.dir/src/svm.cpp.o: ../src/svm.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/lab2.dir/src/svm.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/svm.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/lab2.dir/src/svm.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/svm.cpp.o -c /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp
 
 CMakeFiles/lab2.dir/src/svm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/svm.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp > CMakeFiles/lab2.dir/src/svm.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp > CMakeFiles/lab2.dir/src/svm.cpp.i
 
 CMakeFiles/lab2.dir/src/svm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/svm.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp -o CMakeFiles/lab2.dir/src/svm.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp -o CMakeFiles/lab2.dir/src/svm.cpp.s
 
 CMakeFiles/lab2.dir/src/svm.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/lab2.dir/src/svm.cpp.o.provides.build: CMakeFiles/lab2.dir/src/svm.cp
 
 CMakeFiles/lab2.dir/src/baysian.cpp.o: CMakeFiles/lab2.dir/flags.make
 CMakeFiles/lab2.dir/src/baysian.cpp.o: ../src/baysian.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/lab2.dir/src/baysian.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/baysian.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/lab2.dir/src/baysian.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/baysian.cpp.o -c /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.cpp
 
 CMakeFiles/lab2.dir/src/baysian.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/baysian.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.cpp > CMakeFiles/lab2.dir/src/baysian.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.cpp > CMakeFiles/lab2.dir/src/baysian.cpp.i
 
 CMakeFiles/lab2.dir/src/baysian.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/baysian.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.cpp -o CMakeFiles/lab2.dir/src/baysian.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.cpp -o CMakeFiles/lab2.dir/src/baysian.cpp.s
 
 CMakeFiles/lab2.dir/src/baysian.cpp.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/lab2.dir/src/baysian.cpp.o.provides.build: CMakeFiles/lab2.dir/src/ba
 
 CMakeFiles/lab2.dir/src/logistic.cpp.o: CMakeFiles/lab2.dir/flags.make
 CMakeFiles/lab2.dir/src/logistic.cpp.o: ../src/logistic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/lab2.dir/src/logistic.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/logistic.cpp.o -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/lab2.dir/src/logistic.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab2.dir/src/logistic.cpp.o -c /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.cpp
 
 CMakeFiles/lab2.dir/src/logistic.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab2.dir/src/logistic.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.cpp > CMakeFiles/lab2.dir/src/logistic.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.cpp > CMakeFiles/lab2.dir/src/logistic.cpp.i
 
 CMakeFiles/lab2.dir/src/logistic.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab2.dir/src/logistic.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.cpp -o CMakeFiles/lab2.dir/src/logistic.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.cpp -o CMakeFiles/lab2.dir/src/logistic.cpp.s
 
 CMakeFiles/lab2.dir/src/logistic.cpp.o.requires:
 
@@ -335,27 +335,27 @@ lab2_EXTERNAL_OBJECTS =
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libboost_regex.so
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libpthread.so
 ../bin/lab2: /usr/local/lib/libpcl_common.so
+../bin/lab2: /usr/local/lib/libpcl_octree.so
+../bin/lab2: /usr/lib/libOpenNI.so
+../bin/lab2: /usr/local/lib/libpcl_io.so
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libflann_cpp_s.a
 ../bin/lab2: /usr/local/lib/libpcl_kdtree.so
-../bin/lab2: /usr/local/lib/libpcl_octree.so
 ../bin/lab2: /usr/local/lib/libpcl_search.so
 ../bin/lab2: /usr/local/lib/libpcl_sample_consensus.so
 ../bin/lab2: /usr/local/lib/libpcl_filters.so
-../bin/lab2: /usr/lib/libOpenNI.so
-../bin/lab2: /usr/local/lib/libpcl_io.so
 ../bin/lab2: /usr/local/lib/libpcl_features.so
+../bin/lab2: /usr/local/lib/libpcl_keypoints.so
 ../bin/lab2: /usr/local/lib/libpcl_ml.so
 ../bin/lab2: /usr/local/lib/libpcl_segmentation.so
 ../bin/lab2: /usr/local/lib/libpcl_visualization.so
+../bin/lab2: /usr/local/lib/libpcl_outofcore.so
+../bin/lab2: /usr/local/lib/libpcl_stereo.so
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libqhull.so
 ../bin/lab2: /usr/local/lib/libpcl_surface.so
 ../bin/lab2: /usr/local/lib/libpcl_registration.so
-../bin/lab2: /usr/local/lib/libpcl_keypoints.so
-../bin/lab2: /usr/local/lib/libpcl_tracking.so
 ../bin/lab2: /usr/local/lib/libpcl_recognition.so
-../bin/lab2: /usr/local/lib/libpcl_stereo.so
-../bin/lab2: /usr/local/lib/libpcl_outofcore.so
 ../bin/lab2: /usr/local/lib/libpcl_people.so
+../bin/lab2: /usr/local/lib/libpcl_tracking.so
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libboost_system.so
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libboost_thread.so
@@ -369,47 +369,45 @@ lab2_EXTERNAL_OBJECTS =
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libqhull.so
 ../bin/lab2: /usr/lib/libOpenNI.so
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libflann_cpp_s.a
-../bin/lab2: /usr/local/lib/libvtkFiltersVerdict-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkverdict-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkRenderingVolumeOpenGL2-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkImagingMath-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkViewsContext2D-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOTecplotTable-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkImagingStencil-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersPoints-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkDomainsChemistryOpenGL2-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkDomainsChemistry-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersSMP-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkImagingStatistics-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOParallelXML-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkIOSQL-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtksqlite-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOAMR-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersAMR-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersSelection-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOMINC-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkViewsInfovis-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkChartsCore-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersFlowPaths-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOImport-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersSMP-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOExodus-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOParallel-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkjsoncpp-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersPoints-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkDomainsChemistryOpenGL2-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOTecplotTable-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkRenderingContextOpenGL2-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOVideo-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOLSDyna-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOInfovis-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkGeovisCore-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkproj4-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersSelection-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkRenderingVolumeOpenGL2-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOParallel-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIONetCDF-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkjsoncpp-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkFiltersGeneric-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkInteractionImage-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersParallelImaging-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkImagingMorphological-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkRenderingImage-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersProgrammable-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOParallelXML-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOInfovis-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtklibxml2-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkIOMovie-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkImagingStatistics-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkoggtheora-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkImagingStencil-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersParallelImaging-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkViewsInfovis-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkViewsContext2D-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOExodus-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersFlowPaths-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOAMR-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersAMR-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkIOEnSight-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkGeovisCore-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersVerdict-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOVideo-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkImagingMorphological-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOLSDyna-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkRenderingImage-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkFiltersHyperTree-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersProgrammable-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOImport-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOMINC-7.1.so.1
 ../bin/lab2: /opt/ros/kinetic/lib/libopencv_shape3.so.3.3.1
 ../bin/lab2: /opt/ros/kinetic/lib/libopencv_photo3.so.3.3.1
 ../bin/lab2: /opt/ros/kinetic/lib/libopencv_calib3d3.so.3.3.1
@@ -418,8 +416,8 @@ lab2_EXTERNAL_OBJECTS =
 ../bin/lab2: /usr/local/lib/libvtkRenderingGL2PSOpenGL2-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkgl2ps-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkIOPLY-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersTexture-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkRenderingLOD-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersTexture-7.1.so.1
 ../bin/lab2: /opt/ros/kinetic/lib/libopencv_phase_unwrapping3.so.3.3.1
 ../bin/lab2: /opt/ros/kinetic/lib/libopencv_video3.so.3.3.1
 ../bin/lab2: /opt/ros/kinetic/lib/libopencv_datasets3.so.3.3.1
@@ -436,32 +434,26 @@ lab2_EXTERNAL_OBJECTS =
 ../bin/lab2: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.3.1
 ../bin/lab2: /opt/ros/kinetic/lib/libopencv_core3.so.3.3.1
 ../bin/lab2: /usr/local/lib/libpcl_common.so
-../bin/lab2: /usr/local/lib/libpcl_kdtree.so
 ../bin/lab2: /usr/local/lib/libpcl_octree.so
+../bin/lab2: /usr/local/lib/libpcl_io.so
+../bin/lab2: /usr/local/lib/libpcl_kdtree.so
 ../bin/lab2: /usr/local/lib/libpcl_search.so
 ../bin/lab2: /usr/local/lib/libpcl_sample_consensus.so
 ../bin/lab2: /usr/local/lib/libpcl_filters.so
-../bin/lab2: /usr/local/lib/libpcl_io.so
 ../bin/lab2: /usr/local/lib/libpcl_features.so
+../bin/lab2: /usr/local/lib/libpcl_keypoints.so
 ../bin/lab2: /usr/local/lib/libpcl_ml.so
 ../bin/lab2: /usr/local/lib/libpcl_segmentation.so
 ../bin/lab2: /usr/local/lib/libpcl_visualization.so
+../bin/lab2: /usr/local/lib/libpcl_outofcore.so
+../bin/lab2: /usr/local/lib/libpcl_stereo.so
 ../bin/lab2: /usr/local/lib/libpcl_surface.so
 ../bin/lab2: /usr/local/lib/libpcl_registration.so
-../bin/lab2: /usr/local/lib/libpcl_keypoints.so
-../bin/lab2: /usr/local/lib/libpcl_tracking.so
 ../bin/lab2: /usr/local/lib/libpcl_recognition.so
-../bin/lab2: /usr/local/lib/libpcl_stereo.so
-../bin/lab2: /usr/local/lib/libpcl_outofcore.so
 ../bin/lab2: /usr/local/lib/libpcl_people.so
-../bin/lab2: /usr/local/lib/libvtkRenderingLabel-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIONetCDF-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkexoIIc-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkNetCDF_cxx-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkNetCDF-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkhdf5_hl-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkhdf5-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOGeometry-7.1.so.1
+../bin/lab2: /usr/local/lib/libpcl_tracking.so
+../bin/lab2: /usr/local/lib/libvtkDomainsChemistry-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtklibxml2-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkRenderingOpenGL2-7.1.so.1
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libSM.so
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libICE.so
@@ -469,62 +461,70 @@ lab2_EXTERNAL_OBJECTS =
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libXext.so
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libXt.so
 ../bin/lab2: /usr/local/lib/libvtkglew-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkRenderingContext2D-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersImaging-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkImagingMath-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOGeometry-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkFiltersParallel-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkParallelCore-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOLegacy-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkoggtheora-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkChartsCore-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkInfovisLayout-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkInfovisCore-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersImaging-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkRenderingLabel-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkRenderingContext2D-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkViewsCore-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkInteractionWidgets-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkRenderingVolume-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOXML-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOXMLParser-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkIOCore-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkexpat-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersHybrid-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkImagingGeneral-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersModeling-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkImagingHybrid-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkInteractionStyle-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersExtraction-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersStatistics-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkImagingFourier-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkalglib-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkRenderingAnnotation-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkRenderingFreeType-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkfreetype-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkImagingColor-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkImagingSources-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkInteractionStyle-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkRenderingCore-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkCommonColor-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersGeometry-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkproj4-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkInfovisLayout-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersModeling-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersSources-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkImagingHybrid-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkRenderingVolume-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkexoIIc-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOXML-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkParallelCore-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOLegacy-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkverdict-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkImagingGeneral-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOXMLParser-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkexpat-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkIOCore-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkIOImage-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkDICOMParser-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkmetaio-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkpng-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtktiff-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkzlib-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkjpeg-7.1.so.1
 ../bin/lab2: /usr/lib/x86_64-linux-gnu/libm.so
-../bin/lab2: /usr/local/lib/libvtkInfovisCore-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersExtraction-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersStatistics-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkalglib-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkImagingFourier-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkImagingCore-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersHybrid-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkRenderingCore-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkCommonColor-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersGeometry-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersSources-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkFiltersGeneral-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkFiltersCore-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkCommonExecutionModel-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkCommonComputationalGeometry-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkFiltersCore-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkImagingSources-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkImagingCore-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkCommonExecutionModel-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkCommonDataModel-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkCommonMisc-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtkCommonSystem-7.1.so.1
-../bin/lab2: /usr/local/lib/libvtksys-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkCommonTransforms-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkCommonMisc-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkCommonMath-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkCommonSystem-7.1.so.1
 ../bin/lab2: /usr/local/lib/libvtkCommonCore-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtksys-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkNetCDF_cxx-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkNetCDF-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkhdf5_hl-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkhdf5-7.1.so.1
+../bin/lab2: /usr/local/lib/libvtkzlib-7.1.so.1
 ../bin/lab2: CMakeFiles/lab2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable ../bin/lab2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable ../bin/lab2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -549,6 +549,6 @@ CMakeFiles/lab2.dir/clean:
 .PHONY : CMakeFiles/lab2.dir/clean
 
 CMakeFiles/lab2.dir/depend:
-	cd /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/lab2.dir/depend
 
