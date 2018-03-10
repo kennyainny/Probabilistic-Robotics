@@ -10,7 +10,6 @@ CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/def_type.h
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/gradient.cpp
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/gradient.hpp
 CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/log.hpp
-CMakeFiles/lab2.dir/src/gradient.cpp.o: ../src/regret.hpp
 
 CMakeFiles/lab2.dir/src/log.cpp.o: ../src/def_type.h
 CMakeFiles/lab2.dir/src/log.cpp.o: ../src/log.cpp
@@ -468,6 +467,7 @@ CMakeFiles/lab2.dir/src/noise.cpp.o: ../src/noise.cpp
 CMakeFiles/lab2.dir/src/noise.cpp.o: ../src/noise.hpp
 
 CMakeFiles/lab2.dir/src/regret.cpp.o: ../src/def_type.h
+CMakeFiles/lab2.dir/src/regret.cpp.o: ../src/gradient.hpp
 CMakeFiles/lab2.dir/src/regret.cpp.o: ../src/log.hpp
 CMakeFiles/lab2.dir/src/regret.cpp.o: ../src/regret.cpp
 CMakeFiles/lab2.dir/src/regret.cpp.o: ../src/regret.hpp

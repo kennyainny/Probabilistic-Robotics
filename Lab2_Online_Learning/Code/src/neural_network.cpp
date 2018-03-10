@@ -59,6 +59,7 @@ void ANN(log_type log){
 		
 		for (int q=0;q<log.count;q++){
 			int a = 0;
+<<<<<<< HEAD
 			assign_output(log,q,reference,&a);
 			printf("*************************\n");
 			// for(int i=0;i<NWL2;i++){
@@ -95,6 +96,15 @@ void ANN(log_type log){
 				}
 				hidden_nodes[k]=sigmoid(sum);
 				//printf("hidden_node values %f\n",hidden_nodes[k]);
+=======
+		assign_output(log,q,reference,&a);
+		printf("*************************\n");
+		// for(int i=0;i<NWL2;i++){
+		// 	// printf("Weights_L2 %f\n",weights_L2[i]);
+		// }
+			for(int i=0;i<NON;i++){
+				printf("%i\n",reference[i]);
+>>>>>>> f93595a4815ab4a4d5c2a185d8a71c9e4bdb197c
 			}
 			
 			//Second Level of weights and calculate error

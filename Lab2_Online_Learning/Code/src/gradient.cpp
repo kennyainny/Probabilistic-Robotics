@@ -49,7 +49,7 @@ void multiply_vectors(double *wx, double (*w)[O_NUM][W_NUM], double *x){
   }
 }
 
-void update_gradient(log_type log, double (*dl)[O_NUM][W_NUM], double *wx, double *x, int *y){
+void update_gradient(double (*dl)[O_NUM][W_NUM], double *wx, double *x, int *y){
   double DL = 0;
   for(int i = 0; i < O_NUM; i++){
     for (int j = 0; j < W_NUM; j++){
@@ -61,20 +61,6 @@ void update_gradient(log_type log, double (*dl)[O_NUM][W_NUM], double *wx, doubl
   for(int i = 0; i < O_NUM; i++){
     for (int j = 0; j < W_NUM; j++){
       (*dl)[i][j] = (*dl)[i][j]/DL;
-    }
-  }
-
-  // for(int i = 0; i < O_NUM; i++){
-  //   for (int j = 0; j < W_NUM; j++){
-  //     (*dl)[i][j] = (wx[i] - y[i])*x[j]/log.count;
-  //   }
-  // }
-}
-
-void update_gradients(log_type log, double (*dl)[O_NUM][W_NUM], double *wx, double *x, int *y){
-  for(int i = 0; i < O_NUM; i++){
-    for (int j = 0; j < W_NUM; j++){
-      (*dl)[i][j] = (wx[i] - y[i])*x[j]/log.count;
     }
   }
 }
@@ -212,7 +198,7 @@ double Gradient_Descent(log_type train_log, log_type test_log, log_type *gradien
     regret[i] = sum_loss - sum_loss_;
     // printf("%f %f %f\n", regret[i], sum_loss, sum_loss_);
 
-    update_gradient(train_log, &dl, wx, x, y);    
+    update_gradient(&dl, wx, x, y);    
     update_weight(&dl, &w, alpha);
   }
 
@@ -233,7 +219,7 @@ double Gradient_Descent(log_type train_log, log_type test_log, log_type *gradien
       assign_output(train_log_sort, i, y, &type);
       assign_input(train_log_sort, i, x);
       multiply_vectors(wx, &w, x);
-      update_gradient(train_log_sort, &dl, wx, x, y);
+      update_gradient(&dl, wx, x, y);
       update_weight(&dl, &w, alpha);
     }
   }

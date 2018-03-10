@@ -9,14 +9,12 @@ extern "C"
 	#include "def_type.h"
 }
 #include "log.hpp"
-#include "regret.hpp"
 
 double Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_log_online, log_type *gradient_log_stat);
 void assign_output(log_type log, long count, int *y, int *type);
 void assign_input(log_type log, long count, double *x);
 void assign_weight(int *y, double *wx, double *err, double (*w)[O_NUM][W_NUM], double (*w_)[O_NUM][W_NUM]);
-void update_gradient(log_type log, double (*dl)[O_NUM][W_NUM], double *wx, double *x, int *y);
-void update_gradients(log_type log, double (*dl)[O_NUM][W_NUM], double *wx, double *x, int *y);
+void update_gradient(double (*dl)[O_NUM][W_NUM], double *wx, double *x, int *y);
 void update_weight(double (*dl)[O_NUM][W_NUM], double (*w)[O_NUM][W_NUM], double alpha);
 void multiply_vectors(double *wx, double (*w)[O_NUM][W_NUM], double *x);
 void assign_result(double *wx, int *y_);

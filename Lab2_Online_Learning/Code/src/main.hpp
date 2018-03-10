@@ -15,5 +15,6 @@ extern "C"
 #include "neural_network.hpp"
 #include "logistic.hpp"
 #include "svm.hpp"
+#include "regret.hpp"
 
 #endif /* MAIN_HPP */
