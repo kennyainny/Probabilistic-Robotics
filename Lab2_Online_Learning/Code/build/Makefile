@@ -312,6 +312,33 @@ src/noise.cpp.s:
 	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/noise.cpp.s
 .PHONY : src/noise.cpp.s
 
+src/regret.o: src/regret.cpp.o
+
+.PHONY : src/regret.o
+
+# target to build an object file
+src/regret.cpp.o:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/regret.cpp.o
+.PHONY : src/regret.cpp.o
+
+src/regret.i: src/regret.cpp.i
+
+.PHONY : src/regret.i
+
+# target to preprocess a source file
+src/regret.cpp.i:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/regret.cpp.i
+.PHONY : src/regret.cpp.i
+
+src/regret.s: src/regret.cpp.s
+
+.PHONY : src/regret.s
+
+# target to generate assembly for a file
+src/regret.cpp.s:
+	$(MAKE) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/src/regret.cpp.s
+.PHONY : src/regret.cpp.s
+
 src/svm.o: src/svm.cpp.o
 
 .PHONY : src/svm.o
@@ -396,6 +423,9 @@ help:
 	@echo "... src/noise.o"
 	@echo "... src/noise.i"
 	@echo "... src/noise.s"
+	@echo "... src/regret.o"
+	@echo "... src/regret.i"
+	@echo "... src/regret.s"
 	@echo "... src/svm.o"
 	@echo "... src/svm.i"
 	@echo "... src/svm.s"

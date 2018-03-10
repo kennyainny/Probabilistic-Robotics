@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/lab2.dir/src/svm.cpp.o"
   "CMakeFiles/lab2.dir/src/baysian.cpp.o"
   "CMakeFiles/lab2.dir/src/logistic.cpp.o"
+  "CMakeFiles/lab2.dir/src/regret.cpp.o"
   "../bin/lab2.pdb"
   "../bin/lab2"
 )

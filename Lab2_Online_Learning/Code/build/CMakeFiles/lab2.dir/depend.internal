@@ -11,6 +11,7 @@ CMakeFiles/lab2.dir/src/gradient.cpp.o
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
+ /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
 CMakeFiles/lab2.dir/src/log.cpp.o
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp
@@ -30,6 +31,7 @@ CMakeFiles/lab2.dir/src/main.cpp.o
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/main.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.hpp
+ /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.hpp
  /usr/include/eigen3/Eigen/Cholesky
@@ -463,6 +465,11 @@ CMakeFiles/lab2.dir/src/noise.cpp.o
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.cpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.hpp
+CMakeFiles/lab2.dir/src/regret.cpp.o
+ /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
+ /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
+ /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.cpp
+ /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
 CMakeFiles/lab2.dir/src/svm.cpp.o
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp

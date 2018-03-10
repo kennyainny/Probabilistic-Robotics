@@ -32,7 +32,9 @@ set(SOURCE_FILES
 	${PROJECT_SOURCE_DIR}/src/baysian.cpp
 	${PROJECT_SOURCE_DIR}/src/baysian.hpp
 	${PROJECT_SOURCE_DIR}/src/logistic.cpp
-	${PROJECT_SOURCE_DIR}/src/logistic.hpp)
+	${PROJECT_SOURCE_DIR}/src/logistic.hpp
+	${PROJECT_SOURCE_DIR}/src/regret.cpp
+	${PROJECT_SOURCE_DIR}/src/regret.hpp)
 
 add_executable(lab2 ${SOURCE_FILES})
 target_link_libraries(lab2 ${OpenCV_LIBS} ${PCL_LIBRARIES})
