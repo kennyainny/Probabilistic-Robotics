@@ -79,26 +79,38 @@ void get_weight(double (*V)[W_NUM][W_NUM], double *m, double (*P)[W_NUM][W_NUM],
 	}
 }
 
-void predict_output(double *w, double *x, double *y){
-	*y = 0;
+void predict_output(double *w, double *x, double *y, int k){
+	y[k] = 0;
 	for(int i = 0; i < W_NUM; i++){
-		*y = *y + w[i]*x[i];
+		y[k] = y[k] + w[i]*x[i];
 	}
 }
 
 void BLR(log_type train_log, log_type test_log, log_type *BLR_log_online, log_type *BLR_log_stat){
 	int y[O_NUM], type;
-	double x[W_NUM], w[W_NUM], y_;
-	double J[W_NUM], P[W_NUM][W_NUM], V[W_NUM][W_NUM], m[W_NUM];
+	double x[W_NUM], y_[W_NUM];
+	double w1[W_NUM], J1[W_NUM], P1[W_NUM][W_NUM], V1[W_NUM][W_NUM], m1[W_NUM];
+	double w2[W_NUM], J2[W_NUM], P2[W_NUM][W_NUM], V2[W_NUM][W_NUM], m2[W_NUM];
+	double w3[W_NUM], J3[W_NUM], P3[W_NUM][W_NUM], V3[W_NUM][W_NUM], m3[W_NUM];
+	double w4[W_NUM], J4[W_NUM], P4[W_NUM][W_NUM], V4[W_NUM][W_NUM], m4[W_NUM];
+	double w5[W_NUM], J5[W_NUM], P5[W_NUM][W_NUM], V5[W_NUM][W_NUM], m5[W_NUM];
 	normal_distribution<float> distr;
 
 	for(int i = 0; i < W_NUM; i++){ //initializa weight
     	for(int j = 0; j < W_NUM; j++){
     		if(i == j){
-      			P[i][j] = 1.0;
+      			P1[i][j] = 1.0;
+      			P2[i][j] = 1.0;
+      			P3[i][j] = 1.0;
+      			P4[i][j] = 1.0;
+      			P5[i][j] = 1.0;
       		}
     	}
-    	J[i] = 0.0;
+    	J1[i] = 0.0;
+    	J2[i] = 0.0;
+    	J3[i] = 0.0;
+    	J4[i] = 0.0;
+    	J5[i] = 0.0;
   	}
 
   	/*********** Online Learning ***********/
@@ -109,39 +121,91 @@ void BLR(log_type train_log, log_type test_log, log_type *BLR_log_online, log_ty
     	BLR_log_online->node_id[i] = train_log.node_id[i];
   	}
 
-  	for(int k = 0; k < 1; k++){ //Classify one-vs-all
-  		for(long i = 0; i < train_log.count; i++){
+  	for(long i = 0; i < train_log.count; i++){
   			assign_output(train_log, i, y, &type);
   			assign_input(train_log, i, x);
 
-  			get_weight(&V, m, &P, J, w);
-  			predict_output(m, x, &y_);
+  		for(int k = 0; k < O_NUM; k++){ //Classify one-vs-all
+  		// for(long i = 0; i < train_log.count; i++){
+  		// 	assign_output(train_log, i, y, &type);
+  		// 	assign_input(train_log, i, x);
+  			if(k == 0){
+  				get_weight(&V1, m1, &P1, J1, w1);
+  				predict_output(m1, x, y_, k);
 
-  			update_J(J, y, x, k);
-  			update_P(&P, x);  			
+  				update_J(J1, y, x, k);
+  				update_P(&P1, x);  	
+  			}else if(k == 1){
+  				get_weight(&V2, m2, &P2, J2, w2);
+  				predict_output(m2, x, y_, k);
+
+  				update_J(J2, y, x, k);
+  				update_P(&P2, x);  	
+  			}else if(k == 2){
+  				get_weight(&V3, m3, &P3, J3, w3);
+  				predict_output(m3, x, y_, k);
+
+  				update_J(J3, y, x, k);
+  				update_P(&P3, x);  	
+  			}else if(k == 3){
+  				get_weight(&V4, m4, &P4, J4, w4);
+  				predict_output(m4, x, y_, k);
+
+  				update_J(J4, y, x, k);
+  				update_P(&P4, x);  	
+  			}else if(k == 4){
+  				get_weight(&V5, m5, &P5, J5, w5);
+  				predict_output(m5, x, y_, k);
+
+  				update_J(J5, y, x, k);
+  				update_P(&P5, x);
+  			}
+  		}
+
+  		for(int k = 0; k < O_NUM; k++){
+  			y_[k] = fabs(y_[k]);
+  			// printf("%d %.4f\n", y[k], y_[k]);
+  		}
+  		// printf("\n");
+
+  		if(y_[0] > 0.5){
+  			BLR_log_online->node_label[i] = VEG;
+  		}else if(y_[1] > 0.5){
+  			BLR_log_online->node_label[i] = WIRE;
+  		}else if(y_[2] > 0.5){
+  			BLR_log_online->node_label[i] = POLE;
+  		}else if(y_[4] > 0.5){
+  			BLR_log_online->node_label[i] = FACADE;
+  		}else{
+  			BLR_log_online->node_label[i] = GROUND;
+  		}
+  		
+
+  		// predict_label(BLR_log_online, y_, i);
 
   			// for(int a = 0; a < W_NUM; a++){ //initialize weight
     	// 		for(int b = 0; b < W_NUM; b++){
-     //  				printf("%.2f ", P[a][b]);
+     //  				printf("%.2f ", P1[a][b]);
     	// 		}
     	// 		printf("\n");
     	// 	}
     	// 	printf("m ");
     	// 	for(int a = 0; a < W_NUM; a++){
-    	// 		printf("%.2f ", m[a]);
+    	// 		printf("%.2f ", m1[a]);
   			// }
   			// printf("\nx ");
   			// for(int a = 0; a < W_NUM; a++){
     	// 		printf("%.2f ", x[a]);
   			// }
   			// printf("\n");
-  			// printf("%lu %d %d %d %.2f\n", i, k, type, y[k], y_);
+  			// printf("%lu %d %d %.2f\n", i, type, y[0], y_[0]);
   			// printf("\n");
-  			if(y_ > 0.5){
-  				BLR_log_online->node_label[i] = VEG;
-  			}else{
-  				BLR_log_online->node_label[i] = FACADE;
-  			}
-  		}
+
+  			// if(y_ > 0.5){
+  			// 	BLR_log_online->node_label[i] = FACADE;
+  			// }else{
+  			// 	BLR_log_online->node_label[i] = GROUND;
+  			// }
+  		
   	}
 }

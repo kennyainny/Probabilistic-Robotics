@@ -38,13 +38,7 @@ math.h
 def_type.h
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
 log.hpp
-<<<<<<< HEAD
-/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
-regret.hpp
-/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
-=======
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
->>>>>>> f93595a4815ab4a4d5c2a185d8a71c9e4bdb197c
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp
 log.hpp
@@ -146,13 +140,9 @@ def_type.h
 log.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
 
-<<<<<<< HEAD
-/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.cpp
-=======
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.cpp
->>>>>>> f93595a4815ab4a4d5c2a185d8a71c9e4bdb197c
 regret.hpp
-/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
 stdio.h
 -
 stdlib.h
@@ -160,21 +150,15 @@ stdlib.h
 math.h
 -
 
-/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
 def_type.h
-/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
 log.hpp
-<<<<<<< HEAD
-/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
-
-/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp
-=======
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
 gradient.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp
->>>>>>> f93595a4815ab4a4d5c2a185d8a71c9e4bdb197c
 svm.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.hpp
 stdio.h

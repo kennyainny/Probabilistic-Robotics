@@ -4,18 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-<<<<<<< HEAD
-  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/baysian.cpp.o"
-  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/gradient.cpp.o"
-  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/log.cpp.o"
-  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/logistic.cpp.o"
-  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/main.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/main.cpp.o"
-  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/neural_network.cpp.o"
-  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/noise.cpp.o"
-  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/regret.cpp.o"
-  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/svm.cpp.o"
-  "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.cpp" "/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/visualize.cpp.o"
-=======
   "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/baysian.cpp.o"
   "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/gradient.cpp.o"
   "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/log.cpp.o"
@@ -26,7 +14,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/regret.cpp.o"
   "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/svm.cpp.o"
   "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.cpp" "/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/build/CMakeFiles/lab2.dir/src/visualize.cpp.o"
->>>>>>> f93595a4815ab4a4d5c2a185d8a71c9e4bdb197c
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

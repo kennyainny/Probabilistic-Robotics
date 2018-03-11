@@ -7,18 +7,10 @@ CMakeFiles/lab2.dir/src/baysian.cpp.o
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
 CMakeFiles/lab2.dir/src/gradient.cpp.o
-<<<<<<< HEAD
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
-=======
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.cpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
->>>>>>> f93595a4815ab4a4d5c2a185d8a71c9e4bdb197c
 CMakeFiles/lab2.dir/src/log.cpp.o
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.cpp
@@ -29,20 +21,6 @@ CMakeFiles/lab2.dir/src/logistic.cpp.o
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.cpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.hpp
 CMakeFiles/lab2.dir/src/main.cpp.o
-<<<<<<< HEAD
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/logistic.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/main.cpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/main.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.hpp
-=======
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
@@ -55,7 +33,6 @@ CMakeFiles/lab2.dir/src/main.cpp.o
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.hpp
->>>>>>> f93595a4815ab4a4d5c2a185d8a71c9e4bdb197c
  /usr/include/eigen3/Eigen/Cholesky
  /usr/include/eigen3/Eigen/Core
  /usr/include/eigen3/Eigen/Dense
@@ -478,24 +455,6 @@ CMakeFiles/lab2.dir/src/main.cpp.o
  /usr/local/include/vtk-7.1/vtkkwiml/abi.h
  /usr/local/include/vtk-7.1/vtkkwiml/int.h
 CMakeFiles/lab2.dir/src/neural_network.cpp.o
-<<<<<<< HEAD
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.cpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/neural_network.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
-CMakeFiles/lab2.dir/src/noise.cpp.o
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.cpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/noise.hpp
-CMakeFiles/lab2.dir/src/regret.cpp.o
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.cpp
- /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
-=======
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
@@ -512,7 +471,6 @@ CMakeFiles/lab2.dir/src/regret.cpp.o
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.cpp
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/regret.hpp
->>>>>>> f93595a4815ab4a4d5c2a185d8a71c9e4bdb197c
 CMakeFiles/lab2.dir/src/svm.cpp.o
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
  /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
