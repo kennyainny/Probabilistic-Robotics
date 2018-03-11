@@ -69,10 +69,10 @@ void create_point_cloud(log_type log, pcl::PointCloud<pcl::PointXYZRGB>::Ptr poi
     }else if(log.node_label[i] == FACADE){
     	r = 255, g = 0, b = 255;
     }
-    
-	uint32_t rgb = ((uint32_t)r << 16 | (uint32_t)g << 8 | (uint32_t)b);
-	point.rgb = *reinterpret_cast<float*>(&rgb);
-	point_cloud_ptr->points.push_back (point);
+
+	 uint32_t rgb = ((uint32_t)r << 16 | (uint32_t)g << 8 | (uint32_t)b);
+	 point.rgb = *reinterpret_cast<float*>(&rgb);
+	 point_cloud_ptr->points.push_back (point);
   }
   point_cloud_ptr->width = (int) point_cloud_ptr->points.size ();
   point_cloud_ptr->height = 1;
@@ -143,10 +143,10 @@ int data_visualization(log_type train_log, log_type test_log, log_type train_log
   view_name = "Bayesian Linear Regression - Online Learning";
   viewer = rgbVis(BLR_online_cloud_ptr, view_name.c_str());  
 
-  // pcl::PointCloud<pcl::PointXYZRGB>::Ptr BLR_stat_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
-  // create_point_cloud(BLR_log_stat, BLR_stat_cloud_ptr);
-  // view_name = "Bayesian Linear Regression - Statistical Learning";
-  // viewer = rgbVis(BLR_stat_cloud_ptr, view_name.c_str());
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr BLR_stat_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  create_point_cloud(BLR_log_stat, BLR_stat_cloud_ptr);
+  view_name = "Bayesian Linear Regression - Statistical Learning";
+  viewer = rgbVis(BLR_stat_cloud_ptr, view_name.c_str());
 
   // pcl::PointCloud<pcl::PointXYZRGB>::Ptr BLR_online_noise1_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
   // create_point_cloud(BLR_online_log_noise1, BLR_online_noise1_cloud_ptr);
