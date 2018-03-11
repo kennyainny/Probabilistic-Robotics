@@ -15,12 +15,18 @@ stdlib.h
 -
 math.h
 -
+random
+-
+Eigen/Dense
+-
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/baysian.hpp
 def_type.h
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
 log.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
+gradient.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
 
@@ -167,18 +173,12 @@ stdlib.h
 -
 math.h
 -
-random
--
-Eigen/Dense
--
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/svm.hpp
 def_type.h
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/def_type.h
 log.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/log.hpp
-gradient.hpp
-/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/gradient.hpp
 
 /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/src/visualize.cpp
 visualize.hpp

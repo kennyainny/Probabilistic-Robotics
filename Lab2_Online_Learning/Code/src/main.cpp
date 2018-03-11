@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 	log_type BLR_log_online, BLR_log_stat;
 	log_type BLR_online_log_noise1, BLR_online_log_noise2;
 	log_type BLR_stat_log_noise1, BLR_stat_log_noise2;
-	// BLR(train_log, test_log, &BLR_log_online, &BLR_log_stat);
+	BLR(train_log, test_log, &BLR_log_online, &BLR_log_stat);
 
 	/********** Neural Network **********/
 	log_type NN_log_online, NN_log_stat;
