@@ -44,21 +44,45 @@ int main(int argc, char *argv[])
 	//Add_Noise_1(train_log, &train_log_noise1); //Add a large number of random features
 	//Add_Noise_2(train_log, &train_log_noise2); //Add a large number of features that are noise corrupted versions of the features already in the data-set
 
+<<<<<<< HEAD
+
+	/* Gradient Descent on Squared Loss */
+	log_type gradient_log, gradient_log_noise1, gradient_log_noise2;
+	//Gradient_Descent(train_log_noise2, test_log, &gradient_log);
+/********** Gradient Descent on Squared Loss **********/
+=======
 	/* Regret */
 	double regret, sum_loss_best_expert[train_log.count] = {0};
 	// min_loss(train_log, sum_loss_best_expert);
 
 	/********** Gradient Descent on Squared Loss **********/
+>>>>>>> f93595a4815ab4a4d5c2a185d8a71c9e4bdb197c
 	log_type gradient_log_online, gradient_log_stat;
 	log_type gradient_online_log_noise1, gradient_online_log_noise2;
 	log_type gradient_stat_log_noise1, gradient_stat_log_noise2;
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 99cada46619fef1569cc6905141e3c7c0c92486a
 	// regret = Gradient_Descent(train_log, test_log, &gradient_log_online, &gradient_log_stat);
 	// printf("Regret Gradient Descent: %.4f\n", regret);
 	// regret = Gradient_Descent(train_log_noise1, test_log, &gradient_online_log_noise1, &gradient_stat_log_noise1);
 	// printf("Regret Gradient Descent with Noise1: %.4f\n", regret);
 	// regret = Gradient_Descent(train_log_noise2, test_log, &gradient_online_log_noise2, &gradient_stat_log_noise2);
 	// printf("Regret Gradient Descent with Noise2: %.4f\n", regret);
+<<<<<<< HEAD
+=======
+// >>>>>>> 596f34ae45d269a37e80525c72a3fd4e0637a5a1
+=======
+	regret = Gradient_Descent(train_log, test_log, &gradient_log_online, &gradient_log_stat);
+	printf("Regret Gradient Descent: %.4f\n", regret);
+	regret = Gradient_Descent(train_log_noise1, test_log, &gradient_online_log_noise1, &gradient_stat_log_noise1);
+	printf("Regret Gradient Descent with Noise1: %.4f\n", regret);
+	regret = Gradient_Descent(train_log_noise2, test_log, &gradient_online_log_noise2, &gradient_stat_log_noise2);
+	printf("Regret Gradient Descent with Noise2: %.4f\n", regret);
+>>>>>>> f93595a4815ab4a4d5c2a185d8a71c9e4bdb197c
+>>>>>>> 99cada46619fef1569cc6905141e3c7c0c92486a
 
 	/********** Baysian Linear Regression **********/
 	log_type BLR_log_online, BLR_log_stat;
@@ -77,10 +101,23 @@ int main(int argc, char *argv[])
 
 
 	/* Visualization using PCL */
+<<<<<<< HEAD
+// <<<<<<< HEAD
+	//data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, gradient_log);
+// =======
+	// data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, 
+	// 				   gradient_log_online, gradient_log_stat, gradient_online_log_noise1, gradient_stat_log_noise1, gradient_online_log_noise2, gradient_stat_log_noise2);
+// >>>>>>> 596f34ae45d269a37e80525c72a3fd4e0637a5a1
+=======
 	data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, 
+<<<<<<< HEAD
 					   gradient_log_online, gradient_log_stat, gradient_online_log_noise1, gradient_stat_log_noise1, gradient_online_log_noise2, gradient_stat_log_noise2,
 					   BLR_log_online, BLR_log_stat, BLR_online_log_noise1, BLR_stat_log_noise1, BLR_online_log_noise2, BLR_stat_log_noise2,
 					   NN_log_online, NN_log_stat, NN_online_log_noise1, NN_stat_log_noise1, NN_online_log_noise2, NN_stat_log_noise2);
+=======
+					   gradient_log_online, gradient_log_stat, gradient_online_log_noise1, gradient_stat_log_noise1, gradient_online_log_noise2, gradient_stat_log_noise2);
+>>>>>>> f93595a4815ab4a4d5c2a185d8a71c9e4bdb197c
+>>>>>>> 99cada46619fef1569cc6905141e3c7c0c92486a
 
 	while(1){
 		/* Does nothing but smiling at you :) */

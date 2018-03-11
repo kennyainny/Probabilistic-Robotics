@@ -459,6 +459,7 @@ CMakeFiles/lab2.dir/src/neural_network.cpp.o: ../src/gradient.hpp
 CMakeFiles/lab2.dir/src/neural_network.cpp.o: ../src/log.hpp
 CMakeFiles/lab2.dir/src/neural_network.cpp.o: ../src/neural_network.cpp
 CMakeFiles/lab2.dir/src/neural_network.cpp.o: ../src/neural_network.hpp
+CMakeFiles/lab2.dir/src/neural_network.cpp.o: ../src/regret.hpp
 
 CMakeFiles/lab2.dir/src/noise.cpp.o: ../src/def_type.h
 CMakeFiles/lab2.dir/src/noise.cpp.o: ../src/log.hpp
