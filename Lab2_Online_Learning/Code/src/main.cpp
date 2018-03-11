@@ -46,27 +46,31 @@ int main(int argc, char *argv[])
 
 	/* Regret */
 	double regret, sum_loss_best_expert[train_log.count] = {0};
-	min_loss(train_log, sum_loss_best_expert);
+	// min_loss(train_log, sum_loss_best_expert);
 
 	/********** Gradient Descent on Squared Loss **********/
 	log_type gradient_log_online, gradient_log_stat;
 	log_type gradient_online_log_noise1, gradient_online_log_noise2;
 	log_type gradient_stat_log_noise1, gradient_stat_log_noise2;
 
-	regret = Gradient_Descent(train_log, test_log, &gradient_log_online, &gradient_log_stat);
-	printf("Regret Gradient Descent: %.4f\n", regret);
-	regret = Gradient_Descent(train_log_noise1, test_log, &gradient_online_log_noise1, &gradient_stat_log_noise1);
-	printf("Regret Gradient Descent with Noise1: %.4f\n", regret);
-	regret = Gradient_Descent(train_log_noise2, test_log, &gradient_online_log_noise2, &gradient_stat_log_noise2);
-	printf("Regret Gradient Descent with Noise2: %.4f\n", regret);
+	// regret = Gradient_Descent(train_log, test_log, &gradient_log_online, &gradient_log_stat);
+	// printf("Regret Gradient Descent: %.4f\n", regret);
+	// regret = Gradient_Descent(train_log_noise1, test_log, &gradient_online_log_noise1, &gradient_stat_log_noise1);
+	// printf("Regret Gradient Descent with Noise1: %.4f\n", regret);
+	// regret = Gradient_Descent(train_log_noise2, test_log, &gradient_online_log_noise2, &gradient_stat_log_noise2);
+	// printf("Regret Gradient Descent with Noise2: %.4f\n", regret);
 
 	/********** Baysian Linear Regression **********/
-	log_type baysian_log, baysian_log_noise1, baysian_log_noise2;
-
+	log_type BLR_log_online, BLR_log_stat;
+	log_type BLR_online_log_noise1, BLR_online_log_noise2;
+	log_type BLR_stat_log_noise1, BLR_stat_log_noise2;
+	BLR(train_log, test_log, &BLR_log_online, &BLR_log_stat);
 
 	/********** Neural Network **********/
-	log_type nn_log, nn_log_noise1, nn_log_noise2;
-	ANN(train_log);	
+	log_type NN_log_online, NN_log_stat;
+	log_type NN_online_log_noise1, NN_online_log_noise2;
+	log_type NN_stat_log_noise1, NN_stat_log_noise2;
+	// ANN(train_log);	
 
 	log_type logistic_log, logistic_log_noise1, logistic_log_noise2;
 	log_type svm_log, svm_log_noise1, svm_log_noise2;
@@ -74,7 +78,9 @@ int main(int argc, char *argv[])
 
 	/* Visualization using PCL */
 	data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, 
-					   gradient_log_online, gradient_log_stat, gradient_online_log_noise1, gradient_stat_log_noise1, gradient_online_log_noise2, gradient_stat_log_noise2);
+					   gradient_log_online, gradient_log_stat, gradient_online_log_noise1, gradient_stat_log_noise1, gradient_online_log_noise2, gradient_stat_log_noise2,
+					   BLR_log_online, BLR_log_stat, BLR_online_log_noise1, BLR_stat_log_noise1, BLR_online_log_noise2, BLR_stat_log_noise2,
+					   NN_log_online, NN_log_stat, NN_online_log_noise1, NN_stat_log_noise1, NN_online_log_noise2, NN_stat_log_noise2);
 
 	while(1){
 		/* Does nothing but smiling at you :) */

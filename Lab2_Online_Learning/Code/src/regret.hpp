@@ -2,7 +2,7 @@
 #define REGRET_H
 
 #define ALPHA 0.0001
-#define LOOP_NUM 10
+#define LOOP_NUM 100
 #define ERR 0.1
 
 extern "C"
