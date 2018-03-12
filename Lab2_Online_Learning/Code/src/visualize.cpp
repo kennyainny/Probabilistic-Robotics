@@ -96,21 +96,21 @@ int data_visualization(log_type train_log, log_type test_log, log_type train_log
   viewer = rgbVis(test_cloud_ptr, view_name.c_str());
 
   /* Noise Courrupted */
-  // pcl::PointCloud<pcl::PointXYZRGB>::Ptr train_noise1_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
-  // create_point_cloud(train_log_noise1, train_noise1_cloud_ptr);
-  // view_name = "Add a Large Number of Random Features to Training Data";
-  // viewer = rgbVis(train_noise1_cloud_ptr, view_name.c_str());
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr train_noise1_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  create_point_cloud(train_log_noise1, train_noise1_cloud_ptr);
+  view_name = "Add a Large Number of Random Features to Training Data";
+  viewer = rgbVis(train_noise1_cloud_ptr, view_name.c_str());
 
-  // pcl::PointCloud<pcl::PointXYZRGB>::Ptr train_noise2_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
-  // create_point_cloud(train_log_noise2, train_noise2_cloud_ptr);
-  // view_name = "Add a Large Number of Noise-Courrupted Original Training Data to Training Data";
-  // viewer = rgbVis(train_noise2_cloud_ptr, view_name.c_str());
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr train_noise2_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  create_point_cloud(train_log_noise2, train_noise2_cloud_ptr);
+  view_name = "Add a Large Number of Noise-Courrupted Original Training Data to Training Data";
+  viewer = rgbVis(train_noise2_cloud_ptr, view_name.c_str());
 
   /* Gradient Descent */
-  // pcl::PointCloud<pcl::PointXYZRGB>::Ptr gradient_online_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
-  // create_point_cloud(gradient_log_online, gradient_online_cloud_ptr);
-  // view_name = "Gradient Descent on Squared Loss - Online Learning";
-  // viewer = rgbVis(gradient_online_cloud_ptr, view_name.c_str());  
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr gradient_online_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  create_point_cloud(gradient_log_online, gradient_online_cloud_ptr);
+  view_name = "Gradient Descent on Squared Loss - Online Learning";
+  viewer = rgbVis(gradient_online_cloud_ptr, view_name.c_str());  
 
   // pcl::PointCloud<pcl::PointXYZRGB>::Ptr gradient_stat_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
   // create_point_cloud(gradient_log_stat, gradient_stat_cloud_ptr);
@@ -138,10 +138,10 @@ int data_visualization(log_type train_log, log_type test_log, log_type train_log
   // viewer = rgbVis(gradient_stat_noise2_cloud_ptr, view_name.c_str()); 
 
   /* Bayesian Linear Regression */
-  // pcl::PointCloud<pcl::PointXYZRGB>::Ptr BLR_online_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
-  // create_point_cloud(BLR_log_online, BLR_online_cloud_ptr);
-  // view_name = "Bayesian Linear Regression - Online Learning";
-  // viewer = rgbVis(BLR_online_cloud_ptr, view_name.c_str());  
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr BLR_online_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  create_point_cloud(BLR_log_online, BLR_online_cloud_ptr);
+  view_name = "Bayesian Linear Regression - Online Learning";
+  viewer = rgbVis(BLR_online_cloud_ptr, view_name.c_str());  
 
   // pcl::PointCloud<pcl::PointXYZRGB>::Ptr BLR_stat_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
   // create_point_cloud(BLR_log_stat, BLR_stat_cloud_ptr);
@@ -170,16 +170,16 @@ int data_visualization(log_type train_log, log_type test_log, log_type train_log
 
   /* Neural Network */
   //Online learning without noise
-  // pcl::PointCloud<pcl::PointXYZRGB>::Ptr NN_online_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
-  // create_point_cloud(NN_log_online, NN_online_cloud_ptr);
-  // view_name = "Neural Network - Online Learning";
-  // viewer = rgbVis(NN_online_cloud_ptr, view_name.c_str());  
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr NN_online_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  create_point_cloud(NN_log_online, NN_online_cloud_ptr);
+  view_name = "Neural Network - Online Learning";
+  viewer = rgbVis(NN_online_cloud_ptr, view_name.c_str());  
 
   //Statistical learning without noise
-  pcl::PointCloud<pcl::PointXYZRGB>::Ptr NN_stat_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
-  create_point_cloud(NN_log_stat, NN_stat_cloud_ptr);
-  view_name = "Neural Network - Statistical Learning";
-  viewer = rgbVis(NN_stat_cloud_ptr, view_name.c_str());
+  // pcl::PointCloud<pcl::PointXYZRGB>::Ptr NN_stat_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  // create_point_cloud(NN_log_stat, NN_stat_cloud_ptr);
+  // view_name = "Neural Network - Statistical Learning";
+  // viewer = rgbVis(NN_stat_cloud_ptr, view_name.c_str());
 
   //Online learning with noise1
   // pcl::PointCloud<pcl::PointXYZRGB>::Ptr NN_online_noise1_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);

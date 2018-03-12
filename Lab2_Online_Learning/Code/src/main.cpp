@@ -74,10 +74,12 @@ int main(int argc, char *argv[])
 	log_type NN_log_online, NN_log_stat;
 	log_type NN_online_log_noise1, NN_online_log_noise2;
 	log_type NN_stat_log_noise1, NN_stat_log_noise2;
-	//ANN_ONLINE(train_log, test_log, &NN_log_online, &NN_log_stat);
+	printf("Start Neural Network\n");
+	ANN_ONLINE(train_log, test_log, &NN_log_online, &NN_log_stat);
+	printf("Regret for Neural Network\n");
 	//ANN_ONLINE(train_log_noise1, test_log, &NN_online_log_noise1, &NN_stat_log_noise1);
 	//ANN_ONLINE(train_log_noise2, test_log, &NN_online_log_noise2, &NN_stat_log_noise1);
-	ANN(train_log, test_log, &NN_log_online, &NN_log_stat);	
+	// ANN(train_log, test_log, &NN_log_online, &NN_log_stat);	
 
 	// log_type logistic_log, logistic_log_noise1, logistic_log_noise2;
 	// log_type svm_log, svm_log_noise1, svm_log_noise2;
