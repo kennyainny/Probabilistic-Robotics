@@ -6,7 +6,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	printf("Hello Lab2\n");
+	printf("Hello Lab2\n\n");
 	clock_t start;
     double duration;
     // Online:
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
 
 	printf("Start Gradient Descent method\n");
 	sum_loss = Gradient_Descent(train_log, test_log, &gradient_log_online, &gradient_log_stat);
-	printf("Regret Gradient Descent: %.4f\n", sum_loss - sum_loss_best_expert);
+	printf("Regret Gradient Descent: %.4f\n\n", sum_loss - sum_loss_best_expert);
 	// Gradient_Descent(train_log_noise1, test_log, &gradient_online_log_noise1, &gradient_stat_log_noise1);
 	// Gradient_Descent(train_log_noise2, test_log, &gradient_online_log_noise2, &gradient_stat_log_noise2);
 
@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
 
 	printf("Start Baysian Linear Regression\n");
 	sum_loss = BLR(train_log, test_log, &BLR_log_online, &BLR_log_stat);
-	printf("Regret for Baysian Linear Regression: %.4f\n", sum_loss - sum_loss_best_expert);
+	printf("Regret for Baysian Linear Regression: %.4f\n\n", sum_loss - sum_loss_best_expert);
 	// BLR(train_log_noise1, test_log, &BLR_online_log_noise1, &BLR_stat_log_noise1);
 	// BLR(train_log_noise2, test_log, &BLR_online_log_noise2, &BLR_stat_log_noise2);
 
@@ -90,7 +90,7 @@ int main(int argc, char *argv[])
 	printf("Start Neural Network\n");
 	sum_loss = ANN_ONLINE(train_log, test_log, &NN_log_online, &NN_log_stat); //online learning
 	ANN(train_log, test_log, &NN_log_online, &NN_log_stat);	//statistical learning
-	printf("Regret Neural Network: %.4f\n", sum_loss - sum_loss_best_expert);
+	printf("Regret Neural Network: %.4f\n\n", sum_loss - sum_loss_best_expert);
 	// ANN_ONLINE(train_log_noise1, test_log, &NN_online_log_noise1, &NN_stat_log_noise1); //online learning with noise 1
 	// ANN_ONLINE(train_log_noise2, test_log, &NN_online_log_noise2, &NN_stat_log_noise1); //online learning with noise 2
 	// ANN(train_log_noise1, test_log, &NN_online_log_noise1, &NN_stat_log_noise1); //statistical learning with noise 1
@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
 	// log_type svm_log, svm_log_noise1, svm_log_noise2;
 
 	//********** Duration Measurement /**********/
-	printf("\nStarting Clock...\n");
+	printf("Starting Clock...\n");
 	start = std::clock();
 
 	// put any function here to measure the time it takes

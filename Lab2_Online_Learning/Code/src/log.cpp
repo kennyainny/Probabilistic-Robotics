@@ -32,7 +32,7 @@ int read_log(const char *logName, log_type *log)
   			}
   		}
   		myFile.close();
-  		cout << "Number of Data " << count << ' ' << temp_count << '\n';
+  		// cout << "Number of Data " << count << ' ' << temp_count << '\n';
   		log->count = count + 1;
   		count = -1;
   		new_hornetsoft_log(log);
