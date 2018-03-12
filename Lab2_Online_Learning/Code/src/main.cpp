@@ -40,6 +40,8 @@ int main(int argc, char *argv[])
 	}
 
 	/* Add Noise */
+	// Note that to see the noise output, uncomment the following lines after each method
+	// Also uncomment the point cloud in the visualization file
 	log_type train_log_noise1, train_log_noise2;
 	Add_Noise_1(train_log, &train_log_noise1); //Add a large number of random features
 	Add_Noise_2(train_log, &train_log_noise2); //Add a large number of features that are noise corrupted versions of the features already in the data-set
@@ -85,10 +87,10 @@ int main(int argc, char *argv[])
 	// log_type svm_log, svm_log_noise1, svm_log_noise2;
 
 	/* Visualization using PCL */
-	// data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, 
-	// 				   gradient_log_online, gradient_log_stat, gradient_online_log_noise1, gradient_stat_log_noise1, gradient_online_log_noise2, gradient_stat_log_noise2,
-	// 				   BLR_log_online, BLR_log_stat, BLR_online_log_noise1, BLR_stat_log_noise1, BLR_online_log_noise2, BLR_stat_log_noise2,
-	// 				   NN_log_online, NN_log_stat, NN_online_log_noise1, NN_stat_log_noise1, NN_online_log_noise2, NN_stat_log_noise2);
+	data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, 
+					   gradient_log_online, gradient_log_stat, gradient_online_log_noise1, gradient_stat_log_noise1, gradient_online_log_noise2, gradient_stat_log_noise2,
+					   BLR_log_online, BLR_log_stat, BLR_online_log_noise1, BLR_stat_log_noise1, BLR_online_log_noise2, BLR_stat_log_noise2,
+					   NN_log_online, NN_log_stat, NN_online_log_noise1, NN_stat_log_noise1, NN_online_log_noise2, NN_stat_log_noise2);
 	while(1){
 		/* Does nothing but smiling at you :) */
 		break;

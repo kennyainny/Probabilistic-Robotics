@@ -287,7 +287,7 @@ void ANN( log_type train_log, log_type test_log, log_type *NN_log_online, log_ty
 	
 }
 
-void ANN_ONLINE(log_type train_log, log_type test_log, log_type *NN_log_online, log_type *NN_log_stat){
+double ANN_ONLINE(log_type train_log, log_type test_log, log_type *NN_log_online, log_type *NN_log_stat){
 	NN_log_online->count = train_log.count;  
  	new_hornetsoft_log(NN_log_online);
 	int NHN=6,NIN=10,NON=5,epochlim=1; //number of hidden layer nodes //numbre if input nodes//number of output nodes 
@@ -477,9 +477,9 @@ void ANN_ONLINE(log_type train_log, log_type test_log, log_type *NN_log_online, 
 		}
 	}
 	smallerror=mediumerror/2;
-	printf("ERROR YOU WANT %f\n",smallerror);
+	// printf("ERROR YOU WANT %f\n",smallerror);
 
-
+	return smallerror;
 }			
 
 

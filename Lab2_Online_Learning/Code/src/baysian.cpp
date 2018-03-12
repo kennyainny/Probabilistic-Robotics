@@ -269,10 +269,6 @@ double BLR(log_type train_log, log_type test_log, log_type *BLR_log_online, log_
   				predict_output(m5, x, y_, k);
   			}
   		}
-  		for(int k = 0; k < O_NUM; k++){
-  			printf("%.4f %d\n", y_[k], y[k]);
-  		}
-  		printf("\n");
   		BLR_predict_label(BLR_log_stat, y_, i);
   	}  
     return 0.5*sum_loss;
