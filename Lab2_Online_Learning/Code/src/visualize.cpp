@@ -169,37 +169,31 @@ int data_visualization(log_type train_log, log_type test_log, log_type train_log
   // viewer = rgbVis(BLR_stat_noise2_cloud_ptr, view_name.c_str()); 
 
   /* Neural Network */
-  //Online learning without noise
   pcl::PointCloud<pcl::PointXYZRGB>::Ptr NN_online_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
   create_point_cloud(NN_log_online, NN_online_cloud_ptr);
   view_name = "Neural Network - Online Learning";
   viewer = rgbVis(NN_online_cloud_ptr, view_name.c_str());  
 
-  //Statistical learning without noise
   // pcl::PointCloud<pcl::PointXYZRGB>::Ptr NN_stat_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
   // create_point_cloud(NN_log_stat, NN_stat_cloud_ptr);
   // view_name = "Neural Network - Statistical Learning";
   // viewer = rgbVis(NN_stat_cloud_ptr, view_name.c_str());
 
-  //Online learning with noise1
   // pcl::PointCloud<pcl::PointXYZRGB>::Ptr NN_online_noise1_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
   // create_point_cloud(NN_online_log_noise1, NN_online_noise1_cloud_ptr);
   // view_name = "Neural Network with Noise1 - Online Learning";
   // viewer = rgbVis(NN_online_noise1_cloud_ptr, view_name.c_str());  
 
-  //OStats learning with noise1
   // pcl::PointCloud<pcl::PointXYZRGB>::Ptr NN_stat_noise1_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
   // create_point_cloud(NN_stat_log_noise1, NN_stat_noise1_cloud_ptr);
   // view_name = "Neural Network with Noise1 - Statistical Learning";
   // viewer = rgbVis(NN_stat_noise1_cloud_ptr, view_name.c_str());
 
-  //Online Learning with noise 2
   // pcl::PointCloud<pcl::PointXYZRGB>::Ptr NN_online_noise2_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
   // create_point_cloud(NN_online_log_noise2, NN_online_noise2_cloud_ptr);
   // view_name = "Neural Network with Noise2 - Online Learning";
   // viewer = rgbVis(NN_online_noise2_cloud_ptr, view_name.c_str());  
 
-  //Stats learning with noise 2
   // pcl::PointCloud<pcl::PointXYZRGB>::Ptr NN_stat_noise2_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
   // create_point_cloud(NN_stat_log_noise2, NN_stat_noise2_cloud_ptr);
   // view_name = "Neural Network with Noise2 - Statistical Learning";

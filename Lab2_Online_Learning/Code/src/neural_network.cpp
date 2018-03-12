@@ -236,9 +236,9 @@ void ANN( log_type train_log, log_type test_log, log_type *NN_log_online, log_ty
 		// 	}
 		// }
 		//printf("TEST\n");
-		for(int i=0;i<NON;i++){
-			printf("%i\n",reference[i]);
-		}
+		// for(int i=0;i<NON;i++){
+		// 	printf("%i\n",reference[i]);
+		// }
 		// //First, foward propogate 
 		//Intialize Input nodes
 		// printf("WEIGHTS\n");
@@ -278,7 +278,7 @@ void ANN( log_type train_log, log_type test_log, log_type *NN_log_online, log_ty
 				//printf("weights_L2 %f\n",weights_L2_matrix[k][i]);
 			}
 			output[k]=sigmoid(sum);
-			printf("output value %f\n",output[k]);
+			// printf("output value %f\n",output[k]);
 			error[k]=reference[k]-output[k]; //dq value
 		}
 		

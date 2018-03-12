@@ -7,6 +7,17 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 	printf("Hello Lab2\n");
+	clock_t start;
+    double duration;
+    // Online:
+	// GD: 0.234496 secs
+	// BLR: 50.5804 secs
+	// ANN: 0.222313 secs
+
+	// Statistical:
+	// GD: 67.2623 secs
+	// BLR: 22.2035 secs
+	// ANN: 82.4935 secs
 	
 	/* Read Log Data */
 	log_type log1, log2, train_log, test_log;
@@ -58,8 +69,8 @@ int main(int argc, char *argv[])
 	printf("Start Gradient Descent method\n");
 	sum_loss = Gradient_Descent(train_log, test_log, &gradient_log_online, &gradient_log_stat);
 	printf("Regret Gradient Descent: %.4f\n", sum_loss - sum_loss_best_expert);
-	// regret = Gradient_Descent(train_log_noise1, test_log, &gradient_online_log_noise1, &gradient_stat_log_noise1);
-	// regret = Gradient_Descent(train_log_noise2, test_log, &gradient_online_log_noise2, &gradient_stat_log_noise2);
+	// Gradient_Descent(train_log_noise1, test_log, &gradient_online_log_noise1, &gradient_stat_log_noise1);
+	// Gradient_Descent(train_log_noise2, test_log, &gradient_online_log_noise2, &gradient_stat_log_noise2);
 
 	/********** Baysian Linear Regression **********/
 	log_type BLR_log_online, BLR_log_stat;
@@ -77,16 +88,27 @@ int main(int argc, char *argv[])
 	log_type NN_online_log_noise1, NN_online_log_noise2;
 	log_type NN_stat_log_noise1, NN_stat_log_noise2;
 	printf("Start Neural Network\n");
-	ANN_ONLINE(train_log, test_log, &NN_log_online, &NN_log_stat);
-	printf("Regret for Neural Network\n");
-	//ANN_ONLINE(train_log_noise1, test_log, &NN_online_log_noise1, &NN_stat_log_noise1);
-	//ANN_ONLINE(train_log_noise2, test_log, &NN_online_log_noise2, &NN_stat_log_noise1);
-	// ANN(train_log, test_log, &NN_log_online, &NN_log_stat);	
+	sum_loss = ANN_ONLINE(train_log, test_log, &NN_log_online, &NN_log_stat); //online learning
+	ANN(train_log, test_log, &NN_log_online, &NN_log_stat);	//statistical learning
+	printf("Regret Neural Network: %.4f\n", sum_loss - sum_loss_best_expert);
+	// ANN_ONLINE(train_log_noise1, test_log, &NN_online_log_noise1, &NN_stat_log_noise1); //online learning with noise 1
+	// ANN_ONLINE(train_log_noise2, test_log, &NN_online_log_noise2, &NN_stat_log_noise1); //online learning with noise 2
+	// ANN(train_log_noise1, test_log, &NN_online_log_noise1, &NN_stat_log_noise1); //statistical learning with noise 1
+	// ANN(train_log_noise2, test_log, &NN_online_log_noise2, &NN_stat_log_noise2); //statistical learning with noise 2
 
 	// log_type logistic_log, logistic_log_noise1, logistic_log_noise2;
 	// log_type svm_log, svm_log_noise1, svm_log_noise2;
 
-	/* Visualization using PCL */
+	//********** Duration Measurement /**********/
+	printf("\nStarting Clock...\n");
+	start = std::clock();
+
+	// put any function here to measure the time it takes
+
+	duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;  
+    cout<<"Duration: "<< duration <<" seconds \n\n";
+
+	//********** Visualization using PCL /**********/
 	data_visualization(train_log, test_log, train_log_noise1, train_log_noise2, 
 					   gradient_log_online, gradient_log_stat, gradient_online_log_noise1, gradient_stat_log_noise1, gradient_online_log_noise2, gradient_stat_log_noise2,
 					   BLR_log_online, BLR_log_stat, BLR_online_log_noise1, BLR_stat_log_noise1, BLR_online_log_noise2, BLR_stat_log_noise2,
