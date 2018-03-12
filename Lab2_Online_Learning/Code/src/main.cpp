@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
 	/* Regret */
 	double regret, sum_loss_best_expert[train_log.count] = {0};
-	// min_loss(train_log, sum_loss_best_expert);
+	min_loss(train_log, sum_loss_best_expert);
 
 	/********** Gradient Descent on Squared Loss **********/
 	log_type gradient_log_online, gradient_log_stat;
@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 	log_type BLR_log_online, BLR_log_stat;
 	log_type BLR_online_log_noise1, BLR_online_log_noise2;
 	log_type BLR_stat_log_noise1, BLR_stat_log_noise2;
-	BLR(train_log, test_log, &BLR_log_online, &BLR_log_stat);
+	// BLR(train_log, test_log, &BLR_log_online, &BLR_log_stat);
 	// BLR(train_log_noise1, test_log, &BLR_online_log_noise1, &BLR_stat_log_noise1);
 	// BLR(train_log_noise2, test_log, &BLR_online_log_noise2, &BLR_stat_log_noise2);
 

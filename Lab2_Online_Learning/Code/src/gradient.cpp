@@ -106,9 +106,9 @@ double loss_calc(double (*w)[O_NUM][W_NUM], double *x, int *y){
   return sum*0.5;
 }
 
-void assign_weight(int *y, double *x, double (*w)[O_NUM][W_NUM], double (*w_)[O_NUM][W_NUM], double (*w_store)[O_NUM][W_NUM][O_NUM], double *sum_loss, double *sum_loss_, int type){
+void assign_weight(int *y, double *x, double (*w)[O_NUM][W_NUM], double (*w_)[O_NUM][W_NUM], double (*w_store)[O_NUM][W_NUM][O_NUM], double *sum_loss, int type){
   double loss, loss_, loss_temp, w_temp[O_NUM][W_NUM];
-  loss  = loss_calc(w , x, y);
+  loss  = loss_calc(w, x, y);
 
   for(int i = 0; i < O_NUM; i++){
     for (int j = 0; j < W_NUM; j++){
@@ -135,8 +135,7 @@ void assign_weight(int *y, double *x, double (*w)[O_NUM][W_NUM], double (*w_)[O_
     }
   }
 
-  *sum_loss  = *sum_loss  + loss;
-  *sum_loss_ = *sum_loss_ + loss_;
+  *sum_loss = *sum_loss + loss_;
 }
 
 void predict_label(log_type *log, double *wx, long count){
@@ -162,7 +161,7 @@ void predict_label(log_type *log, double *wx, long count){
   }    
 }
 
-double Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_log_online, log_type *gradient_log_stat){
+void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_log_online, log_type *gradient_log_stat){
   int y[O_NUM] = {0}, y_[O_NUM] = {0}, type;            
   double x[W_NUM], wx[O_NUM], wx_[O_NUM], dl[O_NUM][W_NUM], alpha; 
   double w[O_NUM][W_NUM], w_[O_NUM][W_NUM], w_store[O_NUM][W_NUM][O_NUM];
@@ -187,16 +186,13 @@ double Gradient_Descent(log_type train_log, log_type test_log, log_type *gradien
     gradient_log_online->point[i] = train_log.point[i];
     gradient_log_online->node_id[i] = train_log.node_id[i];
 
-    assign_weight(y, x, &w, &w_, &w_store, &sum_loss, &sum_loss_, type);
+    assign_weight(y, x, &w, &w_, &w_store, &sum_loss, type);
     multiply_vectors(wx_, &w_, x);
     predict_label(gradient_log_online, wx_, i); //predict the output label with the best set of weights
 
     assign_output(train_log, i, y, &type);
     assign_input(train_log, i, x);
-    multiply_vectors(wx, &w, x);    
-
-    regret[i] = sum_loss - sum_loss_;
-    // printf("%f %f %f\n", regret[i], sum_loss, sum_loss_);
+    multiply_vectors(wx, &w, x);
 
     update_gradient(&dl, wx, x, y);    
     update_weight(&dl, &w, alpha);

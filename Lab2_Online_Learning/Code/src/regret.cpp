@@ -44,7 +44,8 @@ void min_loss(log_type log, double *sum_loss){
 			// printf("Loss_%d %.4f %.4f %.4f\n", T, loss[T], loss_temp, loss[T] - loss_temp);
 		}										
 		// }while(fabs(loss[T] - loss_temp) > ERR);
-		printf("Loss_%d %.4f %.4f %.4f\n", T, loss[T], loss_temp, loss[T] - loss_temp);
+        printf("%d %.4f \n", T, loss[T]);
+		// printf("Loss_%d %.4f %.4f %.4f\n", T, loss[T], loss_temp, loss[T] - loss_temp);
 		// if(T == 0){
 		// 	sum_loss[T] = loss[T];
 		// }else{

@@ -14,5 +14,6 @@ void update_P(double (*P)[W_NUM][W_NUM], double *x);
 void get_weight(double (*V)[W_NUM][W_NUM], double *m, double (*P)[W_NUM][W_NUM], double *J, double *w);
 void predict_output(double *w, double *x, double *y, int k);
 void BLR_predict_label(log_type *log, double *y, long count);
+double calc_loss(int *y, double *y_);
 
 #endif /* BAYSIAN_H */

@@ -110,9 +110,16 @@ void BLR_predict_label(log_type *log, double *y, long count){
   	}
 }
 
+double calc_loss(int *y, double *y_){
+  for(int k = 0; k < O_NUM; i++){
+    sum = sum + pow((y[i] - y_[i]), 2);
+  }
+  return sum*0.5;
+}
+
 void BLR(log_type train_log, log_type test_log, log_type *BLR_log_online, log_type *BLR_log_stat){
 	int y[O_NUM], type;
-	double x[W_NUM], y_[W_NUM];
+	double x[W_NUM], y_[W_NUM], sum_loss = 0;
 	double w1[W_NUM], J1[W_NUM], P1[W_NUM][W_NUM], V1[W_NUM][W_NUM], m1[W_NUM];
 	double w2[W_NUM], J2[W_NUM], P2[W_NUM][W_NUM], V2[W_NUM][W_NUM], m2[W_NUM];
 	double w3[W_NUM], J3[W_NUM], P3[W_NUM][W_NUM], V3[W_NUM][W_NUM], m3[W_NUM];
@@ -151,7 +158,7 @@ void BLR(log_type train_log, log_type test_log, log_type *BLR_log_online, log_ty
   			if(k == 0){
   				get_weight(&V1, m1, &P1, J1, w1);
   				predict_output(m1, x, y_, k);
-
+  				
   				update_J(J1, y, x, k);
   				update_P(&P1, x);  	
   			}else if(k == 1){
@@ -180,6 +187,7 @@ void BLR(log_type train_log, log_type test_log, log_type *BLR_log_online, log_ty
   				update_P(&P5, x);
   			}
   		}
+  		sum_loss = sum_loss + calc_loss(y, y_);
   		BLR_predict_label(BLR_log_online, y_, i);
   	}
 
