@@ -41,12 +41,12 @@ int main(int argc, char *argv[])
 
 	/* Add Noise */
 	log_type train_log_noise1, train_log_noise2;
-	// Add_Noise_1(train_log, &train_log_noise1); //Add a large number of random features
-	// Add_Noise_2(train_log, &train_log_noise2); //Add a large number of features that are noise corrupted versions of the features already in the data-set
+	Add_Noise_1(train_log, &train_log_noise1); //Add a large number of random features
+	Add_Noise_2(train_log, &train_log_noise2); //Add a large number of features that are noise corrupted versions of the features already in the data-set
 
 	/* Regret */
-	double regret, sum_loss_best_expert[train_log.count] = {0};
-	min_loss(train_log, sum_loss_best_expert);
+	//double regret, sum_loss_best_expert[train_log.count] = {0};
+	//min_loss(train_log, sum_loss_best_expert);
 
 	/********** Gradient Descent on Squared Loss **********/
 	log_type gradient_log_online, gradient_log_stat;
@@ -65,14 +65,15 @@ int main(int argc, char *argv[])
 	log_type BLR_online_log_noise1, BLR_online_log_noise2;
 	log_type BLR_stat_log_noise1, BLR_stat_log_noise2;
 	// BLR(train_log, test_log, &BLR_log_online, &BLR_log_stat);
-	// BLR(train_log_noise1, test_log, &BLR_online_log_noise1, &BLR_stat_log_noise1);
-	// BLR(train_log_noise2, test_log, &BLR_online_log_noise2, &BLR_stat_log_noise2);
 
 	/********** Neural Network **********/
 	log_type NN_log_online, NN_log_stat;
 	log_type NN_online_log_noise1, NN_online_log_noise2;
 	log_type NN_stat_log_noise1, NN_stat_log_noise2;
-	// ANN(train_log);	
+	//ANN_ONLINE(train_log, test_log, &NN_log_online, &NN_log_stat);
+	//ANN_ONLINE(train_log_noise1, test_log, &NN_online_log_noise1, &NN_stat_log_noise1);
+	//ANN_ONLINE(train_log_noise2, test_log, &NN_online_log_noise2, &NN_stat_log_noise1);
+	ANN(train_log, test_log, &NN_log_online, &NN_log_stat);	
 
 	log_type logistic_log, logistic_log_noise1, logistic_log_noise2;
 	log_type svm_log, svm_log_noise1, svm_log_noise2;
