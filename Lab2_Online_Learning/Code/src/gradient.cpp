@@ -103,7 +103,7 @@ double loss_calc(double (*w)[O_NUM][W_NUM], double *x, int *y){
   for(int i = 0; i < O_NUM; i++){
     sum = sum + pow((y[i] - wx[i]), 2);
   }
-  return sum*0.5;
+  return sum;
 }
 
 void assign_weight(int *y, double *x, double (*w)[O_NUM][W_NUM], double (*w_)[O_NUM][W_NUM], double (*w_store)[O_NUM][W_NUM][O_NUM], double *sum_loss, int type){
@@ -135,7 +135,7 @@ void assign_weight(int *y, double *x, double (*w)[O_NUM][W_NUM], double (*w_)[O_
     }
   }
 
-  *sum_loss = *sum_loss + loss_;
+  *sum_loss = *sum_loss + loss;
 }
 
 void predict_label(log_type *log, double *wx, long count){
@@ -161,11 +161,11 @@ void predict_label(log_type *log, double *wx, long count){
   }    
 }
 
-void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_log_online, log_type *gradient_log_stat){
-  int y[O_NUM] = {0}, y_[O_NUM] = {0}, type;            
+double Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_log_online, log_type *gradient_log_stat){
+  int y[O_NUM] = {0}, y_[O_NUM] = {0}, type = 0;            
   double x[W_NUM], wx[O_NUM], wx_[O_NUM], dl[O_NUM][W_NUM], alpha; 
   double w[O_NUM][W_NUM], w_[O_NUM][W_NUM], w_store[O_NUM][W_NUM][O_NUM];
-  double regret[train_log.count], sum_loss = 0, sum_loss_ = 0;
+  double sum_loss = 0;
 
   /*********** Online Learning ***********/
   alpha = 0.01;
@@ -199,41 +199,41 @@ void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_
   }
 
   /*********** Statistical Learning ***********/
-  alpha = 0.000001; //decrease step size since we can repeat the data several times
-  log_type train_log_sort;
-  sort_log(train_log, &train_log_sort);
+  // alpha = 0.000001; //decrease step size since we can repeat the data several times
+  // log_type train_log_sort;
+  // sort_log(train_log, &train_log_sort);
 
-  for(int i = 0; i < O_NUM; i++){ //re-initializa weight
-    for(int j = 0; j < W_NUM; j++){
-      w[i][j] = 1.0;
-    }
-  }
+  // for(int i = 0; i < O_NUM; i++){ //re-initializa weight
+  //   for(int j = 0; j < W_NUM; j++){
+  //     w[i][j] = 1.0;
+  //   }
+  // }
 
-  /* Training */
-  for(int k = 0; k < EPOCH_NUM; k++){
-    for(long i = 0; i < train_log_sort.count; i++){
-      assign_output(train_log_sort, i, y, &type);
-      assign_input(train_log_sort, i, x);
-      multiply_vectors(wx, &w, x);
-      update_gradient(&dl, wx, x, y);
-      update_weight(&dl, &w, alpha);
-    }
-  }
+  // /* Training */
+  // for(int k = 0; k < EPOCH_NUM; k++){
+  //   for(long i = 0; i < train_log_sort.count; i++){
+  //     assign_output(train_log_sort, i, y, &type);
+  //     assign_input(train_log_sort, i, x);
+  //     multiply_vectors(wx, &w, x);
+  //     update_gradient(&dl, wx, x, y);
+  //     update_weight(&dl, &w, alpha);
+  //   }
+  // }
 
-  /* Testing */
-  gradient_log_stat->count = test_log.count;  
-  new_hornetsoft_log(gradient_log_stat);
+  // /* Testing */
+  // gradient_log_stat->count = test_log.count;  
+  // new_hornetsoft_log(gradient_log_stat);
   
-  for(long i = 0; i < test_log.count; i++){
-    gradient_log_stat->point[i] = test_log.point[i];
-    gradient_log_stat->node_id[i] = test_log.node_id[i];
+  // for(long i = 0; i < test_log.count; i++){
+  //   gradient_log_stat->point[i] = test_log.point[i];
+  //   gradient_log_stat->node_id[i] = test_log.node_id[i];
 
-    assign_input(test_log, i, x);
-    multiply_vectors(wx, &w, x); //use latest weight
-    predict_label(gradient_log_stat, wx, i);
-  }
+  //   assign_input(test_log, i, x);
+  //   multiply_vectors(wx, &w, x); //use latest weight
+  //   predict_label(gradient_log_stat, wx, i);
+  // }
 
-  return regret[train_log.count - 1];
+  return sum_loss;
 }
 
 // if(i > -1){

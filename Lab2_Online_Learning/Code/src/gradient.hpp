@@ -10,7 +10,7 @@ extern "C"
 }
 #include "log.hpp"
 
-void Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_log_online, log_type *gradient_log_stat);
+double Gradient_Descent(log_type train_log, log_type test_log, log_type *gradient_log_online, log_type *gradient_log_stat);
 void assign_output(log_type log, long count, int *y, int *type);
 void assign_input(log_type log, long count, double *x);
 void assign_weight(int *y, double *wx, double *err, double (*w)[O_NUM][W_NUM], double (*w_)[O_NUM][W_NUM]);

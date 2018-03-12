@@ -2,7 +2,7 @@
 #define REGRET_H
 
 #define ALPHA 0.0001
-#define LOOP_NUM 100
+#define REGRET_NUM 100
 #define ERR 0.1
 
 extern "C"
@@ -12,6 +12,6 @@ extern "C"
 #include "log.hpp"
 #include "gradient.hpp"
 
-void min_loss(log_type log, double *sum_loss);
+double min_loss(log_type log);
 
 #endif /* REGRET_H */
