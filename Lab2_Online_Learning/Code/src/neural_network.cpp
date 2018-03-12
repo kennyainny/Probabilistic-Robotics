@@ -11,7 +11,7 @@ float sigmoid(float number){
 
 
 void ANN( log_type train_log, log_type test_log, log_type *NN_log_online, log_type *NN_log_stat){
-	NN_log_stat->count = test_log.count;  
+	NN_log_stat->count = train_log.count;  
  	new_hornetsoft_log(NN_log_stat);
 	int NHN=7,NIN=10,NON=5,epochlim=300; //number of hidden layer nodes //numbre if input nodes//number of output nodes 
 	int NWL1=NHN*NIN; //number of weights from input layer to hidden nodes
@@ -225,11 +225,11 @@ void ANN( log_type train_log, log_type test_log, log_type *NN_log_online, log_ty
 	//printf("BEGIN TESTING!!!!!!!!!!!!!!!\n");
 	
 		
-	for (int q=0;q<test_log.count;q++){
-		NN_log_stat->point[q] = test_log.point[q];
-    		NN_log_stat->node_id[q] = test_log.node_id[q];
+	for (int q=0;q<train_log.count;q++){
+		NN_log_stat->point[q] = train_log.point[q];
+    		NN_log_stat->node_id[q] = train_log.node_id[q];
 		int a = 0;
-		assign_output(test_log,q,reference,&a);
+		assign_output(train_log,q,reference,&a);
 		// if(reference[0]!=1){
 		// 	for (int d=0;d<4;d++){
 		// 		reference[d]=0;
@@ -247,16 +247,16 @@ void ANN( log_type train_log, log_type test_log, log_type *NN_log_online, log_ty
 		// input_nodes[1]=log.point[q].y;
 		// input_nodes[2]=log.point[q].z;
 		//input_nodes[0]=log.node_label[q];
-		input_nodes[0]=test_log.feature[q].f[0];
-		input_nodes[1]=test_log.feature[q].f[1];
-		input_nodes[2]=test_log.feature[q].f[2];
-		input_nodes[3]=test_log.feature[q].f[3];
-		input_nodes[4]=test_log.feature[q].f[4];
-		input_nodes[5]=test_log.feature[q].f[5];
-		input_nodes[6]=test_log.feature[q].f[6];
-		input_nodes[7]=test_log.feature[q].f[7];
-		input_nodes[8]=test_log.feature[q].f[8];
-		input_nodes[9]=test_log.feature[q].bias;
+		input_nodes[0]=train_log.feature[q].f[0];
+		input_nodes[1]=train_log.feature[q].f[1];
+		input_nodes[2]=train_log.feature[q].f[2];
+		input_nodes[3]=train_log.feature[q].f[3];
+		input_nodes[4]=train_log.feature[q].f[4];
+		input_nodes[5]=train_log.feature[q].f[5];
+		input_nodes[6]=train_log.feature[q].f[6];
+		input_nodes[7]=train_log.feature[q].f[7];
+		input_nodes[8]=train_log.feature[q].f[8];
+		input_nodes[9]=train_log.feature[q].bias;
 
 
 
@@ -331,11 +331,15 @@ void ANN_ONLINE(log_type train_log, log_type test_log, log_type *NN_log_online, 
 		weights_L2_matrix[j][f]=weights_L2[i]; //This is the correct size 5x6
 	}
 
-
+	float errorsum=0;
+	float smallerror=0;
+	//float errorsumq=0;
+	float mediumerror=0;
 
 	for (int epoch=0;epoch<epochlim;epoch++){
 		
 		for (int q=0;q<train_log.count;q++){
+			float errorsumq=0;
 			int a = 0;
 			NN_log_online->point[q] = train_log.point[q];
     		NN_log_online->node_id[q] = train_log.node_id[q];
@@ -390,7 +394,12 @@ void ANN_ONLINE(log_type train_log, log_type test_log, log_type *NN_log_online, 
 				output[k]=sigmoid(sum);
 				// printf("output value %f\n",output[k]);
 				error[k]=reference[k]-output[k]; //dq value
+				//printf("little error %f\n",error[k]);
+				errorsumq=error[k]*error[k]+errorsumq;
+				// printf("errorsumq %f\n",errorsumq);
 			}
+			mediumerror=mediumerror+errorsumq;
+
 			
 			//Foward propogation complete
 		
@@ -467,6 +476,9 @@ void ANN_ONLINE(log_type train_log, log_type test_log, log_type *NN_log_online, 
 			predict_label(NN_log_online, output, q);
 		}
 	}
+	smallerror=mediumerror/2;
+	printf("ERROR YOU WANT %f\n",smallerror);
+
 
 }			
 
