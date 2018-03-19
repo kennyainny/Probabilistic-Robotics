@@ -1,11 +1,8 @@
 #ifndef MAIN_HPP
 #define MAIN_HPP
 
-extern "C"
-{
-	#include "def_type.h"
-}
-
+#include "def_type.hpp"
 #include "visualize.hpp"
+#include "trajectory.hpp"
 
 #endif /* MAIN_HPP */

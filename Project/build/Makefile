@@ -150,6 +150,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/trajectory.o: src/trajectory.cpp.o
+
+.PHONY : src/trajectory.o
+
+# target to build an object file
+src/trajectory.cpp.o:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/trajectory.cpp.o
+.PHONY : src/trajectory.cpp.o
+
+src/trajectory.i: src/trajectory.cpp.i
+
+.PHONY : src/trajectory.i
+
+# target to preprocess a source file
+src/trajectory.cpp.i:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/trajectory.cpp.i
+.PHONY : src/trajectory.cpp.i
+
+src/trajectory.s: src/trajectory.cpp.s
+
+.PHONY : src/trajectory.s
+
+# target to generate assembly for a file
+src/trajectory.cpp.s:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/trajectory.cpp.s
+.PHONY : src/trajectory.cpp.s
+
 src/visualize.o: src/visualize.cpp.o
 
 .PHONY : src/visualize.o
@@ -189,6 +216,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/trajectory.o"
+	@echo "... src/trajectory.i"
+	@echo "... src/trajectory.s"
 	@echo "... src/visualize.o"
 	@echo "... src/visualize.i"
 	@echo "... src/visualize.s"

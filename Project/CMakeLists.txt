@@ -15,12 +15,18 @@ set(CMAKE_LIBRARY_PATH ${CMAKE_SOURCE_DIR}/lib)
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
+find_package(PythonLibs 2.7)
+include_directories(${PYTHON_INCLUDE_DIRS})
+
 set(SOURCE_FILES 
 	${PROJECT_SOURCE_DIR}/src/main.cpp
 	${PROJECT_SOURCE_DIR}/src/main.hpp
-	${PROJECT_SOURCE_DIR}/src/def_type.h
+	${PROJECT_SOURCE_DIR}/src/def_type.hpp
 	${PROJECT_SOURCE_DIR}/src/visualize.cpp
-	${PROJECT_SOURCE_DIR}/src/visualize.hpp)
+	${PROJECT_SOURCE_DIR}/src/visualize.hpp
+	${PROJECT_SOURCE_DIR}/src/trajectory.cpp
+	${PROJECT_SOURCE_DIR}/src/trajectory.hpp
+	${PROJECT_SOURCE_DIR}/src/matplotlibcpp.h)
 
 add_executable(project ${SOURCE_FILES})
-target_link_libraries(project ${OpenCV_LIBS})
+target_link_libraries(project ${OpenCV_LIBS} ${PYTHON_LIBRARIES})

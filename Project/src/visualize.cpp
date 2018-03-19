@@ -1,119 +1,95 @@
 #include "visualize.hpp"
-#include <iostream>
-#include <stdio.h>
-#include <stdlib.h>
 
-#include <opencv2/opencv.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/highgui/highgui.hpp> 
-#include <opencv2/core/core.hpp> 
-
-using namespace cv;
+using namespace Eigen;
 using namespace std;
+using namespace matplotlibcpp;
 
-// void MyFilledCircle( Mat img, float x, float y, CvScalar color, float r)
-// {
-//    int thickness = -1;
-//    Point center = Point( y, x);
-//    circle(img, center, r, color, thickness);
-// }
+vector<double> x_0(2), y_0(2), x_(3), y_(3);
+vector<double> x_1(90+1+2), y_1(90+1+2), x_2(90+1+2), y_2(90+1+2), x_3(90+1+2), y_3(90+1+2);
+Vector3d v_sensor(MAX_RANGE, 0, OMEGA);
 
-// void MyFilledCircle_Transparent( Mat img, float x, float y, CvScalar color, float r)
-// {
-//    Point center = Point( y, x);
-//    circle(img, center, r, color);
-// }
+void sensor_view(Vector3d v, vector<double> *x, vector<double> *y){
+	// Vector3d v_temp;
+	// Matrix3d R1, R;
+	// R1 = AngleAxisd(RAD(1), Vector3d::UnitZ());
+	// R = AngleAxisd(v(2)-RAD(45), Vector3d::UnitZ());
 
-// void particle_visualize(particle_type particle, state_type state, laser_type laser, map_type map, int step){
+	// *x->at(0) = v(0);
+	// *y->at(0) = v(1);
 
-//    Mat prob = Mat::zeros(map.size_x, map.size_y, CV_32F);
-//    for(int i = 0; i < map.size_x; i++){
-//       float *ptr = prob.ptr<float>(i);
+	// v_temp = R*v;
+	// for(int i = 1; i < 92; i++){
+	// 	*x->at(i) = v_temp(0) + *x->at(0);
+	// 	*y->at(i) = v_temp(1) + *y->at(0);
+	// 	v = v_temp;
+	// 	v_temp = R1*v;
+	// }
+}
 
-//       for(int j = 0; j < map.size_y; j++){
+void initialize_visualization(Vector3d v1, Vector3d v2, Vector3d v3){
+	Vector3d v_temp, v;
+	Matrix3d R, R1;
+	R1 = AngleAxisd(RAD(1), Vector3d::UnitZ());
 
-//          if(map.prob[i][j] >= 0){
-//             ptr[j] = map.prob[i][j];
-//          }
-//          if(map.prob[i][j] == -1){
-//             ptr[j] = 0;
-//          }
-//       }
-//    }
+	R = AngleAxisd(v1(2)-RAD(45), Vector3d::UnitZ());
+	x_.at(0) = v1(0);
+	y_.at(0) = v1(1);
+	x_1.at(0) = v1(0);
+	y_1.at(0) = v1(1);
+	x_1.at(92) = v1(0);
+	y_1.at(92) = v1(1);
 
-//    normalize(prob, prob, 0, 255, CV_MINMAX);
-//    prob.convertTo(prob, CV_8UC1, 1, 0);
-//    Mat plane[] = {prob, prob, prob};
-//    merge(plane, 3, prob);
+	v_temp = R*v_sensor;
+	for(int i = 1; i < 92; i++){
+		x_1.at(i) = v_temp(0) + v1(0);
+		y_1.at(i) = v_temp(1) + v1(1);
+		v = v_temp;
+		v_temp = R1*v;
+	}
 
-//    Mat prob2;
+	R = AngleAxisd(v2(2)-RAD(45), Vector3d::UnitZ());
+	x_.at(1) = v2(0);
+	y_.at(1) = v2(1);
+	x_2.at(0) = v2(0);
+	y_2.at(0) = v2(1);
+	x_2.at(92) = v2(0);
+	y_2.at(92) = v2(1);
 
-//    prob2 = prob.clone();  
-//    for(unsigned long int i = 0; i < particle.particle_count; i++){
-//       MyFilledCircle_Transparent(prob2, particle.state[i].x, particle.state[i].y, Scalar( 0, 255, 0), particle.prob[i]*80000.0);
-//       MyFilledCircle(prob2, particle.state[i].x, particle.state[i].y, Scalar( 0, 0, 255), 7.0);
+	v_temp = R*v_sensor;
+	for(int i = 1; i < 92; i++){
+		x_2.at(i) = v_temp(0) + v2(0);
+		y_2.at(i) = v_temp(1) + v2(1);
+		v = v_temp;
+		v_temp = R1*v;
+	}
 
-//       float angle = RAD((float)90) + particle.state[i].theta;
-//       if(angle > M_PI){
-//          while(angle > M_PI){
-//             angle = angle - 2*M_PI;
-//          }
-//       }else if(angle < -M_PI){
-//          while(angle < -M_PI){
-//             angle = angle + 2*M_PI;
-//          }
-//       }
-//       for (int j = 0; j < (int)(laser.r[90]/map.resolution/2); j++){
-//          int x_ray_casting = particle.state[i].x + (j * cos(angle - M_PI / 2));
-//          int y_ray_casting = particle.state[i].y + (j * sin(angle - M_PI / 2));
-//          if (x_ray_casting > 0 && x_ray_casting < map.size_x && 
-//             y_ray_casting > 0 && y_ray_casting < map.size_y){
-//             MyFilledCircle(prob2, x_ray_casting, y_ray_casting, Scalar(255, 0, 255), 1);
-//          }
-//       }
-//    }
+	R = AngleAxisd(v3(2)-RAD(45), Vector3d::UnitZ());
+	x_.at(2) = v3(0);
+	y_.at(2) = v3(1);
+	x_3.at(0) = v3(0);
+	y_3.at(0) = v3(1);
+	x_3.at(92) = v3(0);
+	y_3.at(92) = v3(1);
 
-//    state.x = state.x + (25/map.resolution)*cos(state.theta);
-//    state.y = state.y + (25/map.resolution)*sin(state.theta);
+	v_temp = R*v_sensor;
+	for(int i = 1; i < 92; i++){
+		x_3.at(i) = v_temp(0) + v3(0);
+		y_3.at(i) = v_temp(1) + v3(1);
+		v = v_temp;
+		v_temp = R1*v;
+	}
+}
 
-//    for (int i = 0; i < 180; i++){
-//       float angle = RAD((float)i) + state.theta;
-//       for (int j = 0; j < (int)(laser.r[i]/map.resolution); j++){
-//          int x_ray_casting = state.x + (j * cos(angle - M_PI / 2));
-//          int y_ray_casting = state.y + (j * sin(angle - M_PI / 2));
-//          if (x_ray_casting > 0 && x_ray_casting < map.size_x && 
-//             y_ray_casting > 0 && y_ray_casting < map.size_y){
-//             MyFilledCircle(prob2, x_ray_casting, y_ray_casting, Scalar(0, 255, 255), 1);
-//          }
-//       }
-//    }
+void visualization(Vector3d v0){
+	x_0.at(0) = 0.0;
+	y_0.at(0) = 0.0;
+	x_0.at(1) = v0(0);
+	y_0.at(1) = v0(1);
 
-//    int i = 90;
-//    float angle = RAD((float)i) + state.theta;
-//    for (int j = 0; j < (int)(laser.r[i]); j++){
-//       int x_ray_casting = state.x + (j * cos(angle - M_PI / 2));
-//       int y_ray_casting = state.y + (j * sin(angle - M_PI / 2));
-//       if (x_ray_casting > 0 && x_ray_casting < map.size_x && 
-//          y_ray_casting > 0 && y_ray_casting < map.size_y){
-//          MyFilledCircle(prob2, x_ray_casting, y_ray_casting, Scalar(255, 0, 0), 1);
-//       }
-//    }
-
-//    MyFilledCircle(prob2, state.x, state.y, Scalar( 255, 0, 0), 5.0);
-
-//    imshow("Current Robot", prob2);
-//    save_image(prob2, step);
-//    waitKey( 10 );
-// }
-
-// void save_image(Mat img, int step){
-//    stringstream ss;
-//    string filename;
-//    string name = "../results/step_";
-//    string type = ".jpg";
-
-//    ss<<name<<(step)<<type;
-//    filename = ss.str();
-//    ss.str("");
-//    imwrite(filename, img);
-// }
+	plot(x_0, y_0, "r.", x_1, y_1, "b-", x_2, y_2, "b-", x_3, y_3, "b-", x_, y_, "b.");
+	axis("equal");
+	xlim(-3, 3);
+	ylim(-3, 3);	
+	pause(0.001);
+	clf();
+}
