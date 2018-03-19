@@ -3,9 +3,6 @@
 
 #define DEG(rad)  (rad*180.0/M_PI)
 #define RAD(deg)  (deg*M_PI/180.0)
-#define MAX_LASER 820
-#define MAP_THRESHOLD 0.9
-#define SENSOR_THRESHOLD 0.7
 
 typedef struct {
   float x, y, theta;

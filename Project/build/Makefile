@@ -123,33 +123,6 @@ project/fast:
 	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/build
 .PHONY : project/fast
 
-src/distribution.o: src/distribution.c.o
-
-.PHONY : src/distribution.o
-
-# target to build an object file
-src/distribution.c.o:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/distribution.c.o
-.PHONY : src/distribution.c.o
-
-src/distribution.i: src/distribution.c.i
-
-.PHONY : src/distribution.i
-
-# target to preprocess a source file
-src/distribution.c.i:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/distribution.c.i
-.PHONY : src/distribution.c.i
-
-src/distribution.s: src/distribution.c.s
-
-.PHONY : src/distribution.s
-
-# target to generate assembly for a file
-src/distribution.c.s:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/distribution.c.s
-.PHONY : src/distribution.c.s
-
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -176,114 +149,6 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
-
-src/map.o: src/map.c.o
-
-.PHONY : src/map.o
-
-# target to build an object file
-src/map.c.o:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/map.c.o
-.PHONY : src/map.c.o
-
-src/map.i: src/map.c.i
-
-.PHONY : src/map.i
-
-# target to preprocess a source file
-src/map.c.i:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/map.c.i
-.PHONY : src/map.c.i
-
-src/map.s: src/map.c.s
-
-.PHONY : src/map.s
-
-# target to generate assembly for a file
-src/map.c.s:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/map.c.s
-.PHONY : src/map.c.s
-
-src/motion.o: src/motion.cpp.o
-
-.PHONY : src/motion.o
-
-# target to build an object file
-src/motion.cpp.o:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/motion.cpp.o
-.PHONY : src/motion.cpp.o
-
-src/motion.i: src/motion.cpp.i
-
-.PHONY : src/motion.i
-
-# target to preprocess a source file
-src/motion.cpp.i:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/motion.cpp.i
-.PHONY : src/motion.cpp.i
-
-src/motion.s: src/motion.cpp.s
-
-.PHONY : src/motion.s
-
-# target to generate assembly for a file
-src/motion.cpp.s:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/motion.cpp.s
-.PHONY : src/motion.cpp.s
-
-src/particle.o: src/particle.cpp.o
-
-.PHONY : src/particle.o
-
-# target to build an object file
-src/particle.cpp.o:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/particle.cpp.o
-.PHONY : src/particle.cpp.o
-
-src/particle.i: src/particle.cpp.i
-
-.PHONY : src/particle.i
-
-# target to preprocess a source file
-src/particle.cpp.i:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/particle.cpp.i
-.PHONY : src/particle.cpp.i
-
-src/particle.s: src/particle.cpp.s
-
-.PHONY : src/particle.s
-
-# target to generate assembly for a file
-src/particle.cpp.s:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/particle.cpp.s
-.PHONY : src/particle.cpp.s
-
-src/sensor.o: src/sensor.c.o
-
-.PHONY : src/sensor.o
-
-# target to build an object file
-src/sensor.c.o:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/sensor.c.o
-.PHONY : src/sensor.c.o
-
-src/sensor.i: src/sensor.c.i
-
-.PHONY : src/sensor.i
-
-# target to preprocess a source file
-src/sensor.c.i:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/sensor.c.i
-.PHONY : src/sensor.c.i
-
-src/sensor.s: src/sensor.c.s
-
-.PHONY : src/sensor.s
-
-# target to generate assembly for a file
-src/sensor.c.s:
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/sensor.c.s
-.PHONY : src/sensor.c.s
 
 src/visualize.o: src/visualize.cpp.o
 
@@ -321,24 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... project"
-	@echo "... src/distribution.o"
-	@echo "... src/distribution.i"
-	@echo "... src/distribution.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/map.o"
-	@echo "... src/map.i"
-	@echo "... src/map.s"
-	@echo "... src/motion.o"
-	@echo "... src/motion.i"
-	@echo "... src/motion.s"
-	@echo "... src/particle.o"
-	@echo "... src/particle.i"
-	@echo "... src/particle.s"
-	@echo "... src/sensor.o"
-	@echo "... src/sensor.i"
-	@echo "... src/sensor.s"
 	@echo "... src/visualize.o"
 	@echo "... src/visualize.i"
 	@echo "... src/visualize.s"

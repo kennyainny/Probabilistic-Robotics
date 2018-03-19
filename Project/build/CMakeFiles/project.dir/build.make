@@ -81,81 +81,9 @@ CMakeFiles/project.dir/src/main.cpp.o.provides: CMakeFiles/project.dir/src/main.
 CMakeFiles/project.dir/src/main.cpp.o.provides.build: CMakeFiles/project.dir/src/main.cpp.o
 
 
-CMakeFiles/project.dir/src/map.c.o: CMakeFiles/project.dir/flags.make
-CMakeFiles/project.dir/src/map.c.o: ../src/map.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thanakorn/Documents/Probabilistic-Robotics/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/project.dir/src/map.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/project.dir/src/map.c.o   -c /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/map.c
-
-CMakeFiles/project.dir/src/map.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/project.dir/src/map.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/map.c > CMakeFiles/project.dir/src/map.c.i
-
-CMakeFiles/project.dir/src/map.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/project.dir/src/map.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/map.c -o CMakeFiles/project.dir/src/map.c.s
-
-CMakeFiles/project.dir/src/map.c.o.requires:
-
-.PHONY : CMakeFiles/project.dir/src/map.c.o.requires
-
-CMakeFiles/project.dir/src/map.c.o.provides: CMakeFiles/project.dir/src/map.c.o.requires
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/map.c.o.provides.build
-.PHONY : CMakeFiles/project.dir/src/map.c.o.provides
-
-CMakeFiles/project.dir/src/map.c.o.provides.build: CMakeFiles/project.dir/src/map.c.o
-
-
-CMakeFiles/project.dir/src/sensor.c.o: CMakeFiles/project.dir/flags.make
-CMakeFiles/project.dir/src/sensor.c.o: ../src/sensor.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thanakorn/Documents/Probabilistic-Robotics/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/project.dir/src/sensor.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/project.dir/src/sensor.c.o   -c /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/sensor.c
-
-CMakeFiles/project.dir/src/sensor.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/project.dir/src/sensor.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/sensor.c > CMakeFiles/project.dir/src/sensor.c.i
-
-CMakeFiles/project.dir/src/sensor.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/project.dir/src/sensor.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/sensor.c -o CMakeFiles/project.dir/src/sensor.c.s
-
-CMakeFiles/project.dir/src/sensor.c.o.requires:
-
-.PHONY : CMakeFiles/project.dir/src/sensor.c.o.requires
-
-CMakeFiles/project.dir/src/sensor.c.o.provides: CMakeFiles/project.dir/src/sensor.c.o.requires
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/sensor.c.o.provides.build
-.PHONY : CMakeFiles/project.dir/src/sensor.c.o.provides
-
-CMakeFiles/project.dir/src/sensor.c.o.provides.build: CMakeFiles/project.dir/src/sensor.c.o
-
-
-CMakeFiles/project.dir/src/distribution.c.o: CMakeFiles/project.dir/flags.make
-CMakeFiles/project.dir/src/distribution.c.o: ../src/distribution.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thanakorn/Documents/Probabilistic-Robotics/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/project.dir/src/distribution.c.o"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/project.dir/src/distribution.c.o   -c /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/distribution.c
-
-CMakeFiles/project.dir/src/distribution.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/project.dir/src/distribution.c.i"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/distribution.c > CMakeFiles/project.dir/src/distribution.c.i
-
-CMakeFiles/project.dir/src/distribution.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/project.dir/src/distribution.c.s"
-	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/distribution.c -o CMakeFiles/project.dir/src/distribution.c.s
-
-CMakeFiles/project.dir/src/distribution.c.o.requires:
-
-.PHONY : CMakeFiles/project.dir/src/distribution.c.o.requires
-
-CMakeFiles/project.dir/src/distribution.c.o.provides: CMakeFiles/project.dir/src/distribution.c.o.requires
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/distribution.c.o.provides.build
-.PHONY : CMakeFiles/project.dir/src/distribution.c.o.provides
-
-CMakeFiles/project.dir/src/distribution.c.o.provides.build: CMakeFiles/project.dir/src/distribution.c.o
-
-
 CMakeFiles/project.dir/src/visualize.cpp.o: CMakeFiles/project.dir/flags.make
 CMakeFiles/project.dir/src/visualize.cpp.o: ../src/visualize.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thanakorn/Documents/Probabilistic-Robotics/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/project.dir/src/visualize.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thanakorn/Documents/Probabilistic-Robotics/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/project.dir/src/visualize.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/src/visualize.cpp.o -c /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/visualize.cpp
 
 CMakeFiles/project.dir/src/visualize.cpp.i: cmake_force
@@ -177,74 +105,16 @@ CMakeFiles/project.dir/src/visualize.cpp.o.provides: CMakeFiles/project.dir/src/
 CMakeFiles/project.dir/src/visualize.cpp.o.provides.build: CMakeFiles/project.dir/src/visualize.cpp.o
 
 
-CMakeFiles/project.dir/src/motion.cpp.o: CMakeFiles/project.dir/flags.make
-CMakeFiles/project.dir/src/motion.cpp.o: ../src/motion.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thanakorn/Documents/Probabilistic-Robotics/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/project.dir/src/motion.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/src/motion.cpp.o -c /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/motion.cpp
-
-CMakeFiles/project.dir/src/motion.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project.dir/src/motion.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/motion.cpp > CMakeFiles/project.dir/src/motion.cpp.i
-
-CMakeFiles/project.dir/src/motion.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/src/motion.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/motion.cpp -o CMakeFiles/project.dir/src/motion.cpp.s
-
-CMakeFiles/project.dir/src/motion.cpp.o.requires:
-
-.PHONY : CMakeFiles/project.dir/src/motion.cpp.o.requires
-
-CMakeFiles/project.dir/src/motion.cpp.o.provides: CMakeFiles/project.dir/src/motion.cpp.o.requires
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/motion.cpp.o.provides.build
-.PHONY : CMakeFiles/project.dir/src/motion.cpp.o.provides
-
-CMakeFiles/project.dir/src/motion.cpp.o.provides.build: CMakeFiles/project.dir/src/motion.cpp.o
-
-
-CMakeFiles/project.dir/src/particle.cpp.o: CMakeFiles/project.dir/flags.make
-CMakeFiles/project.dir/src/particle.cpp.o: ../src/particle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/thanakorn/Documents/Probabilistic-Robotics/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/project.dir/src/particle.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/project.dir/src/particle.cpp.o -c /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/particle.cpp
-
-CMakeFiles/project.dir/src/particle.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/project.dir/src/particle.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/particle.cpp > CMakeFiles/project.dir/src/particle.cpp.i
-
-CMakeFiles/project.dir/src/particle.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/project.dir/src/particle.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/thanakorn/Documents/Probabilistic-Robotics/Project/src/particle.cpp -o CMakeFiles/project.dir/src/particle.cpp.s
-
-CMakeFiles/project.dir/src/particle.cpp.o.requires:
-
-.PHONY : CMakeFiles/project.dir/src/particle.cpp.o.requires
-
-CMakeFiles/project.dir/src/particle.cpp.o.provides: CMakeFiles/project.dir/src/particle.cpp.o.requires
-	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/particle.cpp.o.provides.build
-.PHONY : CMakeFiles/project.dir/src/particle.cpp.o.provides
-
-CMakeFiles/project.dir/src/particle.cpp.o.provides.build: CMakeFiles/project.dir/src/particle.cpp.o
-
-
 # Object files for target project
 project_OBJECTS = \
 "CMakeFiles/project.dir/src/main.cpp.o" \
-"CMakeFiles/project.dir/src/map.c.o" \
-"CMakeFiles/project.dir/src/sensor.c.o" \
-"CMakeFiles/project.dir/src/distribution.c.o" \
-"CMakeFiles/project.dir/src/visualize.cpp.o" \
-"CMakeFiles/project.dir/src/motion.cpp.o" \
-"CMakeFiles/project.dir/src/particle.cpp.o"
+"CMakeFiles/project.dir/src/visualize.cpp.o"
 
 # External object files for target project
 project_EXTERNAL_OBJECTS =
 
 ../bin/project: CMakeFiles/project.dir/src/main.cpp.o
-../bin/project: CMakeFiles/project.dir/src/map.c.o
-../bin/project: CMakeFiles/project.dir/src/sensor.c.o
-../bin/project: CMakeFiles/project.dir/src/distribution.c.o
 ../bin/project: CMakeFiles/project.dir/src/visualize.cpp.o
-../bin/project: CMakeFiles/project.dir/src/motion.cpp.o
-../bin/project: CMakeFiles/project.dir/src/particle.cpp.o
 ../bin/project: CMakeFiles/project.dir/build.make
 ../bin/project: /opt/ros/kinetic/lib/libopencv_stitching3.so.3.3.1
 ../bin/project: /opt/ros/kinetic/lib/libopencv_superres3.so.3.3.1
@@ -292,7 +162,7 @@ project_EXTERNAL_OBJECTS =
 ../bin/project: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.3.1
 ../bin/project: /opt/ros/kinetic/lib/libopencv_core3.so.3.3.1
 ../bin/project: CMakeFiles/project.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/thanakorn/Documents/Probabilistic-Robotics/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable ../bin/project"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/thanakorn/Documents/Probabilistic-Robotics/Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../bin/project"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/project.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -301,12 +171,7 @@ CMakeFiles/project.dir/build: ../bin/project
 .PHONY : CMakeFiles/project.dir/build
 
 CMakeFiles/project.dir/requires: CMakeFiles/project.dir/src/main.cpp.o.requires
-CMakeFiles/project.dir/requires: CMakeFiles/project.dir/src/map.c.o.requires
-CMakeFiles/project.dir/requires: CMakeFiles/project.dir/src/sensor.c.o.requires
-CMakeFiles/project.dir/requires: CMakeFiles/project.dir/src/distribution.c.o.requires
 CMakeFiles/project.dir/requires: CMakeFiles/project.dir/src/visualize.cpp.o.requires
-CMakeFiles/project.dir/requires: CMakeFiles/project.dir/src/motion.cpp.o.requires
-CMakeFiles/project.dir/requires: CMakeFiles/project.dir/src/particle.cpp.o.requires
 
 .PHONY : CMakeFiles/project.dir/requires
 

@@ -19,18 +19,8 @@ set(SOURCE_FILES
 	${PROJECT_SOURCE_DIR}/src/main.cpp
 	${PROJECT_SOURCE_DIR}/src/main.hpp
 	${PROJECT_SOURCE_DIR}/src/def_type.h
-	${PROJECT_SOURCE_DIR}/src/map.c
-	${PROJECT_SOURCE_DIR}/src/map.h
-	${PROJECT_SOURCE_DIR}/src/sensor.c
-	${PROJECT_SOURCE_DIR}/src/sensor.h
-	${PROJECT_SOURCE_DIR}/src/distribution.c
-	${PROJECT_SOURCE_DIR}/src/distribution.h
 	${PROJECT_SOURCE_DIR}/src/visualize.cpp
-	${PROJECT_SOURCE_DIR}/src/visualize.hpp
-	${PROJECT_SOURCE_DIR}/src/motion.cpp
-	${PROJECT_SOURCE_DIR}/src/motion.hpp
-	${PROJECT_SOURCE_DIR}/src/particle.cpp
-	${PROJECT_SOURCE_DIR}/src/particle.hpp)
+	${PROJECT_SOURCE_DIR}/src/visualize.hpp)
 
 add_executable(project ${SOURCE_FILES})
 target_link_libraries(project ${OpenCV_LIBS})
