@@ -4,92 +4,111 @@ using namespace Eigen;
 using namespace std;
 using namespace matplotlibcpp;
 
-vector<double> x_0(2), y_0(2), x_(3), y_(3);
-vector<double> x_1(90+1+2), y_1(90+1+2), x_2(90+1+2), y_2(90+1+2), x_3(90+1+2), y_3(90+1+2);
-Vector3d v_sensor(MAX_RANGE, 0, OMEGA);
+vector<double> x_0(2), y_0(2), x_(3), y_(3), x_sensor((SENSOR_VIEW+1)*3), y_sensor((SENSOR_VIEW+1)*3);
+vector<double> x_1(SENSOR_VIEW+1+2), y_1(SENSOR_VIEW+1+2), x_2(SENSOR_VIEW+1+2), y_2(SENSOR_VIEW+1+2), x_3(SENSOR_VIEW+1+2), y_3(SENSOR_VIEW+1+2);
+Vector3d p_sensor(MAX_RANGE, 0, OMEGA);
+Matrix3d R_sensor1, R_sensor2, R_sensor3;
+extern VectorXd sensor_data;
 
-void sensor_view(Vector3d v, vector<double> *x, vector<double> *y){
-	// Vector3d v_temp;
-	// Matrix3d R1, R;
-	// R1 = AngleAxisd(RAD(1), Vector3d::UnitZ());
-	// R = AngleAxisd(v(2)-RAD(45), Vector3d::UnitZ());
-
-	// *x->at(0) = v(0);
-	// *y->at(0) = v(1);
-
-	// v_temp = R*v;
-	// for(int i = 1; i < 92; i++){
-	// 	*x->at(i) = v_temp(0) + *x->at(0);
-	// 	*y->at(i) = v_temp(1) + *y->at(0);
-	// 	v = v_temp;
-	// 	v_temp = R1*v;
-	// }
-}
-
-void initialize_visualization(Vector3d v1, Vector3d v2, Vector3d v3){
-	Vector3d v_temp, v;
+void initialize_visualization(Vector3d p1, Vector3d p2, Vector3d p3){
+	Vector3d p_temp, p;
 	Matrix3d R, R1;
 	R1 = AngleAxisd(RAD(1), Vector3d::UnitZ());
 
-	R = AngleAxisd(v1(2)-RAD(45), Vector3d::UnitZ());
-	x_.at(0) = v1(0);
-	y_.at(0) = v1(1);
-	x_1.at(0) = v1(0);
-	y_1.at(0) = v1(1);
-	x_1.at(92) = v1(0);
-	y_1.at(92) = v1(1);
+	R = AngleAxisd(p1(2)-RAD(SENSOR_VIEW/2), Vector3d::UnitZ());
+	x_.at(0) = p1(0);
+	y_.at(0) = p1(1);
+	x_1.at(0) = p1(0);
+	y_1.at(0) = p1(1);
+	x_1.at(SENSOR_VIEW+2) = p1(0);
+	y_1.at(SENSOR_VIEW+2) = p1(1);
 
-	v_temp = R*v_sensor;
-	for(int i = 1; i < 92; i++){
-		x_1.at(i) = v_temp(0) + v1(0);
-		y_1.at(i) = v_temp(1) + v1(1);
-		v = v_temp;
-		v_temp = R1*v;
+	p_temp = R*p_sensor;
+	for(int i = 1; i < SENSOR_VIEW+2; i++){
+		x_1.at(i) = p_temp(0) + p1(0);
+		y_1.at(i) = p_temp(1) + p1(1);
+		p = p_temp;
+		p_temp = R1*p;
 	}
 
-	R = AngleAxisd(v2(2)-RAD(45), Vector3d::UnitZ());
-	x_.at(1) = v2(0);
-	y_.at(1) = v2(1);
-	x_2.at(0) = v2(0);
-	y_2.at(0) = v2(1);
-	x_2.at(92) = v2(0);
-	y_2.at(92) = v2(1);
+	R = AngleAxisd(p2(2)-RAD(SENSOR_VIEW/2), Vector3d::UnitZ());
+	x_.at(1) = p2(0);
+	y_.at(1) = p2(1);
+	x_2.at(0) = p2(0);
+	y_2.at(0) = p2(1);
+	x_2.at(SENSOR_VIEW+2) = p2(0);
+	y_2.at(SENSOR_VIEW+2) = p2(1);
 
-	v_temp = R*v_sensor;
-	for(int i = 1; i < 92; i++){
-		x_2.at(i) = v_temp(0) + v2(0);
-		y_2.at(i) = v_temp(1) + v2(1);
-		v = v_temp;
-		v_temp = R1*v;
+	p_temp = R*p_sensor;
+	for(int i = 1; i < SENSOR_VIEW+2; i++){
+		x_2.at(i) = p_temp(0) + p2(0);
+		y_2.at(i) = p_temp(1) + p2(1);
+		p = p_temp;
+		p_temp = R1*p;
 	}
 
-	R = AngleAxisd(v3(2)-RAD(45), Vector3d::UnitZ());
-	x_.at(2) = v3(0);
-	y_.at(2) = v3(1);
-	x_3.at(0) = v3(0);
-	y_3.at(0) = v3(1);
-	x_3.at(92) = v3(0);
-	y_3.at(92) = v3(1);
+	R = AngleAxisd(p3(2)-RAD(SENSOR_VIEW/2), Vector3d::UnitZ());
+	x_.at(2) = p3(0);
+	y_.at(2) = p3(1);
+	x_3.at(0) = p3(0);
+	y_3.at(0) = p3(1);
+	x_3.at(SENSOR_VIEW+2) = p3(0);
+	y_3.at(SENSOR_VIEW+2) = p3(1);
 
-	v_temp = R*v_sensor;
-	for(int i = 1; i < 92; i++){
-		x_3.at(i) = v_temp(0) + v3(0);
-		y_3.at(i) = v_temp(1) + v3(1);
-		v = v_temp;
-		v_temp = R1*v;
+	p_temp = R*p_sensor;
+	for(int i = 1; i < SENSOR_VIEW+2; i++){
+		x_3.at(i) = p_temp(0) + p3(0);
+		y_3.at(i) = p_temp(1) + p3(1);
+		p = p_temp;
+		p_temp = R1*p;
+	}
+
+	R_sensor1 = AngleAxisd(p1(2) - RAD(45), Vector3d::UnitZ());
+	R_sensor2 = AngleAxisd(p2(2) - RAD(45), Vector3d::UnitZ());
+	R_sensor3 = AngleAxisd(p3(2) - RAD(45), Vector3d::UnitZ());
+}
+
+void plot_ground_truth(Vector3d v_gt){
+	x_0.at(0) = 0.0;
+	y_0.at(0) = 0.0;
+	x_0.at(1) = v_gt(0);
+	y_0.at(1) = v_gt(1);
+}
+
+void plot_sensor(Vector3d p1, Vector3d p2, Vector3d p3){
+	Vector3d p_temp, p;
+	double theta;
+	for(int i = 0; i < (SENSOR_VIEW+1)*3; i++){
+		if(i < (SENSOR_VIEW+1)){
+			p_temp(0) = sensor_data(i) * cos(RAD(i));
+			p_temp(1) = sensor_data(i) * sin(RAD(i));
+			p = R_sensor1*p_temp + p1;
+			// p = p_temp;
+		}else if(i < (SENSOR_VIEW+1)*2){
+			theta = i - (SENSOR_VIEW+1);
+			p_temp(0) = sensor_data(i) * cos(RAD(theta));
+			p_temp(1) = sensor_data(i) * sin(RAD(theta));
+			p = R_sensor2*p_temp + p2;
+		}else{
+			theta = i - (SENSOR_VIEW+1)*2;
+			p_temp(0) = sensor_data(i) * cos(RAD(theta));
+			p_temp(1) = sensor_data(i) * sin(RAD(theta));
+			p = R_sensor3*p_temp + p3;
+		}
+		x_sensor.at(i) = p(0);
+		y_sensor.at(i) = p(1);
 	}
 }
 
-void visualization(Vector3d v0){
-	x_0.at(0) = 0.0;
-	y_0.at(0) = 0.0;
-	x_0.at(1) = v0(0);
-	y_0.at(1) = v0(1);
+void visualization(Vector3d p_gt, Vector3d p1, Vector3d p2, Vector3d p3){
+	plot_ground_truth(p_gt);
+	plot_sensor(p1, p2, p3);
 
-	plot(x_0, y_0, "r.", x_1, y_1, "b-", x_2, y_2, "b-", x_3, y_3, "b-", x_, y_, "b.");
+	plot(x_0, y_0, "r.", x_1, y_1, "b-", x_2, y_2, "b-", x_3, y_3, "b-", x_, y_, "b.", x_sensor, y_sensor, "b.");
 	axis("equal");
 	xlim(-3, 3);
-	ylim(-3, 3);	
+	ylim(-3, 3);
+	// show();
 	pause(0.001);
 	clf();
 }

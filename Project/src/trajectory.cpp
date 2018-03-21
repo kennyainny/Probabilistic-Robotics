@@ -5,13 +5,13 @@
 using namespace std;
 using namespace Eigen;
 
-Vector3d Simulate_Trajectory(Vector3d v0){
-	Vector3d v(0, 0, OMEGA); //x , y, Omega
+Vector3d Simulate_Trajectory(Vector3d p_gt_old){
+	Vector3d p(0, 0, OMEGA); //x , y, Omega
 
 	Matrix3d R;
 	R = AngleAxisd(OMEGA*TIME_STEP, Vector3d::UnitZ());
 	// R = AngleAxisd(RAD(90), Vector3d::UnitZ());
-	v = R*v0;
+	p = R*p_gt_old;
 
-	return v;
+	return p;
 }

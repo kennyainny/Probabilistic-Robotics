@@ -5,7 +5,9 @@
 
 using namespace Eigen;
 
-void initialize_visualization(Vector3d v1, Vector3d v2, Vector3d v3);
-void visualization(Vector3d v0);
+void initialize_visualization(Vector3d p1, Vector3d p2, Vector3d p3);
+void plot_ground_truth(Vector3d p_gt);
+void plot_sensor(Vector3d p1, Vector3d p2, Vector3d p3);
+void visualization(Vector3d v_gt, Vector3d p1, Vector3d p2, Vector3d p3);
 
 #endif /* VISUALIZE_HPP */

@@ -150,6 +150,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/sensor.o: src/sensor.cpp.o
+
+.PHONY : src/sensor.o
+
+# target to build an object file
+src/sensor.cpp.o:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/sensor.cpp.o
+.PHONY : src/sensor.cpp.o
+
+src/sensor.i: src/sensor.cpp.i
+
+.PHONY : src/sensor.i
+
+# target to preprocess a source file
+src/sensor.cpp.i:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/sensor.cpp.i
+.PHONY : src/sensor.cpp.i
+
+src/sensor.s: src/sensor.cpp.s
+
+.PHONY : src/sensor.s
+
+# target to generate assembly for a file
+src/sensor.cpp.s:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/sensor.cpp.s
+.PHONY : src/sensor.cpp.s
+
 src/trajectory.o: src/trajectory.cpp.o
 
 .PHONY : src/trajectory.o
@@ -216,6 +243,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/sensor.o"
+	@echo "... src/sensor.i"
+	@echo "... src/sensor.s"
 	@echo "... src/trajectory.o"
 	@echo "... src/trajectory.i"
 	@echo "... src/trajectory.s"

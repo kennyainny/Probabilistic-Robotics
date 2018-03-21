@@ -6,16 +6,20 @@ using namespace Eigen;
 int main(int argc, char *argv[])
 {
 	/****************************** Initialization Part ******************************/
-	Vector3d v_gt, v_gt_old(RADIUS, 0, OMEGA); // Ground Truth and Initial/Previous Position
-	Vector3d v1(2.0, 0.0, RAD(180.0)), v2(-1.0, 1.7321, RAD(-60.0)), v3(-1.0, -1.7321, RAD(60.0)); //x, y, psi
-	initialize_visualization(v1, v2, v3);
+	Vector3d p_gt, p_gt_old(RADIUS, 0, OMEGA); // Ground Truth and Initial/Previous Position
+	Vector3d p1(2.0, 0.0, RAD(180.0)), p2(-1.0, 1.7321, RAD(300.0)), p3(-1.0, -1.7321, RAD(60.0)); //x, y, psi
+	initialize_sensor(p1, p2, p3);
+	initialize_visualization(p1, p2, p3);
+	extern VectorXd sensor_data;
 
 	/**************************** Loop Part ****************************/	
 	for(long t = 0; t < N_STEP; t++){
-		v_gt = Simulate_Trajectory(v_gt_old);
-		v_gt_old = v_gt;
+		p_gt = Simulate_Trajectory(p_gt_old);
+		Simulate_Sensor(p_gt, p1, p2, p3);
+		add_sensor_noise();
+		p_gt_old = p_gt;
 
-		visualization(v_gt);
+		visualization(p_gt, p1, p2, p3);
 		// printf("Step: %lu\n", t);
 	}
 

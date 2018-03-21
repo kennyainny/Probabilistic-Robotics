@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
+#include <math.h>
 #include "matplotlibcpp.h"
 
 #ifndef DEF_TYPE_HPP
@@ -17,9 +18,13 @@
 #define SPEED  10.0 // metre/sec
 #define OMEGA  SPEED/RADIUS // rad/sec
 
-#define MAX_RANGE 1.8 //metre
+#define MAX_RANGE 1.75 //metre
+#define SENSOR_VIEW 90
 
 #define DEG(rad)  (rad*180.0/M_PI)
 #define RAD(deg)  (deg*M_PI/180.0)
+
+using namespace Eigen;
+// VectorXd sensor_r(91*3), sensor_theta(91*3);
 
 #endif /* DEF_TYPE_H */
