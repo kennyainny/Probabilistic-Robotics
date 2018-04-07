@@ -4,6 +4,7 @@ using namespace Eigen;
 using namespace std;
 using namespace matplotlibcpp;
 
+// vector<double> x_particle(), y_particle();
 vector<double> x_0(2), y_0(2), x_(3), y_(3), x_sensor((SENSOR_VIEW+1)*3), y_sensor((SENSOR_VIEW+1)*3);
 vector<double> x_1(SENSOR_VIEW+1+2), y_1(SENSOR_VIEW+1+2), x_2(SENSOR_VIEW+1+2), y_2(SENSOR_VIEW+1+2), x_3(SENSOR_VIEW+1+2), y_3(SENSOR_VIEW+1+2);
 Vector3d p_sensor(MAX_RANGE, 0, OMEGA);
@@ -97,6 +98,10 @@ void plot_sensor(Vector3d p1, Vector3d p2, Vector3d p3){
 		x_sensor.at(i) = p(0);
 		y_sensor.at(i) = p(1);
 	}
+}
+
+void plot_particle(particle_type particle){
+	
 }
 
 void visualization(Vector3d p_gt, Vector3d p1, Vector3d p2, Vector3d p3){

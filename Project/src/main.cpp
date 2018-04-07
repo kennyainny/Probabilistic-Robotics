@@ -15,6 +15,9 @@ int main(int argc, char *argv[])
 	particle_type particle[N_STEP];
 	particle_initialize(&particle[0], p1, p2, p3); //initialize particle
 
+	state_type filtered_state[N_STEP];
+	filtered_state[0] = expected_state(particle[0]); //initialize expected location
+
 	/**************************** Loop Part ****************************/	
 	for(long t = 0; t < N_STEP; t++){
 		p_gt = Simulate_Trajectory(p_gt_old);
