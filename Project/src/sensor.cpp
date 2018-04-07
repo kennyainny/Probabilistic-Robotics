@@ -9,6 +9,9 @@
 #define Z_MAX 0.2
 #define Z_RAND 0.1
 
+using namespace std;
+using namespace Eigen;
+
 VectorXd sensor_data((SENSOR_VIEW+1)*3);
 Matrix3d R1, R2, R3;
 int theta1, theta2, theta3;
@@ -16,9 +19,6 @@ double r1, r2, r3;
 
 random_device rd_n;
 mt19937 mt_n(rd_n());
-
-using namespace std;
-using namespace Eigen;
 
 void initialize_sensor(Vector3d p1, Vector3d p2, Vector3d p3){
 	R1 = AngleAxisd(-(p1(2) - RAD(45)), Vector3d::UnitZ());
@@ -65,9 +65,9 @@ void Simulate_Sensor(Vector3d p_gt, Vector3d p1, Vector3d p2, Vector3d p3){
 }
 
 void add_dependency(){
-	float q1 = Normal_Distribution((float)theta1, (float)theta1, READING_VARIANCE);
-	float q2 = Normal_Distribution((float)theta2, (float)theta2, READING_VARIANCE);
-	float q3 = Normal_Distribution((float)theta3, (float)theta3, READING_VARIANCE);
+	float q1 = Normal_Dist((float)theta1, (float)theta1, READING_VARIANCE);
+	float q2 = Normal_Dist((float)theta2, (float)theta2, READING_VARIANCE);
+	float q3 = Normal_Dist((float)theta3, (float)theta3, READING_VARIANCE);
 
 	for(int i = 0; i < (SENSOR_VIEW+1)*3; i++){
 		if(i < (SENSOR_VIEW+1)){

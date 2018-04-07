@@ -1,3 +1,6 @@
+#ifndef DEF_TYPE_HPP
+#define DEF_TYPE_HPP
+
 #include <Eigen/Eigen>
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
@@ -8,10 +11,8 @@
 #include <stdlib.h>
 #include <string>
 #include <math.h>
+#include <random>
 #include "matplotlibcpp.h"
-
-#ifndef DEF_TYPE_HPP
-#define DEF_TYPE_HPP
 
 #define N_STEP 1000
 #define RADIUS 1.0 // metre
