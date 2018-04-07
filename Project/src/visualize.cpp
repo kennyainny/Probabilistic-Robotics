@@ -13,7 +13,7 @@ extern VectorXd sensor_data;
 void initialize_visualization(Vector3d p1, Vector3d p2, Vector3d p3){
 	Vector3d p_temp, p;
 	Matrix3d R, R1;
-	R1 = AngleAxisd(RAD(1), Vector3d::UnitZ());
+	R1 = AngleAxisd(RAD(1), Vector3d::UnitZ()); //R for 1 deg rotation
 
 	R = AngleAxisd(p1(2)-RAD(SENSOR_VIEW/2), Vector3d::UnitZ());
 	x_.at(0) = p1(0);

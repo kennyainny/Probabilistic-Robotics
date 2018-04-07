@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
 	extern VectorXd sensor_data;
 
 	particle_type particle[N_STEP];
+	particle_initialize(&particle[0]); //initialize particle
 
 	/**************************** Loop Part ****************************/	
 	for(long t = 0; t < N_STEP; t++){

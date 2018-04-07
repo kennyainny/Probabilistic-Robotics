@@ -12,10 +12,11 @@ void new_hornetsoft_particle(particle_type *particle, long unsigned int size_p)
   particle->prob = (float *)calloc(size_p, sizeof(float));
 }
 
-void particle_initialize(map_type map, particle_type *particle){
+void particle_initialize(particle_type *particle){
 	// place particles on unoccupied grids
 
-	long unsigned int count_p = 0;
+	Matrix3d R1;
+	float theta1, theta2, theta3;
 
 	// decrease these two variables to increase the number of particles
 	int radius_interval = 0.25; //place every n metres
@@ -34,28 +35,36 @@ void particle_initialize(map_type map, particle_type *particle){
 	new_hornetsoft_particle(particle, particle->particle_count); //C++ magic
 
 	count_p = 0; //begin assigning particles to each grid
-	for(int i = 0; i <= MAX_RANGE; i = i + radius_interval){
-		for(int j = 0; j <= SENSOR_VIEW; j = j + angle_interval){
-			for(int k = 0; k < 360; k = k + theta_interval){
-				particle->prob[count_p] = 1.0/particle->particle_count; //uniformly distributed
+	for(int n = 0; n < 3; n++){
+		for(int i = 0; i <= MAX_RANGE; i = i + radius_interval){
+			for(int j = 0; j <= SENSOR_VIEW; j = j + angle_interval){
+				theta1 = p1(2) - RAD(SENSOR_VIEW/2) + RAD(j);
+				theta2 = p2(2) - RAD(SENSOR_VIEW/2) + RAD(j);
+				theta3 = p3(2) - RAD(SENSOR_VIEW/2) + RAD(j);
 
-				if(count_p <= particle->particle_count/3){ //first observer space
-					particle->state[count_p].x = p1(0) + i; //place at x location
-					particle->state[count_p].y = j; //place at y location
-					particle->state[count_p].theta = RAD(float(k)); //place at different angle
-				}else if(count_p <= particle->particle_count/3*2){ //second observer space
-
-				}else{ //third observer space
-
+				for(int k = 0; k < 360; k = k + theta_interval){
+					particle->prob[count_p] = 1.0/particle->particle_count; //uniformly distributed
+					if(n == 1){ //first observer space
+						particle->state[count_p].x = p1(0) + i*cos(theta1); //place at x location
+						particle->state[count_p].y = p1(1) + j*cos(theta1); //place at y location
+						particle->state[count_p].theta = RAD(float(k)); //place at different angle
+					}else if(n == 2){ //second observer space
+						particle->state[count_p].x = p2(0) + i*cos(theta2); //place at x location
+						particle->state[count_p].y = p2(1) + j*cos(theta2); //place at y location
+						particle->state[count_p].theta = RAD(float(k)); //place at different angle
+					}else{ //third observer space
+						particle->state[count_p].x = p3(0) + i*cos(theta3); //place at x location
+						particle->state[count_p].y = p3(1) + j*cos(theta3); //place at y location
+						particle->state[count_p].theta = RAD(float(k)); //place at different angle
+					}				
+					count_p = count_p + 1;
 				}
-				
-				count_p = count_p + 1;
 			}
 		}
 	}
 }
 
-particle_type particle_motion_update(state_type p_odometry, state_type odometry, particle_type p_particle, map_type map){
+particle_type particle_motion_update(state_type p_odometry, state_type odometry, particle_type p_particle){
 	
 	particle_type particle;
 	long unsigned int n = p_particle.particle_count;
@@ -63,20 +72,20 @@ particle_type particle_motion_update(state_type p_odometry, state_type odometry,
 	particle.particle_count = n;
 
 	for (unsigned int i = 0; i < p_particle.particle_count; i++){
-		particle.state[i] = sample_motion_model_odometry(p_odometry, odometry, p_particle.state[i], map); //getting a new particle's location
+		particle.state[i] = sample_motion_model_odometry(p_odometry, odometry, p_particle.state[i]); //getting a new particle's location
 		particle.prob[i] = p_particle.prob[i]; // still having the same probability			
 	}
 		
 	return particle;
 }
 
-particle_type particle_sensor_update(laser_type laser, map_type map, particle_type particle){
+particle_type particle_sensor_update(laser_type laser, particle_type particle){
 	long unsigned int n = particle.particle_count;
 
 	float weight_sum = 0.0; //normalizer
 
 	for (unsigned int i = 0; i < n; i++){
-		particle.prob[i] = sensor_model(laser, particle.state[i], map); //update each particle's probability based on sensor reading
+		particle.prob[i] = sensor_model(laser, particle.state[i]); //update each particle's probability based on sensor reading
 		weight_sum = weight_sum + particle.prob[i]; //accumulate
 	}
 
@@ -89,7 +98,7 @@ particle_type particle_sensor_update(laser_type laser, map_type map, particle_ty
 	return particle;
 }
 
-particle_type low_variance_sampler(laser_type laser, map_type map, particle_type particle){
+particle_type low_variance_sampler(laser_type laser, particle_type particle){
 	particle_type temp_particle;
 	long unsigned int n = particle.particle_count;
 	new_hornetsoft_particle(&temp_particle, n);
