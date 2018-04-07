@@ -26,8 +26,14 @@ set(SOURCE_FILES
 	${PROJECT_SOURCE_DIR}/src/visualize.hpp
 	${PROJECT_SOURCE_DIR}/src/trajectory.cpp
 	${PROJECT_SOURCE_DIR}/src/trajectory.hpp
+	${PROJECT_SOURCE_DIR}/src/distribution.cpp
+	${PROJECT_SOURCE_DIR}/src/distribution.hpp
 	${PROJECT_SOURCE_DIR}/src/sensor.cpp
 	${PROJECT_SOURCE_DIR}/src/sensor.hpp
+	${PROJECT_SOURCE_DIR}/src/motion.cpp
+	${PROJECT_SOURCE_DIR}/src/motion.hpp
+	${PROJECT_SOURCE_DIR}/src/particle.cpp
+	${PROJECT_SOURCE_DIR}/src/particle.hpp
 	${PROJECT_SOURCE_DIR}/src/matplotlibcpp.h)
 
 add_executable(project ${SOURCE_FILES})

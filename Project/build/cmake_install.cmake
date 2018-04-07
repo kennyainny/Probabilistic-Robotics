@@ -1,4 +1,4 @@
-# Install script for directory: /home/thanakorn/Documents/Probabilistic-Robotics/Project
+# Install script for directory: /home/osboxes/Documents/Probabilistic-Robotics/Project
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/thanakorn/Documents/Probabilistic-Robotics/Project/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/osboxes/Documents/Probabilistic-Robotics/Project/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

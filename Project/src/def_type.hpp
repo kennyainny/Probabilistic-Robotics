@@ -21,10 +21,19 @@
 #define MAX_RANGE 1.75 //metre
 #define SENSOR_VIEW 90
 
-#define DEG(rad)  (rad*180.0/M_PI)
-#define RAD(deg)  (deg*M_PI/180.0)
+#define DEG(rad) (rad*180.0/M_PI)
+#define RAD(deg) (deg*M_PI/180.0)
 
 using namespace Eigen;
-// VectorXd sensor_r(91*3), sensor_theta(91*3);
+
+typedef struct {
+  float x, y, theta;
+} state_type;
+
+typedef struct {
+  state_type *state;
+  float *prob;
+  unsigned long int particle_count;
+} particle_type;
 
 #endif /* DEF_TYPE_H */

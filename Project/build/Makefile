@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/thanakorn/Documents/Probabilistic-Robotics/Project
+CMAKE_SOURCE_DIR = /home/osboxes/Documents/Probabilistic-Robotics/Project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/thanakorn/Documents/Probabilistic-Robotics/Project/build
+CMAKE_BINARY_DIR = /home/osboxes/Documents/Probabilistic-Robotics/Project/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/thanakorn/Documents/Probabilistic-Robotics/Project/build/CMakeFiles /home/thanakorn/Documents/Probabilistic-Robotics/Project/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/osboxes/Documents/Probabilistic-Robotics/Project/build/CMakeFiles /home/osboxes/Documents/Probabilistic-Robotics/Project/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/thanakorn/Documents/Probabilistic-Robotics/Project/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/osboxes/Documents/Probabilistic-Robotics/Project/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,33 @@ project/fast:
 	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/build
 .PHONY : project/fast
 
+src/distribution.o: src/distribution.cpp.o
+
+.PHONY : src/distribution.o
+
+# target to build an object file
+src/distribution.cpp.o:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/distribution.cpp.o
+.PHONY : src/distribution.cpp.o
+
+src/distribution.i: src/distribution.cpp.i
+
+.PHONY : src/distribution.i
+
+# target to preprocess a source file
+src/distribution.cpp.i:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/distribution.cpp.i
+.PHONY : src/distribution.cpp.i
+
+src/distribution.s: src/distribution.cpp.s
+
+.PHONY : src/distribution.s
+
+# target to generate assembly for a file
+src/distribution.cpp.s:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/distribution.cpp.s
+.PHONY : src/distribution.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -149,6 +176,60 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/motion.o: src/motion.cpp.o
+
+.PHONY : src/motion.o
+
+# target to build an object file
+src/motion.cpp.o:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/motion.cpp.o
+.PHONY : src/motion.cpp.o
+
+src/motion.i: src/motion.cpp.i
+
+.PHONY : src/motion.i
+
+# target to preprocess a source file
+src/motion.cpp.i:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/motion.cpp.i
+.PHONY : src/motion.cpp.i
+
+src/motion.s: src/motion.cpp.s
+
+.PHONY : src/motion.s
+
+# target to generate assembly for a file
+src/motion.cpp.s:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/motion.cpp.s
+.PHONY : src/motion.cpp.s
+
+src/particle.o: src/particle.cpp.o
+
+.PHONY : src/particle.o
+
+# target to build an object file
+src/particle.cpp.o:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/particle.cpp.o
+.PHONY : src/particle.cpp.o
+
+src/particle.i: src/particle.cpp.i
+
+.PHONY : src/particle.i
+
+# target to preprocess a source file
+src/particle.cpp.i:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/particle.cpp.i
+.PHONY : src/particle.cpp.i
+
+src/particle.s: src/particle.cpp.s
+
+.PHONY : src/particle.s
+
+# target to generate assembly for a file
+src/particle.cpp.s:
+	$(MAKE) -f CMakeFiles/project.dir/build.make CMakeFiles/project.dir/src/particle.cpp.s
+.PHONY : src/particle.cpp.s
 
 src/sensor.o: src/sensor.cpp.o
 
@@ -240,9 +321,18 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... project"
+	@echo "... src/distribution.o"
+	@echo "... src/distribution.i"
+	@echo "... src/distribution.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/motion.o"
+	@echo "... src/motion.i"
+	@echo "... src/motion.s"
+	@echo "... src/particle.o"
+	@echo "... src/particle.i"
+	@echo "... src/particle.s"
 	@echo "... src/sensor.o"
 	@echo "... src/sensor.i"
 	@echo "... src/sensor.s"

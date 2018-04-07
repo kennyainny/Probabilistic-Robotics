@@ -83,7 +83,6 @@ void plot_sensor(Vector3d p1, Vector3d p2, Vector3d p3){
 			p_temp(0) = sensor_data(i) * cos(RAD(i));
 			p_temp(1) = sensor_data(i) * sin(RAD(i));
 			p = R_sensor1*p_temp + p1;
-			// p = p_temp;
 		}else if(i < (SENSOR_VIEW+1)*2){
 			theta = i - (SENSOR_VIEW+1);
 			p_temp(0) = sensor_data(i) * cos(RAD(theta));
