@@ -36,7 +36,7 @@ void particle_initialize(particle_type *particle, Vector3d p1, Vector3d p2, Vect
 	new_hornetsoft_particle(particle, particle->particle_count); //C++ magic
 
 	count_p = 0; //begin assigning particles to each grid
-	for(int n = 0; n < 3; n++){
+	for(int n = 1; n <= 3; n++){
 		for(int i = 0; i <= MAX_RANGE; i = i + radius_interval){
 			for(int j = 0; j <= SENSOR_VIEW; j = j + angle_interval){
 				theta1 = p1(2) - RAD(SENSOR_VIEW/2) + RAD(j);
