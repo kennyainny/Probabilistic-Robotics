@@ -85,16 +85,16 @@ numpy/arrayobject.h
 /home/osboxes/Documents/Probabilistic-Robotics/Project/src/motion.cpp
 motion.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Project/src/motion.hpp
+
+/home/osboxes/Documents/Probabilistic-Robotics/Project/src/motion.hpp
+def_type.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Project/src/def_type.hpp
 iostream
 -
 random
 -
 math.h
 /home/osboxes/Documents/Probabilistic-Robotics/Project/src/math.h
-
-/home/osboxes/Documents/Probabilistic-Robotics/Project/src/motion.hpp
-def_type.hpp
-/home/osboxes/Documents/Probabilistic-Robotics/Project/src/def_type.hpp
 
 /home/osboxes/Documents/Probabilistic-Robotics/Project/src/particle.cpp
 particle.hpp
@@ -103,6 +103,10 @@ particle.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Project/src/particle.hpp
 def_type.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Project/src/def_type.hpp
+motion.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Project/src/motion.hpp
+sensor.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Project/src/sensor.hpp
 
 /home/osboxes/Documents/Probabilistic-Robotics/Project/src/sensor.cpp
 sensor.hpp
@@ -115,6 +119,8 @@ distribution.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Project/src/distribution.hpp
 random
 -
+math.h
+/home/osboxes/Documents/Probabilistic-Robotics/Project/src/math.h
 
 /home/osboxes/Documents/Probabilistic-Robotics/Project/src/trajectory.cpp
 trajectory.hpp

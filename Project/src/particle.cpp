@@ -22,7 +22,7 @@ void initialize_particle(particle_type *particle, Vector3d p1, Vector3d p2, Vect
 	// decrease these two variables to increase the number of particles
 	float radius_interval = 0.25; //place every n metres
 	int angle_interval = 10; //place every n deg
-	int theta_interval = 45; //heading interval
+	int theta_interval = 360; //heading interval
 
 	int theta_number = 360/theta_interval;
 	for(float i = 0; i <= MAX_RANGE; i = i + radius_interval){
@@ -47,15 +47,15 @@ void initialize_particle(particle_type *particle, Vector3d p1, Vector3d p2, Vect
 					particle->prob[count_p] = 1.0/particle->particle_count; //uniformly distributed
 					if(n == 1){ //first observer space
 						particle->state[count_p].x = p1(0) + i*cos(theta1); //place at x location
-						particle->state[count_p].y = p1(1) + j*sin(theta1); //place at y location
+						particle->state[count_p].y = p1(1) + i*sin(theta1); //place at y location
 						particle->state[count_p].theta = RAD(float(k)); //place at different angle
 					}else if(n == 2){ //second observer space
 						particle->state[count_p].x = p2(0) + i*cos(theta2); //place at x location
-						particle->state[count_p].y = p2(1) + j*sin(theta2); //place at y location
+						particle->state[count_p].y = p2(1) + i*sin(theta2); //place at y location
 						particle->state[count_p].theta = RAD(float(k)); //place at different angle
 					}else{ //third observer space
 						particle->state[count_p].x = p3(0) + i*cos(theta3); //place at x location
-						particle->state[count_p].y = p3(1) + j*sin(theta3); //place at y location
+						particle->state[count_p].y = p3(1) + i*sin(theta3); //place at y location
 						particle->state[count_p].theta = RAD(float(k)); //place at different angle
 					}				
 					count_p = count_p + 1;
@@ -65,91 +65,104 @@ void initialize_particle(particle_type *particle, Vector3d p1, Vector3d p2, Vect
 	}
 }
 
-// particle_type particle_motion_update(state_type p_odometry, state_type odometry, particle_type p_particle){
-	
-// 	particle_type particle;
-// 	long unsigned int n = p_particle.particle_count;
-// 	new_hornetsoft_particle(&particle, n);
-// 	particle.particle_count = n;
+particle_type particle_motion_update(particle_type p_particle, Vector3d p1, Vector3d p2, Vector3d p3){	
+	particle_type particle;
+	long unsigned int n = p_particle.particle_count;
+	new_hornetsoft_particle(&particle, n);
+	particle.particle_count = n;
 
-// 	for (unsigned int i = 0; i < p_particle.particle_count; i++){
-// 		particle.state[i] = sample_motion_model_odometry(p_odometry, odometry, p_particle.state[i]); //getting a new particle's location
-// 		particle.prob[i] = p_particle.prob[i]; // still having the same probability			
-// 	}
+	for (unsigned int i = 0; i < particle.particle_count; i++){
+		particle.state[i] = sample_motion_model(p_particle.state[i], p1, p2, p3); //getting a new particle's location
+		particle.prob[i] = p_particle.prob[i]; // still having the same probability			
+	}		
+	return particle;
+}
+
+particle_type particle_sensor_update(particle_type particle, Vector3d p1, Vector3d p2, Vector3d p3){
+	long unsigned int n = particle.particle_count;
+
+	float weight_sum = 0.0, weight_min = 1.0; //normalizer
+
+	for (unsigned int i = 0; i < n; i++){
+		particle.prob[i] = sensor_model(particle.state[i], p1, p2, p3); //update each particle's probability based on sensor reading
+		if(particle.prob[i] < weight_min) weight_min = particle.prob[i];
+	}
+
+	for (unsigned int i = 0; i < n; i++){
+		particle.prob[i] = particle.prob[i] - weight_min; //update each particle's probability based on sensor reading
+		weight_sum = weight_sum + particle.prob[i]; //accumulate
+	}
+
+	unsigned int k = 0;
+	for(float i = 0; i <= MAX_RANGE; i = i + 0.25){
+		for(int j = 0; j <= SENSOR_VIEW; j = j + 10){
+			cout << particle.prob[k] << ", ";
+			k++;
+		}
+		cout << "aaa" << endl;
+	}
+	cout << "bbb" << endl;
+
+	for (unsigned int i = 0; i < n; i++){
+		particle.prob[i] = particle.prob[i] / weight_sum; //normailizing
+		if(isnan(particle.prob[i])){
+			particle.prob[i] = 0.0;
+		}
+	}
+	return particle;
+}
+
+particle_type low_variance_sampler(particle_type particle){
+	particle_type temp_particle;
+	long unsigned int n = particle.particle_count;
+	new_hornetsoft_particle(&temp_particle, n);
+
+	uniform_real_distribution<float> distribution(0.0, 1.0); //uniform distribution
+	float sum_prob = 0.0; //normalizer
+
+	float weight_cdf[n]; //long array from zero to one
+	for (unsigned int i = 0; i < n; i++){
+		if(i == 0){
+			weight_cdf[i] = particle.prob[i];
+		}else{
+			weight_cdf[i] = weight_cdf[i-1] + particle.prob[i];
+		}
+	}
+
+	//For adaptive number of particles, n must be a result of some function.
+	//e.g. changing n based on variance
+	temp_particle.particle_count = n; 
+
+	for(long unsigned int i = 0; i < temp_particle.particle_count; i++){
+		float number = distribution(mt_p); //uniformly pick up a random number
+
+		long unsigned int j = 0;
+		if(number < weight_cdf[0]){ //If the number is smaller than the prob of the first element
+			j = 0; //then it becomes that particle
+		}else if(number > weight_cdf[n-1]){ //If the number is greater than the prob of the last element
+			j = n; //then it becomes that particle
+		}else{
+			while(number - weight_cdf[j] > 0.0){ //fall in between
+				j = j + 1;
+			}
+		}
+
+		temp_particle.state[i] = particle.state[j]; //temporary save the location of the new set of particles
+		temp_particle.prob[i] = particle.prob[j]; //temporary save the prob of the new set of particles
+
+		sum_prob = sum_prob + temp_particle.prob[i]; //accumulate
+	}
+
+	for(long unsigned int i = 0; i < temp_particle.particle_count; i++){
+		temp_particle.prob[i] = temp_particle.prob[i] / sum_prob; //normailizing
 		
-// 	return particle;
-// }
+		particle.state[i] = temp_particle.state[i]; //replacing the location
+		particle.prob[i] = temp_particle.prob[i]; //replacing the probability
+	}
 
-// particle_type particle_sensor_update(laser_type laser, particle_type particle){
-// 	long unsigned int n = particle.particle_count;
-
-// 	float weight_sum = 0.0; //normalizer
-
-// 	for (unsigned int i = 0; i < n; i++){
-// 		particle.prob[i] = sensor_model(laser, particle.state[i]); //update each particle's probability based on sensor reading
-// 		weight_sum = weight_sum + particle.prob[i]; //accumulate
-// 	}
-
-// 	for (unsigned int i = 0; i < n; i++){
-// 		particle.prob[i] = particle.prob[i] / weight_sum; //normailizing
-// 		if(isnan(particle.prob[i])){
-// 			particle.prob[i] = 0.0;
-// 		}
-// 	}
-// 	return particle;
-// }
-
-// particle_type low_variance_sampler(laser_type laser, particle_type particle){
-// 	particle_type temp_particle;
-// 	long unsigned int n = particle.particle_count;
-// 	new_hornetsoft_particle(&temp_particle, n);
-
-// 	uniform_real_distribution<float> distribution(0.0, 1.0); //uniform distribution
-// 	float sum_prob = 0.0; //normalizer
-
-// 	float weight_cdf[n]; //long array from zero to one
-// 	for (unsigned int i = 0; i < n; i++){
-// 		if(i == 0){
-// 			weight_cdf[i] = particle.prob[i];
-// 		}else{
-// 			weight_cdf[i] = weight_cdf[i-1] + particle.prob[i];
-// 		}
-// 	}
-
-// 	//For adaptive number of particles, n must be a result of some function.
-// 	//e.g. changing n based on variance
-// 	temp_particle.particle_count = n; 
-
-// 	for(long unsigned int i = 0; i < temp_particle.particle_count; i++){
-// 		float number = distribution(mt_p); //uniformly pick up a random number
-
-// 		long unsigned int j = 0;
-// 		if(number < weight_cdf[0]){ //If the number is smaller than the prob of the first element
-// 			j = 0; //then it becomes that particle
-// 		}else if(number > weight_cdf[n-1]){ //If the number is greater than the prob of the last element
-// 			j = n; //then it becomes that particle
-// 		}else{
-// 			while(number - weight_cdf[j] > 0.0){ //fall in between
-// 				j = j + 1;
-// 			}
-// 		}
-
-// 		temp_particle.state[i] = particle.state[j]; //temporary save the location of the new set of particles
-// 		temp_particle.prob[i] = particle.prob[j]; //temporary save the prob of the new set of particles
-
-// 		sum_prob = sum_prob + temp_particle.prob[i]; //accumulate
-// 	}
-
-// 	for(long unsigned int i = 0; i < temp_particle.particle_count; i++){
-// 		temp_particle.prob[i] = temp_particle.prob[i] / sum_prob; //normailizing
-		
-// 		particle.state[i] = temp_particle.state[i]; //replacing the location
-// 		particle.prob[i] = temp_particle.prob[i]; //replacing the probability
-// 	}
-
-// 	particle.particle_count = temp_particle.particle_count; ////replacing the number of particles
-// 	return particle;
-// }
+	particle.particle_count = temp_particle.particle_count; ////replacing the number of particles
+	return particle;
+}
 
 state_type expected_state(particle_type particle){
 	state_type state;

@@ -1,13 +1,15 @@
 #include "sensor.hpp"
 
 #define SENSOR_TTIME_STEP 0.01 // sec/step
-#define SENSOR_VARIANCE 0.003*MAX_RANGE // % of maximum reading
+#define SENSOR_VARIANCE 0.01*MAX_RANGE // % of maximum reading
 #define READING_VARIANCE 5.0
 
 #define SIGMA_INTRINSIC 1.0
+#define P_MAX_RANGE 0.01*MAX_RANGE
 #define Z_HIT 0.7
 #define Z_MAX 0.2
 #define Z_RAND 0.1
+// Z_HIT + Z_MAX + Z_RAND = 1
 
 using namespace std;
 using namespace Eigen;
@@ -101,6 +103,58 @@ void add_sensor_noise(){
 	}
 }
 
-void sensor_model(){
-
+void z_calc(float *z, state_type state, Vector3d p1, Vector3d p2, Vector3d p3){ //three observers
+	z[0] = sqrt(pow(state.x - p1(0), 2) + pow(state.y - p1(1), 2));
+	z[1] = sqrt(pow(state.x - p2(0), 2) + pow(state.y - p2(1), 2));
+	z[2] = sqrt(pow(state.x - p3(0), 2) + pow(state.y - p3(1), 2));
 }
+
+float sensor_model(state_type state, Vector3d p1, Vector3d p2, Vector3d p3){
+	float p = 0.0, p_hit, p_max, p_rand;
+	float *z; //three observers
+	z_calc(z, state, p1, p2, p3); //calculate z_star
+
+	for(int i = 0; i < (SENSOR_VIEW+1)*3; i++){		
+		p_rand = Z_RAND*Uniform_Dist(sensor_data(i), 0, MAX_RANGE);
+		p_max = Z_MAX*Narrow_Uniform_Dist(sensor_data(i), MAX_RANGE, P_MAX_RANGE);
+		if(i < (SENSOR_VIEW+1)){			
+			p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[0], SIGMA_INTRINSIC);
+		}else if(i < (SENSOR_VIEW+1)*2){
+			p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[1], SIGMA_INTRINSIC);
+		}else{
+			p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[2], SIGMA_INTRINSIC);
+		}
+		// cout << sensor_data(i) << ", " << p_rand << ", " << p_max << ", " << p_hit << ", " << i << endl;
+		if(p_rand != 0) p = p + log(p_rand);		
+		if(p_max != 0) p = p + log(p_max);
+		if(p_hit != 0) p = p + log(p_hit);		
+	}	
+	return p;
+}
+
+/* float sensor_model(laser_type laser, state_type state, map_type map){
+  float p = 0.0;
+  float angle, x_ray_casting, y_ray_casting;
+  state_type laser_state; //25 cm offset
+  laser_state.theta = state.theta;
+  laser_state.x = state.x + (25/map.resolution)*cos(laser_state.theta);
+  laser_state.y = state.y + (25/map.resolution)*sin(laser_state.theta);
+
+  if((int)laser_state.x < map.size_x && (int)laser_state.y < map.size_y && 
+     (int)laser_state.x > 0 && (int)laser_state.y > 0 &&
+      map.prob[(int)laser_state.x][(int)laser_state.y] >= 0 && map.prob[(int)laser_state.x][(int)laser_state.y] > SENSOR_THRESHOLD){
+
+    for (int i = 0; i < 180; i++){
+      angle = RAD((float)i) + laser_state.theta;
+      x_ray_casting = laser_state.x + (laser.r[i]/map.resolution) * cos(angle - M_PI / 2);
+      y_ray_casting = laser_state.y + (laser.r[i]/map.resolution) * sin(angle - M_PI / 2);
+
+      if((int)x_ray_casting < map.size_x && (int)y_ray_casting < map.size_y && 
+          (int)x_ray_casting > 0 && (int)y_ray_casting > 0 && 
+          map.prob[(int)x_ray_casting][(int)y_ray_casting] > 0 && map.prob[(int)x_ray_casting][(int)y_ray_casting] < SENSOR_THRESHOLD){
+          p = p + 1;
+      }        
+    }    
+  }
+  return p/180;
+} */

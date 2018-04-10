@@ -1481,9 +1481,12 @@ CMakeFiles/project.dir/src/motion.cpp.o: /usr/local/include/opencv2/xfeatures2d/
 CMakeFiles/project.dir/src/motion.cpp.o: /usr/local/include/opencv2/xfeatures2d/nonfree.hpp
 
 CMakeFiles/project.dir/src/particle.cpp.o: ../src/def_type.hpp
+CMakeFiles/project.dir/src/particle.cpp.o: ../src/distribution.hpp
 CMakeFiles/project.dir/src/particle.cpp.o: ../src/matplotlibcpp.h
+CMakeFiles/project.dir/src/particle.cpp.o: ../src/motion.hpp
 CMakeFiles/project.dir/src/particle.cpp.o: ../src/particle.cpp
 CMakeFiles/project.dir/src/particle.cpp.o: ../src/particle.hpp
+CMakeFiles/project.dir/src/particle.cpp.o: ../src/sensor.hpp
 CMakeFiles/project.dir/src/particle.cpp.o: /usr/include/python2.7/Python.h
 CMakeFiles/project.dir/src/particle.cpp.o: /usr/include/python2.7/abstract.h
 CMakeFiles/project.dir/src/particle.cpp.o: /usr/include/python2.7/boolobject.h

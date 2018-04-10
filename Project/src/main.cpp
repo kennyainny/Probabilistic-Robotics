@@ -15,20 +15,26 @@ int main(int argc, char *argv[])
 	particle_type particle[N_STEP];
 	initialize_particle(&particle[0], p1, p2, p3); //initialize particle
 
-	// state_type filtered_state[N_STEP];
-	// filtered_state[0] = expected_state(particle[0]); //initialize expected location
+	state_type filtered_state[N_STEP];
+	filtered_state[0] = expected_state(particle[0]); //initialize expected location
 
 	initialize_visualization(p1, p2, p3);
 
 	/**************************** Loop Part ****************************/	
-	for(long t = 0; t < N_STEP; t++){
+	for(long t = 1; t < N_STEP; t++){
 		p_gt = Simulate_Trajectory(p_gt_old);
 		Simulate_Sensor(p_gt, p1, p2, p3);
 		add_dependency();
-		add_sensor_noise();
-		p_gt_old = p_gt;
+		// add_sensor_noise();
 
-		visualization(p_gt, p1, p2, p3, particle[0]);
+		if(t < N_STEP-1){
+			particle[t] = particle_motion_update(particle[t-1], p1, p2, p3); //randomly move particles
+			particle[t] = particle_sensor_update(particle[t], p1, p2, p3); //update particles' probability
+			particle[t] = low_variance_sampler(particle[t]); //sampling new set of particles
+			filtered_state[t] = expected_state(particle[t]); //average location
+		}
+		p_gt_old = p_gt;
+		visualization(p_gt, p1, p2, p3, particle[t-1]);
 		// printf("Step: %lu\n", t);
 	}
 
