@@ -12,7 +12,7 @@ void new_hornetsoft_particle(particle_type *particle, long unsigned int size_p)
   particle->prob = (float *)calloc(size_p, sizeof(float));
 }
 
-void particle_initialize(particle_type *particle, Vector3d p1, Vector3d p2, Vector3d p3){
+void initialize_particle(particle_type *particle, Vector3d p1, Vector3d p2, Vector3d p3){
 	// place particles on unoccupied grids
 
 	Matrix3d R1;
@@ -20,12 +20,12 @@ void particle_initialize(particle_type *particle, Vector3d p1, Vector3d p2, Vect
 	long unsigned int count_p = 0;
 
 	// decrease these two variables to increase the number of particles
-	int radius_interval = 0.25; //place every n metres
+	float radius_interval = 0.25; //place every n metres
 	int angle_interval = 10; //place every n deg
 	int theta_interval = 45; //heading interval
 
 	int theta_number = 360/theta_interval;
-	for(int i = 0; i <= MAX_RANGE; i = i + radius_interval){
+	for(float i = 0; i <= MAX_RANGE; i = i + radius_interval){
 		for(int j = 0; j <= SENSOR_VIEW; j = j + angle_interval){
 			count_p = count_p + 1; //count the number of grids
 		}
@@ -36,8 +36,8 @@ void particle_initialize(particle_type *particle, Vector3d p1, Vector3d p2, Vect
 	new_hornetsoft_particle(particle, particle->particle_count); //C++ magic
 
 	count_p = 0; //begin assigning particles to each grid
-	for(int n = 0; n < 3; n++){
-		for(int i = 0; i <= MAX_RANGE; i = i + radius_interval){
+	for(int n = 1; n <= 3; n++){
+		for(float i = 0; i <= MAX_RANGE; i = i + radius_interval){
 			for(int j = 0; j <= SENSOR_VIEW; j = j + angle_interval){
 				theta1 = p1(2) - RAD(SENSOR_VIEW/2) + RAD(j);
 				theta2 = p2(2) - RAD(SENSOR_VIEW/2) + RAD(j);
@@ -47,15 +47,15 @@ void particle_initialize(particle_type *particle, Vector3d p1, Vector3d p2, Vect
 					particle->prob[count_p] = 1.0/particle->particle_count; //uniformly distributed
 					if(n == 1){ //first observer space
 						particle->state[count_p].x = p1(0) + i*cos(theta1); //place at x location
-						particle->state[count_p].y = p1(1) + j*cos(theta1); //place at y location
+						particle->state[count_p].y = p1(1) + j*sin(theta1); //place at y location
 						particle->state[count_p].theta = RAD(float(k)); //place at different angle
 					}else if(n == 2){ //second observer space
 						particle->state[count_p].x = p2(0) + i*cos(theta2); //place at x location
-						particle->state[count_p].y = p2(1) + j*cos(theta2); //place at y location
+						particle->state[count_p].y = p2(1) + j*sin(theta2); //place at y location
 						particle->state[count_p].theta = RAD(float(k)); //place at different angle
 					}else{ //third observer space
 						particle->state[count_p].x = p3(0) + i*cos(theta3); //place at x location
-						particle->state[count_p].y = p3(1) + j*cos(theta3); //place at y location
+						particle->state[count_p].y = p3(1) + j*sin(theta3); //place at y location
 						particle->state[count_p].theta = RAD(float(k)); //place at different angle
 					}				
 					count_p = count_p + 1;

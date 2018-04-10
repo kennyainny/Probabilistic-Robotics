@@ -8,15 +8,17 @@ int main(int argc, char *argv[])
 	/****************************** Initialization Part ******************************/
 	Vector3d p_gt, p_gt_old(RADIUS, 0, OMEGA); // Ground Truth and Initial/Previous Position
 	Vector3d p1(2.0, 0.0, RAD(180.0)), p2(-1.0, 1.7321, RAD(300.0)), p3(-1.0, -1.7321, RAD(60.0)); //x, y, psi
-	initialize_sensor(p1, p2, p3);
-	initialize_visualization(p1, p2, p3);
+
+	initialize_sensor(p1, p2, p3);	
 	extern VectorXd sensor_data;
 
 	particle_type particle[N_STEP];
-	particle_initialize(&particle[0], p1, p2, p3); //initialize particle
+	initialize_particle(&particle[0], p1, p2, p3); //initialize particle
 
-	state_type filtered_state[N_STEP];
-	filtered_state[0] = expected_state(particle[0]); //initialize expected location
+	// state_type filtered_state[N_STEP];
+	// filtered_state[0] = expected_state(particle[0]); //initialize expected location
+
+	initialize_visualization(p1, p2, p3);
 
 	/**************************** Loop Part ****************************/	
 	for(long t = 0; t < N_STEP; t++){
@@ -26,7 +28,7 @@ int main(int argc, char *argv[])
 		add_sensor_noise();
 		p_gt_old = p_gt;
 
-		visualization(p_gt, p1, p2, p3);
+		visualization(p_gt, p1, p2, p3, particle[0]);
 		// printf("Step: %lu\n", t);
 	}
 
