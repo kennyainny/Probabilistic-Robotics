@@ -1,14 +1,14 @@
 #include "sensor.hpp"
 
 #define SENSOR_TTIME_STEP 0.01 // sec/step
-#define SENSOR_VARIANCE 0.01*MAX_RANGE // % of maximum reading
+#define SENSOR_VARIANCE 0.0025*MAX_RANGE // % of maximum reading
 #define READING_VARIANCE 5.0
 
-#define SIGMA_INTRINSIC 1.0
+#define SIGMA_INTRINSIC 0.1
 #define P_MAX_RANGE 0.01*MAX_RANGE
-#define Z_HIT 0.7
-#define Z_MAX 0.2
-#define Z_RAND 0.1
+#define Z_HIT 1.0
+#define Z_MAX 0.0
+#define Z_RAND 0.0
 // Z_HIT + Z_MAX + Z_RAND = 1
 
 using namespace std;
@@ -111,24 +111,41 @@ void z_calc(float *z, state_type state, Vector3d p1, Vector3d p2, Vector3d p3){ 
 
 float sensor_model(state_type state, Vector3d p1, Vector3d p2, Vector3d p3){
 	float p = 0.0, p_hit, p_max, p_rand;
-	float *z; //three observers
+	float z[3]; //three observers
 	z_calc(z, state, p1, p2, p3); //calculate z_star
 
-	for(int i = 0; i < (SENSOR_VIEW+1)*3; i++){		
+	for(int i = 0; i < (SENSOR_VIEW+1)*3; i++){	//*3
 		p_rand = Z_RAND*Uniform_Dist(sensor_data(i), 0, MAX_RANGE);
 		p_max = Z_MAX*Narrow_Uniform_Dist(sensor_data(i), MAX_RANGE, P_MAX_RANGE);
-		if(i < (SENSOR_VIEW+1)){			
-			p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[0], SIGMA_INTRINSIC);
-		}else if(i < (SENSOR_VIEW+1)*2){
-			p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[1], SIGMA_INTRINSIC);
-		}else{
-			p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[2], SIGMA_INTRINSIC);
+		if(i < (SENSOR_VIEW+1)){
+			if(sensor_data(i) < 0.9*MAX_RANGE){			
+				p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[0], SIGMA_INTRINSIC);
+			}else{
+				p_hit = 0.0;
+			}
 		}
-		// cout << sensor_data(i) << ", " << p_rand << ", " << p_max << ", " << p_hit << ", " << i << endl;
-		if(p_rand != 0) p = p + log(p_rand);		
-		if(p_max != 0) p = p + log(p_max);
-		if(p_hit != 0) p = p + log(p_hit);		
-	}	
+		else if(i < (SENSOR_VIEW+1)*2){
+			if(sensor_data(i) < 0.9*MAX_RANGE){			
+				p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[1], SIGMA_INTRINSIC);
+			}else{
+				p_hit = 0.0;
+			}
+		}else{
+			if(sensor_data(i) < 0.9*MAX_RANGE){			
+				p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[2], SIGMA_INTRINSIC);
+			}else{
+				p_hit = 0.0;
+			}
+		}
+		// if(z[0] < 2.0 && sensor_data(i) < 0.9*MAX_RANGE)
+		// 	cout << sensor_data(i) << ", " << z[0] << ", " << p_max << ", " << p_hit << ", " << i << endl;
+		// if(p_rand != 0) p = p + log(p_rand);		
+		// if(p_max != 0) p = p + log(p_max);
+		// if(p_hit != 0) p = p + log(p_hit);	
+		p = p + p_rand + p_max + p_hit;
+	}
+	// if(z[0] < 2.0)
+	// 	cout << p << endl;
 	return p;
 }
 

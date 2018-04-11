@@ -22,7 +22,7 @@ void initialize_particle(particle_type *particle, Vector3d p1, Vector3d p2, Vect
 	// decrease these two variables to increase the number of particles
 	float radius_interval = 0.25; //place every n metres
 	int angle_interval = 10; //place every n deg
-	int theta_interval = 360; //heading interval
+	int theta_interval = 45; //heading interval
 
 	int theta_number = 360/theta_interval;
 	for(float i = 0; i <= MAX_RANGE; i = i + radius_interval){
@@ -85,23 +85,18 @@ particle_type particle_sensor_update(particle_type particle, Vector3d p1, Vector
 
 	for (unsigned int i = 0; i < n; i++){
 		particle.prob[i] = sensor_model(particle.state[i], p1, p2, p3); //update each particle's probability based on sensor reading
-		if(particle.prob[i] < weight_min) weight_min = particle.prob[i];
-	}
-
-	for (unsigned int i = 0; i < n; i++){
-		particle.prob[i] = particle.prob[i] - weight_min; //update each particle's probability based on sensor reading
 		weight_sum = weight_sum + particle.prob[i]; //accumulate
 	}
 
-	unsigned int k = 0;
-	for(float i = 0; i <= MAX_RANGE; i = i + 0.25){
-		for(int j = 0; j <= SENSOR_VIEW; j = j + 10){
-			cout << particle.prob[k] << ", ";
-			k++;
-		}
-		cout << "aaa" << endl;
-	}
-	cout << "bbb" << endl;
+	// unsigned int k = 0;
+	// for(float i = 0; i <= MAX_RANGE; i = i + 0.5){
+	// 	for(int j = 0; j <= SENSOR_VIEW; j = j + 45){
+	// 		cout << particle.prob[k] << ", ";
+	// 		k++;
+	// 	}
+	// 	cout << "aaa" << endl;
+	// }
+	// cout << "bbb" << endl;
 
 	for (unsigned int i = 0; i < n; i++){
 		particle.prob[i] = particle.prob[i] / weight_sum; //normailizing

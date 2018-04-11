@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 		p_gt = Simulate_Trajectory(p_gt_old);
 		Simulate_Sensor(p_gt, p1, p2, p3);
 		add_dependency();
-		// add_sensor_noise();
+		add_sensor_noise();
 
 		if(t < N_STEP-1){
 			particle[t] = particle_motion_update(particle[t-1], p1, p2, p3); //randomly move particles
@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
 		p_gt_old = p_gt;
 		visualization(p_gt, p1, p2, p3, particle[t-1]);
 		// printf("Step: %lu\n", t);
+		// while(1);
 	}
 
 	// matplotlibcpp::plot({1,2,3});
