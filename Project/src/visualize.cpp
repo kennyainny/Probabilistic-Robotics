@@ -113,7 +113,7 @@ void visualization(Vector3d p_gt, Vector3d p1, Vector3d p2, Vector3d p3, particl
 	plot_sensor(p1, p2, p3);
 	plot_particle(particle);
 
-	plot(x_0, y_0, "r.", x_1, y_1, "b-", x_2, y_2, "b-", x_3, y_3, "b-", x_, y_, "b.", x_sensor, y_sensor, "b.", x_particle, y_particle, "g.");
+	plot(x_1, y_1, "b-", x_2, y_2, "b-", x_3, y_3, "b-", x_, y_, "b.", x_sensor, y_sensor, "b.", x_particle, y_particle, "g.", x_0, y_0, "r.");
 	axis("equal");
 	xlim(-3, 3);
 	ylim(-3, 3);

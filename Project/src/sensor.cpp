@@ -6,10 +6,11 @@
 
 #define SIGMA_INTRINSIC 0.1
 #define P_MAX_RANGE 0.01*MAX_RANGE
-#define Z_HIT 1.0
+#define Z_HIT 0.5
+#define Z_THETA 1.5
 #define Z_MAX 0.0
 #define Z_RAND 0.0
-// Z_HIT + Z_MAX + Z_RAND = 1
+// Z_HIT + Z_THETA + Z_MAX + Z_RAND = 1
 
 using namespace std;
 using namespace Eigen;
@@ -109,19 +110,56 @@ void z_calc(float *z, state_type state, Vector3d p1, Vector3d p2, Vector3d p3){ 
 	z[2] = sqrt(pow(state.x - p3(0), 2) + pow(state.y - p3(1), 2));
 }
 
+void theta_calc(float *theta, state_type state, Vector3d p1, Vector3d p2, Vector3d p3){ //three observers
+	theta[0] = atan2(state.y - p1(1), state.x - p1(0));
+	if(round(theta[0]) == RAD(0)){
+		theta[0] == RAD(0);
+	}else{
+		if(theta[0] < RAD(0)) theta[0] += RAD(360);
+		theta[0] = theta[0] - p1(2) + RAD(SENSOR_VIEW/2);
+	}
+
+	theta[1] = atan2(state.y - p2(1), state.x - p2(0));
+	if(round(theta[1]) == RAD(0)){
+		theta[1] == RAD(0);
+	}else{
+		if(theta[1] < RAD(0)) theta[1] += RAD(360);
+		theta[1] = theta[1] - p2(2) + RAD(SENSOR_VIEW/2);
+	}
+
+	theta[2] = atan2(state.y - p3(1), state.x - p3(0));
+	if(round(theta[2]) == RAD(0)){
+		theta[2] == RAD(0);
+	}else{
+		if(theta[2] < RAD(0)) theta[2] += RAD(360);
+		theta[2] = theta[2] - p3(2) + RAD(SENSOR_VIEW/2);
+	}
+}
+
 float sensor_model(state_type state, Vector3d p1, Vector3d p2, Vector3d p3){
-	float p = 0.0, p_hit, p_max, p_rand;
-	float z[3]; //three observers
+	int ind;
+	float p = 0.0, p_hit = 0.0, p_max = 0.0, p_rand = 0.0, p_theta = 0.0;
+	float z[3], theta[3], err; //three observers
 	z_calc(z, state, p1, p2, p3); //calculate z_star
+	theta_calc(theta, state, p1, p2, p3);
 
 	for(int i = 0; i < (SENSOR_VIEW+1)*3; i++){	//*3
 		p_rand = Z_RAND*Uniform_Dist(sensor_data(i), 0, MAX_RANGE);
 		p_max = Z_MAX*Narrow_Uniform_Dist(sensor_data(i), MAX_RANGE, P_MAX_RANGE);
+
 		if(i < (SENSOR_VIEW+1)){
 			if(sensor_data(i) < 0.9*MAX_RANGE){			
 				p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[0], SIGMA_INTRINSIC);
 			}else{
 				p_hit = 0.0;
+			}
+
+			if(theta[0] >= RAD(0) && theta[0] <= RAD(SENSOR_VIEW)){
+				ind = (int)DEG(theta[0]);
+				err = (sensor_data(ind) - z[0])*(sensor_data(ind) - z[0]);
+				p_theta = Z_THETA*Normal_Dist(err, 0, 1);
+			}else{
+				p_theta = 0.0;
 			}
 		}
 		else if(i < (SENSOR_VIEW+1)*2){
@@ -130,19 +168,36 @@ float sensor_model(state_type state, Vector3d p1, Vector3d p2, Vector3d p3){
 			}else{
 				p_hit = 0.0;
 			}
+
+			// if(theta[1] >= RAD(0) && theta[1] <= RAD(SENSOR_VIEW)){
+			// 	ind = (int)DEG(theta[1]);
+			// 	err = (sensor_data(ind) - z[1])*(sensor_data(ind) - z[1]);
+			// 	p_theta = Normal_Dist(err, 0, 1);
+			// }else{
+			// 	p_theta = 0.0;
+			// }
 		}else{
 			if(sensor_data(i) < 0.9*MAX_RANGE){			
 				p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[2], SIGMA_INTRINSIC);
 			}else{
 				p_hit = 0.0;
 			}
+
+			// if(theta[2] >= RAD(0) && theta[2] <= RAD(SENSOR_VIEW)){
+			// 	ind = (int)DEG(theta[2]);
+			// 	err = (sensor_data(ind) - z[2])*(sensor_data(ind) - z[2]);
+			// 	p_theta = Normal_Dist(err, 0, 1);
+			// }else{
+			// 	p_theta = 0.0;
+			// }
 		}
+
 		// if(z[0] < 2.0 && sensor_data(i) < 0.9*MAX_RANGE)
-		// 	cout << sensor_data(i) << ", " << z[0] << ", " << p_max << ", " << p_hit << ", " << i << endl;
+		// 	cout << sensor_data(i) << ", " << z[0] << ", " << sensor_data(ind) << ", " << ind << ", "<< err << ", " << p_theta << ", " << p_hit << ", " << i << endl;
 		// if(p_rand != 0) p = p + log(p_rand);		
 		// if(p_max != 0) p = p + log(p_max);
 		// if(p_hit != 0) p = p + log(p_hit);	
-		p = p + p_rand + p_max + p_hit;
+		p = p + p_rand + p_max + p_hit + p_theta;
 	}
 	// if(z[0] < 2.0)
 	// 	cout << p << endl;

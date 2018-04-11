@@ -13,6 +13,7 @@ void Simulate_Sensor(Vector3d p_gt, Vector3d p1, Vector3d p2, Vector3d p3);
 void add_dependency();
 void add_sensor_noise();
 void z_calc(float *z, state_type state, Vector3d p1, Vector3d p2, Vector3d p3);
+void theta_calc(float *theta, state_type state, Vector3d p1, Vector3d p2, Vector3d p3);
 float sensor_model(state_type state, Vector3d p1, Vector3d p2, Vector3d p3);
 
 #endif /* SENSOR_HPP */

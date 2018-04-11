@@ -1,7 +1,7 @@
 #include "motion.hpp"
 
-#define SIGMA_R 0.025
-#define SIGMA_THETA RAD(90)
+#define SIGMA_R 0.03
+#define SIGMA_THETA RAD(45)
 
 using namespace std;
 random_device rd_m;

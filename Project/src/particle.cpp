@@ -22,7 +22,7 @@ void initialize_particle(particle_type *particle, Vector3d p1, Vector3d p2, Vect
 	// decrease these two variables to increase the number of particles
 	float radius_interval = 0.25; //place every n metres
 	int angle_interval = 10; //place every n deg
-	int theta_interval = 45; //heading interval
+	int theta_interval = 360; //heading interval
 
 	int theta_number = 360/theta_interval;
 	for(float i = 0; i <= MAX_RANGE; i = i + radius_interval){
@@ -49,7 +49,8 @@ void initialize_particle(particle_type *particle, Vector3d p1, Vector3d p2, Vect
 						particle->state[count_p].x = p1(0) + i*cos(theta1); //place at x location
 						particle->state[count_p].y = p1(1) + i*sin(theta1); //place at y location
 						particle->state[count_p].theta = RAD(float(k)); //place at different angle
-					}else if(n == 2){ //second observer space
+					}
+					else if(n == 2){ //second observer space
 						particle->state[count_p].x = p2(0) + i*cos(theta2); //place at x location
 						particle->state[count_p].y = p2(1) + i*sin(theta2); //place at y location
 						particle->state[count_p].theta = RAD(float(k)); //place at different angle
