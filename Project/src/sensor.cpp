@@ -142,7 +142,7 @@ float sensor_model(state_type state, Vector3d p1, Vector3d p2, Vector3d p3){
 	z_calc(z, state, p1, p2, p3); //calculate z_star
 	theta_calc(theta, state, p1, p2, p3);
 
-	for(int i = 0; i < (SENSOR_VIEW+1)*2; i++){	//*3
+	for(int i = 0; i < (SENSOR_VIEW+1)*3; i++){	//*3
 		p_rand = Uniform_Dist(sensor_data(i), 0, MAX_RANGE);
 		p_max = Narrow_Uniform_Dist(sensor_data(i), MAX_RANGE, P_MAX_RANGE);
 
