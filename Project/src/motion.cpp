@@ -18,7 +18,7 @@ float sigma_R_calc(state_type state, Vector3d p1, Vector3d p2, Vector3d p3){
 	}
 
 	if(z_min > 0.9*MAX_RANGE){
-		sigma_R = 0.06;
+		sigma_R = 0.08;
 	}
 
 	return sigma_R;

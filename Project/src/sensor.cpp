@@ -4,7 +4,7 @@
 #define SENSOR_VARIANCE 0.0025*MAX_RANGE // % of maximum reading
 #define READING_VARIANCE 5.0
 
-#define SIGMA_INTRINSIC 0.01
+#define SIGMA_INTRINSIC 0.1
 #define P_MAX_RANGE 0.01*MAX_RANGE
 #define Z_HIT 0.5
 #define Z_THETA 0.5
