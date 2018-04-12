@@ -2,6 +2,7 @@
 #define MOTION_H
 
 #include "def_type.hpp"
+#include "sensor.hpp"
 #include <iostream>
 #include <random>
 #include "math.h"

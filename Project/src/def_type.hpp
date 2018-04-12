@@ -14,9 +14,9 @@
 #include <random>
 #include "matplotlibcpp.h"
 
-#define N_STEP 1000
+#define N_STEP 2000
 #define RADIUS 1.0 // metre
-#define SPEED  0.1 // metre/sec
+#define SPEED  0.3 // metre/sec
 #define OMEGA  SPEED/RADIUS // rad/sec
 
 #define MAX_RANGE 1.75 //metre

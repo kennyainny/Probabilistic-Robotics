@@ -20,9 +20,9 @@ void initialize_particle(particle_type *particle, Vector3d p1, Vector3d p2, Vect
 	long unsigned int count_p = 0;
 
 	// decrease these two variables to increase the number of particles
-	float radius_interval = 0.25; //place every n metres
-	int angle_interval = 10; //place every n deg
-	int theta_interval = 360; //heading interval
+	float radius_interval = 0.25; //place every n metres 0.25
+	int angle_interval = 10; //place every n deg 10
+	int theta_interval = 90; //heading interval 90
 
 	int theta_number = 360/theta_interval;
 	for(float i = 0; i <= MAX_RANGE; i = i + radius_interval){
@@ -34,6 +34,8 @@ void initialize_particle(particle_type *particle, Vector3d p1, Vector3d p2, Vect
 
 	particle->particle_count = count_p*theta_number; //the number of particles
 	new_hornetsoft_particle(particle, particle->particle_count); //C++ magic
+
+	cout << particle->particle_count << endl;
 
 	count_p = 0; //begin assigning particles to each grid
 	for(int n = 1; n <= 3; n++){
@@ -54,7 +56,8 @@ void initialize_particle(particle_type *particle, Vector3d p1, Vector3d p2, Vect
 						particle->state[count_p].x = p2(0) + i*cos(theta2); //place at x location
 						particle->state[count_p].y = p2(1) + i*sin(theta2); //place at y location
 						particle->state[count_p].theta = RAD(float(k)); //place at different angle
-					}else{ //third observer space
+					}
+					else{ //third observer space
 						particle->state[count_p].x = p3(0) + i*cos(theta3); //place at x location
 						particle->state[count_p].y = p3(1) + i*sin(theta3); //place at y location
 						particle->state[count_p].theta = RAD(float(k)); //place at different angle
@@ -74,7 +77,7 @@ particle_type particle_motion_update(particle_type p_particle, Vector3d p1, Vect
 
 	for (unsigned int i = 0; i < particle.particle_count; i++){
 		particle.state[i] = sample_motion_model(p_particle.state[i], p1, p2, p3); //getting a new particle's location
-		particle.prob[i] = p_particle.prob[i]; // still having the same probability			
+		particle.prob[i] = p_particle.prob[i]; // still having the same probability	
 	}		
 	return particle;
 }
@@ -89,9 +92,9 @@ particle_type particle_sensor_update(particle_type particle, Vector3d p1, Vector
 		weight_sum = weight_sum + particle.prob[i]; //accumulate
 	}
 
-	// unsigned int k = 0;
+	// unsigned int k = 20;
 	// for(float i = 0; i <= MAX_RANGE; i = i + 0.5){
-	// 	for(int j = 0; j <= SENSOR_VIEW; j = j + 45){
+	// 	for(int j = 0; j <= SENSOR_VIEW; j = j + 22){
 	// 		cout << particle.prob[k] << ", ";
 	// 		k++;
 	// 	}

@@ -990,9 +990,11 @@ CMakeFiles/project.dir/src/main.cpp.o: /usr/local/include/opencv2/xfeatures2d/cu
 CMakeFiles/project.dir/src/main.cpp.o: /usr/local/include/opencv2/xfeatures2d/nonfree.hpp
 
 CMakeFiles/project.dir/src/motion.cpp.o: ../src/def_type.hpp
+CMakeFiles/project.dir/src/motion.cpp.o: ../src/distribution.hpp
 CMakeFiles/project.dir/src/motion.cpp.o: ../src/matplotlibcpp.h
 CMakeFiles/project.dir/src/motion.cpp.o: ../src/motion.cpp
 CMakeFiles/project.dir/src/motion.cpp.o: ../src/motion.hpp
+CMakeFiles/project.dir/src/motion.cpp.o: ../src/sensor.hpp
 CMakeFiles/project.dir/src/motion.cpp.o: /usr/include/python2.7/Python.h
 CMakeFiles/project.dir/src/motion.cpp.o: /usr/include/python2.7/abstract.h
 CMakeFiles/project.dir/src/motion.cpp.o: /usr/include/python2.7/boolobject.h

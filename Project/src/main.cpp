@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 			filtered_state[t] = expected_state(particle[t]); //average location
 		}
 		p_gt_old = p_gt;
-		visualization(p_gt, p1, p2, p3, particle[t-1]);
+		visualization(p_gt, p1, p2, p3, particle[t-1], filtered_state[t-1]);
 		// printf("Step: %lu\n", t);
 		// while(1);
 	}

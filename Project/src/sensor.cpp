@@ -4,13 +4,12 @@
 #define SENSOR_VARIANCE 0.0025*MAX_RANGE // % of maximum reading
 #define READING_VARIANCE 5.0
 
-#define SIGMA_INTRINSIC 0.1
+#define SIGMA_INTRINSIC 0.01
 #define P_MAX_RANGE 0.01*MAX_RANGE
 #define Z_HIT 0.5
-#define Z_THETA 1.5
+#define Z_THETA 0.5
 #define Z_MAX 0.0
 #define Z_RAND 0.0
-// Z_HIT + Z_THETA + Z_MAX + Z_RAND = 1
 
 using namespace std;
 using namespace Eigen;
@@ -139,67 +138,69 @@ void theta_calc(float *theta, state_type state, Vector3d p1, Vector3d p2, Vector
 float sensor_model(state_type state, Vector3d p1, Vector3d p2, Vector3d p3){
 	int ind;
 	float p = 0.0, p_hit = 0.0, p_max = 0.0, p_rand = 0.0, p_theta = 0.0;
-	float z[3], theta[3], err; //three observers
+	float z[3], theta[3], err, alpha; //three observers
 	z_calc(z, state, p1, p2, p3); //calculate z_star
 	theta_calc(theta, state, p1, p2, p3);
 
-	for(int i = 0; i < (SENSOR_VIEW+1)*3; i++){	//*3
-		p_rand = Z_RAND*Uniform_Dist(sensor_data(i), 0, MAX_RANGE);
-		p_max = Z_MAX*Narrow_Uniform_Dist(sensor_data(i), MAX_RANGE, P_MAX_RANGE);
+	for(int i = 0; i < (SENSOR_VIEW+1)*2; i++){	//*3
+		p_rand = Uniform_Dist(sensor_data(i), 0, MAX_RANGE);
+		p_max = Narrow_Uniform_Dist(sensor_data(i), MAX_RANGE, P_MAX_RANGE);
 
 		if(i < (SENSOR_VIEW+1)){
-			if(sensor_data(i) < 0.9*MAX_RANGE){			
-				p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[0], SIGMA_INTRINSIC);
+			if(sensor_data(i) < 0.8*MAX_RANGE && z[0] < MAX_RANGE){			
+				p_hit = Normal_Dist(sensor_data(i), z[0], SIGMA_INTRINSIC);
+				// p_hit = 0.0;
 			}else{
 				p_hit = 0.0;
 			}
 
-			if(theta[0] >= RAD(0) && theta[0] <= RAD(SENSOR_VIEW)){
+			if(theta[0] >= RAD(0) && theta[0] <= RAD(SENSOR_VIEW) && z[0] < MAX_RANGE){
 				ind = (int)DEG(theta[0]);
-				err = (sensor_data(ind) - z[0])*(sensor_data(ind) - z[0]);
-				p_theta = Z_THETA*Normal_Dist(err, 0, 1);
+				err = (sensor_data(ind) - z[0])*(sensor_data(ind) - z[0]);				
+				p_theta = Normal_Dist(err, 0, 0.3);
+				// p_theta = 0.0;
 			}else{
 				p_theta = 0.0;
 			}
 		}
 		else if(i < (SENSOR_VIEW+1)*2){
-			if(sensor_data(i) < 0.9*MAX_RANGE){			
-				p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[1], SIGMA_INTRINSIC);
+			if(sensor_data(i) < 0.8*MAX_RANGE && z[1] < MAX_RANGE){			
+				p_hit = Normal_Dist(sensor_data(i), z[1], SIGMA_INTRINSIC);
 			}else{
 				p_hit = 0.0;
 			}
 
-			// if(theta[1] >= RAD(0) && theta[1] <= RAD(SENSOR_VIEW)){
-			// 	ind = (int)DEG(theta[1]);
-			// 	err = (sensor_data(ind) - z[1])*(sensor_data(ind) - z[1]);
-			// 	p_theta = Normal_Dist(err, 0, 1);
-			// }else{
-			// 	p_theta = 0.0;
-			// }
+			if(theta[1] >= RAD(0) && theta[1] <= RAD(SENSOR_VIEW) && z[1] < MAX_RANGE){
+				ind = (int)DEG(theta[1]) + (SENSOR_VIEW+1);
+				err = (sensor_data(ind) - z[1])*(sensor_data(ind) - z[1]);				
+				p_theta = Normal_Dist(err, 0, 0.3);
+			}else{
+				p_theta = 0.0;
+			}
 		}else{
-			if(sensor_data(i) < 0.9*MAX_RANGE){			
-				p_hit = Z_HIT*Normal_Dist(sensor_data(i), z[2], SIGMA_INTRINSIC);
+			if(sensor_data(i) < 0.8*MAX_RANGE && z[2] < MAX_RANGE){			
+				p_hit = Normal_Dist(sensor_data(i), z[2], SIGMA_INTRINSIC);
 			}else{
 				p_hit = 0.0;
 			}
 
-			// if(theta[2] >= RAD(0) && theta[2] <= RAD(SENSOR_VIEW)){
-			// 	ind = (int)DEG(theta[2]);
-			// 	err = (sensor_data(ind) - z[2])*(sensor_data(ind) - z[2]);
-			// 	p_theta = Normal_Dist(err, 0, 1);
-			// }else{
-			// 	p_theta = 0.0;
-			// }
+			if(theta[2] >= RAD(0) && theta[2] <= RAD(SENSOR_VIEW) && z[2] < MAX_RANGE){
+				ind = (int)DEG(theta[2]) + (SENSOR_VIEW+1)*2;
+				err = (sensor_data(ind) - z[2])*(sensor_data(ind) - z[2]);
+				p_theta = Normal_Dist(err, 0, 0.3);
+			}else{
+				p_theta = 0.0;
+			}
 		}
 
-		// if(z[0] < 2.0 && sensor_data(i) < 0.9*MAX_RANGE)
-		// 	cout << sensor_data(i) << ", " << z[0] << ", " << sensor_data(ind) << ", " << ind << ", "<< err << ", " << p_theta << ", " << p_hit << ", " << i << endl;
+		// if(z[1] < 2.0 && sensor_data(i) < 0.9*MAX_RANGE)
+		// 	cout << sensor_data(i) << ", " << z[1] << ", " << sensor_data(ind) << ", " << ind << ", " << err << ", " << p_theta << ", " << p_hit << ", " << i << endl;
 		// if(p_rand != 0) p = p + log(p_rand);		
 		// if(p_max != 0) p = p + log(p_max);
 		// if(p_hit != 0) p = p + log(p_hit);	
-		p = p + p_rand + p_max + p_hit + p_theta;
+		p = p + Z_RAND*p_rand + Z_MAX*p_max + Z_HIT*p_hit + Z_THETA*p_theta;
 	}
-	// if(z[0] < 2.0)
+	// if(z[1] < 2.0)
 	// 	cout << p << endl;
 	return p;
 }

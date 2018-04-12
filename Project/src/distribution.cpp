@@ -20,3 +20,7 @@ float Narrow_Uniform_Dist(float x, float x_max, float range){
 	}
 	return p;
 }
+
+float Map_Calc(float x, float in_min, float in_max, float out_min, float out_max){
+	return (x - in_min)*(out_max - out_min)/(in_max - in_min) + out_min;
+}

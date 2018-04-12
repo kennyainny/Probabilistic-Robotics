@@ -89,6 +89,8 @@ motion.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Project/src/motion.hpp
 def_type.hpp
 /home/osboxes/Documents/Probabilistic-Robotics/Project/src/def_type.hpp
+sensor.hpp
+/home/osboxes/Documents/Probabilistic-Robotics/Project/src/sensor.hpp
 iostream
 -
 random

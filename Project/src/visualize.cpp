@@ -4,7 +4,7 @@ using namespace Eigen;
 using namespace std;
 using namespace matplotlibcpp;
 
-vector<double> x_particle, y_particle, theta_particle;
+vector<double> x_particle, y_particle, theta_particle, x_state(1), y_state(1), theta_state(1);
 vector<double> x_0(2), y_0(2), x_(3), y_(3), x_sensor((SENSOR_VIEW+1)*3), y_sensor((SENSOR_VIEW+1)*3);
 vector<double> x_1(SENSOR_VIEW+1+2), y_1(SENSOR_VIEW+1+2), x_2(SENSOR_VIEW+1+2), y_2(SENSOR_VIEW+1+2), x_3(SENSOR_VIEW+1+2), y_3(SENSOR_VIEW+1+2);
 Vector3d p_sensor(MAX_RANGE, 0, OMEGA);
@@ -108,12 +108,15 @@ void plot_particle(particle_type particle){
 	}
 }
 
-void visualization(Vector3d p_gt, Vector3d p1, Vector3d p2, Vector3d p3, particle_type particle){
+void visualization(Vector3d p_gt, Vector3d p1, Vector3d p2, Vector3d p3, particle_type particle, state_type state){
 	plot_ground_truth(p_gt);
 	plot_sensor(p1, p2, p3);
 	plot_particle(particle);
 
-	plot(x_1, y_1, "b-", x_2, y_2, "b-", x_3, y_3, "b-", x_, y_, "b.", x_sensor, y_sensor, "b.", x_particle, y_particle, "g.", x_0, y_0, "r.");
+	x_state.at(0) = (double)state.x;
+	y_state.at(0) = (double)state.y;
+
+	plot(x_1, y_1, "b-", x_2, y_2, "b-", x_3, y_3, "b-", x_, y_, "b.", x_particle, y_particle, "y.", x_sensor, y_sensor, "b.", x_0, y_0, "r.", x_state, y_state, "k.");
 	axis("equal");
 	xlim(-3, 3);
 	ylim(-3, 3);
