@@ -14,3 +14,9 @@ http://emanual.robotis.com/docs/en/platform/turtlebot3/pc_setup/
 Execute program
 ../bin/project -j4 
 
+
+git init
+git remote add origin -f https://github.com/numkang/Probabilistic-Robotics
+git config core.sparsecheckout true
+echo "Project/ROS/" >> .git/info/sparse-checkout
+git pull --depth=2 origin master
