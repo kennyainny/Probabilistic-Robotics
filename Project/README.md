@@ -16,7 +16,11 @@ Execute program
 
 
 git init
+
 git remote add origin -f https://github.com/numkang/Probabilistic-Robotics
+
 git config core.sparsecheckout true
+
 echo "Project/ROS/" >> .git/info/sparse-checkout
+
 git pull --depth=2 origin master
