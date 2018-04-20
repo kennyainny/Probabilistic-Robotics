@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(STR_Project C CXX)
+project(particle_filter C CXX)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 ## Compile as C++11, supported in ROS Kinetic and newer
@@ -41,8 +41,8 @@ set(SOURCE_FILES
 	${PROJECT_SOURCE_DIR}/src/particle.hpp
 	${PROJECT_SOURCE_DIR}/src/matplotlibcpp.h)
 
-add_executable(str_project ${SOURCE_FILES})
-target_link_libraries(str_project ${OpenCV_LIBS} ${PYTHON_LIBRARIES} ${catkin_LIBRARIES})
+add_executable(particle_filter ${SOURCE_FILES})
+target_link_libraries(particle_filter ${OpenCV_LIBS} ${PYTHON_LIBRARIES} ${catkin_LIBRARIES})
 
 
 ## System dependencies are found with CMake's conventions
