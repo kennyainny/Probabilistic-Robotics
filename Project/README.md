@@ -14,6 +14,7 @@ http://emanual.robotis.com/docs/en/platform/turtlebot3/pc_setup/
 Execute program
 ../bin/project -j4 
 
+cd ~/catkin_ws/src/<project_folder_name>/
 
 git init
 
@@ -24,3 +25,5 @@ git config core.sparsecheckout true
 echo "Project/ROS/" >> .git/info/sparse-checkout
 
 git pull --depth=2 origin master
+
+put your code your in ~/catkin_ws/src/<project_folder_name>/Project/ROS/
