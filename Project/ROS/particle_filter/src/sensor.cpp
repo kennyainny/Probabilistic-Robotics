@@ -14,13 +14,27 @@
 using namespace std;
 using namespace Eigen;
 
-VectorXd sensor_data((SENSOR_VIEW+1)*3);
+ros::Subscriber sub;
+
+VectorXd sensor_data((SENSOR_VIEW+1)*3), sensor_data_gazebo((SENSOR_VIEW+1)*3);
 Matrix3d R1, R2, R3;
 int theta1, theta2, theta3;
 double r1, r2, r3;
 
 random_device rd_n;
 mt19937 mt_n(rd_n());
+
+void arrayCallback(const std_msgs::Float64MultiArray::ConstPtr& array){
+	for(int i = 0; i < (SENSOR_VIEW+1)*3; i++){
+		// sensor_data_gazebo[i] = array->data[i];
+		sensor_data[i] = array->data[i];
+	}
+}
+
+void initialize_sensor_ros(){
+	ros::NodeHandle n;
+	sub = n.subscribe("chatter", 100, arrayCallback);
+}
 
 void initialize_sensor(Vector3d p1, Vector3d p2, Vector3d p3){
 	R1 = AngleAxisd(-(p1(2) - RAD(45)), Vector3d::UnitZ());

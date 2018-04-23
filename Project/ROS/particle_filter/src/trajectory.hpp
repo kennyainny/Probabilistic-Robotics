@@ -9,10 +9,11 @@
 
 using namespace Eigen;
 
-Vector3d Simulate_Trajectory(Vector3d v0);
-int odom_main(int argcc, char **argvv);
+void moveRobot();
+void stopRobot();
 void odomCallback(const nav_msgs::Odometry::ConstPtr& odom);
-int move_robot(int arccc,char **argvvv);
+void initialize_odom_ros();
+Vector3d Simulate_Trajectory(Vector3d v0);
 
 
 #endif /* TRAJECTORY_HPP */

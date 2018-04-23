@@ -8,6 +8,8 @@
 
 using namespace Eigen;
 
+void arrayCallback(const std_msgs::Float64MultiArray::ConstPtr& array);
+void initialize_sensor_ros();
 void initialize_sensor(Vector3d p1, Vector3d p2, Vector3d p3);
 void Simulate_Sensor(Vector3d p_gt, Vector3d p1, Vector3d p2, Vector3d p3);
 void add_dependency();

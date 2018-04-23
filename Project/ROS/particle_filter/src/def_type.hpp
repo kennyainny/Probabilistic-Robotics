@@ -13,6 +13,14 @@
 #include <math.h>
 #include <random>
 #include "matplotlibcpp.h"
+#include <vector>
+#include <iostream>
+#include "ros/ros.h"
+#include "std_msgs/MultiArrayLayout.h"
+#include "std_msgs/MultiArrayDimension.h"
+#include "std_msgs/Float64MultiArray.h"
+#include "geometry_msgs/Pose2D.h"
+#include "geometry_msgs/Twist.h"
 
 #define N_STEP 2000
 #define RADIUS 1.0 // metre
