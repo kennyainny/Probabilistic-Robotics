@@ -33,19 +33,11 @@ int main(int argc, char **argv)
 	/**************************** Loop Part ****************************/	
 	// for(long t = 1; t < N_STEP; t++){
 	while(ros::ok()){
-	 	moveRobot(); //publish robot's vel
+	 	// moveRobot(); //publish robot's vel
 		// p_gt = Simulate_Trajectory(p_gt_old);
 		// Simulate_Sensor(p_gt, p1, p2, p3);
 		// add_dependency();
 		// add_sensor_noise();
-
-		// if(t < N_STEP-1){
-			// particle[t] = particle_motion_update(particle[t-1], p1, p2, p3); //randomly move particles
-			// particle[t] = particle_sensor_update(particle[t], p1, p2, p3); //update particles' probability
-			// particle[t] = low_variance_sampler(particle[t]); //sampling new set of particles
-			// filtered_state[t] = expected_state(particle[t]); //average location
-		// }
-		// p_gt_old = p_gt;
 
 		particle[1] = particle_motion_update(particle[0], p1, p2, p3); //randomly move particles
 		particle[1] = particle_sensor_update(particle[1], p1, p2, p3); //update particles' probability
@@ -55,6 +47,16 @@ int main(int argc, char **argv)
 
 		particle[0] = particle[1];
 		filtered_state[0] = filtered_state[1];
+
+		// if(t < N_STEP-1){
+			// particle[t] = particle_motion_update(particle[t-1], p1, p2, p3); //randomly move particles
+			// particle[t] = particle_sensor_update(particle[t], p1, p2, p3); //update particles' probability
+			// particle[t] = low_variance_sampler(particle[t]); //sampling new set of particles
+			// filtered_state[t] = expected_state(particle[t]); //average location
+		// }
+		// p_gt_old = p_gt;
+
+		
 
 		// printf("aaa\n");
 

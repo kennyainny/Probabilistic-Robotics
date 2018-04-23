@@ -1,6 +1,7 @@
 #include "motion.hpp"
 
-#define SIGMA_R 0.06
+#define SIGMA_R1 0.03 //0.06
+#define SIGMA_R2 0.08 //0.06
 #define SIGMA_THETA RAD(30)
 
 using namespace std;
@@ -8,7 +9,7 @@ random_device rd_m;
 mt19937 mt_m(rd_m());
 
 float sigma_R_calc(state_type state, Vector3d p1, Vector3d p2, Vector3d p3){
-	float z[3], err, z_min, sigma_R = 0.03;
+	float z[3], err, z_min, sigma_R = SIGMA_R1;
 	z_calc(z, state, p1, p2, p3);
 	z_min = z[0];
 	for(int i = 1; i < 3; i++){
@@ -18,7 +19,7 @@ float sigma_R_calc(state_type state, Vector3d p1, Vector3d p2, Vector3d p3){
 	}
 
 	if(z_min > 0.9*MAX_RANGE){
-		sigma_R = 0.08;
+		sigma_R = SIGMA_R2;
 	}
 
 	return sigma_R;
@@ -31,7 +32,10 @@ state_type sample_motion_model(state_type p_state, Vector3d p1, Vector3d p2, Vec
 	normal_distribution<float> distr;
 	sigma_R = sigma_R_calc(p_state, p1, p2, p3);
 
-	distr.param(normal_distribution<float>::param_type(0.0, sigma_R));
+	float mR = 0.0;
+	if(sigma_R == SIGMA_R2) mR = 0.5*MAX_RANGE;
+
+	distr.param(normal_distribution<float>::param_type(mR, sigma_R));
 	r = distr(mt_m);
 
 	distr.param(normal_distribution<float>::param_type(0.0, SIGMA_THETA));
