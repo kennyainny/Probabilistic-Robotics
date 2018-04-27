@@ -38,7 +38,19 @@ git pull --depth=2 origin master
 
 put your code your in ~/catkin_ws/src/<project_folder_name>/Project/ROS/
 
+# Build
+
+new terminal tab
+
+cd
+
+cd ~/catkin_ws
+
+catkin_make
+
 # Execute program with ROS
+
+new terminal tab
 
 cd
 
