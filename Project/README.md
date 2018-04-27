@@ -8,7 +8,7 @@ http://www.learnopencv.com/install-opencv3-on-ubuntu/
 
 http://eigen.tuxfamily.org/index.php?title=Main_Page
 
-```console
+```
 sudo cp -R (directory)/Eigen /usr/local/include
 sudo cp -R (directory)/unsupported /usr/local/include
 ```
@@ -23,7 +23,7 @@ http://wiki.ros.org/ROS/Installation
 
 # Git Pull only ROS project
 
-```console
+```
 cd
 cd ~/catkin_ws/src/<project_folder_name>/
 git init
@@ -41,7 +41,7 @@ Ensure that your CMake file works
 
 new terminal tab
 
-```console
+```
 cd
 cd ~/catkin_ws
 catkin_make
@@ -51,7 +51,7 @@ catkin_make
 
 new terminal tab
 
-```console
+```
 cd
 cd ~/catkin_ws/src/Probabilistic_Robotics/Project/ROS/turtlebot3_simulations/turtlebot3_gazebo/launch
 roslaunch turtlebot3_multi.launch
@@ -59,7 +59,7 @@ roslaunch turtlebot3_multi.launch
 
 new terminal tab
 
-```console
+```
 cd
 cd ~/catkin_ws/src/Probabilistic_Robotics/Project/ROS/move_robot_src
 ./goToGoal.py
@@ -67,7 +67,7 @@ cd ~/catkin_ws/src/Probabilistic_Robotics/Project/ROS/move_robot_src
 
 new terminal tab
 
-```console
+```
 cd
 cd ~/catkin_ws/build/Probabilistic_Robotics/Project/ROS/filter_laser_t
 ./filtering_laserscan
@@ -75,7 +75,7 @@ cd ~/catkin_ws/build/Probabilistic_Robotics/Project/ROS/filter_laser_t
 
 new terminal tab
 
-```console
+```
 cd
 cd ~/catkin_ws/build/Probabilistic_Robotics/Project/ROS/move_target
 ./move_target
@@ -83,7 +83,7 @@ cd ~/catkin_ws/build/Probabilistic_Robotics/Project/ROS/move_target
 
 new terminal tab
 
-```console
+```
 cd
 cd ~/catkin_ws/build/Probabilistic_Robotics/Project/ROS/particle_filter
 ./particle_filter
