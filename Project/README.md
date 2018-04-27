@@ -31,4 +31,8 @@ put your code your in ~/catkin_ws/src/<project_folder_name>/Project/ROS/
 cd ~/catkin_ws/src/Probabilistic_Robotics/Project/ROS/turtlebot3_simulations/turtlebot3_gazebo/launch
 
 roslaunch turtlebot3_multi.launch
+./goToGoal.py
+./filtering_laserscan
+./move_target
+./particle_filter
 
