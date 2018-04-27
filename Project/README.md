@@ -31,7 +31,7 @@ git remote add origin -f https://github.com/numkang/Probabilistic-Robotics
 git config core.sparsecheckout true
 echo "Project/ROS/" >> .git/info/sparse-checkout
 git pull --depth=2 origin master
-```console
+```
 
 put your code folder in ~/catkin_ws/src/<project_folder_name>/Project/ROS/
 
