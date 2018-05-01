@@ -152,9 +152,16 @@ void theta_calc(float *theta, state_type state, Vector3d p1, Vector3d p2, Vector
 float sensor_model(state_type state, Vector3d p1, Vector3d p2, Vector3d p3){
 	int ind;
 	float p = 0.0, p_hit = 0.0, p_max = 0.0, p_rand = 0.0, p_theta = 0.0;
-	float z[3], theta[3], err, alpha; //three observers
+	float z[3], theta[3], err, alpha, z_min; //three observers
 	z_calc(z, state, p1, p2, p3); //calculate z_star
 	theta_calc(theta, state, p1, p2, p3);
+
+	z_min = z[0];
+	for(int i = 1; i < 3; i++){
+		if(z[i] < z_min){
+			z_min = z[i];
+		}
+	}
 
 	for(int i = 0; i < (SENSOR_VIEW+1)*3; i++){	//*3
 		p_rand = Uniform_Dist(sensor_data(i), 0, MAX_RANGE);
@@ -213,6 +220,10 @@ float sensor_model(state_type state, Vector3d p1, Vector3d p2, Vector3d p3){
 		// if(p_max != 0) p = p + log(p_max);
 		// if(p_hit != 0) p = p + log(p_hit);	
 		p = p + Z_RAND*p_rand + Z_MAX*p_max + Z_HIT*p_hit + Z_THETA*p_theta;
+	}
+
+	if(z_min > 0.97*MAX_RANGE){
+		p = p *0.5;
 	}
 	// if(z[1] < 2.0)
 	// 	cout << p << endl;

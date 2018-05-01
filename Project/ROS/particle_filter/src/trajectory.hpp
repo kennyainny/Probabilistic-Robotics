@@ -9,8 +9,8 @@
 
 using namespace Eigen;
 
-void moveRobot();
-void stopRobot();
+// void moveRobot();
+// void stopRobot();
 void odomCallback(const nav_msgs::Odometry::ConstPtr& odom);
 void initialize_odom_ros();
 Vector3d Simulate_Trajectory(Vector3d v0);
