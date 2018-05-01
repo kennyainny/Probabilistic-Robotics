@@ -49,6 +49,13 @@ catkin_make
 
 # Execute program with ROS
 
+open terminal
+
+```
+cd
+roscore
+```
+
 new terminal tab
 
 ```
@@ -61,7 +68,7 @@ new terminal tab
 
 ```
 cd
-cd ~/catkin_ws/src/Probabilistic_Robotics/Project/ROS/move_robot_src
+cd ~/catkin_ws/src/Probabilistic_Robotics/Project/ROS/move_robot/src
 ./goToGoal.py
 ```
 
