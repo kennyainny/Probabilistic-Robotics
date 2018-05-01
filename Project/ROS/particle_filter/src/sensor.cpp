@@ -27,7 +27,7 @@ mt19937 mt_n(rd_n());
 void arrayCallback(const std_msgs::Float64MultiArray::ConstPtr& array){
 	for(int i = 0; i < (SENSOR_VIEW+1)*3; i++){
 		// sensor_data_gazebo[i] = array->data[i];
-		sensor_data[i] = array->data[i];
+		sensor_data[i] = 1.75; //array->data[i];
 	}
 }
 
@@ -222,7 +222,7 @@ float sensor_model(state_type state, Vector3d p1, Vector3d p2, Vector3d p3){
 		p = p + Z_RAND*p_rand + Z_MAX*p_max + Z_HIT*p_hit + Z_THETA*p_theta;
 	}
 
-	if(z_min > 0.97*MAX_RANGE){
+	if(z_min > 0.98*MAX_RANGE){
 		p = p *0.5;
 	}
 	// if(z[1] < 2.0)
