@@ -1,6 +1,6 @@
 #include "trajectory.hpp"
 
-#define TIME_STEP 0.01 // sec/step
+#define TIME_STEP 0.03 // sec/step
 
 using namespace std;
 using namespace Eigen;

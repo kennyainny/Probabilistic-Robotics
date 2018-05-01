@@ -32,7 +32,10 @@ int main(int argc, char **argv)
 
 	/**************************** Loop Part ****************************/	
 	// for(long t = 1; t < N_STEP; t++){
+	// while(1){
 	while(ros::ok()){
+		p_gt(0) = odom_x;
+		p_gt(1) = odom_y;
 	 	// moveRobot(); //publish robot's vel
 		// p_gt = Simulate_Trajectory(p_gt_old);
 		// Simulate_Sensor(p_gt, p1, p2, p3);
