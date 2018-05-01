@@ -1,0 +1,392 @@
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7049c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7049c.dir/build.make CMakeFiles/cmTC_7049c.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7049c.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_7049c.dir/CheckIncludeFile.c.o   -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_7049c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7049c.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_7049c.dir/CheckIncludeFile.c.o  -o cmTC_7049c -rdynamic 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9c685/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9c685.dir/build.make CMakeFiles/cmTC_9c685.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9c685.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_9c685.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9c685
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9c685.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_9c685.dir/CheckFunctionExists.c.o  -o cmTC_9c685 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_be67e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_be67e.dir/build.make CMakeFiles/cmTC_be67e.dir/build
+make[1]: Entering directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_be67e.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_be67e.dir/CheckIncludeFile.c.o   -c /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_be67e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_be67e.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_be67e.dir/CheckIncludeFile.c.o  -o cmTC_be67e -rdynamic 
+make[1]: Leaving directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b8692/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b8692.dir/build.make CMakeFiles/cmTC_b8692.dir/build
+make[1]: Entering directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b8692.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_b8692.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_b8692
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b8692.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_b8692.dir/CheckFunctionExists.c.o  -o cmTC_b8692 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e4e74/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e4e74.dir/build.make CMakeFiles/cmTC_e4e74.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e4e74.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_e4e74.dir/CheckIncludeFile.c.o   -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_e4e74
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e4e74.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_e4e74.dir/CheckIncludeFile.c.o  -o cmTC_e4e74 -rdynamic 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f49db/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f49db.dir/build.make CMakeFiles/cmTC_f49db.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f49db.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_f49db.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f49db
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f49db.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_f49db.dir/CheckFunctionExists.c.o  -o cmTC_f49db -rdynamic -lpthread 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+<<<<<<< HEAD
+Change Dir: /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_30407/fast"
+/usr/bin/make -f CMakeFiles/cmTC_30407.dir/build.make CMakeFiles/cmTC_30407.dir/build
+make[1]: Entering directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_30407.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_30407.dir/CheckIncludeFile.c.o   -c /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_30407
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30407.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_30407.dir/CheckIncludeFile.c.o  -o cmTC_30407 -rdynamic 
+make[1]: Leaving directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_960b3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_960b3.dir/build.make CMakeFiles/cmTC_960b3.dir/build
+make[1]: Entering directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_960b3.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_960b3.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_960b3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_960b3.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_960b3.dir/CheckFunctionExists.c.o  -o cmTC_960b3 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+=======
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c6f03/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c6f03.dir/build.make CMakeFiles/cmTC_c6f03.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c6f03.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_c6f03.dir/CheckIncludeFile.c.o   -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_c6f03
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c6f03.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_c6f03.dir/CheckIncludeFile.c.o  -o cmTC_c6f03 -rdynamic 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5d5e0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5d5e0.dir/build.make CMakeFiles/cmTC_5d5e0.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5d5e0.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_5d5e0.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_5d5e0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5d5e0.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_5d5e0.dir/CheckFunctionExists.c.o  -o cmTC_5d5e0 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+>>>>>>> 596f34ae45d269a37e80525c72a3fd4e0637a5a1
+
+
+Determining if the include file pthread.h exists passed with the following output:
+<<<<<<< HEAD
+Change Dir: /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ba1d3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ba1d3.dir/build.make CMakeFiles/cmTC_ba1d3.dir/build
+make[1]: Entering directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ba1d3.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_ba1d3.dir/CheckIncludeFile.c.o   -c /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_ba1d3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ba1d3.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_ba1d3.dir/CheckIncludeFile.c.o  -o cmTC_ba1d3 -rdynamic 
+make[1]: Leaving directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9a981/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9a981.dir/build.make CMakeFiles/cmTC_9a981.dir/build
+make[1]: Entering directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9a981.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_9a981.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9a981
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9a981.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_9a981.dir/CheckFunctionExists.c.o  -o cmTC_9a981 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/jeremy/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+=======
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_928a6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_928a6.dir/build.make CMakeFiles/cmTC_928a6.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_928a6.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_928a6.dir/CheckIncludeFile.c.o   -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_928a6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_928a6.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_928a6.dir/CheckIncludeFile.c.o  -o cmTC_928a6 -rdynamic 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d89a9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d89a9.dir/build.make CMakeFiles/cmTC_d89a9.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d89a9.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_d89a9.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d89a9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d89a9.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_d89a9.dir/CheckFunctionExists.c.o  -o cmTC_d89a9 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_66895/fast"
+/usr/bin/make -f CMakeFiles/cmTC_66895.dir/build.make CMakeFiles/cmTC_66895.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_66895.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_66895.dir/CheckIncludeFile.c.o   -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_66895
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_66895.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_66895.dir/CheckIncludeFile.c.o  -o cmTC_66895 -rdynamic 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c79e4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c79e4.dir/build.make CMakeFiles/cmTC_c79e4.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c79e4.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_c79e4.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c79e4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c79e4.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_c79e4.dir/CheckFunctionExists.c.o  -o cmTC_c79e4 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+>>>>>>> f93595a4815ab4a4d5c2a185d8a71c9e4bdb197c
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ca0fa/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ca0fa.dir/build.make CMakeFiles/cmTC_ca0fa.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ca0fa.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_ca0fa.dir/CheckIncludeFile.c.o   -c /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_ca0fa
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ca0fa.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_ca0fa.dir/CheckIncludeFile.c.o  -o cmTC_ca0fa -rdynamic 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_31741/fast"
+/usr/bin/make -f CMakeFiles/cmTC_31741.dir/build.make CMakeFiles/cmTC_31741.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_31741.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_31741.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_31741
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_31741.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_31741.dir/CheckFunctionExists.c.o  -o cmTC_31741 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab2_Online_Learning/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d73a9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d73a9.dir/build.make CMakeFiles/cmTC_d73a9.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d73a9.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_d73a9.dir/CheckIncludeFile.c.o   -c /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_d73a9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d73a9.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_d73a9.dir/CheckIncludeFile.c.o  -o cmTC_d73a9 -rdynamic 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9345a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9345a.dir/build.make CMakeFiles/cmTC_9345a.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9345a.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_9345a.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9345a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9345a.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_9345a.dir/CheckFunctionExists.c.o  -o cmTC_9345a -rdynamic -lpthread 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5fd5e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5fd5e.dir/build.make CMakeFiles/cmTC_5fd5e.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5fd5e.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_5fd5e.dir/CheckIncludeFile.c.o   -c /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_5fd5e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5fd5e.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_5fd5e.dir/CheckIncludeFile.c.o  -o cmTC_5fd5e -rdynamic 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6cae0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6cae0.dir/build.make CMakeFiles/cmTC_6cae0.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6cae0.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_6cae0.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6cae0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6cae0.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_6cae0.dir/CheckFunctionExists.c.o  -o cmTC_6cae0 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a72d5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a72d5.dir/build.make CMakeFiles/cmTC_a72d5.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a72d5.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_a72d5.dir/CheckIncludeFile.c.o   -c /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_a72d5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a72d5.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_a72d5.dir/CheckIncludeFile.c.o  -o cmTC_a72d5 -rdynamic 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9d64b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9d64b.dir/build.make CMakeFiles/cmTC_9d64b.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9d64b.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_9d64b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9d64b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9d64b.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_9d64b.dir/CheckFunctionExists.c.o  -o cmTC_9d64b -rdynamic -lpthread 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d820c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d820c.dir/build.make CMakeFiles/cmTC_d820c.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d820c.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_d820c.dir/CheckIncludeFile.c.o   -c /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_d820c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d820c.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_d820c.dir/CheckIncludeFile.c.o  -o cmTC_d820c -rdynamic 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_34843/fast"
+/usr/bin/make -f CMakeFiles/cmTC_34843.dir/build.make CMakeFiles/cmTC_34843.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_34843.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_34843.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_34843
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_34843.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_34843.dir/CheckFunctionExists.c.o  -o cmTC_34843 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f3ecc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f3ecc.dir/build.make CMakeFiles/cmTC_f3ecc.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f3ecc.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_f3ecc.dir/CheckIncludeFile.c.o   -c /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_f3ecc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f3ecc.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_f3ecc.dir/CheckIncludeFile.c.o  -o cmTC_f3ecc -rdynamic 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a87cd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a87cd.dir/build.make CMakeFiles/cmTC_a87cd.dir/build
+make[1]: Entering directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a87cd.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_a87cd.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a87cd
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a87cd.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_a87cd.dir/CheckFunctionExists.c.o  -o cmTC_a87cd -rdynamic -lpthread 
+make[1]: Leaving directory '/home/osboxes/Documents/Probabilistic-Robotics/Lab4_Learning_with_Kernels/Code/bin/CMakeFiles/CMakeTmp'
+
+
