@@ -222,7 +222,7 @@ float sensor_model(state_type state, Vector3d p1, Vector3d p2, Vector3d p3){
 		p = p + Z_RAND*p_rand + Z_MAX*p_max + Z_HIT*p_hit + Z_THETA*p_theta;
 	}
 
-	if(z_min > 0.97*MAX_RANGE){
+	if(z_min > 0.98*MAX_RANGE){
 		p = p *0.5;
 	}
 	// if(z[1] < 2.0)
