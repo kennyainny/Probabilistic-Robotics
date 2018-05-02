@@ -61,9 +61,9 @@ void create_point_cloud(log_type log, pcl::PointCloud<pcl::PointXYZRGB>::Ptr poi
     if(log.node_label[i] == VEG){
     	r = 0, g = 255, b = 0;
     }else if(log.node_label[i] == WIRE){
-    	r = 0, g = 0, b = 255;
+    	r = 0, g = 255, b = 0;
     }else if(log.node_label[i] == POLE){
-    	r = 255, g = 0, b = 0;
+    	r = 255, g = 255, b = 0;
     }else if(log.node_label[i] == GROUND){
     	r = 255, g = 255, b = 0;
     }else if(log.node_label[i] == FACADE){
