@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	log_type GP_RBF_Train, GP_RBF_Test;
 
 	printf("Start Gaussian Process Regression with a Gaussian RBF kernel\n");
-	// GP_RBF(train_log, test_log, &GP_RBF_Train, &GP_RBF_Test);
+	GP_RBF(train_log, test_log, &GP_RBF_Train, &GP_RBF_Test);
 	// printf("Regret Gaussian Process Regression with a Gaussian RBF kernel: %.4f\n\n", sum_loss - sum_loss_best_expert);
 
 	/********** KLR **********/

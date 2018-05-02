@@ -99,10 +99,10 @@ int data_visualization(log_type train_log, log_type test_log, log_type GP_RBF_Tr
   // view_name = "Gradient Descent on Squared Loss - Online Learning";
   // viewer = rgbVis(gradient_online_cloud_ptr, view_name.c_str());  
 
-  // pcl::PointCloud<pcl::PointXYZRGB>::Ptr GP_RBF_Test_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
-  // create_point_cloud(GP_RBF_Test, GP_RBF_Test_cloud_ptr);
-  // view_name = "Gaussian Process Regression with a Gaussian RBF kernel - Testing Data";
-  // viewer = rgbVis(GP_RBF_Test_cloud_ptr, view_name.c_str());
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr GP_RBF_Test_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  create_point_cloud(GP_RBF_Test, GP_RBF_Test_cloud_ptr);
+  view_name = "Gaussian Process Regression with a Gaussian RBF kernel - Testing Data";
+  viewer = rgbVis(GP_RBF_Test_cloud_ptr, view_name.c_str());
 
   /* Bayesian Linear Regression */
   // pcl::PointCloud<pcl::PointXYZRGB>::Ptr BLR_online_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
