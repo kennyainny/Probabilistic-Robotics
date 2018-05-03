@@ -19,44 +19,76 @@ int main(int argc, char *argv[])
 	pick_two_classes(log1, &train_log);
 	pick_two_classes(log2, &test_log);
 
-	/* Regret */
-	// double regret, sum_loss_best_expert, sum_loss;
-	// sum_loss_best_expert = min_loss(train_log);
+	try
+	{
+		/* Regret */
+		// double regret, sum_loss_best_expert, sum_loss;
+		// sum_loss_best_expert = min_loss(train_log);
 
-	/********** GP with RBF **********/
-	log_type GP_RBF_Train, GP_RBF_Test;
+		/********** GP with RBF **********/
+		log_type GP_RBF_Train, GP_RBF_Test;
 
-	printf("Start Gaussian Process Regression with a Gaussian RBF kernel\n");
-	GP_RBF(train_log, test_log, &GP_RBF_Train, &GP_RBF_Test);
-	// printf("Regret Gaussian Process Regression with a Gaussian RBF kernel: %.4f\n\n", sum_loss - sum_loss_best_expert);
+		// printf("Start Gaussian Process Regression with a Gaussian RBF kernel\n");
+		// GP_RBF(train_log, test_log, &GP_RBF_Train, &GP_RBF_Test);
+		// printf("Regret Gaussian Process Regression with a Gaussian RBF kernel: %.4f\n\n", sum_loss - sum_loss_best_expert);
 
-	/********** KLR **********/
-	log_type KLR_Train, KLR_Test;
+		/********** Duration Measurement **********/
+		printf("Starting Clock...\n");
+		start = std::clock();
 
-	// printf("Start Baysian Linear Regression\n");
-	// sum_loss = BLR(train_log, test_log, &BLR_log_online, &BLR_log_stat);
-	// printf("Regret for Baysian Linear Regression: %.4f\n\n", sum_loss - sum_loss_best_expert);
+		/********** KLR **********/
+		log_type KLR_Train, KLR_Test;
 
-	/********** GP with aaa **********/
-	log_type GP_RQ_Train, GP_RQ_Test;
-	printf("Start Gaussian Process Regression with a Rational Quadratic kernel\n");
-	GP_RQ(train_log, test_log, &GP_RQ_Train, &GP_RQ_Test);
-	// printf("Regret Neural Network: %.4f\n\n", sum_loss - sum_loss_best_expert);
+		printf("Start Kernelized Logistic Regresson with a Gaussian RBF kernel\n");
+		KLR_RBF(train_log, test_log, &KLR_Train, &KLR_Test);
+		// printf("Regret for Baysian Linear Regression: %.4f\n\n", sum_loss - sum_loss_best_expert);
 
-	/********** Duration Measurement **********/
-	// printf("Starting Clock...\n");
-	// start = std::clock();
+		duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;  
+		cout << "Duration: "<< duration <<" seconds \n\n";
 
-	// // put any function here to measure the time it takes
 
-	// duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;  
-    // cout << "Duration: "<< duration <<" seconds \n\n";
+		/********** GP with aaa **********/
+		log_type GP_RQ_Train, GP_RQ_Test;
 
-	//********** Visualization using PCL /**********/
-	data_visualization(train_log, test_log, GP_RBF_Train, GP_RBF_Test, KLR_Train, KLR_Test, GP_RQ_Train, GP_RQ_Test);
-	while(1){
-		/* Does nothing but smiling at you :) */
-		break;
-	};
+		// printf("Start Gaussian Process Regression with a Rational Quadratic kernel\n");
+		// GP_RQ(train_log, test_log, &GP_RQ_Train, &GP_RQ_Test);
+		// printf("Regret Neural Network: %.4f\n\n", sum_loss - sum_loss_best_expert);
+
+		/********** Duration Measurement **********/
+		// printf("Starting Clock...\n");
+		// start = std::clock();
+
+		// // put any function here to measure the time it takes
+
+		// duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;  
+		// cout << "Duration: "<< duration <<" seconds \n\n";
+
+		//********** Visualization using PCL /**********/
+
+		printf("Visalization\n");
+		data_visualization(train_log, test_log, GP_RBF_Train, GP_RBF_Test, KLR_Train, KLR_Test, GP_RQ_Train, GP_RQ_Test);
+
+		while(1){
+			/* Does nothing but smiling at you :) */
+			break;
+		};
+	}
+	catch(const std::runtime_error& re)
+	{
+		// speciffic handling for runtime_error
+		std::cerr << "Runtime error: " << re.what() << std::endl;
+	}
+	catch(const std::exception& ex)
+	{
+		// speciffic handling for all exceptions extending std::exception, except
+		// std::runtime_error which is handled explicitly
+		std::cerr << "Error occurred: " << ex.what() << std::endl;
+	}
+	catch(...)
+	{
+		// catch any other errors (that we have no information about)
+		std::cerr << "Unknown failure occurred. Possible memory corruption" << std::endl;
+	}
+
 	return 0;
 }

@@ -1,275 +1,198 @@
 #include "baysian.hpp"
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <math.h>
+// #include <random>
+// #include <Eigen/Dense>
+
+// #include "GP_RBF.hpp"
+#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <random>
 #include <Eigen/Dense>
+#include <Eigen/SVD>
+#include <Eigen/LU>
+#include <Eigen/QR>
+#include <vector>
 
-// #define S 1 //Guassian Noise
-// #define LOOP_NUM 1
+using namespace std;
+using namespace Eigen;
 
-// using namespace std;
-// using namespace Eigen;
+#define L 1
+#define SIGMA 0.5
+#define eta 0.05 //learning rate
+#define lamda 0.001 //0.5
 
-// random_device rd;
-// mt19937 mt(rd());
+// double K_RBF(feature_type x1, feature_type x2, double l, double sigma);
+// void KLR_RBF(log_type train_log, log_type test_log, log_type *GP_RBF_Train, log_type *GP_RBF_Test);
 
-// struct normal_random_variable
-// {
-//     normal_random_variable(Eigen::MatrixXd const& covar)
-//         : normal_random_variable(Eigen::VectorXd::Zero(covar.rows()), covar)
-//     {}
+double K_RBF0(feature_type x1, feature_type x2, double l, double sigma)
+{
+  double r2 = 0, k = 0;
+  for(int i = 0; i < 9; i++)
+  {
+    r2 = r2 + (x1.f[i] - x2.f[i])*(x1.f[i] - x2.f[i]);
+  }
+  k = sigma*sigma*exp(-r2/2/l/l);
+  return k;
+}
 
-//     normal_random_variable(Eigen::VectorXd const& mean, Eigen::MatrixXd const& covar)
-//         : mean(mean)
-//     {
-//         Eigen::SelfAdjointEigenSolver<Eigen::MatrixXd> eigenSolver(covar);
-//         transform = eigenSolver.eigenvectors() * eigenSolver.eigenvalues().cwiseSqrt().asDiagonal();
-//     }
-
-//     Eigen::VectorXd mean;
-//     Eigen::MatrixXd transform;
-
-//     Eigen::VectorXd operator()() const
-//     {
-//         static std::mt19937 gen{ std::random_device{}() };
-//         static std::normal_distribution<> dist;
-
-//         return mean + transform * Eigen::VectorXd{ mean.size() }.unaryExpr([&](double x) { return dist(gen); });
-//     }
-// };
-
-// void update_J(double *J, int *y, double *x, int k){
-// 	for(int i = 0; i < W_NUM; i++){
-// 		J[i] = J[i] + 1/S/S*y[k]*x[i];
-// 	}
+// double K_RBF2(double x1, double x2, double l, double sigma){
+//   double r2 = 0, k = 0;
+//   r2 = (x1 - x2)*(x1 - x2);
+//   k = sigma*sigma*exp(-r2/2/l/l);
+//   return k;
 // }
 
-// void update_P(double (*P)[W_NUM][W_NUM], double *x){
-// 	for(int i = 0; i < W_NUM; i++){ //initializa weight
-//     	for(int j = 0; j < W_NUM; j++){
-//     		(*P)[i][j] = (*P)[i][j] + 1/S/S*x[i]*x[j];
-//     	}
-//   	}
-// }
 
-// void get_weight(double (*V)[W_NUM][W_NUM], double *m, double (*P)[W_NUM][W_NUM], double *J, double *w){
-// 	MatrixXd A(W_NUM,W_NUM);
-// 	VectorXd sampling(W_NUM);
-// 	for(int i = 0; i < W_NUM; i++){
-// 		for(int j = 0; j < W_NUM; j++){
-// 			A(i,j) = (*P)[i][j];
-// 		}
-// 	}
-// 	A = A.inverse();
-// 	for(int i = 0; i < W_NUM; i++){
-// 		for(int j = 0; j < W_NUM; j++){
-// 			m[i] = A(i,j)*J[j];
-// 		}
-// 	}
-// 	// for(int i = 0; i < W_NUM; i++){
-// 	// 	for(int j = 0; j < W_NUM; j++){
-// 	// 		(*V)[i][j] = A(i,j);
-// 	// 	}
-// 	// }
-// 	// for(int i = 0; i < W_NUM; i++){
-// 	// 	for(int j = 0; j < W_NUM; j++){
-// 	// 		m[i] = (*V)[i][j]*J[j];
-// 	// 	}
-// 	// }
-// 	// normal_random_variable sample { A.inverse() };
-// 	// sampling = sample();
-// 	// for(int i = 0; i < W_NUM; i++){
-// 	// 	w[i] = sampling(i) + m[i];
-// 	// }
-// }
+void KLR_RBF(log_type train_log, log_type test_log, log_type *KLR_Train, log_type *KLR_Test)
+{
+  KLR_Train->count = train_log.count;  
+  new_hornetsoft_log(KLR_Train);
+  KLR_Test->count = test_log.count;  
+  new_hornetsoft_log(KLR_Test);
 
-// void predict_output(double *w, double *x, double *y, int k){
-// 	y[k] = 0;
-// 	for(int i = 0; i < W_NUM; i++){
-// 		y[k] = y[k] + w[i]*x[i];
-// 	}
-// }
+  printf("Initializing Matrices\n");
 
-// void BLR_predict_label(log_type *log, double *y, long count){
-// 	for(int k = 0; k < O_NUM; k++){
-//   		y[k] = fabs(y[k]);
-//   	}
+  double len = train_log.count*1.0;
 
-//   	if(y[0] > 0.5){
-//   		log->node_label[count] = VEG;
-//   	}else if(y[1] > 0.5){
-//   		log->node_label[count] = WIRE;
-//   	}else if(y[2] > 0.5){
-//   		log->node_label[count] = POLE;
-//   	}else if(y[4] > 0.5){
-//   		log->node_label[count] = FACADE;
-//   	}else{
-//   		log->node_label[count] = GROUND;
-//   	}
-// }
+  MatrixXd K_xtr_xtr(train_log.count, train_log.count);
+  MatrixXd K_x_xtr(test_log.count, train_log.count); 
+  MatrixXd K_xtr_x(train_log.count, test_log.count);  
+  MatrixXd K_x_x(test_log.count, test_log.count);
+  MatrixXd K(test_log.count, train_log.count);
+  
+  vector<int> Y(train_log.count,0);
+  vector<int> Y_test(test_log.count,0);
 
-// double calc_loss(int *y, double *y_){
-//   double sum = 0;
-//   for(int k = 0; k < O_NUM; k++){
-//     // printf("%d %.4f\n", y[k], y_[k]);
-//     if(!isnan(y_[k]) && y_[k] < 10)
-//       sum = sum + pow((y[k] - y_[k]), 2);
-//   }
-//   // printf("%.4f\n", sum);
-//   return sum;
-// }
+  vector<double>  _alpha(train_log.count, 1); //is this 1 D array?
 
-// double BLR(log_type train_log, log_type test_log, log_type *BLR_log_online, log_type *BLR_log_stat){
-// 	int y[O_NUM], type;
-// 	double x[W_NUM], y_[W_NUM], sum_loss = 0;
-// 	double w1[W_NUM], J1[W_NUM], P1[W_NUM][W_NUM], V1[W_NUM][W_NUM], m1[W_NUM];
-// 	double w2[W_NUM], J2[W_NUM], P2[W_NUM][W_NUM], V2[W_NUM][W_NUM], m2[W_NUM];
-// 	double w3[W_NUM], J3[W_NUM], P3[W_NUM][W_NUM], V3[W_NUM][W_NUM], m3[W_NUM];
-// 	double w4[W_NUM], J4[W_NUM], P4[W_NUM][W_NUM], V4[W_NUM][W_NUM], m4[W_NUM];
-// 	double w5[W_NUM], J5[W_NUM], P5[W_NUM][W_NUM], V5[W_NUM][W_NUM], m5[W_NUM];
-// 	normal_distribution<float> distr;
+  //build kernel
+  printf("Bulding Kernel\n");
+  for(int i = 0; i < train_log.count; i++)
+  {
+    for(int j = 0; j < train_log.count; j++)
+    {
+      K_xtr_xtr(i,j) = K_RBF0(train_log.feature[i], train_log.feature[j], L, SIGMA);
+    }
 
-//   	/*********** Online Learning ***********/
-//   	for(int i = 0; i < W_NUM; i++){ //initializa weight
-//     	for(int j = 0; j < W_NUM; j++){
-//     		if(i == j){
-//       			P1[i][j] = 1.0;
-//       			P2[i][j] = 1.0;
-//       			P3[i][j] = 1.0;
-//       			P4[i][j] = 1.0;
-//       			P5[i][j] = 1.0;
-//       		}
-//     	}
-//     	J1[i] = 0.0;
-//     	J2[i] = 0.0;
-//     	J3[i] = 0.0;
-//     	J4[i] = 0.0;
-//     	J5[i] = 0.0;
-//   	}
+    if(train_log.node_label[i] == LABEL1) //LABEL1 = +1
+    {
+      Y.at(i) = 1;
+      // Y(i,1) = 0;
+    }
+    else if(train_log.node_label[i] == LABEL2) //LABEL1 = -1
+    {
+      Y.at(i) = -1;
+      // Y(i,1) = 1;
+    }
+  }
 
-//   	BLR_log_online->count = train_log.count;  
-//   	new_hornetsoft_log(BLR_log_online);
+  int xx = train_log.count - 1;
+  
+  // printf("Kernel: %f, %f\t Y: %d, %d\n", 
+  // K_xtr_xtr(0,0), K_xtr_xtr(500,1000), Y[0], Y[700]);
 
-//   	for(long i = 0; i < train_log.count; i++){
-//   		BLR_log_online->point[i] = train_log.point[i];
-//     	BLR_log_online->node_id[i] = train_log.node_id[i];
-//   		assign_output(train_log, i, y, &type);
-//   		assign_input(train_log, i, x);
+  //init alpha
+  // printf("init alpha\n");
+  // for(int j = 0; j < train_log.count; j++)
+  //   _alpha[j] = 0;
 
-//   		for(int k = 0; k < O_NUM; k++){ //Classify one-vs-all for 5 times
-//   			if(k == 0){
-//   				get_weight(&V1, m1, &P1, J1, w1);
-//   				predict_output(m1, x, y_, k);
-  				
-//   				update_J(J1, y, x, k);
-//   				update_P(&P1, x);  	
-//   			}else if(k == 1){
-//   				get_weight(&V2, m2, &P2, J2, w2);
-//   				predict_output(m2, x, y_, k);
+  //learn alpha iteratively
+  printf("learning alpha\n");
+  double delta, maxdelta =1;
+  int cct = 0;
 
-//   				update_J(J2, y, x, k);
-//   				update_P(&P2, x);  	
-//   			}else if(k == 2){
-//   				get_weight(&V3, m3, &P3, J3, w3);
-//   				predict_output(m3, x, y_, k);
+  while(cct < 50)
+  {
+    for(int i = 0; i < train_log.count; i++)
+    {
+        double fxy = 0.0;
 
-//   				update_J(J3, y, x, k);
-//   				update_P(&P3, x);  	
-//   			}else if(k == 3){
-//   				get_weight(&V4, m4, &P4, J4, w4);
-//   				predict_output(m4, x, y_, k);
+        for(int j = 0; j < train_log.count; j++) //jth row
+          fxy = fxy + K_xtr_xtr(i,j) * _alpha[j]; //ith column
 
-//   				update_J(J4, y, x, k);
-//   				update_P(&P4, x);  	
-//   			}else if(k == 4){
-//   				get_weight(&V5, m5, &P5, J5, w5);          
-//   				predict_output(m5, x, y_, k);
+        double _gamma = (Y[i]/(1.0 + exp(-Y[i]*fxy)))/(1.0*len);     
 
-//   				update_J(J5, y, x, k);
-//   				update_P(&P5, x);          
-//   			}
-//   		}
-//   		sum_loss = sum_loss + calc_loss(y, y_);
-//   		BLR_predict_label(BLR_log_online, y_, i);
-//   	}
+        for(int j = 0; j < train_log.count; j++)
+        {
+          delta = lamda*_alpha[j] + _gamma;
+          double alp = _alpha[j] - eta*delta;
+          _alpha[j] = alp;
 
-//   	/*********** Statistical Learning ***********/
+          if(abs(delta) < maxdelta)
+          maxdelta = delta;
+        }
+    }
 
-//   	for(int i = 0; i < W_NUM; i++){ //re-initializa weight
-//     	for(int j = 0; j < W_NUM; j++){
-//     		if(i == j){
-//       			P1[i][j] = 1.0;
-//       			P2[i][j] = 1.0;
-//       			P3[i][j] = 1.0;
-//       			P4[i][j] = 1.0;
-//       			P5[i][j] = 1.0;
-//       		}
-//     	}
-//     	J1[i] = 0.0;
-//     	J2[i] = 0.0;
-//     	J3[i] = 0.0;
-//     	J4[i] = 0.0;
-//     	J5[i] = 0.0;
-//   	}
+    cct++;
+    // printf("maxdelta: %f, cct: %d, alpha: %f\n",maxdelta,cct,_alpha[100]);
+  }
 
-//   	log_type train_log_sort;
-//   	sort_log(train_log, &train_log_sort);
-  	
-//   	/* Training */
-//   	for(int n = 0; n < LOOP_NUM; n++){
-//   		for(long i = 0; i < train_log_sort.count; i++){
-//   			assign_output(train_log_sort, i, y, &type);
-//   			assign_input(train_log_sort, i, x);
 
-//   			for(int k = 0; k < O_NUM; k++){ //Classify one-vs-all for 5 times
-//   				if(k == 0){
-//   					update_J(J1, y, x, k);
-//   					update_P(&P1, x);  	
-//   				}else if(k == 1){
-//   					update_J(J2, y, x, k);
-//   					update_P(&P2, x);  	
-//   				}else if(k == 2){
-//   					update_J(J3, y, x, k);
-//   					update_P(&P3, x);  	
-//   				}else if(k == 3){
-//   					update_J(J4, y, x, k);
-//   					update_P(&P4, x);  	
-//   				}else if(k == 4){
-//   					update_J(J5, y, x, k);
-//   					update_P(&P5, x);
-//   				}
-//   			}
-//   		}
-//   	}
+  //K(X_T, x) - prediction/classification
+  printf("Test Kernel\n");
+  int a,b;
+  for(int i = 0; i < test_log.count; i++)
+  {
+    for(int j = 0; j < train_log.count; j++)
+    {
+      K_x_xtr(i,j) = K_RBF0(test_log.feature[i], train_log.feature[j], L, SIGMA);
+      b=j;
+    }
 
-//   	/* Testing */
-//   	BLR_log_stat->count = test_log.count;  
-//   	new_hornetsoft_log(BLR_log_stat);
-//   	for(int i = 0; i < test_log.count; i++){
-//   		BLR_log_stat->point[i] = test_log.point[i];
-//     	BLR_log_stat->node_id[i] = test_log.node_id[i];
-//     	assign_input(test_log, i, x);
-//     	assign_output(test_log, i, y, &type);
-//     	for(int k = 0; k < O_NUM; k++){ //Classify one-vs-all for 5 times
-//   			if(k == 0){
-//   				get_weight(&V1, m1, &P1, J1, w1);
-//   				predict_output(m1, x, y_, k);
-//   			}else if(k == 1){
-//   				get_weight(&V2, m2, &P2, J2, w2);
-//   				predict_output(m2, x, y_, k);
-//   			}else if(k == 2){
-//   				get_weight(&V3, m3, &P3, J3, w3);
-//   				predict_output(m3, x, y_, k);
-//   			}else if(k == 3){
-//   				get_weight(&V4, m4, &P4, J4, w4);
-//   				predict_output(m4, x, y_, k); 	
-//   			}else if(k == 4){
-//   				get_weight(&V5, m5, &P5, J5, w5);
-//   				predict_output(m5, x, y_, k);
-//   			}
-//   		}
-//   		BLR_predict_label(BLR_log_stat, y_, i);
-//   	}  
-//     return 0.5*sum_loss;
-// }
+    a=i; 
+  }
+    // printf("K_x_xtr: %f, i: %d, j: %d\n",K_x_xtr(20,100),a,b);
+
+  //test learning
+  printf("Output Test\n");
+  // printf("K_x_xtr dimension: "); printf(K_x_xtr.size);
+
+  for(int i = 0; i < test_log.count; i++)//ith column
+  {
+      double fxy = 0;
+
+      for(int j = 0; j < train_log.count; j++) //jth row
+        fxy = fxy + K_x_xtr(i,j) * _alpha[j]; 
+
+      // double px = exp(fxy)/(1 + exp(fxy));
+      // printf("fxy: %f, px: %f\n",fxy, px);
+
+      KLR_Test->point[i] = test_log.point[i];
+
+      if(fxy >= 0.5) 
+      {
+        Y_test.at(i) = 1;
+        KLR_Test->node_label[i] = LABEL1;
+      }
+      else
+      {
+        Y_test.at(i) = -1;
+        KLR_Test->node_label[i] = LABEL2;
+      }
+  }
+
+  // HouseholderQR<MatrixXd> qr(K_xtr_xtr.transpose());
+  // MatrixXd pinv;
+  // pinv.setIdentity(K_xtr_xtr.cols(), K_xtr_xtr.rows());
+  // pinv = qr.householderQ() * pinv;
+  // pinv = qr.matrixQR().topLeftCorner(K_xtr_xtr.rows(),K_xtr_xtr.rows()).triangularView<Upper>().transpose().solve<OnTheRight>(pinv);
+  // // cout << pinv << endl;
+  // mu = K_x_xtr*pinv*Y;
+
+    // for(int i = 0; i < test_log.count; i++)
+    // {
+    //   GP_RBF_Test->point[i] = test_log.point[i];
+
+    //   if(mu(i,0) > mu(i,1))
+    //   {
+    //     GP_RBF_Test->node_label[i] = LABEL1;
+    //   }
+    //   else
+    //   {
+    //     GP_RBF_Test->node_label[i] = LABEL2;
+    //   }
+    // }
+}

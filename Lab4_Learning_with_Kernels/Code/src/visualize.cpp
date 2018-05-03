@@ -61,9 +61,9 @@ void create_point_cloud(log_type log, pcl::PointCloud<pcl::PointXYZRGB>::Ptr poi
     if(log.node_label[i] == VEG){
     	r = 0, g = 255, b = 0;
     }else if(log.node_label[i] == WIRE){
-    	r = 0, g = 255, b = 0;
+    	r = 0, g = 0, b = 255;
     }else if(log.node_label[i] == POLE){
-    	r = 255, g = 255, b = 0;
+    	r = 255, g = 0, b = 0;
     }else if(log.node_label[i] == GROUND){
     	r = 255, g = 255, b = 0;
     }else if(log.node_label[i] == FACADE){
@@ -99,10 +99,10 @@ int data_visualization(log_type train_log, log_type test_log, log_type GP_RBF_Tr
   // view_name = "Gradient Descent on Squared Loss - Online Learning";
   // viewer = rgbVis(gradient_online_cloud_ptr, view_name.c_str());  
 
-  pcl::PointCloud<pcl::PointXYZRGB>::Ptr GP_RBF_Test_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
-  create_point_cloud(GP_RBF_Test, GP_RBF_Test_cloud_ptr);
-  view_name = "Gaussian Process Regression with a Gaussian RBF kernel - Testing Data";
-  viewer = rgbVis(GP_RBF_Test_cloud_ptr, view_name.c_str());
+  // pcl::PointCloud<pcl::PointXYZRGB>::Ptr GP_RBF_Test_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  // create_point_cloud(GP_RBF_Test, GP_RBF_Test_cloud_ptr);
+  // view_name = "Gaussian Process Regression with a Gaussian RBF kernel - Testing Data";
+  // viewer = rgbVis(GP_RBF_Test_cloud_ptr, view_name.c_str());
 
   /* Bayesian Linear Regression */
   // pcl::PointCloud<pcl::PointXYZRGB>::Ptr BLR_online_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
@@ -121,10 +121,16 @@ int data_visualization(log_type train_log, log_type test_log, log_type GP_RBF_Tr
   // view_name = "Gradient Descent on Squared Loss - Online Learning";
   // viewer = rgbVis(gradient_online_cloud_ptr, view_name.c_str());  
 
-  pcl::PointCloud<pcl::PointXYZRGB>::Ptr GP_RQ_Test_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
-  create_point_cloud(GP_RQ_Test, GP_RQ_Test_cloud_ptr);
-  view_name = "Gaussian Process Regression with a Rational Quadratic kernel - Testing Data";
-  viewer = rgbVis(GP_RQ_Test_cloud_ptr, view_name.c_str());
+  pcl::PointCloud<pcl::PointXYZRGB>::Ptr KLR_Test_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  create_point_cloud(KLR_Test, KLR_Test_cloud_ptr);
+  view_name = "Kernel Logistic Regression with a RBF kernel - Testing Data";
+  viewer = rgbVis(KLR_Test_cloud_ptr, view_name.c_str());
+
+
+  // pcl::PointCloud<pcl::PointXYZRGB>::Ptr GP_RQ_Test_cloud_ptr (new pcl::PointCloud<pcl::PointXYZRGB>);
+  // create_point_cloud(GP_RQ_Test, GP_RQ_Test_cloud_ptr);
+  // view_name = "Gaussian Process Regression with a Rational Quadratic kernel - Testing Data";
+  // viewer = rgbVis(GP_RQ_Test_cloud_ptr, view_name.c_str());
 
   // std::vector<pcl::visualization::Camera> cam; 
   while (!viewer->wasStopped ())
